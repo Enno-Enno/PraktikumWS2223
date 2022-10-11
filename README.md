@@ -1,1 +1,1 @@
-# PraktikumWS2223
+# Praktikum Winter Semester 22/23
