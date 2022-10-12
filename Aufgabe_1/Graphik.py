@@ -1,18 +1,34 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.optimize import curve_fit 
 
 
+def f(x,N_0,m):
+    return N_0 * np.exp(m * x)
 
-#x_d = np.linspace(0, 5, 1000)
-#y_N = N_0 * np.exp(-m * x_d)
-#plt.plot(x_d,y_N, label='Theoretische Erwartung')
 
 
 d, N = np.genfromtxt('daten.txt', unpack=True)
-plt.plot(d, N, 'o', label='gemessene Werte')
+params, covariance_matrix = curve_fit(f , d, N) # x=d und y=N
+x_lin = np.linspace(0, 5, 1000)
 
-#plt.ylabel(r'$\text{N}[1/ 60 \unit{\second}]$')
-#plt.xlabel(r'$d / [\unit{\centimeter}] $')
+plt.subplot(1, 2, 1)
+plt.ylabel(r'N[1/ 60 s]')
+plt.xlabel(r'd / cm ')
+plt.plot(d, N, 'o', label='Gemessene Werte')
+
+plt.plot(x_lin,f(x_lin , params[0],params[1]), label='Theoretische Erwartung')
 
 plt.legend(loc='best')
+
+
+plt.subplot(1, 2, 2)
+plt.plot(d, N, 'o', label='Gemessene Werte')
+plt.plot(x_lin,f(x_lin , params[0],params[1]), label='Theoretische Erwartung')
+plt.ylabel(r'N[1/ 60 s]')
+plt.xlabel(r'd / cm ')
+plt.yscale('log')
+
+plt.legend(loc='best')
+
 plt.savefig('build/plot.pdf')
