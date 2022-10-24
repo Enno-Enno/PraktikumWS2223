@@ -1,0 +1,57 @@
+\documentclass{scrartcl}
+
+\usepackage{scrhack}
+
+\usepackage[aux]{rerunfilecheck}
+
+\usepackage[ngerman]{babel}
+
+\usepackage[
+locale=DE,
+seperate-uncertainties=true,
+per-mode-symbol-or-fraction]{}
+
+\usepackage{fontspec}
+
+\usepackage{amsmath}
+
+\usepackage{amssymb}
+
+\usepackage{mathtools}
+
+\begin{document}
+
+\section*{Nr. 1}
+
+\subsection*{1.1 Der Mittelwert}
+Der Mittelwert $\bar{x}$ bezeichnet den statistischen Durchschnittswert. 
+Dabei summiert man alle Werte $x_k$ auf und teilt anschließend durch die Anzahl aller Werte $N$.
+
+\begin{equation}
+    \bar{x} = \frac{1}{N} \sum_{k=1}^{N} x_k
+\end{equation}
+
+\subsection*{1.2 Die Standardabweichung}
+Die Standardabweichung $s$ ist ein Maß für die Abweichung bzw. Streuung der Messwerte vom Mittelwert.
+Dabei bildet man die Summe der Abstandsquadrate und teilt durch $N-1$.
+
+\begin{equation}
+    s = \sqrt{\frac{1}{N-1} \sum_{k=1}^{N} \left(x_k - \bar{x}\right)^2 }
+\end{equation}
+
+\subsection*{1.3 Streuung der Messwerte vs Fehler des Mittelwerts}
+Der Fehler des Mittelwerts $s_{\bar{x}}$ ist ein Maß für die Abweichung des Mittelwerts $\bar{x}$ vom stochastischen Erwartungswert $\mu$.
+Dahingegen gibt die Streuung der Messewerte die Standardabweichung $s$ an,
+d.h. sie beschreibt die Streuung der Messwerte um den Mittelwert $\bar{x}$.
+
+\begin{equation}
+    s_{\bar{x}}=\frac{s}{\sqrt{N}}
+\end{equation}
+
+\section*{Nr. 2}
+Die Standardabweichung beträgt $\sigma_u = 10\,\mathrm{m/s}$.
+Mit der Formel für die Standardabweichung des Mittelwerts ergibt sich:
+
+
+
+\end{document}
