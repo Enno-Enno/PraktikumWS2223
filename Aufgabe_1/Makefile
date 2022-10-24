@@ -1,7 +1,7 @@
-all: build/Aufgabe_1.pdf
+all: build/A01_Clara_Sondermann_Enno_Wellmann.pdf
 
-build/Aufgabe_1.pdf: build/plot.pdf Aufgabe_1.tex | build
-	lualatex --output-directory=build --halt-on-error Aufgabe_1.tex
+build/A01_Clara_Sondermann_Enno_Wellmann.pdf: build/plot.pdf A01_Clara_Sondermann_Enno_Wellmann.tex | build
+	lualatex --output-directory=build --halt-on-error A01_Clara_Sondermann_Enno_Wellmann.tex
 
 build/plot.pdf: Graphik.py | build
 	python Graphik.py
