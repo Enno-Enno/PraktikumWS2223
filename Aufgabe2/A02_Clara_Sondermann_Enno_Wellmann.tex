@@ -1,23 +1,25 @@
-\documentclass{scrartcl}
-
-\usepackage{scrhack}
-
-\usepackage[aux]{rerunfilecheck}
-
-\usepackage[ngerman]{babel}
-
-\usepackage[
-locale=DE,
-seperate-uncertainties=true,
-per-mode-symbol-or-fraction]{}
-
-\usepackage{fontspec}
-
-\usepackage{amsmath}
-
-\usepackage{amssymb}
-
-\usepackage{mathtools}
+%\documentclass{scrartcl}
+%
+%\usepackage{scrhack}
+%
+%\usepackage[aux]{rerunfilecheck}
+%
+%\usepackage[ngerman]{babel}
+%
+%\usepackage[
+%    locale=DE,
+%    seperate-uncertainty=true,
+%    per-mode=symbol-or-fraction
+%]{siunitx}
+%
+%\usepackage{fontspec}
+%
+%\usepackage{amsmath}
+%
+%\usepackage{amssymb}
+%
+%\usepackage{mathtools}
+\input{../header.tex}
 
 \begin{document}
 
@@ -51,7 +53,13 @@ d.h. sie beschreibt die Streuung der Messwerte um den Mittelwert $\bar{x}$.
 \section*{Nr. 2}
 Die Standardabweichung beträgt $\sigma_u = 10\,\mathrm{m/s}$.
 Mit der Formel für die Standardabweichung des Mittelwerts ergibt sich:
-
+\begin{align*}
+    s               &= 10 \unit{\meter\per\second}                                              \\
+    s_{\bar{x}}     &= \frac{s}{\sqrt{N}}           &\stackrel{!}{=} 3\unit{\meter\per\second}  \\ 
+    &\Leftrightarrow                             10 &= 3 \cdot \sqrt{N}                         \\ 
+    &\Leftrightarrow                    \frac{10}{3}&= \sqrt{N}                                 \\ 
+    &\Leftrightarrow        11 + \frac{1}{9}        &= 3 \cdot \sqrt{N}                         \\ 
+\end{align*}
 
 
 \end{document}

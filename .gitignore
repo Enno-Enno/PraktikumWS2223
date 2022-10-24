@@ -1,3 +1,5 @@
 *.pdf
 *.sh
 */build/*
+*.aux
+*.log
