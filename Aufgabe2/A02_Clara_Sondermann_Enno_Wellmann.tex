@@ -54,12 +54,13 @@ d.h. sie beschreibt die Streuung der Messwerte um den Mittelwert $\bar{x}$.
 Die Standardabweichung beträgt $\sigma_u = 10\,\mathrm{m/s}$.
 Mit der Formel für die Standardabweichung des Mittelwerts ergibt sich:
 \begin{align*}
-    s               &= 10 \unit{\meter\per\second}                                              \\
-    s_{\bar{x}}     &= \frac{s}{\sqrt{N}}           &\stackrel{!}{=} 3\unit{\meter\per\second}  \\ 
-    &\Leftrightarrow                             10 &= 3 \cdot \sqrt{N}                         \\ 
-    &\Leftrightarrow                    \frac{10}{3}&= \sqrt{N}                                 \\ 
-    &\Leftrightarrow        11 + \frac{1}{9}        &= 3 \cdot \sqrt{N}                         \\ 
+                       s                            &= 10 \unit{\meter\per\second}                & s                                 &= 10 \unit{\meter\per\second}                  \\
+     s_{\bar{x}} = \frac{s}{\sqrt{N}}                &\stackrel{!}{=}  \qty{3}{meter\per\second}  & s_{\bar{x}} = \frac{s}{\sqrt{N}}  &\stackrel{!}{=} \qty{0.5}{\meter\per\second}   \\ 
+     \Leftrightarrow  \phantom{11 +} 10              &= 3 \cdot \sqrt{N}                          & \Leftrightarrow  10               &= 0.5 \cdot \sqrt{N}                           \\ 
+     \Leftrightarrow  \phantom{11 +} \frac{10}{3}    &= \sqrt{N}                                  & \Leftrightarrow  \frac{10}{0.5}   &= \sqrt{N}                                     \\ 
+     \Leftrightarrow   11 + \frac{1}{9}              &= N                                         & \Leftrightarrow             N     &=  400                                         \\
 \end{align*}
+
 
 
 \end{document}
