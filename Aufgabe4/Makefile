@@ -1,6 +1,6 @@
-all: build/A04_Clara_Sondermann_Enno_Wellmann.pdf build/plot.pdf
+all: build/A04_Clara_Sondermann_Enno_Wellmann.pdf build/plot.pdf 
 
-build/A04_Clara_Sondermann_Enno_Wellmann.pdf: A04_Clara_Sondermann_Enno_Wellmann.tex ../header.tex | build
+build/A04_Clara_Sondermann_Enno_Wellmann.pdf: A04_Clara_Sondermann_Enno_Wellmann.tex ../header.tex rechnerei.py | build
 	lualatex --output-directory=build --halt-on-error A04_Clara_Sondermann_Enno_Wellmann.tex
 	lualatex --output-directory=build --interaction=batchmode --halt-on-error A04_Clara_Sondermann_Enno_Wellmann.tex
 
@@ -13,6 +13,9 @@ build/plot.pdf: plotting.py ../matplotlibrc ../header-matplotlib.tex | build
 
 build:
 	mkdir -p build
+
+rechnerei.py:
+	python rechnerei.py
 
 clean:
 	rm -rf build
