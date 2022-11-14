@@ -14,9 +14,9 @@ for index in range(len(Delta_x)):
 print('Summe D: ', '{:.4f}'.format(sum))
 print('Mittelwert D: ', '{:.4f}'.format(sum/10))
 
-plt.plot(Delta_x, F, 'o')
-plt.xlabel('$ \Delta x  [\\unit{{\\cm}}] $')
-plt.ylabel('$ F [\\unit{{\\newton}}] $')
+plt.plot(Delta_x, F, 'x')
+plt.xlabel('$ \Delta x \\, [\\unit{{\\cm}}] $')
+plt.ylabel('$ F \\, [\\unit{{\\newton}}] $')
 
 
 plt.savefig('build/plot.pdf')
