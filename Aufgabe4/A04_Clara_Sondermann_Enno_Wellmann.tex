@@ -1,18 +1,19 @@
 \input{../header.tex}
 
 \author{Herr Enno Wellmann \and Frau Clara Sondermann} %Ok Frau Clara...
-%\date{}
-%^Datum einfügen!
+
 \title{Versuch: Hooke'sches Gesetz}
 
 \begin{document}
 \maketitle
 
+
 \section[short]{Ziel}
 In diesem Experiment ermitteln wir die Federkonstante nach dem Hooke'schen Gesetz.
 
+
 \section{Grundlagen}
-Eine Feder, die um $ \Delta x $ aus ihrer Ruhelage $ x_0 $ ausgelenkt wird, erfährt eine Kraft $ F $ 
+Eine Feder, die um $ \Delta x $ aus ihrer Ruhelage $ x_0 $ ausgelenkt wird, erfährt eine Kraft $F$ 
 proportional zu $ \Delta x $.
 Die Federkonstante $ D $ ist dabei eine eindeutige Kenngröße für die Feder.
 \begin{align}
@@ -28,14 +29,6 @@ Ein angeschlossenes Newtonmeter misst die Kraft, die von der Feder bei der gewä
 Für 10 verschiedene $ \Delta x $ wurde die Kraft $ F $ jeweils einmal gemessen.
 
 
-
-
-
-
-
-
-
-
 \section{Messdaten}
 \begin{table}
     \centering
@@ -45,7 +38,8 @@ Für 10 verschiedene $ \Delta x $ wurde die Kraft $ F $ jeweils einmal gemessen.
         \toprule
         {$ \Delta x  [\unit{\cm}]$}  & {$ F [\unit{\newton}]  $}   & {$ D  [\unit{\newton\per\cm}] $} \\
         \midrule
-        0             &  0.00      & {--}   \\
+        %0             &  0.00      & {--}   \\
+        %ansonsten hätten wir ja 10 Werte 
         5             &  0.15      & 0.0300 \\
         10            &  0.29      & 0.0290 \\
         15            &  0.44      & 0.0293 \\
@@ -62,15 +56,56 @@ Für 10 verschiedene $ \Delta x $ wurde die Kraft $ F $ jeweils einmal gemessen.
 \end{table}
 
 Anmerkung: Die Messdaten und alle folgenden Ergebnisse sind bis auf die vierte Nachkommastelle gerundet.
+Wir erhalten folgende Messdaten:
 
 \section{Auswertung}
 \subsection{Mittelwert}
-Wir bilden den Mittelwert der ausgerechneten Werte für $D$
+Wir bilden den Mittelwert $\overline{D}$ der ausgerechneten Werte für die Federkonstante.
 \begin{align}
-    \overline{D} =\frac{1}{10} \sum_{k} D_k = \frac{\qty{0.2961}{\newton\per\cm}}{10} = \qty{0.0296}{\newton\per\cm}
+    \overline{D} =\frac{1}{10} \cdot \sum_{k=1}^{10} D_k = \frac{1}{10} \cdot \qty{0.2961}{\newton\per\cm} = \qty{0.0296}{\newton\per\cm}
 \end{align}
 
 \subsection{Lineare Ausgleichsrechnung}
+Nun berechnen wir die lineare Regression der Federkonstanten $\hat{D}$.
+%Dafür müssen zunächst die Mittelwerte der Kraft  $\overline{F}$ und der Auslenkung $\overline{\Delta x}$ bestimmt werden.
+Dafür müssen zunächst die folgenden Mittelwerte bestimmt werden:
 
+\begin{align}
+    \overline{\Delta x} &=\frac{1}{10} \cdot \sum_{k=1}^{10} \Delta x_k = \frac{1}{10} \cdot \qty{275}{\cm} = \qty{27.5}{\cm} \\
+    \overline{F} &=\frac{1}{10} \cdot \sum_{k=1}^{10} F_k = \frac{1}{10} \cdot \qty{8.16}{\newton}= \qty{0.816}{\newton} \\
+    \overline{\Delta x F} &=\frac{1}{10} \cdot \sum_{k=1}^{10} \left(\Delta x F\right)_k = \frac{1}{10} \cdot \qty{286.05}{\cm\newton}= \qty{28.605}{\cm\newton} \\
+    \overline{\left(\Delta x\right)^2} &=\frac{1}{10} \cdot \sum_{k=1}^{10} \left(\Delta x_k\right)^2 = \frac{1}{10} \cdot \qty{9625}{\cm^2}= \qty{962.5}{\cm^2} \\
+\end{align}
+
+%Mittelwert D:  0.0296
+%Mittelwert x:  27.5000
+%Mittelwert F: 0.8160
+%Mittelwert xF: 28.6050
+%Mittelwert xsqrd: 962.5000
+%linreg für D:  0.0299
+
+Mithilfe der Formel für die lineare Regression folgt dann für $\hat{D}$:
+
+\begin{align}
+    \hat{D} = \frac{\overline{\Delta x F} - \overline{\Delta x} \cdot \overline{F}}{\overline{\left(\Delta x\right)^2} - {\overline{\Delta x}}^2}
+    = \frac{\qty{28.605}{\cm\newton} - \qty{27.5}{\cm} \cdot \qty{0.816}{\newton}}{\qty{962.5}{\cm^2} - \left({\qty{27.5}{\cm}}\right)^2}
+    = \qty[]{0.0299}{\newton\per\cm}
+\end{align}
+
+\subsection{Diskussion der Ergebnisse}
+Vergleicht man die Werte für den Mittelwert $\overline{D}$ und die lineare Ausgleichsrechnung $\hat{D}$, so fällt auf, 
+dass diese bis auf die dritte Nachkommastelle übereinstimmen.   
+Da die Messwerte nur bis auf die maximal zweite Nachkommastelle gegeben waren,
+kann man also von einer hohen Genauigkeit für beide Verfahren reden. 
+Etwaige Schwankungen entstehen dabei vermutlich durch Rundungsfehler etc.
+Auch graphisch erkennt man sehr gut, wie nah $\overline{D}$ und $\hat{D}$ bei einander liegen:
+
+\begin{figure}
+    \centering
+        \includegraphics[width=\textwidth]{build/plot.pdf}
+    \caption{Graphische Darstellung der Versuchsauswertung.}
+    \label{fig:plot}
+    \end{figure}
+    
 
 \end{document}
