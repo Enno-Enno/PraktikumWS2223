@@ -62,7 +62,7 @@ Wir erhalten folgende Messdaten:
 \subsection{Mittelwert}
 Wir bilden den Mittelwert $\overline{D}$ der ausgerechneten Werte für die Federkonstante.
 \begin{align}
-    \overline{D} =\frac{1}{10} \cdot \sum_{k=1}^{10} D_k = \frac{1}{10} \cdot \qty{0.2961}{\newton\per\cm} = \qty{0.0296}{\newton\per\cm}
+    \overline{D} =\frac{1}{10} \cdot \sum_{k=1}^{10} D_k = \frac{1}{10} \cdot \qty{0.2961}{\newton\per\cm} = \qty{0.0296}{\newton\per\cm} 
 \end{align}
 
 \subsection{Lineare Ausgleichsrechnung}
@@ -71,10 +71,10 @@ Nun berechnen wir die lineare Regression der Federkonstanten $\hat{D}$.
 Dafür müssen zunächst die folgenden Mittelwerte bestimmt werden:
 
 \begin{align}
-    \overline{\Delta x} &=\frac{1}{10} \cdot \sum_{k=1}^{10} \Delta x_k = \frac{1}{10} \cdot \qty{275}{\cm} = \qty{27.5}{\cm} \\
-    \overline{F} &=\frac{1}{10} \cdot \sum_{k=1}^{10} F_k = \frac{1}{10} \cdot \qty{8.16}{\newton}= \qty{0.816}{\newton} \\
-    \overline{\Delta x F} &=\frac{1}{10} \cdot \sum_{k=1}^{10} \left(\Delta x F\right)_k = \frac{1}{10} \cdot \qty{286.05}{\cm\newton}= \qty{28.605}{\cm\newton} \\
-    \overline{\left(\Delta x\right)^2} &=\frac{1}{10} \cdot \sum_{k=1}^{10} \left(\Delta x_k\right)^2 = \frac{1}{10} \cdot \qty{9625}{\cm^2}= \qty{962.5}{\cm^2} \\
+\nonumber    \overline{\Delta x} &=\frac{1}{10} \cdot \sum_{k=1}^{10} \Delta x_k = \frac{1}{10} \cdot \qty{275}{\cm} = \qty{27.5}{\cm} \\
+\nonumber    \overline{F} &=\frac{1}{10} \cdot \sum_{k=1}^{10} F_k = \frac{1}{10} \cdot \qty{8.16}{\newton}= \qty{0.816}{\newton} \\
+\nonumber    \overline{\Delta x F} &=\frac{1}{10} \cdot \sum_{k=1}^{10} \left(\Delta x F\right)_k = \frac{1}{10} \cdot \qty{286.05}{\cm\newton}= \qty{28.605}{\cm\newton} \\
+\nonumber    \overline{\left(\Delta x\right)^2} &=\frac{1}{10} \cdot \sum_{k=1}^{10} \left(\Delta x_k\right)^2 = \frac{1}{10} \cdot \qty{9625}{\cm^2}= \qty{962.5}{\cm^2} \\
 \end{align}
 
 %Mittelwert D:  0.0296
