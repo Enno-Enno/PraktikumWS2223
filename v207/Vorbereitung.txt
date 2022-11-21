@@ -1,0 +1,7 @@
+Laminare Strömung:
+Es entstehen hierbei keine Verwirbelungen
+Das Wassser fließt in parallelen Schichten, die sich nicht vermischen.
+
+Aus Geschke Physikalisches Praktikum Teubner
+Dichte bei 20 Grad Wasser: 0,998 10^{3} kg m^{-3}
+Dynamische Viskosität bei 20 Grad Wasser: 1,005 10^{-3} Pa s
