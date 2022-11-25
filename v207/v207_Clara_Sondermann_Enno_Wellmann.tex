@@ -12,23 +12,34 @@
 \newpage
 
 \section{Ziel}
-In diesem Versuch wird die dynamische Viskosität $\eta$ von destilliertem Wasser in Abhängigkeit der Temperatur mit Hilfe des 
-Kugelfall-Viskosimeters nach Höppler ermittelt.
+In diesem Versuch wird die dynamische Viskosität
+\footnote{Nicht zu verwechseln mit der \textit{kinematischen} Viskosität. Im folgenden wird die \textit{dynamische} Viskosität mit Viskosität bezeichnet.} $\eta$ 
+von destilliertem Wasser in Abhängigkeit der Temperatur mit Hilfe des Kugelfall-Viskosimeters nach Höppler ermittelt.
 
 \section{Vorbereitungsaufgaben}
 \subsection{laminare Strömung und Reynoldszahl}
 Von einer laminaren Strömung spricht man, wenn sich in einem realen Stoff, d.h. einer Flüssigkeit oder einem Gas,
 die einzelnen Schichten mit verchiedenen Geschwindigkeiten nicht vermischen. Das bedeutet, dass es keine Wirbel oder
 Turbulenzen innerhalb des Stoffes gibt.
-Die Reynoldszahl $Re$ ist ein Maß dafür, ob es sich um eine laminare oder turbulente Strömung handelt.
+Die Reynoldszahl $Re$ ist ein Maß dafür, ob es sich um eine laminare oder turbulente Strömung handelt\cite*[]{geschke}.
 
 \begin{align}
     Re = \frac{\rho \overline{v} R}{\eta}
 \end{align}
 
-Dabei ist %...
+Dabei ist $\rho$ die Dichte des Fluids, $\overline{v}$ die relative mittlere Geschwindigkeit zwischen Fluid und Körper und
+$R$ die charakteristische Länge.
+Wenn die Reynoldszahl unterhalb einer kritischen Grenze $Re_c$ liegt, kann man von einer laminaren Strömung sprechen.
+
+\subsection{Temperaturabhängigkeiten Viskosität und Dichte von destilliertem Wasser}
+Die Dichte $\rho$ von Wasser hat ihren Maximalwert bei $T_{max} = \qty[]{4}{\degreeCelsius}$ \cite*[]{geschke}.
+Außerdem ist die Dichte von Wasser im festen Aggregatszustand höher als im flüssigen Zustand. 
+Diese beiden Tatsachen werden auch als "Anomalie des Wassers" bezeichnet\cite*[]{demtroeder}.
+
+Die Viskosität $\rho$ fällt exponentiell mit dem Kehrwert der Temperatur $\frac{1}{T}$.
 
 \section{Grundlagen}
+Die charakteristische Länge $R$ ist hier der Durchmesser der Kugel und die kritische Grenze der Reynoldszahl $Re_c$ beträgt ca. 2300.
 
 \section{Durchführung}
 
@@ -70,6 +81,10 @@ Masse große Kugel (gegeben): $ m_g = \qty{4.9528}{\g}$
 
 \section*{Anhang: Messdaten}
 
-\section*{Literatur}
+%\section*{Literatur}
+\nocite{geschke}
+\nocite{walcher}
+\nocite{demtroeder}
+\printbibliography
 
 \end{document}
