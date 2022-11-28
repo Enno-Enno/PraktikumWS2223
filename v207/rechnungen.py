@@ -4,15 +4,16 @@ from uncertainties import ufloat
 
 (klein_oben, klein_unten) = np.genfromtxt("Messdaten_klKu_Zitemp.txt", unpack=True)
 (gross_oben, gross_unten) = np.genfromtxt("Messdaten_grKu_Zitemp.txt", unpack=True)
-(temp, temp_oben, temp_unten) = np.genfromtxt('Messdaten_grKu_steigendeTemp.txt', unpack=True)
-
+#in s
 
 rho_fl = ufloat(0.99841, 0)
 rho_klein = ufloat(2.2359, 0.005)
 rho_groß = ufloat(2.4073, 0.005)
-#gramm pro kubik cm
-r_klein = ufloat(15.61/2, 0.01/2)
-r_groß = ufloat(15.78/2, 0.01/2)
+#in gramm pro kubik cm
+
+r_klein = ufloat(15.61/2 *0.1 , 0.01/2 * 0.1)
+r_groß = ufloat(15.78/2 * 0.1 , 0.01/2 * 0.1)
+#in cm
 
 
 #Reihe 1:
@@ -25,11 +26,17 @@ mw_unten_klein = np.mean(klein_unten)
 st_unten_klein = np.std(klein_unten)
 
 u_k = ufloat(mw_unten_klein, st_unten_klein)
+
 x_klein = ufloat(10, 0)
+#in cm
 
-k_klein = ufloat(0.0760 * 10**(-3), 0)
+k_klein = ufloat(0.07640 * 10**(-3), 0)
 
-eta_klein = k_klein*(rho_klein - rho_fl) * u_k
+eta_klein_oben = k_klein*(rho_klein - rho_fl) * o_k
+eta_klein_unten = k_klein*(rho_klein - rho_fl) * u_k
+
+
+
 #Reihe 2:
 mw_oben_gross = np.mean(gross_oben)
 st_oben_gross = np.std(gross_oben)
@@ -42,20 +49,20 @@ st_unten_gross = np.std(gross_unten)
 u_g = ufloat(mw_unten_gross, st_unten_gross)
 x_gross = ufloat(5, 0)
 
-k_gross_oben = eta_klein/((rho_groß - rho_fl)*o_g) 
-k_gross_unten = eta_klein/((rho_groß - rho_fl)*u_g) 
+vko=x_klein / o_k
+vku=x_klein / u_k
 
-#Reihe 3:
-#n=10
-#y_oben=np.zeros(n)
-#y_unten=np.zeros(n)
-#
-#for j in range(n):
-#    for i, temperature in enumerate(temp):
-#        if i==2*j and temp[i] == temp[i+1]:
-#            y_oben[j] = (temp_oben[i] + temp_oben[i+1])/2
-#            y_unten[j] = (temp_unten[i] + temp_unten[i+1])/2
+vgo=x_gross / o_g
+vgu=x_gross / u_g
 
+rey_klein_oben = rho_fl * vko * r_groß / eta_klein_oben
+rey_klein_unten = rho_fl * vku * r_groß / eta_klein_unten
+
+rey_gross_oben = rho_fl * vgo * r_groß / eta_klein_oben
+rey_gross_unten = rho_fl * vgu * r_groß / eta_klein_unten
+
+k_gross_oben = eta_klein_oben/((rho_groß - rho_fl)*o_g) 
+k_gross_unten = eta_klein_unten/((rho_groß - rho_fl)*u_g) 
 
 
 #Ergebnisse drucken:
@@ -71,14 +78,23 @@ print("unten:", '{:.5f}'.format(mw_unten_gross), "mit Fehler: ", "{:.5f}".format
 
 #print("Messreihe 3: hier steht noch nichts")
 
-print("Reynold:")
-
-print("Geschwindigkeit klein oben: ", x_klein / o_k)
-print("Geschwindigkeit klein unten: ", x_klein / u_k)
-
-print("Geschwindigkeit gross oben: ", x_gross / o_g)
-print("Geschwindigkeit gross unten: ", x_gross / u_g)
-print("eta empirisch klein: ", eta_klein)
+print("eta klein oben: ", eta_klein_oben)
+print("eta klein unten: ", eta_klein_unten)
 
 print("K oben und gross: ", k_gross_oben)
 print("K unten und gross: ", k_gross_unten)
+
+print("Reynold:")
+
+print("Geschwindigkeit klein oben: ", vko)
+print("Geschwindigkeit klein unten: ", vku)
+
+print("Geschwindigkeit gross oben: ", vgo)
+print("Geschwindigkeit gross unten: ", vgu)
+
+
+print("rey klein oben: ", rey_klein_oben)
+print("rey klein unten: ", rey_klein_unten)
+
+print("rey gross oben: ", rey_gross_oben)
+print("rey gross unten: ", rey_gross_unten)
