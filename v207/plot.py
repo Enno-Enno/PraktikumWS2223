@@ -44,15 +44,8 @@ plt.xlabel("T / \\unit{{\\celsius}}")
 plt.savefig("build/Messreihe3.pdf")
 
 
-rho_temp, rho_Wasser = np.genfromtxt('Geschke_Wasserdichte.txt',unpack = True)
-
-dichten = dict()
-for index in enumerate(rho_temp):
-    dichten[rho_temp] = rho_Wasser
-
-def eta(K,rho_Kugel,rho_Fluessigkeit,t):
-    return K * (rho_Kugel - rho_Fluessigkeit) * t
-
-
-
+#rho_temp, rho_Wasser = np.genfromtxt('Geschke_Wasserdichte.txt',unpack = True)
+#
+#dichten = dict()
+#for index in enumerate(rho_temp)
 
