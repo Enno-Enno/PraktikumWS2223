@@ -44,6 +44,7 @@ und $v$ einen konstanten Wert annimmt.
 Dabei wird die Viskosität des Fluids mit der empirischen Formel 
 
 \begin{align}
+    \label{eq:empirisch}
     \eta = K \left(\rho_K -\rho_{Fl}\right) \cdot t
 \end{align}
 
@@ -147,14 +148,15 @@ um Messunsicherheiten zu vermeiden. Die Wartezeit betrug häufig ca. 3-5 Minuten
 Anfangs wurden die relevanten Kenngrößen der Kugeln bestimmt.
 Die Massen waren vorgegeben.
 Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volumen $V=\frac{4 \pi}{3} \left(\frac{d}{2}\right)^3$, d.h. $\rho = \frac{m}{V}$.
+Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
 
 \begin{table}
-    \caption[]{Kenngrößen der kleinen und großen Kugel}
+    \caption[]{Kenngrößen der kleinen und der großen Kugel}
     \label{tab:kenngroessen}
     \centering
     \begin{tabular}[]{S S[table-format=1.4] S[table-format=2.2] @{${}\pm{}$} S[table-format=0.2] S[table-format=1.4]}
         \toprule
-        {Kugel} & {Masse $m / \unit{\kg}$} & \multicolumn{2}{c}{Durchmesser $d / \unit{\mm}$}  & {Dichte $\rho / \left( \unit{\mg \per \mm^3}\right)$} \\
+        {Kugel} & {Masse $m / \unit{\kg}$} & \multicolumn{2}{c}{Durchmesser $d / \unit{\mm}$}  & {Dichte $\rho / \left( \unit{\mg \per \cubic\mm}\right)$} \\
         \midrule
         {klein} & 4.4531 & 15.61 & 0.01 & 2.2359 \\
         {groß} & 2.9528 & 15.78 &0.01 & 2.4073 \\
@@ -165,6 +167,8 @@ Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volu
 %ich fand das so als Tabelle etwas schöner hihi :D
 %ich weiß nur nicht warum ziwschen Durchmesser und Fehler so eine Lücke ist...
 
+
+\subsection[]{Messreihe 1: kleine Kugel, konstante Temperatur}
 
 \begin{table}
     \caption{Kleine Kugel bei Zimmertemperatur; Fallhöhe = 10 cm}
@@ -191,6 +195,36 @@ Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volu
     \end{tabular}
 \end{table}
 
+Für die kleine Kugel ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} also für die Fallzeit ein arithmetisches Mittel von 
+\begin{align*}
+    \overline{t}_{oben} = \frac{1}{10} \sum_{k=1}^{10} {t_{oben, k}} = \qty[]{12.324}{s}
+\end{align*}
+mit einer Standardabweichung von 
+\begin{align*}
+    \Delta \overline{t}_{oben} = 
+    \sqrt[]{\frac{1}{N \left(N-1\right)} \sum_{k=1}^{10} \left(t_{oben, k} - \overline{t}_{oben}\right)^2}
+    = WERT BERECHNEN.
+\end{align*}
+
+Analog folgt für unten eine Fallzeit von der Mittelwert
+\begin{align*}
+    \overline{t}_{unten} = \qty[]{12.248}{s}
+\end{align*}
+und die Standardabweichung
+
+
+%Durchschnittszeiten kleine Kugel:
+%oben: 12.32400
+%unten: 12.24800
+%Durchschnittszeiten grosse Kugel:
+%oben: 35.02400
+%unten: 35.60000
+
+Für die kleine Kugel beträgt nach \cite*[]{va207} die Apparaturkonstante $K_{kl} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
+Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität 
+
+
+\subsection[]{Messreihe 2: goße Kugel, konstante Temperatur}
 
 \begin{table}
     \caption{Große Kugel bei Zimmertemperatur; Fallhöhe = 5 cm}
@@ -211,6 +245,10 @@ Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volu
 
     \end{tabular}
 \end{table}
+
+
+\subsection[]{Messreihe 3: große Kugel, steigende Temperatur}
+
 
 \begin{table}
     \caption{Große Kugel bei variabler Temperatur T; Fallhöhe = 5 cm}
@@ -253,8 +291,8 @@ Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volu
 
 \section*{Anhang: Messdaten}
 
-\nocite{demtroeder}
-\nocite{geschke}
+%\nocite{demtroeder}
+%\nocite{geschke}
 %\nocite{walcher}
 \printbibliography
 
