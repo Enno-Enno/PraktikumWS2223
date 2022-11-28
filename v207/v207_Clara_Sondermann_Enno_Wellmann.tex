@@ -151,12 +151,12 @@ Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
     \caption[]{Kenngrößen der kleinen und der großen Kugel. Masse $m$, Durchmesser $d$ und Dichte $\rho$.}
     \label{tab:kenngroessen}
     \centering
-    \begin{tabular}[]{S S[table-format=1.4] S[table-format=2.2] @{${}\pm{}$} S[table-format=0.2] S[table-format=1.4]}
+    \begin{tabular}[]{S S[table-format=1.4] S[table-format=2.2] @{${}\pm{}$} S[table-format=0.2]}
         \toprule
         {Kugel} & {$m / \unit{\kg}$} & \multicolumn{2}{c}{$d / \unit{\mm}$}   \\
         \midrule
-        {klein} & 4.4531 & 15.61 & 0.01 & 2.2359 \\
-        {groß}  & 2.9528 & 15.78 & 0.01 & 2.4073 \\
+        {klein} & 4.4531 & 15.61 & 0.01 \\
+        {groß}  & 2.9528 & 15.78 & 0.01 \\
         \bottomrule 
 
     \end{tabular}
@@ -326,18 +326,37 @@ Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität
 Formt man die Andradesche Gleichung \eqref{eq:andrade} so um, dass auf beiden Seiten der Logarithmus gezogen wird, ergibt sich
 
 \begin{align}
-    \ln {\left( \eta \right)} = \frac{B}{T} + \ln{\left( A \right)}
+    \ln {\left( \eta \right)} = \frac{B}{T} + \ln{\left( A \right)}.
 \end{align}
+Mit den zuvor \textbf{REFERENZ ANGEBEN} berechneten Werten für die Viskosität kann mittels der Numerical Python Funktion \texttt{polyfit}
+eine Ausgleichsgerade erstellt werden. Dadurch lassen sich die Konstanten $A$ und $B$ ermitteln.
 
+
+\subsection[]{Die Reynoldszahl}
+Um zu ermitteln, ob es sich um eine laminare Strömung handelt, wird jeweils die Reynoldszahl $Re$ für die kleine und große Kugel bestimmt
+(vgl. Abschnitt \ref{sec:vorbereitung}).
+Zur Berechnung fehlen noch Mittelwert und Standardabweichung der Fallgeschwindigkeit $\overline{v}$ jeweils für oben und unten.
+Nach \cite[]{geschke} beträgt bei $T = \qty{19}{degreeCelsius}$ die Dichte von Wasser $\rho = \qty{0.99841}{\g \per \cm^3}$ 
+
+\begin{table}
+    \caption[]{Reynoldszahl $Re$ in Abhängigkeit der Fallgeschwindigkeit $\overline{v}$}
+    \label{tab:reynold}
+    \centering
+    \begin{tabular}[]{S[table-format=]}
+        
+    \end{tabular}
+\end{table}
+
+%Reynold:
+%Geschwindigkeit klein oben:  0.811+/-0.010
+%Geschwindigkeit klein unten:  0.816+/-0.012
+%Geschwindigkeit gross oben:  0.1428+/-0.0012
+%Geschwindigkeit gross unten:  0.1404+/-0.0030
 
 \section{Diskussion}
 
 \section*{Anhang: Messdaten}
 
-
-%\nocite{demtroeder}
-%\nocite{geschke}
-%\nocite{walcher}
 \printbibliography
 
 \end{document}

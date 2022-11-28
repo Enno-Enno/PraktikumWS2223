@@ -6,19 +6,33 @@ from uncertainties import ufloat
 (gross_oben, gross_unten) = np.genfromtxt("Messdaten_grKu_Zitemp.txt", unpack=True)
 (temp, temp_oben, temp_unten) = np.genfromtxt('Messdaten_grKu_steigendeTemp.txt', unpack=True)
 
+
+#rho=
+
 #Reihe 1:
 mw_oben_klein = np.mean(klein_oben)
 st_oben_klein = np.std(klein_oben)
 
+o_k = ufloat(mw_oben_klein, st_oben_klein)
+
 mw_unten_klein = np.mean(klein_unten)
 st_unten_klein = np.std(klein_unten)
+
+u_k = ufloat(mw_unten_klein, st_unten_klein)
+x_klein = ufloat(10, 0)
 
 #Reihe 2:
 mw_oben_gross = np.mean(gross_oben)
 st_oben_gross = np.std(gross_oben)
 
+o_g = ufloat(mw_oben_gross, st_oben_gross)
+
 mw_unten_gross = np.mean(gross_unten)
 st_unten_gross = np.std(gross_unten)
+
+u_g = ufloat(mw_unten_gross, st_unten_gross)
+x_gross = ufloat(5, 0)
+
 
 #Reihe 3:
 n=10
@@ -55,5 +69,12 @@ print("Dichte große Kugel uncertainties",rho_gr)
 print("Dichte kleine Kugel uncertainties",rho_kl)
 print("unten:", '{:.5f}'.format(mw_unten_gross), "mit Fehler: ", "{:.5f}".format(st_unten_gross))
 
-print("Messreihe 3:")
+print("Messreihe 3: hier steht noch nichts")
 
+print("Reynold:")
+
+print("Geschwindigkeit klein oben: ", x_klein / o_k)
+print("Geschwindigkeit klein unten: ", x_klein / u_k)
+
+print("Geschwindigkeit gross oben: ", x_gross / o_g)
+print("Geschwindigkeit gross unten: ", x_gross / u_g)
