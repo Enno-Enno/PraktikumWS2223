@@ -25,9 +25,9 @@ Reale Stoffe (d.h. Flüssigkeiten oder Gase) sind \textit{strömend}, wenn sie e
 Die thermische Bewegung der einzelnen Moleküle kann dabei vernachlässigt werden.
 Die Strömung kann mit Hilfe der Strömungsgeschwindigkeit $\symbf{u}\left(\symbf{r},t\right)$ beschrieben werden.
 Als \textit{Stromlinie} oder \textit{Stromfaden} bezeichnet man die Ortskurve, die ein Flüssigkeitselement, etwa ein Korkstück, durchläuft.
-Eine Stromlinie wird durch Reibungskräfte im Medium beeinflusst \cite*[]{demtroeder}.
+Eine Stromlinie wird durch Reibungskräfte im Medium beeinflusst \cite[]{demtroeder}.
 Ein Maß für die Stärke der inneren Reibung bzw. die Zähigkeit des Stoffes ist die \textit{dynamische Viskosität} $\eta$.
-Diese ist eine temperaturabhängige Materialkonstante \cite*[]{geschke}.
+Diese ist eine temperaturabhängige Materialkonstante \cite[]{geschke}.
 Man unterscheidet hierbei zwischen idealen bzw. nicht-viskosen Stoffen, für die $\eta \simeq 0$ gilt, und viskosen Stoffen,
 deren Strömungsverhalten in laminar und turbulent eingeteilt wird (vgl. Abschnitt \ref{sec:vorbereitung}).
 
@@ -137,12 +137,33 @@ Hierbei war zu beachten, dass sich erst die gewünschte Temperatur im Fallrohr e
 um Messunsicherheiten zu vermeiden. Die Wartezeit betrug häufig ca. 3-5 Minuten. Maximal sollte eine Temperatur von 50°C erreicht werden.
 
 \section{Messdaten}
-Durchmesser kleine Kugel: $ d_k = \qty{15.61 \pm 0.01}{\mm}$\\
-Masse kleine Kugel (gegeben): $ m_k = \qty{4.4531}{\g}$\\
-Dichte kleine Kugel: $ \rho  = \left(\frac{4}{3}\Pi \left(\frac{d}{2}\right)^{3}\right)^{-1} m = \qty{2.2359e-3}{\g\per\mm}$\\
-Durchmesser große Kugel: $ d_g = \qty{15.78 \pm 0.01}{\mm}$\\
-Masse große Kugel (gegeben): $ m_g = \qty{4.9528}{\g}$
+\subsection[]{Kenngrößen der Kugeln}
+%Durchmesser kleine Kugel: $ d_k = \qty{15.61 \pm 0.01}{\mm}$\\
+%Masse kleine Kugel (gegeben): $ m_k = \qty{4.4531}{\g}$\\
+%Dichte kleine Kugel: $ \rho  = \left(\frac{4}{3}\Pi \left(\frac{d}{2}\right)^{3}\right)^{-1} m = \qty{2.2359e-3}{\g\per\mm}$\\
+%Durchmesser große Kugel: $ d_g = \qty{15.78 \pm 0.01}{\mm}$\\
+%Masse große Kugel (gegeben): $ m_g = \qty{4.9528}{\g}$
 
+Anfangs wurden die relevanten Kenngrößen der Kugeln bestimmt.
+Die Massen waren vorgegeben.
+Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volumen $V=\frac{4 \pi}{3} \left(\frac{d}{2}\right)^3$, d.h. $\rho = \frac{m}{V}$.
+
+\begin{table}
+    \caption[]{Kenngrößen der kleinen und großen Kugel}
+    \label{tab:kenngroessen}
+    \centering
+    \begin{tabular}[]{S S[table-format=1.4] S[table-format=2.2] @{${}\pm{}$} S[table-format=0.2] S[table-format=1.4]}
+        \toprule
+        {Kugel} & {Masse $m / \unit{\kg}$} & \multicolumn{2}{c}{Durchmesser $d / \unit{\mm}$}  & {Dichte $\rho / \left( \unit{\mg \per \mm^3}\right)$} \\
+        \midrule
+        {klein} & 4.4531 & 15.61 & 0.01 & 2.2359 \\
+        {groß} & 2.9528 & 15.78 &0.01 & 2.4073 \\
+        \bottomrule 
+
+    \end{tabular}
+\end{table}
+%ich fand das so als Tabelle etwas schöner hihi :D
+%ich weiß nur nicht warum ziwschen Durchmesser und Fehler so eine Lücke ist...
 
 
 \begin{table}
