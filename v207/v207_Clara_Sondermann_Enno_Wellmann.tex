@@ -190,10 +190,6 @@ Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
 
 
 
-
-
-%\subsection{Messreihe 2: große Kugel, konstante Temperatur}
-
 \begin{table}[]
     \caption{Große Kugel bei Zimmertemperatur; Fallhöhe = 5 cm}
     \label{tab:grKu_Zitemp}
@@ -242,6 +238,8 @@ Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
     \end{tabular}
 \end{table}
 
+
+
 \section{Auswertung}
 
 \subsection{Dichte der Glaskugeln}
@@ -279,45 +277,53 @@ Einsetzen der Unsicherheiten und der gemessen Werte aus Tabelle \ref{tab:kenngro
 \end{table}
 Um Rechenfehler zu vermeiden werden für die konkrete Berechnung der Messunsicherheiten 
 das Python-Paket uncertainties \cite{uncertainties} \cite{python} verwendet.
+
+
 \subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
+\label{sec:auswertung_mr1}
 
 Für die kleine Kugel oben ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} 
 also für die Fallzeit ein arithmetisches Mittel von%
 %
 \begin{align*}
-    \overline{t}_{\text{oben}} &= \frac{1}{10} \sum_{k=1}^{10} {t_{\text{oben}, k}} = \qty[]{12.324}{\s}\\%
+    \overline{t}_{\text{kl, oben}} &= \frac{1}{10} \sum_{k=1}^{10} {t_{\text{kl, oben}, k}} = \qty[]{12.324}{\s}\\%
 %
 \intertext{mit einer Standardabweichung von}%
 %
-    \Delta \overline{t}_{\text{oben}} &= 
-    \sqrt[]{\frac{1}{N \left(N-1\right)} \sum_{k=1}^{10} \left(t_{\text{oben}, k} - \overline{t}_{\text{oben}}\right)^2}
+    \Delta \overline{t}_{\text{kl, oben}} &= 
+    \sqrt[]{\frac{1}{N \left(N-1\right)} \sum_{k=1}^{10} \left(t_{\text{kl, oben}, k} - \overline{t}_{\text{kl, oben}}\right)^2}
     = \qty[]{0.155}{\s}\\%
     %
 \end{align*}
-Analog folgt für unten eine Fallzeit von der Mittelwert $\overline{t}_{\text{unten}} = \qty[]{12.248}{\s}$
-und die Standardabweichung $\Delta\overline{t}_{\text{unten}} = \qty[]{0.184}{\s}$.
-
-
+Analog folgt für unten eine Fallzeit von der Mittelwert $\overline{t}_{\text{kl, unten}} = \qty[]{12.248}{\s}$
+und die Standardabweichung $\Delta\overline{t}_{\text{kl, unten}} = \qty[]{0.184}{\s}$.
 
 %Durchschnittszeiten kleine Kugel:
 %oben: 12.32400 mit Fehler:  0.15500
 %unten: 12.24800 mit Fehler:  0.18405
-%
+
 %Durchschnittszeiten grosse Kugel:
 %oben: 35.02400 mit Fehler:  0.29574
 %unten: 35.60000 mit Fehler:  0.75913
-%
-%Durchmesser kleine Kugel: $ d_k = \qty{15.61 \pm 0.01}{\mm}$\\
-%Masse kleine Kugel (gegeben): $ m_k = \qty{4.4531}{\g}$\\
-%Dichte kleine Kugel: $ \rho  = \left(\frac{4}{3}\Pi \left(\frac{d}{2}\right)^{3}\right)^{-1} m = \qty{2.2359e-3}{\g\per\mm}$\\
-%Durchmesser große Kugel: $ d_g = \qty{15.78 \pm 0.01}{\mm}$\\
-%Masse große Kugel (gegeben): $ m_g = \qty{4.9528}{\g}$
-%
-Für die kleine Kugel beträgt nach \cite*[]{va207} die Apparaturkonstante $K_{kl} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
-Nach \cite[]{geschke} beträgt bei $T = \qty{19}{\degreeCelsius}$ die Dichte von Wasser $\rho = \qty{0.99841}{\g \per \cm^3}$.
-Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität $\eta \simeq \left(1.152 \pm 0.018\right) 10^{-3} \, \unit{\pascal \s}$.
 
-%eta empirisch klein:  0.001152+/-0.000018
+Für die kleine Kugel beträgt nach \cite*[]{va207} die Apparaturkonstante $K_{\text{kl}} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
+Nach \cite[]{geschke} beträgt bei $T = \qty{19}{\degreeCelsius}$ die Dichte von Wasser $\rho = \qty{0.99841}{\g \per \cm^3}$.
+Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität $\eta_{\text{kl}} = \left(1.152 \pm 0.018\right) 10^{-3} \, \unit{\pascal \s}$.
+
+
+\subsection{Messreihe 2: große Kugel, konstante Temperatur}
+
+Für die große Kugel erhält man ganz analog zu \ref{sec:auswertung_mr1} für oben die Werte $t_{\text{gr,oben}} = \left(35.024 \pm 0.296\right) \, \unit{\s}$ 
+bzw. für unten $t_{\text{gr,unten}} = \left(35.600 \pm 0.759\right) \, \unit{\s}$.
+
+Zusammen mit der zuvor bestimmten Viskosität bei Zimmertemperatur $\eta_{\text{kl}}$ ergibt sich dann eine Apparaturkonstante von
+$K_{\text{gr, oben}} = \left(0.0233 \pm 0.0004 \right) \unit{\milli\Pa \cubic\cm}$ für oben bzw.
+$K_{\text{gr, unten}} = \left(0.0230 \pm 0.0006 \right) \unit{\milli\Pa \cubic\cm}$ für unten.
+
+%K oben und gross:  (2.33+/-0.04)e-05
+%K unten und gross:  (2.30+/-0.06)e-05
+
+
 
 \subsection[]{Überprüfung der Andradeschen Gleichung}
 Formt man die Andradesche Gleichung \eqref{eq:andrade} so um, dass auf beiden Seiten der Logarithmus gezogen wird, ergibt sich

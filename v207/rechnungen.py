@@ -42,7 +42,8 @@ st_unten_gross = np.std(gross_unten)
 u_g = ufloat(mw_unten_gross, st_unten_gross)
 x_gross = ufloat(5, 0)
 
-
+k_gross_oben = eta_klein/((rho_groß - rho_fl)*o_g) 
+k_gross_unten = eta_klein/((rho_groß - rho_fl)*u_g) 
 
 #Reihe 3:
 #n=10
@@ -78,3 +79,6 @@ print("Geschwindigkeit klein unten: ", x_klein / u_k)
 print("Geschwindigkeit gross oben: ", x_gross / o_g)
 print("Geschwindigkeit gross unten: ", x_gross / u_g)
 print("eta empirisch klein: ", eta_klein)
+
+print("K oben und gross: ", k_gross_oben)
+print("K unten und gross: ", k_gross_unten)
