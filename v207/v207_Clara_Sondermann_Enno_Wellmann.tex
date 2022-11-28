@@ -49,7 +49,7 @@ Dabei wird die Viskosität des Fluids mit der empirischen Formel
 \end{align}
 
 ermittelt, wobei $K$ eine Apparaturkonstante ist, die Fallhöhe und Kugelgeometrie berücksichtigt,
-$\rho_K$ bzw. $\rho_Fl$ die Dichte der Kugel bzw. des Fluids sind und $t$ die Fallzeit darstellt.
+$\rho_K$ bzw. $\rho_{Fl}$ die Dichte der Kugel bzw. des Fluids sind und $t$ die Fallzeit darstellt.
 
 
 Durch die \textit{Andradesche Gleichung} wird die Temperaturabhängigkeit der Viskosität von Flüssigkeiten dargestellt.
@@ -122,7 +122,8 @@ Nachdem sich eine konstante Geschwindigkeit durch das in Abschnitt \ref{sec:grun
 wurde die Fallzeit bei einer Strecke von 10 Zentimetern (oberste bis unterste Markierung)
 mit Hilfe einer Stoppuhr gemessen.
 Nach jedem Fall wurde das Rohr um 180° und erneut gemessen.
-Je nach Orientierung werden diese Messwerte im Folgenden mit "oben" bzw. "unten" betitelt.
+Je nach Orientierung werden diese Messwerte im Folgenden mit \enquote{oben} bzw. \enquote{unten} betitelt.
+% Anführungszeichen funktionieren nur mit \enquote{}
 Dies wurde 10 Mal wiederholt, sodass sich insgesamt 20 Werte (je 10 oben und unten) ergaben.
 
 Die zweite Messreihe verlief analog zur ersten mitsamt der Vorbereitungen, nur dass nun die größere Kugel auf einer Strecke von 5 Zentimetern betrachtet wurde.
@@ -140,7 +141,7 @@ um Messunsicherheiten zu vermeiden. Die Wartezeit betrug häufig ca. 3-5 Minuten
 
 
 \section{Messdaten}
-\subsection[]{Kenngrößen der Kugeln}
+\subsection{Kenngrößen der Kugeln}
 %Durchmesser kleine Kugel: $ d_k = \qty{15.61 \pm 0.01}{\mm}$\\
 %Masse kleine Kugel (gegeben): $ m_k = \qty{4.4531}{\g}$\\
 %Dichte kleine Kugel: $ \rho  = \left(\frac{4}{3}\Pi \left(\frac{d}{2}\right)^{3}\right)^{-1} m = \qty{2.2359e-3}{\g\per\mm}$\\
@@ -149,30 +150,34 @@ um Messunsicherheiten zu vermeiden. Die Wartezeit betrug häufig ca. 3-5 Minuten
 
 Anfangs wurden die relevanten Kenngrößen der Kugeln bestimmt.
 Die Massen waren vorgegeben.
-Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volumen $V=\frac{4 \pi}{3} \left(\frac{d}{2}\right)^3$, d.h. $\rho = \frac{m}{V}$.
+Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volumen
+$V=\frac{4 \pi}{3} \left(\frac{d}{2}\right)^3$ und $\rho = \frac{m}{V}$.
+Die Rechnung für die Fehlerfortpflanzung wird im Kapitel Auswertung noch einmal
+ausführlicher behandelt.
 Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
 
-\begin{table}
-    \caption[]{Kenngrößen der kleinen und der großen Kugel}
+\begin{table}[h!]
+    \caption[]{Kenngrößen der kleinen und der großen Kugel. Masse $m$, Durchmesser $d$ und Dichte $\rho$.}
     \label{tab:kenngroessen}
     \centering
     \begin{tabular}[]{S S[table-format=1.4] S[table-format=2.2] @{${}\pm{}$} S[table-format=0.2] S[table-format=1.4]}
         \toprule
-        {Kugel} & {Masse $m / \unit{\kg}$} & \multicolumn{2}{c}{Durchmesser $d / \unit{\mm}$}  & {Dichte $\rho / \left( \unit{\mg \per \cubic\mm}\right)$} \\
+        {Kugel} & {$m / \unit{\kg}$} & \multicolumn{2}{c}{$d / \unit{\mm}$}  & {$\rho / \left( \unit{\mg \per \cubic\mm}\right)$} \\
         \midrule
         {klein} & 4.4531 & 15.61 & 0.01 & 2.2359 \\
-        {groß} & 2.9528 & 15.78 &0.01 & 2.4073 \\
+        {groß}  & 2.9528 & 15.78 & 0.01 & 2.4073 \\
         \bottomrule 
 
     \end{tabular}
 \end{table}
 %ich fand das so als Tabelle etwas schöner hihi :D
 %ich weiß nur nicht warum ziwschen Durchmesser und Fehler so eine Lücke ist...
+%Lösung: Die Überschrift war zu breit. Mit nur d/mm passt es besser
 
 
-\subsection[]{Messreihe 1: kleine Kugel, konstante Temperatur}
+\subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
 
-\begin{table}
+\begin{table}[h!]
     \caption{Kleine Kugel bei Zimmertemperatur; Fallhöhe = 10 cm}
     \label{tab:klKu_Zitemp}
     \centering
@@ -197,37 +202,13 @@ Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
     \end{tabular}
 \end{table}
 
-Für die kleine Kugel oben ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} also für die Fallzeit ein arithmetisches Mittel von 
-\begin{align*}
-    \overline{t}_{oben} = \frac{1}{10} \sum_{k=1}^{10} {t_{oben, k}} = \qty[]{12.324}{\s}
-\end{align*}
-mit einer Standardabweichung von 
-\begin{align*}
-    \Delta \overline{t}_{oben} = 
-    \sqrt[]{\frac{1}{N \left(N-1\right)} \sum_{k=1}^{10} \left(t_{oben, k} - \overline{t}_{oben}\right)^2}
-    = \qty[]{0.155}{\s}.
-\end{align*}
-
-Analog folgt für unten eine Fallzeit von der Mittelwert
-\begin{align*}
-    \overline{t}_{unten} = \qty[]{12.248}{\s}
-\end{align*}
-und die Standardabweichung
-\begin{align*}
-    \overline{t}_{unten} = \qty[]{0.18405}{\s}.
-\end{align*}
-
-%Durchschnittszeiten kleine Kugel:
-%oben: 12.32400 mit Fehler:  0.15500
-%unten: 12.24800 mit Fehler:  0.18405
-
-Für die kleine Kugel beträgt nach \cite*[]{va207} die Apparaturkonstante $K_{kl} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
-Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität 
 
 
-\subsection[]{Messreihe 2: goße Kugel, konstante Temperatur}
 
-\begin{table}
+
+\subsection{Messreihe 2: große Kugel, konstante Temperatur}
+
+\begin{table}[h!]
     \caption{Große Kugel bei Zimmertemperatur; Fallhöhe = 5 cm}
     \label{tab:grKu_Zitemp}
     \centering
@@ -246,14 +227,14 @@ Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität
 
     \end{tabular}
 \end{table}
- %Durchschnittszeiten gross Kugel:
+%Durchschnittszeiten grosse Kugel:
 %oben: 35.02400 mit Fehler:  0.29574
 %unten: 35.60000 mit Fehler:  0.75913
 
-\subsection[]{Messreihe 3: große Kugel, steigende Temperatur}
+\subsection{Messreihe 3: große Kugel, steigende Temperatur}
 
 
-\begin{table}
+\begin{table}[h!]
     \caption{Große Kugel bei variabler Temperatur T; Fallhöhe = 5 cm}
     \label{tab:grKu_steigendeTemp}
     \centering
@@ -280,9 +261,38 @@ Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität
 
 \section{Auswertung}
 
+\subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
+
+Für die kleine Kugel oben ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} 
+also für die Fallzeit ein arithmetisches Mittel von
+
+\begin{align*}
+    \overline{t}_{\text{oben}} &= \frac{1}{10} \sum_{k=1}^{10} {t_{\text{oben}, k}} = \qty[]{12.324}{\s}\\%
+%
+\intertext{mit einer Standardabweichung von}%
+%
+    \Delta \overline{t}_{\text{oben}} &= 
+    \sqrt[]{\frac{1}{N \left(N-1\right)} \sum_{k=1}^{10} \left(t_{\text{oben}, k} - \overline{t}_{\text{oben}}\right)^2}
+    = \qty[]{0.155}{\s}\\%
+    %
+\intertext{Analog folgt für unten eine Fallzeit von der Mittelwert}%
+%
+    \overline{t}_{\text{unten}} &= \qty[]{12.248}{\s}%
+\intertext{und die Standardabweichung}
+    \Delta\overline{t}_{\text{unten}} &= \qty[]{0.18405}{\s}.
+\end{align*}
+
+
+%Durchschnittszeiten kleine Kugel:
+%oben: 12.32400 mit Fehler:  0.15500
+%unten: 12.24800 mit Fehler:  0.18405
+
+Für die kleine Kugel beträgt nach \cite*[]{va207} die Apparaturkonstante $K_{kl} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
+Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität 
 \section{Diskussion}
 
 \section*{Anhang: Messdaten}
+
 
 %\nocite{demtroeder}
 %\nocite{geschke}
