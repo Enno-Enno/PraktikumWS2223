@@ -29,13 +29,30 @@ print("sdev_t_oben ",sdev_t_oben)
 print("sdev_t_unten",sdev_t_unten)
 print("single_temp",single_temp)
 
-#np.savetxt('Messreihe3.txt', np.column_stack([artm_t_oben, artm_t_unten, sdev_t_oben, sdev_t_unten]), header="artm_t_oben artm_t_unten sdev_t_oben sdev_t_unten")
+np.savetxt('Messreihe3.txt', np.column_stack([artm_t_oben, artm_t_unten, sdev_t_oben, sdev_t_unten]), header="artm_t_oben artm_t_unten sdev_t_oben sdev_t_unten")
 
 unc_t_oben = unp.uarray(artm_t_oben, sdev_t_oben)
 unc_t_unten = unp.uarray(artm_t_unten, sdev_t_unten)
 
-plt.errorbar(single_temp, artm_t_oben, yerr=sdev_t_oben, fmt='o')
 
-plt.yscale('log')
 
+plt.errorbar(single_temp, artm_t_oben, yerr=sdev_t_oben, fmt='o', label=r'Laufzeiten oben')
+plt.errorbar(single_temp, artm_t_unten, yerr=sdev_t_unten, fmt='o', label=r'Laufzeiten unten')
+
+plt.ylabel("t / \\unit{{\\s}}")
+plt.xlabel("T / \\unit{{\\celsius}}")
 plt.savefig("build/Messreihe3.pdf")
+
+
+rho_temp, rho_Wasser = np.genfromtxt('Geschke_Wasserdichte.txt',unpack = True)
+
+dichten = dict()
+for index in enumerate(rho_temp):
+    dichten[rho_temp] = rho_Wasser
+
+def eta(K,rho_Kugel,rho_Fluessigkeit,t):
+    return K * (rho_Kugel - rho_Fluessigkeit) * t
+
+
+
+
