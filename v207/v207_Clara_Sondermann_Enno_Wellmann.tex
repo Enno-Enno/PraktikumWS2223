@@ -266,22 +266,24 @@ Es gilt:
     =\sqrt{\left(-\frac{18 m}{\pi} d^{-4} \right)^{2}} \Delta d \\%
 \end{align*}%
 %
-Einsetzen der Unsicherheiten und der gemessen Werte aus \ref{tab:kenngroessen} ergibt:
-
+Einsetzen der Unsicherheiten und der gemessen Werte aus \ref{tab:kenngroessen} ergibt:%
+%
 \begin{table}[h!]
     \caption{}
     \label{tab:Dichten}
     \centering
     \begin{tabular}[]{S S[table-format=1.4] S[table-format=2.2] @{${}\pm{}$} S[table-format=0.2] S[table-format=1.4] @{${}\pm{}$} S[table-format=0.2]}
         \toprule
-        {Kugel} & {$m / \unit{\kg}$} & \multicolumn{2}{c}{$d / \unit{\mm}$}  & {$\rho / \left( \unit{\mg \per \cubic\mm}\right)$} \\
+        {Kugel} & {$m / \unit{\kg}$} & \multicolumn{2}{c}{$d / \unit{\mm}$}  & \multicolumn{2}{c}{{$\rho / \left( \unit{\mg \per \cubic\mm}\right)$}} \\
         \midrule
-        {klein} & 4.4531 & 15.61 & 0.01 & 2.2359 \\
-        {groß}  & 2.9528 & 15.78 & 0.01 & 2.4073 \\
+        {klein} & 4.4531 & 15.61 & 0.01 & 2.2359 & 0.005\\
+        {groß}  & 2.9528 & 15.78 & 0.01 & 2.4073 & 0.005\\
         \bottomrule 
 
     \end{tabular}
 \end{table}
+Um Rechenfehler zu vermeiden verwenden wir für die konkrete Berechnung der Messunsicherheiten 
+das Python-paket uncertainties \cite{uncertainties} \cite{python}.
 \subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
 
 Für die kleine Kugel oben ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} 

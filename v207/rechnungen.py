@@ -40,20 +40,11 @@ print("oben:", '{:.5f}'.format(mw_oben_klein), "mit Fehler: ", "{:.5f}".format(s
 print("unten:", '{:.5f}'.format(mw_unten_klein), "mit Fehler: ", "{:.5f}".format(st_unten_klein))
 
 print("Messreihe 2:")
-print("Durchschnittszeiten grossee Kugel:")
+print("Durchschnittszeiten grosse Kugel:")
 print("oben:", '{:.5f}'.format(mw_oben_gross), "mit Fehler: ", "{:.5f}".format(st_oben_gross))
 print("unten:", '{:.5f}'.format(mw_unten_gross), "mit Fehler: ", "{:.5f}".format(st_unten_gross))
 
 
-drcm_klKu = ufloat(15.11, 0.01)
-drcm_grKu = ufloat(15.78, 0.01)
-m_gr = ufloat(4.9528, 0)
-m_kl = ufloat(4.4531, 0)
-rho_gr = ((3 * m_gr)/(4 * np.pi))* (2/drcm_grKu)**3
-rho_kl = ((3 * m_kl)/(4 * np.pi))* (2/drcm_klKu)**3
-print("Dichte große Kugel uncertainties",rho_gr)
-print("Dichte kleine Kugel uncertainties",rho_kl)
-print("unten:", '{:.5f}'.format(mw_unten_gross), "mit Fehler: ", "{:.5f}".format(st_unten_gross))
 
 print("Messreihe 3:")
 
