@@ -26,7 +26,7 @@ Die thermische Bewegung der einzelnen Moleküle kann dabei vernachlässigt werde
 Die Strömung kann mit Hilfe der Strömungsgeschwindigkeit $\symbf{u}\left(\symbf{r},t\right)$ beschrieben werden.
 Als \textit{Stromlinie} oder \textit{Stromfaden} bezeichnet man die Ortskurve, die ein Flüssigkeitselement, etwa ein Korkstück, durchläuft.
 Eine Stromlinie wird durch Reibungskräfte im Medium beeinflusst \cite[]{demtroeder}.
-Ein Maß für die Stärke der inneren Reibung bzw. die Zähigkeit des Stoffes ist die \textit{dynamische Viskosität} $\eta$.
+Ein Maß für die Stärke der inneren Reibung bzw. die Zähigkeit des Stoffes ist die \textit{dynamische Viskosität} $\eta$ mit der SI-Einheit $\unit{\Pa \s}$.
 Diese ist eine temperaturabhängige Materialkonstante \cite[]{geschke}.
 Man unterscheidet hierbei zwischen idealen bzw. nicht-viskosen Stoffen, für die $\eta \simeq 0$ gilt, und viskosen Stoffen,
 deren Strömungsverhalten in laminar und turbulent eingeteilt wird (vgl. Abschnitt \ref{sec:vorbereitung}).
@@ -58,11 +58,6 @@ Durch die \textit{Andradesche Gleichung} wird die Temperaturabhängigkeit der Vi
     \eta \left(T\right) = A \exp{\left(\frac{B}{T}\right)}
 \end{equation}
 $A$ und $B$ sind dabei Konstanten \cite*[]{va207}.
-
-
-
-%\section[]{Messaufgaben}
-%Wollen wir das noch hier angeben?
 
 
 
@@ -254,7 +249,7 @@ Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
 Die Standard-Messunsicherheit der Schieblehre wird mit \qty{0.01}{\mm} angegeben.
 Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volumen
 $V=\frac{4 \pi}{3} \left(\frac{d}{2}\right)^3$ und $\rho = \frac{m}{V}$.
-Die Messunsicherheiten werden mithilfe der gaußschen Fehlerfortpflanzung berechnet.G
+Die Messunsicherheiten werden mithilfe der Gaußschen Fehlerfortpflanzung berechnet.
 Es gilt:
 \begin{align*}
     \rho &= \frac{m}{V} = \frac{3 m}{4 \pi} \left(  \frac{2}{d} \right)^{3} = \frac{6 m}{\pi} d^{-3} \\%
@@ -266,7 +261,7 @@ Es gilt:
     =\sqrt{\left(-\frac{18 m}{\pi} d^{-4} \right)^{2}} \Delta d \\%
 \end{align*}%
 %
-Einsetzen der Unsicherheiten und der gemessen Werte aus \ref{tab:kenngroessen} ergibt:%
+Einsetzen der Unsicherheiten und der gemessen Werte aus Tabelle \ref{tab:kenngroessen} ergibt die Werte in Tabelle \ref{tab:Dichten}.%
 %
 \begin{table}[h!]
     \caption{}
@@ -274,7 +269,7 @@ Einsetzen der Unsicherheiten und der gemessen Werte aus \ref{tab:kenngroessen} e
     \centering
     \begin{tabular}[]{S S[table-format=1.4] S[table-format=2.2] @{${}\pm{}$} S[table-format=0.2] S[table-format=1.4] @{${}\pm{}$} S[table-format=0.2]}
         \toprule
-        {Kugel} & {$m / \unit{\kg}$} & \multicolumn{2}{c}{$d / \unit{\mm}$}  & \multicolumn{2}{c}{{$\rho / \left( \unit{\mg \per \cubic\mm}\right)$}} \\
+        {Kugel} & {$m / \unit{\g}$} & \multicolumn{2}{c}{$d / \unit{\mm}$}  & \multicolumn{2}{c}{{$\rho / \left( \unit{\g \per \cubic\cm}\right)$}} \\
         \midrule
         {klein} & 4.4531 & 15.61 & 0.01 & 2.2359 & 0.005\\
         {groß}  & 2.9528 & 15.78 & 0.01 & 2.4073 & 0.005\\
@@ -283,7 +278,7 @@ Einsetzen der Unsicherheiten und der gemessen Werte aus \ref{tab:kenngroessen} e
     \end{tabular}
 \end{table}
 Um Rechenfehler zu vermeiden verwenden wir für die konkrete Berechnung der Messunsicherheiten 
-das Python-paket uncertainties \cite{uncertainties} \cite{python}.
+das Python-Paket uncertainties \cite{uncertainties} \cite{python}.
 \subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
 
 Für die kleine Kugel oben ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} 
@@ -298,12 +293,10 @@ also für die Fallzeit ein arithmetisches Mittel von
     \sqrt[]{\frac{1}{N \left(N-1\right)} \sum_{k=1}^{10} \left(t_{\text{oben}, k} - \overline{t}_{\text{oben}}\right)^2}
     = \qty[]{0.155}{\s}\\%
     %
-\intertext{Analog folgt für unten eine Fallzeit von der Mittelwert}%
-%
-    \overline{t}_{\text{unten}} &= \qty[]{12.248}{\s}%
-\intertext{und die Standardabweichung}
-    \Delta\overline{t}_{\text{unten}} &= \qty[]{0.18405}{\s}.
 \end{align*}
+Analog folgt für unten eine Fallzeit von der Mittelwert $\overline{t}_{\text{unten}} = \qty[]{12.248}{\s}$
+und die Standardabweichung $\Delta\overline{t}_{\text{unten}} = \qty[]{0.184}{\s}$.
+
 
 
 %Durchschnittszeiten kleine Kugel:
@@ -321,8 +314,10 @@ also für die Fallzeit ein arithmetisches Mittel von
 %Masse große Kugel (gegeben): $ m_g = \qty{4.9528}{\g}$
 
 Für die kleine Kugel beträgt nach \cite*[]{va207} die Apparaturkonstante $K_{kl} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
-Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität 
+Nach \cite[]{geschke} beträgt bei $T = \qty{19}{\degreeCelsius}$ die Dichte von Wasser $\rho = \qty{0.99841}{\g \per \cm^3}$.
+Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität $\eta \simeq \left(1.152 \pm 0.018\right) 10^{-3} \, \unit{\pascal \s}$.
 
+%eta empirisch klein:  0.001152+/-0.000018
 
 \subsection[]{Überprüfung der Andradeschen Gleichung}
 Formt man die Andradesche Gleichung \eqref{eq:andrade} so um, dass auf beiden Seiten der Logarithmus gezogen wird, ergibt sich
@@ -335,20 +330,24 @@ eine Ausgleichsgerade erstellt werden. Dadurch lassen sich die Konstanten $A$ un
 
 
 \subsection[]{Die Reynoldszahl}
-Um zu ermitteln, ob es sich um eine laminare Strömung handelt, wird jeweils die Reynoldszahl $Re$ für die kleine und große Kugel bestimmt
+Um zu ermitteln, ob es sich um eine laminare Strömung handelt, wird jeweils die dimensionslose Reynoldszahl $Re$ für die kleine und große Kugel bestimmt
 (vgl. Abschnitt \ref{sec:vorbereitung}).
-Zur Berechnung fehlen noch Mittelwert und Standardabweichung der Fallgeschwindigkeit $\overline{v}$ jeweils für oben und unten.
-Nach \cite[]{geschke} beträgt bei $T = \qty{19}{degreeCelsius}$ die Dichte von Wasser $\rho = \qty{0.99841}{\g \per \cm^3}$.
+Zur Berechnung fehlen noch Mittelwert und Standardabweichung der Fallgeschwindigkeit $\overline{v}$ jeweils für oben und unten
+(Dichte von Wasser bei Zimmertemperatur: $\rho = \qty{0.99841}{\g \per \cm^3}$, s.o.).
 
 \begin{table}
     \caption[]{Reynoldszahl $Re$ in Abhängigkeit der Fallgeschwindigkeit $\overline{v}$}
     \label{tab:reynold}
     \centering
-    \begin{tabular}[]{S[table-format=]}
-        
+    \begin{tabular}[]{S S S[table-format=1.4] @{${}\pm{}$} S[table-format=1.4] S[table-format=4.1] @{${}\pm{}$} S[table-format=4.1]}
+        \toprule
+        {Kugel} & {Strecke} & \multicolumn{2}{c}{$\overline{v} / \left(\unit{\cm\per\s}\right)$} & \multicolumn{2}{c}{$Re$} \\
+        \bottomrule
+        {klein} & {oben} & 0.811 & 0.010 &
     \end{tabular}
 \end{table}
 
+% Kugel % Strecke % MW G % S G % MW Rey % S Rey
 %Reynold:
 %Geschwindigkeit klein oben:  0.811+/-0.010
 %Geschwindigkeit klein unten:  0.816+/-0.012
