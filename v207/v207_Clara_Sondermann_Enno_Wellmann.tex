@@ -141,13 +141,13 @@ um Messunsicherheiten zu vermeiden. Die Wartezeit betrug häufig ca. 3-5 Minuten
 
 
 \section{Messdaten}
-\subsection{Kenngrößen der Kugeln}
+%\subsection{Kenngrößen der Kugeln}
 
 Anfangs wurden die relevanten Kenngrößen der Kugeln bestimmt.
 Die Massen sind vorgegeben.
 Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
 
-\begin{table}[h!]
+\begin{table}[]
     \caption[]{Kenngrößen der kleinen und der großen Kugel. Masse $m$, Durchmesser $d$ und Dichte $\rho$.}
     \label{tab:kenngroessen}
     \centering
@@ -166,9 +166,9 @@ Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
 %Lösung: Die Überschrift war zu breit. Mit nur d/mm passt es besser
 
 
-\subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
+%\subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
 
-\begin{table}[h!]
+\begin{table}[]
     \caption{Kleine Kugel bei Zimmertemperatur; Fallhöhe = 10 cm}
     \label{tab:klKu_Zitemp}
     \centering
@@ -197,9 +197,9 @@ Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
 
 
 
-\subsection{Messreihe 2: große Kugel, konstante Temperatur}
+%\subsection{Messreihe 2: große Kugel, konstante Temperatur}
 
-\begin{table}[h!]
+\begin{table}[]
     \caption{Große Kugel bei Zimmertemperatur; Fallhöhe = 5 cm}
     \label{tab:grKu_Zitemp}
     \centering
@@ -219,10 +219,10 @@ Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
     \end{tabular}
 \end{table}
 
-\subsection{Messreihe 3: große Kugel, steigende Temperatur}
+%\subsection{Messreihe 3: große Kugel, steigende Temperatur}
 
 
-\begin{table}[h!]
+\begin{table}[]
     \caption{Große Kugel bei variabler Temperatur T; Fallhöhe = 5 cm}
     \label{tab:grKu_steigendeTemp}
     \centering
@@ -283,12 +283,12 @@ Einsetzen der Unsicherheiten und der gemessen Werte aus \ref{tab:kenngroessen} e
     \end{tabular}
 \end{table}
 Um Rechenfehler zu vermeiden verwenden wir für die konkrete Berechnung der Messunsicherheiten 
-das Python-paket uncertainties \cite{uncertainties} \cite{python}.
+das Python-paket \texttt{uncertainties} \cite{uncertainties}\cite{python}.
 \subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
 
 Für die kleine Kugel oben ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} 
-also für die Fallzeit ein arithmetisches Mittel von
-
+also für die Fallzeit ein arithmetisches Mittel von%
+%
 \begin{align*}
     \overline{t}_{\text{oben}} &= \frac{1}{10} \sum_{k=1}^{10} {t_{\text{oben}, k}} = \qty[]{12.324}{\s}\\%
 %
@@ -304,25 +304,26 @@ also für die Fallzeit ein arithmetisches Mittel von
 \intertext{und die Standardabweichung}
     \Delta\overline{t}_{\text{unten}} &= \qty[]{0.18405}{\s}.
 \end{align*}
-
-
+%
+%
 %Durchschnittszeiten kleine Kugel:
 %oben: 12.32400 mit Fehler:  0.15500
 %unten: 12.24800 mit Fehler:  0.18405
-
+%
 %Durchschnittszeiten grosse Kugel:
 %oben: 35.02400 mit Fehler:  0.29574
 %unten: 35.60000 mit Fehler:  0.75913
-
+%
 %Durchmesser kleine Kugel: $ d_k = \qty{15.61 \pm 0.01}{\mm}$\\
 %Masse kleine Kugel (gegeben): $ m_k = \qty{4.4531}{\g}$\\
 %Dichte kleine Kugel: $ \rho  = \left(\frac{4}{3}\Pi \left(\frac{d}{2}\right)^{3}\right)^{-1} m = \qty{2.2359e-3}{\g\per\mm}$\\
 %Durchmesser große Kugel: $ d_g = \qty{15.78 \pm 0.01}{\mm}$\\
 %Masse große Kugel (gegeben): $ m_g = \qty{4.9528}{\g}$
-
+%
 Für die kleine Kugel beträgt nach \cite*[]{va207} die Apparaturkonstante $K_{kl} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
-Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität 
+Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität
 
+% Hier noch weiterschreiben.
 
 \subsection[]{Überprüfung der Andradeschen Gleichung}
 Formt man die Andradesche Gleichung \eqref{eq:andrade} so um, dass auf beiden Seiten der Logarithmus gezogen wird, ergibt sich
