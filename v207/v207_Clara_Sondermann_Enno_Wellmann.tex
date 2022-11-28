@@ -137,6 +137,8 @@ Für jede Temperatur wurden je zwei Werte für oben und unten aufgenommen und es
 Hierbei war zu beachten, dass sich erst die gewünschte Temperatur im Fallrohr einstellte, bevor man für die höhere Temperatur gemessen hat, 
 um Messunsicherheiten zu vermeiden. Die Wartezeit betrug häufig ca. 3-5 Minuten. Maximal sollte eine Temperatur von 50°C erreicht werden.
 
+
+
 \section{Messdaten}
 \subsection[]{Kenngrößen der Kugeln}
 %Durchmesser kleine Kugel: $ d_k = \qty{15.61 \pm 0.01}{\mm}$\\
@@ -195,30 +197,29 @@ Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
     \end{tabular}
 \end{table}
 
-Für die kleine Kugel ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} also für die Fallzeit ein arithmetisches Mittel von 
+Für die kleine Kugel oben ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} also für die Fallzeit ein arithmetisches Mittel von 
 \begin{align*}
-    \overline{t}_{oben} = \frac{1}{10} \sum_{k=1}^{10} {t_{oben, k}} = \qty[]{12.324}{s}
+    \overline{t}_{oben} = \frac{1}{10} \sum_{k=1}^{10} {t_{oben, k}} = \qty[]{12.324}{\s}
 \end{align*}
 mit einer Standardabweichung von 
 \begin{align*}
     \Delta \overline{t}_{oben} = 
     \sqrt[]{\frac{1}{N \left(N-1\right)} \sum_{k=1}^{10} \left(t_{oben, k} - \overline{t}_{oben}\right)^2}
-    = WERT BERECHNEN.
+    = \qty[]{0.155}{\s}.
 \end{align*}
 
 Analog folgt für unten eine Fallzeit von der Mittelwert
 \begin{align*}
-    \overline{t}_{unten} = \qty[]{12.248}{s}
+    \overline{t}_{unten} = \qty[]{12.248}{\s}
 \end{align*}
 und die Standardabweichung
-
+\begin{align*}
+    \overline{t}_{unten} = \qty[]{0.18405}{\s}.
+\end{align*}
 
 %Durchschnittszeiten kleine Kugel:
-%oben: 12.32400
-%unten: 12.24800
-%Durchschnittszeiten grosse Kugel:
-%oben: 35.02400
-%unten: 35.60000
+%oben: 12.32400 mit Fehler:  0.15500
+%unten: 12.24800 mit Fehler:  0.18405
 
 Für die kleine Kugel beträgt nach \cite*[]{va207} die Apparaturkonstante $K_{kl} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
 Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität 
@@ -245,7 +246,9 @@ Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität
 
     \end{tabular}
 \end{table}
-
+ %Durchschnittszeiten gross Kugel:
+%oben: 35.02400 mit Fehler:  0.29574
+%unten: 35.60000 mit Fehler:  0.75913
 
 \subsection[]{Messreihe 3: große Kugel, steigende Temperatur}
 
@@ -269,17 +272,7 @@ Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität
             32 & 27.63 &  27.96 &  48 & 20.57 &  21.00 \\
                & 28.10 &  28.10 &     & 20.32 &  20.78 \\
             35 & 25.82 &  25.81 &  52 & 19.65 &  19.09 \\
-               & 25.68 &  26.16 &     & 19.46 &  19.16 \\
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+               & 25.68 &  26.16 &     & 19.46 &  19.16 \\   
         \bottomrule
 
     \end{tabular}
