@@ -142,18 +142,9 @@ um Messunsicherheiten zu vermeiden. Die Wartezeit betrug häufig ca. 3-5 Minuten
 
 \section{Messdaten}
 \subsection{Kenngrößen der Kugeln}
-%Durchmesser kleine Kugel: $ d_k = \qty{15.61 \pm 0.01}{\mm}$\\
-%Masse kleine Kugel (gegeben): $ m_k = \qty{4.4531}{\g}$\\
-%Dichte kleine Kugel: $ \rho  = \left(\frac{4}{3}\Pi \left(\frac{d}{2}\right)^{3}\right)^{-1} m = \qty{2.2359e-3}{\g\per\mm}$\\
-%Durchmesser große Kugel: $ d_g = \qty{15.78 \pm 0.01}{\mm}$\\
-%Masse große Kugel (gegeben): $ m_g = \qty{4.9528}{\g}$
 
 Anfangs wurden die relevanten Kenngrößen der Kugeln bestimmt.
-Die Massen waren vorgegeben.
-Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volumen
-$V=\frac{4 \pi}{3} \left(\frac{d}{2}\right)^3$ und $\rho = \frac{m}{V}$.
-Die Rechnung für die Fehlerfortpflanzung wird im Kapitel Auswertung noch einmal
-ausführlicher behandelt.
+Die Massen sind vorgegeben.
 Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
 
 \begin{table}[h!]
@@ -162,7 +153,7 @@ Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
     \centering
     \begin{tabular}[]{S S[table-format=1.4] S[table-format=2.2] @{${}\pm{}$} S[table-format=0.2] S[table-format=1.4]}
         \toprule
-        {Kugel} & {$m / \unit{\kg}$} & \multicolumn{2}{c}{$d / \unit{\mm}$}  & {$\rho / \left( \unit{\mg \per \cubic\mm}\right)$} \\
+        {Kugel} & {$m / \unit{\kg}$} & \multicolumn{2}{c}{$d / \unit{\mm}$}   \\
         \midrule
         {klein} & 4.4531 & 15.61 & 0.01 & 2.2359 \\
         {groß}  & 2.9528 & 15.78 & 0.01 & 2.4073 \\
@@ -227,9 +218,6 @@ Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
 
     \end{tabular}
 \end{table}
-%Durchschnittszeiten grosse Kugel:
-%oben: 35.02400 mit Fehler:  0.29574
-%unten: 35.60000 mit Fehler:  0.75913
 
 \subsection{Messreihe 3: große Kugel, steigende Temperatur}
 
@@ -261,6 +249,39 @@ Die Zimmertemperatur betrug stets $T_{Zt}=\qty[]{19}{\degreeCelsius}$.
 
 \section{Auswertung}
 
+\subsection{Dichte der Glaskugeln}
+
+Die Standard-Messunsicherheit der Schieblehre wird mit \qty{0.01}{\mm} angegeben.
+Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volumen
+$V=\frac{4 \pi}{3} \left(\frac{d}{2}\right)^3$ und $\rho = \frac{m}{V}$.
+Die Messunsicherheiten werden mithilfe der gaußschen Fehlerfortpflanzung berechnet.G
+Es gilt:
+\begin{align*}
+    \rho &= \frac{m}{V} = \frac{3 m}{4 \pi} \left(  \frac{2}{d} \right)^{3} = \frac{6 m}{\pi} d^{-3} \\%
+    \frac{\partial \rho}{\partial d} &= -\frac{18 m}{\pi} d^{-4}  \\%
+    %
+    \intertext{Da für die Masse keine Standardabweichung gegeben ist,%
+     erhält die Gaußsche Fehlerfortpflanzung nur ein Argument}%
+    \Delta \rho &= \sqrt{\left(\frac{\partial \rho}{\partial d} \right)^{2} \Delta d^{2} }%
+    =\sqrt{\left(-\frac{18 m}{\pi} d^{-4} \right)^{2}} \Delta d \\%
+\end{align*}%
+%
+Einsetzen der Unsicherheiten und der gemessen Werte aus \ref{tab:kenngroessen} ergibt:
+
+\begin{table}[h!]
+    \caption{}
+    \label{tab:Dichten}
+    \centering
+    \begin{tabular}[]{S S[table-format=1.4] S[table-format=2.2] @{${}\pm{}$} S[table-format=0.2] S[table-format=1.4] @{${}\pm{}$} S[table-format=0.2]}
+        \toprule
+        {Kugel} & {$m / \unit{\kg}$} & \multicolumn{2}{c}{$d / \unit{\mm}$}  & {$\rho / \left( \unit{\mg \per \cubic\mm}\right)$} \\
+        \midrule
+        {klein} & 4.4531 & 15.61 & 0.01 & 2.2359 \\
+        {groß}  & 2.9528 & 15.78 & 0.01 & 2.4073 \\
+        \bottomrule 
+
+    \end{tabular}
+\end{table}
 \subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
 
 Für die kleine Kugel oben ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} 
@@ -286,6 +307,16 @@ also für die Fallzeit ein arithmetisches Mittel von
 %Durchschnittszeiten kleine Kugel:
 %oben: 12.32400 mit Fehler:  0.15500
 %unten: 12.24800 mit Fehler:  0.18405
+
+%Durchschnittszeiten grosse Kugel:
+%oben: 35.02400 mit Fehler:  0.29574
+%unten: 35.60000 mit Fehler:  0.75913
+
+%Durchmesser kleine Kugel: $ d_k = \qty{15.61 \pm 0.01}{\mm}$\\
+%Masse kleine Kugel (gegeben): $ m_k = \qty{4.4531}{\g}$\\
+%Dichte kleine Kugel: $ \rho  = \left(\frac{4}{3}\Pi \left(\frac{d}{2}\right)^{3}\right)^{-1} m = \qty{2.2359e-3}{\g\per\mm}$\\
+%Durchmesser große Kugel: $ d_g = \qty{15.78 \pm 0.01}{\mm}$\\
+%Masse große Kugel (gegeben): $ m_g = \qty{4.9528}{\g}$
 
 Für die kleine Kugel beträgt nach \cite*[]{va207} die Apparaturkonstante $K_{kl} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
 Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität 
