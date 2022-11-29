@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from uncertainties import ufloat
 import uncertainties.unumpy as unp
+import scipy as scp
 
 temp, t_oben, t_unten = np.genfromtxt("Messdaten_grKu_steigendeTemp.txt", unpack=True)
 n=10
@@ -88,20 +89,48 @@ print(single_temp[6], eta(K_gr_unten,rho_gr_Kugel ,dichten[40] ,unc_t_unten[6]),
 print(single_temp[7], eta(K_gr_unten,rho_gr_Kugel ,dichten[45] ,unc_t_unten[7]),dichten[45])
 print(single_temp[8], eta(K_gr_unten,rho_gr_Kugel ,dichten[50] ,unc_t_unten[8]),dichten[50])
 print(single_temp[9], eta(K_gr_unten,rho_gr_Kugel ,dichten[50] ,unc_t_unten[9]),dichten[50])
-#print(dichten[26])
-#print(dichten[27])
-#print(dichten[30])
-#print(dichten[30])
-#print(dichten[35])
-#print(dichten[40])
-#print(dichten[40])
-#print(dichten[45])
-#print(dichten[50])
-#print(dichten[50])
+
+Mittel_eta= np.zeros(n)
+Fehler_eta= np.zeros(n)
+Mittel_eta[0] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[26] ,unc_t_unten[0]))
+Mittel_eta[1] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[27] ,unc_t_unten[1]))
+Mittel_eta[2] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[30] ,unc_t_unten[2]))
+Mittel_eta[3] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[30] ,unc_t_unten[3]))
+Mittel_eta[4] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[35] ,unc_t_unten[4]))
+Mittel_eta[5] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[40] ,unc_t_unten[5]))
+Mittel_eta[6] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[40] ,unc_t_unten[6]))
+Mittel_eta[7] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[45] ,unc_t_unten[7]))
+Mittel_eta[8] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[50] ,unc_t_unten[8]))
+Mittel_eta[9] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[50] ,unc_t_unten[9]))
 
 
-#for Wert in eta_Werte_oben:
-#    print(Wert)
+Fehler_eta[0] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[26] ,unc_t_unten[0]))
+Fehler_eta[1] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[27] ,unc_t_unten[1]))
+Fehler_eta[2] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[30] ,unc_t_unten[2]))
+Fehler_eta[3] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[30] ,unc_t_unten[3]))
+Fehler_eta[4] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[35] ,unc_t_unten[4]))
+Fehler_eta[5] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[40] ,unc_t_unten[5]))
+Fehler_eta[6] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[40] ,unc_t_unten[6]))
+Fehler_eta[7] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[45] ,unc_t_unten[7]))
+Fehler_eta[8] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[50] ,unc_t_unten[8]))
+Fehler_eta[9] = unp.nominal_values(eta(K_gr_unten,rho_gr_Kugel ,dichten[50] ,unc_t_unten[9]))
+
+#Mittel_eta_ln = np.ln(Mittel_eta) 
+
+x_plot = np.linspace(single_temp[0], single_temp[9])
+
+
+
+#plt.yscale('log')
+plt.errorbar(single_temp, Mittel_eta, yerr=Fehler_eta ,fmt='o', label="Viskositäten")
+plt.xlabel("$T/ \\unit{{\\celsius}}$")
+plt.ylabel("$ \\eta / \\unit{\milli\Pa\s}")
+
+
+plt.savefig("build/plot.pdf")
+
+
+
 #Messreihe 1:
 #Durchschnittszeiten kleine Kugel:
 #oben: 12.32400 mit Fehler:  0.15500
