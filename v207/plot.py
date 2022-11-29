@@ -43,6 +43,7 @@ unc_t_unten = unp.uarray(artm_t_unten, sdev_t_unten)
 #plt.xlabel("T / \\unit{{\\celsius}}")
 #plt.savefig("build/Messreihe3.pdf")
 
+###  Berechnungen eta nach Temperatur und Plot dafür ###
 
 rho_temp, rho_Wasser = np.genfromtxt('Geschke_Wasserdichte.txt',unpack = True, dtype=None)
 print('rho_temp',rho_temp)
@@ -50,7 +51,7 @@ print('rho_Wasser',rho_Wasser)
 
 dichten = dict()
 for index in range(len(rho_temp)):
-    dichten[rho_temp[index]]= rho_Wasser[index] 
+    dichten[rho_temp[index]]= rho_Wasser[index]
 
 print(dichten)
 
@@ -58,6 +59,49 @@ def eta(K, rho_Kugel, rho_Wasser, t):
     return K * (rho_Kugel - rho_Wasser) * t
 
 
+rho_gr_Kugel = ufloat(2.407 ,0.005)
+K_gr_oben = ufloat(0.0236 , 0.0004)
+K_gr_unten = ufloat(0.0231, 0.0006)
+
+
+
+print("Viskosität nach Temperatur oben:" )
+print(single_temp[0], eta(K_gr_oben,rho_gr_Kugel ,dichten[26] ,unc_t_oben[0]))
+print(single_temp[1], eta(K_gr_oben,rho_gr_Kugel ,dichten[27] ,unc_t_oben[1]))
+print(single_temp[2], eta(K_gr_oben,rho_gr_Kugel ,dichten[30] ,unc_t_oben[2]))
+print(single_temp[3], eta(K_gr_oben,rho_gr_Kugel ,dichten[30] ,unc_t_oben[3]))
+print(single_temp[4], eta(K_gr_oben,rho_gr_Kugel ,dichten[35] ,unc_t_oben[4]))
+print(single_temp[5], eta(K_gr_oben,rho_gr_Kugel ,dichten[40] ,unc_t_oben[5]))
+print(single_temp[6], eta(K_gr_oben,rho_gr_Kugel ,dichten[40] ,unc_t_oben[6]))
+print(single_temp[7], eta(K_gr_oben,rho_gr_Kugel ,dichten[45] ,unc_t_oben[7]))
+print(single_temp[8], eta(K_gr_oben,rho_gr_Kugel ,dichten[50] ,unc_t_oben[8]))
+print(single_temp[9], eta(K_gr_oben,rho_gr_Kugel ,dichten[50] ,unc_t_oben[9]))
+
+print("Viskosität nach Temperatur unten:" )
+print(single_temp[0], eta(K_gr_unten,rho_gr_Kugel ,dichten[26] ,unc_t_unten[0]),dichten[26])
+print(single_temp[1], eta(K_gr_unten,rho_gr_Kugel ,dichten[27] ,unc_t_unten[1]),dichten[27])
+print(single_temp[2], eta(K_gr_unten,rho_gr_Kugel ,dichten[30] ,unc_t_unten[2]),dichten[30])
+print(single_temp[3], eta(K_gr_unten,rho_gr_Kugel ,dichten[30] ,unc_t_unten[3]),dichten[30])
+print(single_temp[4], eta(K_gr_unten,rho_gr_Kugel ,dichten[35] ,unc_t_unten[4]),dichten[35])
+print(single_temp[5], eta(K_gr_unten,rho_gr_Kugel ,dichten[40] ,unc_t_unten[5]),dichten[40])
+print(single_temp[6], eta(K_gr_unten,rho_gr_Kugel ,dichten[40] ,unc_t_unten[6]),dichten[40])
+print(single_temp[7], eta(K_gr_unten,rho_gr_Kugel ,dichten[45] ,unc_t_unten[7]),dichten[45])
+print(single_temp[8], eta(K_gr_unten,rho_gr_Kugel ,dichten[50] ,unc_t_unten[8]),dichten[50])
+print(single_temp[9], eta(K_gr_unten,rho_gr_Kugel ,dichten[50] ,unc_t_unten[9]),dichten[50])
+#print(dichten[26])
+#print(dichten[27])
+#print(dichten[30])
+#print(dichten[30])
+#print(dichten[35])
+#print(dichten[40])
+#print(dichten[40])
+#print(dichten[45])
+#print(dichten[50])
+#print(dichten[50])
+
+
+#for Wert in eta_Werte_oben:
+#    print(Wert)
 #Messreihe 1:
 #Durchschnittszeiten kleine Kugel:
 #oben: 12.32400 mit Fehler:  0.15500
@@ -66,11 +110,16 @@ def eta(K, rho_Kugel, rho_Wasser, t):
 #Durchschnittszeiten grosse Kugel:
 #oben: 35.02400 mit Fehler:  0.29574
 #unten: 35.60000 mit Fehler:  0.75913
+#eta klein oben:  0.001165+/-0.000015
+#eta klein unten:  0.001158+/-0.000018
+#K oben und gross:  (2.36+/-0.04)e-05
+#K unten und gross:  (2.31+/-0.06)e-05
 #Reynold:
 #Geschwindigkeit klein oben:  0.811+/-0.010
 #Geschwindigkeit klein unten:  0.816+/-0.012
 #Geschwindigkeit gross oben:  0.1428+/-0.0012
 #Geschwindigkeit gross unten:  0.1404+/-0.0030
-#eta empirisch klein:  0.001152+/-0.000018
-#K oben und gross:  (2.33+/-0.04)e-05
-#K unten und gross:  (2.30+/-0.06)e-05
+#rey klein oben:  549+/-14
+#rey klein unten:  555+/-17
+#rey gross oben:  96.5+/-1.5
+#rey gross unten:  95.5+/-2.5

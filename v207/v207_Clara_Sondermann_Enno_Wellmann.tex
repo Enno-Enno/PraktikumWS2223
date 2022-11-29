@@ -320,7 +320,7 @@ Für die große Kugel erhält man ganz analog zu \ref{sec:auswertung_mr1} für o
 bzw. für unten $t_{\text{gr,unten}} = \left(35.600 \pm 0.759\right) \, \unit{\s}$.
 
 Zusammen mit den zuvor bestimmten Viskositäten bei Zimmertemperatur $\eta_{\text{kl, oben}}$ und $\eta_{\text{kl, unten}}$ ergibt sich dann eine Apparaturkonstante von
-$K_{\text{gr, oben}} = \left(0.0236 \pm 0.0004 \right) \unit{\milli\Pa \cubic\cm}$ für oben bzw.
+$K_{\text{gr, oben}} = \left(0.0236 \pm 0.0004 \right) \unit{\milli\Pa \cubic\cm\per\g}$ für oben bzw.
 $K_{\text{gr, unten}} = \left(0.0231 \pm 0.0006 \right) \unit{\milli\Pa \cubic\cm}$ für unten.
 
 %K oben und gross:  (2.36+/-0.04)e-05
@@ -328,7 +328,33 @@ $K_{\text{gr, unten}} = \left(0.0231 \pm 0.0006 \right) \unit{\milli\Pa \cubic\c
 
 
 
-\subsection[]{Überprüfung der Andradeschen Gleichung}
+\subsection[]{Messreihe 3: Überprüfung der Andradeschen Gleichung}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/Messreihe3.pdf}
+    \caption{Die Fallzeit nach \ref{tab:grKu_steigendeTemp}.}
+    \label{fig:groKu_steigendeTemp}
+\end{figure}
+
+\begin{table}
+    \centering
+    \sisetup{table-format=1.2}
+    \begin{tabular}[]{S[table-format=2.0] S[table-format=0.5] S @{${}\pm{}$} S[table-format=1.3] S @{${}\pm{}$} S[table-format=1.3]}
+        \toprule
+        {$T /\unit{\celsius}$} & {$\rho_{\text{Wasser}}$ \cite{geschke}} & \multicolumn{2}{c}{$ \eta / \unit{\milli\Pa\s}$} & \multicolumn{2}{c}{$ \eta / \unit{\milli\Pa\s}$} \\
+            26  &  0.99679   & 1.03  & 0.021 &        1.02 & 0.027  \\
+            27  &  0.99652   & 1.01  & 0.018 &        1.01 & 0.026  \\
+            30  &  0.99565   & 0.96  & 0.017 &        0.95 & 0.026  \\
+            32  &  0.99565   & 0.93  & 0.028 &        0.91 & 0.028  \\
+            35  &  0.994     & 0.86  & 0.015 &        0.85 & 0.030  \\
+            38  &  0.9922    & 0.83  & 0.025 &        0.81 & 0.023  \\
+            40  &  0.9922    & 0.79  & 0.016 &        0.77 & 0.020  \\
+            43  &  0.9902    & 0.75  & 0.04  &        0.73 & 0.04   \\
+            48  &  0.988     & 0.69  & 0.012 &        0.69 & 0.019  \\
+            52  &  0.988     & 0.66  & 0.020 &        0.63 & 0.028  \\
+    \end{tabular}
+    \caption{Die }
+\end{table}
 Formt man die Andradesche Gleichung \eqref{eq:andrade} so um, dass auf beiden Seiten der Logarithmus gezogen wird, ergibt sich
 
 \begin{align}
