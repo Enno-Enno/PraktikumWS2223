@@ -1,6 +1,6 @@
 all: build/v206_Clara_Sondermann_Enno_Wellmann.pdf
 	
-build/v206_Clara_Sondermann_Enno_Wellmann.pdf: v206_Clara_Sondermann_Enno_Wellmann.tex FORCE | build
+build/v206_Clara_Sondermann_Enno_Wellmann.pdf: v206_Clara_Sondermann_Enno_Wellmann.tex FORCE build/plot_temp_verlauf.pdf | build
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
 	max_print_line=1048576 \
@@ -11,6 +11,8 @@ build/v206_Clara_Sondermann_Enno_Wellmann.pdf: v206_Clara_Sondermann_Enno_Wellma
 	  --halt-on-error \
 	  $<
 	
+build/plot_temp_verlauf.pdf: plot_temp_verlauf.py ../matplotlibrc ../header-matplotlib.tex messdaten.txt| build
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python plot_temp_verlauf.py
 	
 
 build:
