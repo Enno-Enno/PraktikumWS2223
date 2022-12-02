@@ -1,9 +1,16 @@
+\section{Messdaten}
+Die gemessenen Daten sind in Tabelle \ref{tab:messdaten} einzusehen. 
+$t$ steht dabei für die Zeit, $T_\text{k}$ und $p_\text{k}$ geben jeweils die Temperatur und den Druck im kalten Reservoir an.
+Analog geben $T_\text{k}$ und $p_\text{k}$ Temperatur und Druck des warmen Reservoirs an. 
+$P$ gibt die elektrische Leistung an.
+
 \begin{table}
     \centering
     \sisetup{table-format=2.1}
     \begin{tabular}[]{S[table-format=2.0] S S[table-format=1.1] S S S[table-format=3.0]}
         \toprule
-        {$t / \unit[]{\minute}$} & {$T_k / \unit[]{\degreeCelsius}$} & {$p_k / \unit[]{\bar}$} & {$T_w / \unit[]{\degreeCelsius}$} & {$p_w / \unit[]{\bar}$} & {$P / \unit[]{\watt}$} \\
+        {$t / \unit[]{\minute}$} & {$T_\text{k} / \unit[]{\degreeCelsius}$} & {$p_\text{k} / \unit[]{\bar}$} & {$T_\text{w} / \unit[]{\degreeCelsius}$} & {$p_\text{w} / \unit[]{\bar}$} & {$P / \unit[]{\watt}$} \\
+        \midrule
         0 & 21.2  &  4.8 & 20.9  &   4.2  &  0   \\  
         1 & 21.0  &  4.0 & 21.9  &   6.0  &  115 \\
         2 & 19.8  &  4.4 & 23.6  &   6.4  &  120 \\
@@ -30,7 +37,8 @@
        23 &  0.8  &  2.8 & 46.4  &  11.5  &  115 \\
        24 &  0.3  &  2.8 & 47.1  &  11.8  &  113 \\
        25 & -0.3  &  2.8 & 47.7  &  12.0  &  112 \\
+    \bottomrule
     \end{tabular}
-    \label{tab:messdaten}
     \caption[]{Die erfassten Messdaten des Versuchs}
+    \label{tab:messdaten}
 \end{table}
