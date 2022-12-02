@@ -1,5 +1,34 @@
 \section{Auswertung}
 
+\subsection{Temperaturverläufe}
+Plottet man die Temperaturverläufe der beiden Reservoire in Abhängigkeit von der Zeit ergibt sich Abbildung \ref{fig:temperaturverlauf}.
+
 \begin{figure}
     \includegraphics[]{build/plot_temp_verlauf.pdf}
+    \caption[]{Zeitabhängige Temperaturverläufe beider Reservoire}
+    \label{fig:temperaturverlauf}
 \end{figure}
+
+Um die Ausgleichskurve zu approximieren, sind folgende Funktionen möglich:
+\begin{align}
+    T \left(t\right) &= A t^2 + B t + C \label{eq:ausgleichsfunktion_1} \\
+    T \left(t\right) &= \frac{A}{1 + B t^{\alpha}} \label{eq:ausgleichsfunktion_2} \\
+    T \left(t\right) &= \frac{A t^{\alpha}}{1 + B t^{\alpha}} + C \label{eq:ausgleichsfunktion_3}
+\end{align}
+Hierbei sind $A$, $B$, $C$ und $\alpha$ die zu bestimmenden Parameter, wobei $1 \leq \alpha \leq 2$ gelten soll.
+\begin{figure}
+    \includegraphics[]{build/plot_ausgleich_1.pdf}
+    \caption[]{Ausgleichskurve zu Funktion \eqref{eq:ausgleichsfunktion_1}}
+    \label{fig:ausgleichsplot_1}
+\end{figure}
+\begin{figure}
+    \includegraphics[]{build/plot_ausgleich_2.pdf}
+    \caption[]{Ausgleichskurve zu Funktion \eqref{eq:ausgleichsfunktion_2}}
+    \label{fig:ausgleichsplot_2}
+\end{figure}
+\begin{figure}
+    \includegraphics[]{build/plot_ausgleich_3.pdf}
+    \caption[]{Ausgleichskurve zu Funktion \eqref{eq:ausgleichsfunktion_3}}
+    \label{fig:ausgleichsplot_3}
+\end{figure}
+In Abbildung \ref{fig:ausgleichsplot_1} %... bewertung der ausgleichungen
