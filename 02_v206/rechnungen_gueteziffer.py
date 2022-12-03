@@ -13,11 +13,11 @@ for i, zeit in enumerate(gew_zeiten):
     j=0
     while j <= zeit:
         n[i] += leistung[j]
-        print("n_",i,"=", n[i])
+        #print("additon: n_",i,"=", n[i])
         j += 1
 
 for i, value in enumerate(n):
-    n[i] =1/gew_zeiten[i] * n[i]
+    n[i] =1/(gew_zeiten[i]) * n[i]
     print("n_",i," = ", n[i])
 #n_ 0  =  120.0
 #n_ 1  =  122.66666666666666
@@ -43,8 +43,8 @@ def dif_quot(t, a, b, c, alpha) :
 dq_k = np.zeros(4)
 print("kaltes Reservoir:")
 for i, time in enumerate(gew_zeiten):
-    dq_k = dif_quot(time, a_k, b_k, c_k, alpha_k)
-    print("dif_quot_",i,"=",dq_k)
+    dq_k[i] = dif_quot(time, a_k, b_k, c_k, alpha_k)
+    print("dif_quot_",i,"=",dq_k[i])
 #kaltes Reservoir:
 #dif_quot_ 0 = -1.1647318214013536
 #dif_quot_ 1 = -1.0159747306020086
@@ -54,13 +54,28 @@ for i, time in enumerate(gew_zeiten):
 dq_w = np.zeros(4)
 print("warmes Reservoir:")
 for i, time in enumerate(gew_zeiten):
-    dq_w = dif_quot(time, a_w, b_w, c_w, alpha_w)
-    print("dif_quot_",i,"=", dq_w)
-#warmes Reservoir:
+    dq_w[i] = dif_quot(time, a_w, b_w, c_w, alpha_w)
+    print("dif_quot_",i,"=", dq_w[i])
+##warmes Reservoir:
 #dif_quot_ 0 = 1.4993024753884312
 #dif_quot_ 1 = 1.2686377956376398
 #dif_quot_ 2 = 0.9584928863838236
 #dif_quot_ 3 = 0.7224878918480877
 
 
-#weiter mit q1/t...
+#weiter mit q1/t... t_1 wntspricht t_w
+
+for i, quot in enumerate(dq_w): 
+    dq_w[i] += 0 #237.15
+    print(dq_w[i])
+
+m1_cw = 3 * 4190
+mk_ck = 750
+
+factor = m1_cw + mk_ck
+
+qdt_1 = np.zeros(4)
+
+for i, value in enumerate(dq_w):
+    qdt_1[i] = factor * value
+print("dQ/dt= ", qdt_1)
