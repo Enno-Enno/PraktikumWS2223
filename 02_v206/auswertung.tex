@@ -16,6 +16,8 @@ Um die Ausgleichskurve zu approximieren, sind folgende Funktionen möglich:
     T \left(t\right) &= \frac{A t^{\alpha}}{1 + B t^{\alpha}} + C \label{eq:ausgleichsfunktion_3}
 \end{align}
 Hierbei sind $A$, $B$, $C$ und $\alpha$ die zu bestimmenden Parameter, wobei $1 \leq \alpha \leq 2$ gelten soll.
+Mit Hilfe der Python \cite[]{python} Funktion \texttt{curve\_fit} aus dem Paket \texttt{scipy.optimize} 
+\cite[]{scipy} lassen sich die nicht-linearen Ausgleichsrechnungen durchführen.
 \begin{figure}
     \includegraphics[]{build/plot_ausgleich_1.pdf}
     \caption[]{Ausgleichskurve zu Funktion \eqref{eq:ausgleichsfunktion_1}}
@@ -31,4 +33,10 @@ Hierbei sind $A$, $B$, $C$ und $\alpha$ die zu bestimmenden Parameter, wobei $1 
     \caption[]{Ausgleichskurve zu Funktion \eqref{eq:ausgleichsfunktion_3}}
     \label{fig:ausgleichsplot_3}
 \end{figure}
-In Abbildung \ref{fig:ausgleichsplot_1} %... bewertung der ausgleichungen
+Vergleicht man die Plots \ref{fig:ausgleichsplot_1},\ref{fig:ausgleichsplot_2} und \ref{fig:ausgleichsplot_3} mit einander,
+erkennt man unmittelbar, dass die Approximation \eqref{eq:ausgleichsfunktion_2} insgesamt am ungenausten ist.
+\eqref{eq:ausgleichsfunktion_1} und \eqref{eq:ausgleichsfunktion_3} erscheinen zunächst in etwa den gleichen Exaktheitsgrad zu haben.
+Im Folgenden wird mit \eqref{eq:ausgleichsfunktion_3} weiter gerechnet, da diese besonders für kleine Zeiten näher an den eigentlichen Messdaten liegt
+als \eqref{eq:ausgleichsfunktion_1}.
+
+%wollen wir damit weiter rechnen?

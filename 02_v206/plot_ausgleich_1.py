@@ -18,6 +18,15 @@ print("Funktion 1 für warm:")
 for name, value in zip('abc', params_w):
     print(f"{name} = {value:8.8f}")
 
+#Funktion 1 für kalt:
+#a = 0.01497863
+#b = -1.26058547
+#c = 21.86282051
+#Funktion 1 für warm:
+#a = -0.02154457
+#b = 1.62675092
+#c = 20.42844933
+
 x=np.linspace(0, 25, 1000)
 plt.plot(t, temp_k, "x", label="$T_{{\\text{k}}}$")
 plt.plot(t, temp_w, "x", label="$T_{{\\text{w}}}$")
@@ -27,12 +36,3 @@ plt.legend()
 plt.xlabel("$t / \\unit{{\\minute}}$")
 plt.ylabel("$T/ \\unit{{\\celsius}}$")
 plt.savefig("build/plot_ausgleich_1.pdf")
-
-#Funktion 1 für kalt:
-#a = 0.01497863
-#b = -1.26058547
-#c = 21.86282051
-#Funktion 1 für warm:
-#a = -0.02154457
-#b = 1.62675092
-#c = 20.42844933
