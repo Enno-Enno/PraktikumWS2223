@@ -6,7 +6,7 @@ t, temp_k, durck_k, temp_w, durck_w, leistung = np.genfromtxt("messdaten.txt", u
 
 for i,value in enumerate(temp_k):
     temp_k[i] += 273.15
-print(temp_k)
+    temp_w[i] += 273.15
 
 def function_3(t, a, b, c, alpha) :
     return ((a*t**alpha)/(1 + b*t**alpha) + c)
@@ -33,12 +33,12 @@ print("Funktion 3 für warm:")
 for name, value in zip('abcp', params_w):
     print(f"{name} = {value:8.8f}")
 
-#x=np.linspace(0, 25, 1000)
-#plt.plot(t, temp_k, "x", label="$T_{{\\text{k}}}$")
-#plt.plot(t, temp_w, "x", label="$T_{{\\text{w}}}$")
-#plt.plot(x, function_3(x, *params_k), "-", label = "Funktion 3 für $T_{{\\text{k}}}$")
-#plt.plot(x, function_3(x, *params_w), "-", label = "Funktion 3 für $T_{{\\text{w}}}$")
-#plt.legend()
-#plt.xlabel("$t / \\unit{{\\minute}}$")
-#plt.ylabel("$T/ \\unit{{\\celsius}}$ test")
-#plt.savefig("build/plot_ausgleich_3.pdf")
+x=np.linspace(0, 25, 1000)
+plt.plot(t, temp_k, "x", label="$T_{{\\text{k}}}$")
+plt.plot(t, temp_w, "x", label="$T_{{\\text{w}}}$")
+plt.plot(x, function_3(x, *params_k), "-", label = "Funktion 3 für $T_{{\\text{k}}}$")
+plt.plot(x, function_3(x, *params_w), "-", label = "Funktion 3 für $T_{{\\text{w}}}$")
+plt.legend()
+plt.xlabel("$t / \\unit{{\\minute}}$")
+plt.ylabel("$T/ \\unit{{\\celsius}}$ test")
+plt.savefig("test.pdf")

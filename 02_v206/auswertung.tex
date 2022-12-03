@@ -47,18 +47,29 @@ Mit Hilfe der Python \cite[]{python} Funktion \texttt{curve\_fit} aus dem Paket 
     \label{fig:ausgleichsplot_3}
 \end{figure}
 Vergleicht man die Plots \ref{fig:ausgleichsplot_1},\ref{fig:ausgleichsplot_2} und \ref{fig:ausgleichsplot_3} mit einander,
-erkennt man unmittelbar, dass die Approximation \eqref{eq:ausgleichsfunktion_2} insgesamt am ungenausten ist.
+erkennt man unmittelbar, dass die Approximation \eqref{eq:ausgleichsfunktion_2} auch nach einstellen der Startparameter am ungenausten ist.
 \eqref{eq:ausgleichsfunktion_1} und \eqref{eq:ausgleichsfunktion_3} erscheinen zunächst in etwa den gleichen Exaktheitsgrad zu haben.
 Im Folgenden wird mit \eqref{eq:ausgleichsfunktion_3} weiter gerechnet, da diese besonders für kleine Zeiten näher an den eigentlichen Messdaten liegt
 als \eqref{eq:ausgleichsfunktion_1}.
 Die entsprechenden Parameter betragen dann für das kalte Reservoir
 \begin{align*}
-    A_{\text{k}} &= -0.91132029 & B_{\text{k}} &= 0.02042680 \\
-    C_{\text{k}} &= 21.51604450 & \alpha_{\text{k}} &= 1.19462353 \\
+    A_{\text{k}} &= -0.91131991 & B_{\text{k}} &= 0.02042679 \\
+    C_{\text{k}} &= 294.66604398 & \alpha_{\text{k}} &= 1.19462372 \\
     \intertext{und für das warme Reservoir}
-    A_{\text{w}} &= 1.13913878 & B_{\text{w}} &= 0.02290029 \\
-    C_{\text{w}} &= 20.89673747 & \alpha_{\text{w}} &= 1.22110022.
+    A_{\text{w}} &= 1.13913900 & B_{\text{w}} &= 0.02290029 \\
+    C_{\text{w}} &= 294.04673712 & \alpha_{\text{w}} &= 1.22110015.
 \end{align*}
+
+%#Funktion 3 für kalt:
+%#a = -0.91131991
+%#b = 0.02042679
+%#c = 294.66604398
+%#p = 1.19462372
+%#Funktion 3 für warm:
+%#a = 1.13913900
+%#b = 0.02290029
+%#c = 294.04673712
+%#p = 1.22110015
 
 
 \subsubsection[]{Bestimmung der Differentialquotienten}
@@ -82,18 +93,23 @@ Setzt man für beide Reservoire jeweils die obigen Parameter und entsprechenden 
 %
 
 \subsubsection[]{Berechnung der Güteziffer}
+Gemäß Formel \textbf{GLEICHUNG AUS THEORIE REFERENZIEREN SOBALD DIE DA IST} ergeben sich folgende ideale Güteziffern $\nu_\text{id}$
+\begin{align}
+    \nu_{\text{id}, 1} &= 45.9 & \nu_{\text{id}, 2} &=14.2 & \nu_{\text{id}, 3} &= 9.3 & \nu_{\text{id}, 4} &= 7.4
+\end{align}
+%nu ideal: [45.85384615 14.1875      9.29228487  7.39883721]
 Mit Hilfe der spezifischen Wärmekapazität von Wasser $c_{\text{w}} = \qty{4190}{\joule\per\kg\per\kelvin}$ \cite[]{leifi}, der gegebenen Wärmekapazität
 der Kupferspirale $m_{\text{K}} c_{\text{K}} = \qty{750}{\joule\per\kelvin}$ und der zuvor bestimmten Differentialquotienten
 ergibt sich bei einer Wassermenge von $\qty[]{3}{\liter}$ pro Behälter gemäß \textbf{GLEICHUNG AUS THEORIE REFERENZIEREN SOBALD DIE DA IST}
 \begin{align*}
-    \frac{\symup{d}Q_1}{\symup{d}t} =
+    \frac{\symup{d}Q_1}{\symup{d}t} = 
 \end{align*}
 %
 Des Weiteren wird für die Bestimmung von $\nu$ die gemittelte Leistungsaufnahme des Kompressors
 \begin{align*}
-    N = \frac{1}{n} \sum_{m=1}^{n} P_m.
+    N = \frac{1}{t_n} \sum_{m=1}^{t_n} P_m.
 \end{align*}
-nach der jeweiligen Zeit $t_n, \, n = 1 \dotsc 4$ benötigt.
+nach der jeweiligen Zeit $t_n, \, n = 1 \dotsc 4$ in Minuten benötigt.
 Man erhält
 \begin{align*}
     N_1  &=  120 &

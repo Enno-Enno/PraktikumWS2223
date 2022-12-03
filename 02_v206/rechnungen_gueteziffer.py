@@ -4,12 +4,24 @@ import matplotlib.pyplot as plt
 t, temp_k, durck_k, temp_w, durck_w, leistung = np.genfromtxt("messdaten.txt", unpack=True)
 
 gew_zeiten = [3, 9, 15, 21]
+warm_kelvin = np.zeros(4)
+kalt_kelvin = np.zeros(4)
+nu_ideal = np.zeros(4)
+
+for i, zeit in enumerate(gew_zeiten):
+    warm_kelvin[i] = 273.15 + temp_w[zeit]
+    kalt_kelvin[i] = 273.15 + temp_k[zeit]
+    nu_ideal[i] = warm_kelvin[i]/(warm_kelvin[i]-kalt_kelvin[i])
+
+print("nu ideal:", nu_ideal)
+#nu ideal: [45.85384615 14.1875      9.29228487  7.39883721]
+
 
 # bestimme N:
 n = np.zeros(4)
 
 for i, zeit in enumerate(gew_zeiten):
-    print("i = ", i)
+    #print("i = ", i)
     j=0
     while j <= zeit:
         n[i] += leistung[j]
