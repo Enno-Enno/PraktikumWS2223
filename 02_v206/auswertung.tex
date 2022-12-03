@@ -1,12 +1,14 @@
 \section{Auswertung}
 
-\subsection{Bestimmung der Güteziffer}
+\subsection{Die Güteziffer}
 Um die Güteziffer $\nu$ zu bestimmen, muss gemäß \textbf{GLEICHUNG AUS THEORIE REFERENZIEREN SOBALD DIE DA IST} zunächst
 die zeitliche Änderung des Temperaturverlaufs ermittelt werden.
 Dies geschieht, indem die die Messdaten der Temperaturen beider Reservoire aus Tabelle \ref{tab:messdaten} geplottet werden.
 Anschließend wird mit Hilfe einer nicht-linearen Ausgleichsrechnung eine Funktion $T \left(t\right)$ ermittelt, die den Verlauf 
 für das jeweilige Reservoir beschreiben soll.
 Diese Funktion wird nach der Zeit differenziert, sodass man $\nu$ für je vier unterschiedliche Temperaturen bestimmen kann.
+Für die vier Berechnungen der Güteziffer werden Tabelle \ref{tab:messdaten} jeweils die Temperaturen $T_{\text{k}}$ und $T_{\text{w}}$ nach 
+$t_1 = \qty[]{3}{\s}$, $t_2 = \qty[]{9}{\s}$, $t_3 = \qty[]{15}{\s}$ und $t_4 = \qty[]{21}{\s}$ entnommen.
 
 
 \subsubsection{Plot der Temperaturverläufe}
@@ -59,11 +61,43 @@ Die entsprechenden Parameter betragen dann für das kalte Reservoir
 \end{align*}
 
 
-\subsubsection[]{Bestimmung des Differentialquotienten}
-Differenziert man \eqref{eq:ausgleichsfunktion_3} nach der Zeit, ergibt sich 
-
+\subsubsection[]{Bestimmung der Differentialquotienten}
+Differenziert man \eqref{eq:ausgleichsfunktion_3} nach der Zeit, erhält man mittels Quotientenregel
 \begin{align*}
     \frac{\symup{d}T}{\symup{d}t} = \frac{\alpha A t^{\alpha -1}}{\left(1 + B t^{\alpha}\right)^2}.
 \end{align*}
 %\dv{T}{t} läuft nur mit paket physics und das mag weder qty noch biber
-Mit Hilfe der Wärmekapazität von Wasser $c_{\text{w}} = \qty{4190}{\joule\per\kg\per\kelvin}$ \cite{leifi}
+%
+Setzt man für beide Reservoire jeweils die obigen Parameter und entsprechenden Zeiten ein, erhält man 
+\begin{align*}
+    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_1\right) &= -1.1647318214013536 &
+    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_1\right) &= 1.4993024753884312  \\
+    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_2\right) &= -1.0159747306020086 &
+    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_2\right) &= 1.2686377956376398 \\
+    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_3\right) &= -0.7992238226522068 &
+    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_3\right) &= 0.9584928863838236 \\
+    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_4\right) &= -0.6243739226614388 &
+    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_4\right) &= 0.7224878918480877 
+\end{align*}
+%
+
+\subsubsection[]{Berechnung der Güteziffer}
+Mit Hilfe der spezifischen Wärmekapazität von Wasser $c_{\text{w}} = \qty{4190}{\joule\per\kg\per\kelvin}$ \cite[]{leifi}, der gegebenen Wärmekapazität
+der Kupferspirale $m_{\text{K}} c_{\text{K}} = \qty{750}{\joule\per\kelvin}$ und der zuvor bestimmten Differentialquotienten
+ergibt sich bei einer Wassermenge von $\qty[]{3}{\liter}$ pro Behälter gemäß \textbf{GLEICHUNG AUS THEORIE REFERENZIEREN SOBALD DIE DA IST}
+\begin{align*}
+    \frac{\symup{d}Q_1}{\symup{d}t} =
+\end{align*}
+%
+Des Weiteren wird für die Bestimmung von $\nu$ die gemittelte Leistungsaufnahme des Kompressors
+\begin{align*}
+    N = \frac{1}{n} \sum_{m=1}^{n} P_m.
+\end{align*}
+nach der jeweiligen Zeit $t_n, \, n = 1 \dotsc 4$ benötigt.
+Man erhält
+\begin{align*}
+    N_1  &=  120 &
+    N_2  &=  123 &
+    N_3  &=  123 &
+    N_4  &=  121
+\end{align*}
