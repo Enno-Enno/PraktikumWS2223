@@ -4,14 +4,9 @@
 Eine Wärmepumpe ist ein Gerät, welches die Wärmeenergie von einem Ort an einen anderen transportiert.
 Dazu macht sie sich den zweiten Hauptsatz der Thermodynamik zunutze, laut dem Wärmeenergie immer von einem 
 wärmeren zu einem kälteren Reservoir fließt \cite[vgl][S. 321]{demtroeder}. 
-Der Energie die einem der Reservoire hinzugefügt wird, heißt Wärmemenge $ Q = c m \Delta T $. % Drüber nachdenken, wie man das richtig ausdrückt
-$ c $ ist hier die spezifische Wärmekapazität des Materials $\Delta T $ die Anderung der Temperatur, 
-die bei unveränderlichem Druck diese 
-In diesem Versuch geht es darum die Güteziffer $ \nu $
-herauszufinden, die die Wärmepumpe beschreibt.
-\begin{align}
-    \nu = \frac{\Delta Q_{\text{transp}}}{A}
-\end{align}
+Der Energie die einem der Reservoire durch Änderung der tempereatur hinzugefügt wird,
+heißt Wärmemenge $ Q = c m \Delta T $. 
+$ c $ ist hier die spezifische Wärmekapazität des Materials, die im Allgemeinen von der Temperatur abhängen kann.
 Der erste Hauptsatz der Thermodynamik bringt die bewegte Wärmemenge mit der inneren Energie d.h. der gemittelten Temperatur
 der von aussen wirkenden Arbeit ins Verhältnis \cite[vgl][S. 318]{demtroeder}. 
 Die Wärmepumpe kann als ganzes System betrachtet werden. % Ünnötig finde einen besseren Satz dafür
@@ -22,7 +17,37 @@ Die Wärmepumpe kann als ganzes System betrachtet werden. % Ünnötig finde eine
     bliebt die innere Energie konstant $ \Delta U = 0 $ .} 
                 Q_{1}    &= A + Q_{2} % DIe Q_i hängen selber auch mit veränderungen in der Temperatur zusammen...
 \end{align}
+%
 Die Wärmepumpe muss also die Arbeit $\Delta W = A$ aufwenden um die Wärmeenergie aus Reservoir 2 in Reservoir 1 zu überführen.
+An den einzelnen Reservoirs wird keine Arbeit in Form von einer Druckänderung gewirkt, da der Luftdruck konstant ist.
 \begin{align}
-    \frac{Q_{1}}{}
+    \Delta W = - p \Delta V = 0 
+\end{align}
+Wenn man jetzt idealisierend annimmt, das in dem Prozess keine Wärme verloren geht, kann man den zweiten Hauptsatz der Thermodynamik
+verwenden um die Wärmemengen mit der abgegeben Temperatur in Verbindung zu setzen \cite[vgl.][S.1]{man:v206}. 
+Es gilt:
+\begin{align}
+    \int_{i} \frac{1}{T_{i}} dQ = 0 % Warum auch immer das aus dem zweiten Hauptsatz folgt
+\end{align}
+
+\begin{align*}
+\intertext{\textbf{Diese Formel folgt daraus, sie ergibt für mich keinen Sinn:}}
+    \frac{Q_{1}}{T_{1}} - \frac{Q_{2}}{T_{2}} &= c m \left(\frac{T_{0}}{T_{1}} - 1 \right) -c m \left(\frac{T_{0}}{T_{1}} - 1 \right) \\
+     &= c m T_{0} \left(\frac{1}{T_{1}} - \frac{1}{T_{1}}\right) = 0
+\end{align*}
+Wenn man diese beiden Formeln ineinander einsetzt erhält man für die Wärmemenge $Q_1$ folgende relation \cite{man:v206}: 
+\begin{align}
+    Q_1 &= A + \frac{T_2}{T_1}Q_1 \\
+    Q_1 &= A \frac{T_1}{T_1 - T_2}
+\end{align}
+
+\subsection{Die Güteziffer}
+Die Güteziffer $ \nu $ beschreibt das Verhältnis von Aufgewendeter Arbeit zu transportierter Wärme \cite[vgl.][S.1]{man:v206}
+Sie wird folgendermaßen berechnet.
+\begin{align}
+    \nu_{\text{ideal}} &= \frac{Q_{1}}{A} \\
+    &= \frac{T_1}{T_1 - T_2}\\
+    \label{eq:gueteTheorie}
+    \intertext{Da für $ Q_1 $ eine ideale Wärmeübertragung angenommen wurde ist die reale Güteziffer kleiner}
+    \nu_{\text{real}} &< \frac{Q_{1}}{A} 
 \end{align}
