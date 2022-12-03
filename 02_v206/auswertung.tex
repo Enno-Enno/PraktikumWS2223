@@ -1,6 +1,15 @@
 \section{Auswertung}
 
-\subsection{Temperaturverläufe}
+\subsection{Bestimmung der Güteziffer}
+Um die Güteziffer $\nu$ zu bestimmen, muss gemäß \textbf{GLEICHUNG AUS THEORIE REFERENZIEREN SOBALD DIE DA IST} zunächst
+die zeitliche Änderung des Temperaturverlaufs ermittelt werden.
+Dies geschieht, indem die die Messdaten der Temperaturen beider Reservoire aus Tabelle \ref{tab:messdaten} geplottet werden.
+Anschließend wird mit Hilfe einer nicht-linearen Ausgleichsrechnung eine Funktion $T \left(t\right)$ ermittelt, die den Verlauf 
+für das jeweilige Reservoir beschreiben soll.
+Diese Funktion wird nach der Zeit differenziert, sodass man $\nu$ für je vier unterschiedliche Temperaturen bestimmen kann.
+
+
+\subsubsection{Plot der Temperaturverläufe}
 Plottet man die Temperaturverläufe der beiden Reservoire in Abhängigkeit von der Zeit ergibt sich Abbildung \ref{fig:temperaturverlauf}.
 
 \begin{figure}
@@ -9,6 +18,8 @@ Plottet man die Temperaturverläufe der beiden Reservoire in Abhängigkeit von d
     \label{fig:temperaturverlauf}
 \end{figure}
 
+
+\subsubsection[]{Ermittlung der Ausgleichsfunktionen}
 Um die Ausgleichskurve zu approximieren, sind folgende Funktionen möglich:
 \begin{align}
     T \left(t\right) &= A t^2 + B t + C \label{eq:ausgleichsfunktion_1} \\
@@ -38,5 +49,19 @@ erkennt man unmittelbar, dass die Approximation \eqref{eq:ausgleichsfunktion_2} 
 \eqref{eq:ausgleichsfunktion_1} und \eqref{eq:ausgleichsfunktion_3} erscheinen zunächst in etwa den gleichen Exaktheitsgrad zu haben.
 Im Folgenden wird mit \eqref{eq:ausgleichsfunktion_3} weiter gerechnet, da diese besonders für kleine Zeiten näher an den eigentlichen Messdaten liegt
 als \eqref{eq:ausgleichsfunktion_1}.
+Die entsprechenden Parameter betragen dann für das kalte Reservoir
+\begin{align*}
+    A_{\text{k}} &= -0.91132029 & B_{\text{k}} &= 0.02042680 \\
+    C_{\text{k}} &= 21.51604450 & \alpha_{\text{k}} &= 1.19462353 \\
+    \intertext{und für das warme Reservoir}
+    A_{\text{w}} &= 1.13913878 & B_{\text{w}} &= 0.02290029 \\
+    C_{\text{w}} &= 20.89673747 & \alpha_{\text{w}} &= 1.22110022.
+\end{align*}
 
-%wollen wir damit weiter rechnen?
+
+\subsubsection[]{Bestimmung des Differentialquotienten}
+Differenziert man \eqref{eq:ausgleichsfunktion_3} nach der Zeit, ergibt sich 
+
+\begin{align}
+    \dv{T}{t} = 
+\end{align}
