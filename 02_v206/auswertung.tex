@@ -126,20 +126,24 @@ die rechnerisch als prozentuale Abweichungen $\Delta \nu$ in der selben Tabelle 
 
 \subsection[]{Der Massendurchsatz}
 Um den Massendurchsatz zu bestimmen, werden die zuvor in Abschnitt \ref{sec: dif_quot} Differentialquotienten des kalten Reservoirs benötigt.
-%Des Weiteren muss die Verdampfungswärme $L$ des Transportmediums, hier: $\ce{H2O2}$, für Formel \textbf{REFERENZ!!!} bestimmt werden.
+Des Weiteren muss die Verdampfungswärme $L$ des Transportmediums, hier: $\ce{Cl2F2C}$, für Formel \textbf{REFERENZ!!!} ermittelt werden.
 
 
 \subsubsection[]{Die Verdampfungswärme}
-%Zur Bestimmung der Verdampfungswärme $L$ werden die Wertepaare $\left(p_{\text{k}}, \frac{1}{T_{\text{k}}}\right)$ logarithmisch dargestellt
+Zur Bestimmung der Verdampfungswärme $L$ werden die Wertepaare $\left(p_{\text{k}}, \frac{1}{T_{\text{k}}}\right)$ logarithmisch dargestellt
 und anschließend eine lineare Ausgleichsrechnung zur Bestimmung von $L$ durchgeführt.
 Dies baut auf der Formel 
 \begin{align*}
-    p = p_0 \exp{-\frac{L}{RT}}
+    p = p_0 \exp{\left(-\frac{L}{RT}\right)}
 \end{align*}
-aus Versuch \textbf{REFERENZ!!!} auf.
-$p_0$ \textbf{WERT ANGEBEN} ist dabei der Umgebungsdruck bei Zimmertemperatur und $R$ die Gaskonstante. 
+aus Versuch \cite[]{va203} auf.
+$p_0$ ist dabei der Umgebungsdruck bei Zimmertemperatur und $R$ die Gaskonstante.
+Laut der Wetterstation \cite*[][]{wetterstation} betrug der Luftdruck am Tag des Experiments $p_0 = \qty[]{1018.1}{\hecto\pascal} \simeq \qty[]{1.0}{\bar}$. 
+\begin{figure}
+    \includegraphics[]{build/plot_verdampfungswaerme.pdf}
+    \caption[]{lineare Ausgleichsgerade zu \textbf{REFERENZ}}
+    \label{fig:ausgleichsgerade}
+\end{figure}
 
-
-Helloooooooooooooooooooooooooo
-
-pls show changes
+%Steigung m= -2001.814130953005
+%achsenabschn b=  8.363939543080686
