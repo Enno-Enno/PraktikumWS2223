@@ -2,18 +2,18 @@
 Die Güteziffer $ \nu $ beschreibt das Verhältnis von Aufgewendeter Arbeit zu transportierter Wärme \cite[vgl.][1]{man:v206}
 Sie wird folgendermaßen berechnet.
 \begin{align}
-    \nu_{\text{ideal}} &= \frac{Q_{1}}{A} \\
+\nonumber    \nu_{\text{ideal}} &= \frac{Q_{1}}{A} \\
     \nu_{\text{ideal}} &= \frac{T_1}{T_1 - T_2}
     \label{eq:gueteTheorie}
     \intertext{Da für $ Q_1 $ eine ideale Wärmeübertragung angenommen wurde ist die reale Güteziffer kleiner}
-    \nu_{\text{real}} &< \frac{Q_{1}}{A} 
+\nonumber    \nu_{\text{real}} &< \frac{Q_{1}}{A} 
 \end{align}
 % Der folgende Teil sollte vielleicht zur Auswertung wandern: 
 Um die reale Güteziffer zu berechnen muss die gemessene Wärmemenge mit der tatsächlich geleisteten
 Arbeit der Wärmepumpe in Verhältnis gesetzt werden.
 \begin{align}
     \nonumber A &= N \Delta t \\
-    \nonumber \frac{Q_1}{\Delta t} &= (m_1 c_w + m_k c_k) \frac{\Delta T}{\Delta t} \\
+    \nonumber \frac{\diff Q_1}{\diff t} &= (m_1 c_w + m_k c_k) \frac{\diff T}{\diff t} \\
     \nu_{\text{real}} &= \frac{Q_{1}}{A} 
     \label{eq:guetePraxis}
 \end{align}

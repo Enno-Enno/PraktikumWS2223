@@ -1,9 +1,17 @@
-\subsection{Der Massendurchsatz \cite[vgl.]{man:v206}}
+\subsection{Der Massendurchsatz \cite[vgl.][]{man:v206}}
 Anhand der übertragenen Wärmemenge kann man die Menge des Gases berechnen, das pro Zeiteinheit
 im zweiten Teil des Pumpkreislaufes verdampft.
 Das ist die Menge an Gas, die in derselben Zeit durch die ganze Wärmepumpe fließt.
 Die Menge an verdampftem Gas in Reservoir 2 hängt folgendermaßen mit der Wärmemenge in Reservoir 2 zusammen:
 \begin{align}
-    \frac{\Delta Q_2}{\Delta t} = L \frac{\Delta m}{\Delta T}
+    \frac{\diff Q_2}{\diff t} = L \frac{\diff m}{\diff T}
 \end{align} 
-Das Reservoir 2 hat eine 
+Die Änderung der Wärmemenge $ Q_2$ kann über die Messung bestimmt werden:
+\begin{align}
+    \frac{\Delta Q_2}{\Delta t} = (m_2 c_w + m_k c_k) \frac{\Delta T_2}{\Delta t}
+\end{align} 
+Um die Verdampfungswärme $L$ des Transportgases herauszufinden machen wir uns folgende in \cite[][5]{man:v203} hergeleitete
+Gleichung zunutze:
+\begin{align}
+    \ln{p} = -\frac{L}{R}\cdot \frac{1}{T} + \ln{p_0}
+\end{align}
