@@ -1,82 +1,12 @@
 \section{Theorie}
 
-\subsection{Die Funktionsweise der Wärmepumpe} % Zitieren soweit notwendig
-\label{sec:funktionsweise}
-Die Wärmepumpe pumpt ein Gas in einem abgeschlossenen Kreislauf durch die beiden Reservoirs.
-In den Reservoirs besteht der Kreislauf aus Kupferrohren, die zu einer Spirale aufgewickelt sind.
-So kann wärme zwischen den Reservoirs und dem Kreislauf fließen.
-Dabei wird durch einen Kompressor und ein Drosselventil ein höherer Druck in der Kupferspirale 1 erzeugt.
-Das Gas kondensiert,  verliert an Volumen und gibt Wärme an die Umgebung ab.
-Die Temperatur in Reservoir 1 steigt also. 
-Das Flüssige Gas wird durch das Drosselventil in den zweiten Teil des Kreislaufes gelassen.
-Durch eine technische Vorrichtung wird sichergestellt, dass nur das flüssige Gas den Kreislauf passiert.
-Im zweiten Teil des Kreislaufs wird durch die Pumpe ein Unterdruck im Vergleich zum ersten Teil erzeugt.
-Dabei verdampft das Gas wieder, es nimmt an Volumen zu und nimmt Wärme aus der Umgebung auf.
-Das Reservoir 2 wird also kälter.
+\input{theorie/funktionsweise.tex}
 
-\subsection{Thermodynamik in der Wärmepumpe}
-% Die Wärmepumpe macht sich in ihrer Funktionsweise den zweiten Hauptsatz der Thermodynamik zunutze laut dem
-% wärmeren zu einem kälteren Reservoir fließt \cite[vgl][321]{demtroeder}.
 
-Der Energie die einem der Reservoire durch Änderung der Temperatur hinzugefügt wird,
-heißt Wärmemenge $ Q = c m \Delta T $. 
-%% Es ist wichtig sich zu entscheiden, wie die Hinzugefügte Wärmemenge heißen soll: Q_1 oder \Delta Q_1
-$ c $ ist hier die spezifische Wärmekapazität des Materials, die im Allgemeinen von der Temperatur abhängen kann.
-Der erste Hauptsatz der Thermodynamik bringt die bewegte Wärmemenge mit der inneren Energie d.h. der gemittelten Temperatur
-der von aussen wirkenden Arbeit ins Verhältnis \cite[vgl][318]{demtroeder}. 
-Die Wärmepumpe kann als abgeschlossenes System betrachtet werden. 
-\begin{align}
-                \Delta U &= \Delta W + \Delta Q \\
-    \nonumber   \Delta U &= A + (Q_{2} - Q_{1}) \\
-\intertext{Da die Wärmepumpe die Wärmeenergie von einem Reservoir in das andere transportiert
-    bliebt die innere Energie konstant $ \Delta U = 0 $ .} 
-                Q_{1}    &= A + Q_{2} % DIe Q_i hängen selber auch mit veränderungen in der Temperatur zusammen...
-\end{align}
-%
-Die Wärmepumpe muss also die Arbeit $\Delta W = A$ aufwenden um die Wärmeenergie aus Reservoir 2 in Reservoir 1 zu überführen.
-An den einzelnen Reservoirs wird keine Arbeit in Form von einer Druckänderung gewirkt, da der Luftdruck konstant ist.
-\begin{align}
-    \Delta W = - p \Delta V = 0 
-\end{align}
-Wenn man jetzt idealisierend annimmt, das in dem Prozess keine Wärme verloren geht, kann man den zweiten Hauptsatz der Thermodynamik
-verwenden um die Wärmemengen mit der abgegeben Temperatur in Verbindung zu setzen \cite[vgl.][1]{man:v206}. 
-Es gilt:
-\begin{align}
-    \int \frac{1}{T} dQ = 0 % Warum auch immer das aus dem zweiten Hauptsatz folgt
-\end{align}
-Daraus folgt anscheinend:
-\begin{align}
-    \frac{Q_{1}}{T_{1}} - \frac{Q_{2}}{T_{2}} &= 0
-    %\frac{Q_{1}}{T_{1}} - \frac{Q_{2}}{T_{2}} &= c m \left(\frac{T_{0}}{T_{1}} - 1 \right) -c m \left(\frac{T_{0}}{T_{1}} - 1 \right) \\
-    % &= c m T_{0} \left(\frac{1}{T_{1}} - \frac{1}{T_{2}}\right) = 0
-\end{align}
-Wenn man diese beiden Formeln ineinander einsetzt erhält man für die Wärmemenge $Q_1$ folgende relation \cite{man:v206}: 
-\begin{align}
-    Q_1 &= A + \frac{T_2}{T_1}Q_1 \\
-    Q_1 &= A \frac{T_1}{T_1 - T_2}
-\end{align}
-
-\subsection{Die Güteziffer}
-Die Güteziffer $ \nu $ beschreibt das Verhältnis von Aufgewendeter Arbeit zu transportierter Wärme \cite[vgl.][1]{man:v206}
-Sie wird folgendermaßen berechnet.
-\begin{align}
-    \nu_{\text{ideal}} &= \frac{Q_{1}}{A} \\
-    \nu_{\text{ideal}} &= \frac{T_1}{T_1 - T_2}
-    \label{eq:gueteTheorie}
-    \intertext{Da für $ Q_1 $ eine ideale Wärmeübertragung angenommen wurde ist die reale Güteziffer kleiner}
-    \nu_{\text{real}} &< \frac{Q_{1}}{A} 
-\end{align}
-% Der folgende Teil sollte vielleicht zur Auswertung wandern: 
-Um die reale Güteziffer zu berechnen muss die gemessene Wärmemenge mit der tatsächlich geleisteten
-Arbeit der Wärmepumpe in Verhältnis gesetzt werden.
-\begin{align}
-    \nonumber A &= N \Delta t \\
-    \nonumber \frac{Q_1}{\Delta t} &= (m_1 c_w + m_k c_k) \frac{\Delta T}{\Delta t} \\
-    \nu_{\text{real}} &= \frac{Q_{1}}{A} 
-    \label{eq:guetePraxis}
-\end{align}
+\input{theorie/thermodynamik_in_WP.tex}
 
 
 
-\subsection{Der Massendurchsatz}
-Um die Masse an Gas herauszufinden, die pro Zeiteinheit 
+\input{theorie/güteziffer.tex}
+
+\input{theorie/massendurchsatz.tex}

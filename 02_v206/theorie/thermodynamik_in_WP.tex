@@ -1,0 +1,44 @@
+\subsection{Thermodynamik in der Wärmepumpe}
+% Die Wärmepumpe macht sich in ihrer Funktionsweise den zweiten Hauptsatz der Thermodynamik zunutze laut dem
+% wärmeren zu einem kälteren Reservoir fließt \cite[vgl][321]{demtroeder}.
+
+Der Energie die einem der Reservoire durch Änderung der Temperatur hinzugefügt wird,
+heißt Wärmemenge $ Q = c m \Delta T $. 
+%% Es ist wichtig sich zu entscheiden, wie die Hinzugefügte Wärmemenge heißen soll: Q_1 oder \Delta Q_1
+$ c $ ist hier die spezifische Wärmekapazität des Materials, die im Allgemeinen von der Temperatur abhängen kann.
+Der erste Hauptsatz der Thermodynamik bringt die bewegte Wärmemenge mit der inneren Energie d.h. der gemittelten Temperatur
+der von aussen wirkenden Arbeit ins Verhältnis \cite[vgl][318]{demtroeder}. 
+Die Wärmepumpe kann als abgeschlossenes System betrachtet werden. 
+\begin{align}
+                \diff U &= \diff W + \diff Q \\
+    \nonumber   \Delta U &= A + (\Delta Q_{2} - \Delta Q_{1}) \\
+\end{align}
+Da die Wärmepumpe die Wärmeenergie von einem Reservoir in das andere transportiert
+    bliebt die innere Energie konstant $ \Delta U = 0 $ .
+
+\begin{align}
+                \Delta Q_{1}    &= A + \Delta Q_{2} % DIe Q_i hängen selber auch mit veränderungen in der Temperatur zusammen...
+\end{align}
+%
+Die Wärmepumpe muss also die Arbeit $\Delta W = A$ aufwenden um die Wärmeenergie aus Reservoir 2 in Reservoir 1 zu überführen.
+An den einzelnen Reservoirs wird keine Arbeit in Form von einer Druckänderung gewirkt, da der Luftdruck konstant ist.
+\begin{align}
+    \Delta W = - p \Delta V = 0 
+\end{align}
+Wenn man jetzt idealisierend annimmt, das in dem Prozess keine Wärme verloren geht, kann man den zweiten Hauptsatz der Thermodynamik
+verwenden um die Wärmemengen mit der abgegeben Temperatur in Verbindung zu setzen \cite[vgl.][1]{man:v206}. 
+Es gilt:
+\begin{align}
+    \int \frac{1}{T} \diff Q = 0 % Warum auch immer das aus dem zweiten Hauptsatz folgt
+\end{align}
+Daraus folgt:
+\begin{align}
+    \frac{Q_{1}}{T_{1}} - \frac{Q_{2}}{T_{2}} &= 0
+    %\frac{Q_{1}}{T_{1}} - \frac{Q_{2}}{T_{2}} &= c m \left(\frac{T_{0}}{T_{1}} - 1 \right) -c m \left(\frac{T_{0}}{T_{1}} - 1 \right) \\
+    % &= c m T_{0} \left(\frac{1}{T_{1}} - \frac{1}{T_{2}}\right) = 0
+\end{align}
+Wenn man diese beiden Formeln ineinander einsetzt erhält man für die Wärmemenge $Q_1$ folgende relation \cite{man:v206}: 
+\begin{align}
+    Q_1 &= A + \frac{T_2}{T_1}Q_1 \\
+    Q_1 &= A \frac{T_1}{T_1 - T_2}
+\end{align}
