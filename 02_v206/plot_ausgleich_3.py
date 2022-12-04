@@ -33,6 +33,12 @@ print("Funktion 3 für warm:")
 for name, value in zip('abcp', params_w):
     print(f"{name} = {value:8.8f}")
 
+errors_k = np.sqrt(np.diag(covariance_matrix_k))
+errors_w = np.sqrt(np.diag(covariance_matrix_w))
+
+print("error kalt: ", errors_k)
+print("error warm: ", errors_w)
+
 x=np.linspace(0, 25, 1000)
 plt.plot(t, temp_k, "x", label="$T_{{\\text{k}}}$")
 plt.plot(t, temp_w, "x", label="$T_{{\\text{w}}}$")

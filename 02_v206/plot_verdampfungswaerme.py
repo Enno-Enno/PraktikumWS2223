@@ -11,6 +11,12 @@ params, covariance_matrix = np.polyfit(1/temp_k, np.log(druck_k), deg = 1, cov=T
 print("Steigung m=", params[0])
 print("achsenabschn b= ", params[1])
 
+errors = np.sqrt(np.diag(covariance_matrix))
+
+print("Fehler: ", errors)
+#Fehler:  [111.77504319   0.39608049]
+
+
 #Steigung m= -2001.814130953005
 #achsenabschn b=  8.363939543080686
 
