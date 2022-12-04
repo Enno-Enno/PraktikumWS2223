@@ -40,5 +40,5 @@ plt.plot(x, function_3(x, *params_k), "-", label = "Funktion 3 für $T_{{\\text{
 plt.plot(x, function_3(x, *params_w), "-", label = "Funktion 3 für $T_{{\\text{w}}}$")
 plt.legend()
 plt.xlabel("$t / \\unit{{\\minute}}$")
-plt.ylabel("$T/ \\unit{{\\kelvin}}$ test")
+plt.ylabel("$T/ \\unit{{\\kelvin}}$")
 plt.savefig("build/plot_ausgleich_3.pdf")

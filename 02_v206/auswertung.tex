@@ -81,35 +81,31 @@ Differenziert man \eqref{eq:ausgleichsfunktion_3} nach der Zeit, erhält man mit
 %
 Setzt man für beide Reservoire jeweils die obigen Parameter und entsprechenden Zeiten ein, erhält man 
 \begin{align*}
-    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_1\right) &= -1.1647318214013536 &
-    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_1\right) &= 1.4993024753884312  \\
-    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_2\right) &= -1.0159747306020086 &
-    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_2\right) &= 1.2686377956376398 \\
-    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_3\right) &= -0.7992238226522068 &
-    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_3\right) &= 0.9584928863838236 \\
-    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_4\right) &= -0.6243739226614388 &
-    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_4\right) &= 0.7224878918480877 
+    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_1\right) &= -1.1647318102435604 &
+    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_1\right) &=  1.4993025822691834  \\
+    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_2\right) &= -1.0159749249040468 &
+    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_2\right) &= 1.2686378707296608 \\
+    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_3\right) &= -0.799224014090223 &
+    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_3\right) &= 0.9584929746374173 \\
+    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_4\right) &= -0.6243740742879325 &
+    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_4\right) &= 0.7224879854278933 
 \end{align*}
 %
 
 \subsubsection[]{Berechnung der Güteziffer}
-Gemäß Formel \textbf{GLEICHUNG AUS THEORIE REFERENZIEREN SOBALD DIE DA IST} ergeben sich folgende ideale Güteziffern $\nu_\text{id}$
-\begin{align}
-    \nu_{\text{id}, 1} &= 45.9 & \nu_{\text{id}, 2} &=14.2 & \nu_{\text{id}, 3} &= 9.3 & \nu_{\text{id}, 4} &= 7.4
-\end{align}
+Gemäß Formel \eqref{eq:gueteTheorie} ergeben sich folgende ideale Güteziffern $\nu_\text{ideal}$
+\begin{align*}
+    \nu_{\text{ideal}, 1} &= 45.9 & \nu_{\text{ideal}, 2} &=14.2 & \nu_{\text{ideal}, 3} &= 9.3 & \nu_{\text{ideal}, 4} &= 7.4
+\end{align*}
 %nu ideal: [45.85384615 14.1875      9.29228487  7.39883721]
 Mit Hilfe der spezifischen Wärmekapazität von Wasser $c_{\text{w}} = \qty{4190}{\joule\per\kg\per\kelvin}$ \cite[]{leifi}, der gegebenen Wärmekapazität
 der Kupferspirale $m_{\text{K}} c_{\text{K}} = \qty{750}{\joule\per\kelvin}$ und der zuvor bestimmten Differentialquotienten
-ergibt sich bei einer Wassermenge von $\qty[]{3}{\liter}$ pro Behälter gemäß \textbf{GLEICHUNG AUS THEORIE REFERENZIEREN SOBALD DIE DA IST}
-\begin{align*}
-    \frac{\symup{d}Q_1}{\symup{d}t} = 
-\end{align*}
-%
-Des Weiteren wird für die Bestimmung von $\nu$ die gemittelte Leistungsaufnahme des Kompressors
+kann bei bei einer Wassermenge von $\qty[]{3}{\liter}$ pro Behälter die reale Güteziffer $\nu_{\text{real}}$ gemäß \eqref{eq:guetePraxis} bestimmt werden.
+Hier für wird die gemittelte Leistungsaufnahme des Kompressors
 \begin{align*}
     N = \frac{1}{t_n} \sum_{m=1}^{t_n} P_m.
 \end{align*}
-nach der jeweiligen Zeit $t_n, \, n = 1 \dotsc 4$ in Minuten benötigt.
+nach der jeweiligen Zeit $t_n \ \left(n = 1, \dotsc, 4\right)$ in Minuten benötigt.
 Man erhält
 \begin{align*}
     N_1  &=  120 &
@@ -117,3 +113,8 @@ Man erhält
     N_3  &=  123 &
     N_4  &=  121
 \end{align*}
+Sodass sich schließlich ergibt
+\begin{align*}
+    \nu_{\text{real}, 1} &=  & \nu_{\text{real}, 2} &=  & \nu_{\text{real}, 3} &=  & \nu_{\text{real}, 4} &=  & 
+\end{align*}
+%
