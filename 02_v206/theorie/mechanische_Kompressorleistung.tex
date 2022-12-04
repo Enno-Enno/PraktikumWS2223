@@ -12,3 +12,13 @@ Für adiabatische Verformungen gilt zusätzlich die Poisson`sche Gleichung
 $\kappa$ steht hier für das Verhältnis aus den Wärmekapazitäten $\frac{C_V}{C_p}$.
 $C_V$ Steht hierbei für die Wärmekapazität bei konstantem Volumen und $C_p$ für die Wärmekapazität bei konstantem Druck.
 % Eine Herleitung findet sich in \cite[][320]{demtroeder}
+In \cite{man:v206} wird hieraus die eine Formel für die Mechanische Arbeit
+\begin{align}
+    A_{\text{m}} = \frac{1}{\kappa - 1} \left( p_b \sqrt[\kappa]{\frac{p_a}{p_b}} -p_a \right) V_a
+\end{align}
+und für die mechanische Kompressorleistung hergeleitet:
+\begin{align}
+    N_{\text{mech}} = \frac{\Delta A_m}{\Delta t} = \frac{1}{\kappa - 1}%
+     \left(p_b \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a \right) \frac{1}{\rho_{a}}\frac{\Delta m}{\Delta t}
+\end{align}
+Hierbei ist $\rho_a$ die Dichte des Gases in $V_a$
