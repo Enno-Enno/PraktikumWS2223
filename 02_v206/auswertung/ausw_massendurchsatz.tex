@@ -3,23 +3,29 @@ Um den Massendurchsatz zu bestimmen, werden die zuvor in Abschnitt \ref{sec: dif
 Des Weiteren muss die Verdampfungswärme $L$ des Transportmediums, hier: $\ce{Cl2F2C}$, für Formel \eqref{eq:massedurchsatz} ermittelt werden.
 
 
-\subsubsection[]{Die Verdampfungswärme}
-Zur Bestimmung der Verdampfungswärme $L$ werden die Wertepaare $\left(p_{\text{k}}, \frac{1}{T_{\text{k}}}\right)$ logarithmisch dargestellt
+\subsubsection[]{Bestimmung der Verdampfungswärme}
+Zur Bestimmung der Verdampfungswärme $L$ werden die Wertepaare $\left(p_{\text{k}}, \frac{1}{T_{\text{k}}}\right)$ logarithmisch dargestellt (vgl. \eqref{eq:Dampfdruckkurve})
 und anschließend eine lineare Ausgleichsrechnung zur Bestimmung von $L$ durchgeführt.
 Dies baut auf der Formel 
 \begin{align*}
     p = p_0 \exp{\left(-\frac{L}{RT}\right)}
 \end{align*}
 aus Versuch \cite[]{man:v203} auf.
-$p_0$ ist dabei der Umgebungsdruck bei Zimmertemperatur und $R$ die Gaskonstante.
-Sobald die Steigung $m$ der Ausgleichsgeraden ermittelt wurde, kann somit $L = -R \cdot m$ bestimmt werden.
+$p_0$ ist dabei der Umgebungsdruck bei Zimmertemperatur und $R$ die universelle Gaskonstante.
+Sobald die Steigung $s$ der Ausgleichsgeraden ermittelt wurde, kann somit $L = -R \cdot s$ bestimmt werden.
 Laut der Wetterstation \cite*[][]{wetterstation} betrug der Luftdruck am Tag des Experiments
 $p_0 = \qty[]{1018.1}{\hecto\pascal} \simeq \qty[]{1.0}{\bar}$.
 Mittels der Python \cite[]{python} Funktion \texttt{polyfit} aus dem Paket \texttt{numpy} \cite[]{numpy} wird die lineare Regression durchgeführt und
 der Plot \ref{fig:ausgleichsgerade} erstellt.
-Es ergibt sich die Steigung $m = \left(-2001.8141\pm 111.7750 \right)$ und ein Achsenabschnitt von $n = \left( 8.3639 \pm 0.3961 \right)$, 
+Es ergibt sich die Steigung $s = \left(\num[]{-2001.8141}\pm \num[]{111.7750} \right)$ und ein Achsenabschnitt von 
+$b = \left( \num[]{8.3639} \pm \num[]{0.3961} \right)$, 
 wobei letzterer für die Rechnungen nicht relevant ist. 
-Folglich gilt $L = $ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Folglich gilt $L = \left(1.66 \pm 0.09 \right) 10^{4} \, \unit[]{\joule\per\mol}$. 
+$\qty[]{1}{\mol}$ Wasser entspricht nach \cite[]{chemie_schule} einer Masse von $m = \qty[]{18.016}{\gram}$, sodass gilt 
+$L = \left(920 \pm 50 \right) \, \unit[]{\joule\per\gram}$.
+%L:  (1.66+/-0.09)e+04
+%T in K, R in J/(mol*K) -> L in J/mol
+%L in J/g:  (9.2+/-0.5)e+02
 \begin{figure}
     \includegraphics[]{build/plot_verdampfungswaerme.pdf}
     \caption[]{lineare Ausgleichsgerade zur Bestimmung von $L$}
@@ -30,3 +36,28 @@ Folglich gilt $L = $ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %achsenabschn b=  8.363939543080686
 %#Fehler:  [111.77504319   0.39608049]
 
+\subsubsection[]{Besrechnung des Massendurchsatzes}
+Nach den Formeln \eqref{eq:massedurchsatz} und \eqref{eq:aenderung_q2} folgt somit für den Massendurchsatz
+$\frac{\diff m}{\diff t} = \frac{1}{L} \frac{\diff Q_2}{\diff t}$, die Werte sind in Tabelle \ref{tab:Massendurchsatz} einzusehen.
+
+\begin{table}
+    \caption[]{Massendurchsatz zu den vier betrachteten Zeiten}
+    \label{tab:Massendurchsatz}
+    \sisetup{table-format = 2.1}
+    \begin{tabular}{S[table-format = 2.0] S @{${}\pm{}$} S[table-format =1.1]}
+        \toprule
+        {$t /\unit[]{\min}$} & \multicolumn{2}{c}{$\frac{\diff m}{\diff t} / (\unit[]{\gram\per\min})$} \\
+        \midrule
+        3  & -16.8 & 2.0\\
+        9  & -14.7 & 1.9\\
+        15 & -11.5 & 1.4\\
+        21 & -9.0  & 1.0\\ 
+        \bottomrule 
+    \end{tabular}
+    \centering
+\end{table}
+
+%massendurchsatz 0:  -16.8+/-2.0
+%massendurchsatz 1:  -14.7+/-1.9
+%massendurchsatz 2:  -11.5+/-1.4
+%massendurchsatz 3:  -9.0 +/-1.0

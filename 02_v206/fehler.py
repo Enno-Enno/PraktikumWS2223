@@ -22,6 +22,8 @@ b_w = ufloat(0.0229, 0.0005)
 c_w = ufloat(294.0467, 0.0704)
 p_w = ufloat(1.2211, 0.0175)
 
+#bestimmung differentialquotienten
+
 dif_quot_k_0 = dif_quot(gew_zeiten[0], a_k, b_k, c_k, p_k)
 dif_quot_k_1 = dif_quot(gew_zeiten[1], a_k, b_k, c_k, p_k)
 dif_quot_k_2 = dif_quot(gew_zeiten[2], a_k, b_k, c_k, p_k)
@@ -42,6 +44,8 @@ print("w1: ", dif_quot_w_1)
 print("w2: ", dif_quot_w_2)
 print("w3: ", dif_quot_w_3)
 
+#bestimmung nu_ideal:
+
 factor = ufloat(3*4190 + 750, 0)
 
 n_0  = ufloat(7200.0, 0) 
@@ -61,3 +65,36 @@ print("nu real 0: ", nu_real_0)
 print("nu real 1: ", nu_real_1)
 print("nu real 2: ", nu_real_2)
 print("nu real 3: ", nu_real_3)
+
+#bestimmung verdampfungswärme L:
+
+r = ufloat(8.314, 0) 
+#in J/(mol*K)
+m=ufloat(-2001.8141, 111.7750) 
+
+L = -m*r
+print("L in J/mol: ", L)
+#L:  (1.66+/-0.09)e+04 in J/mol
+mol_in_g = ufloat(18.016, 0)
+L= L / mol_in_g
+print("L in J/g: ", L)
+
+
+
+
+# bestimmung Massendurchsatz
+
+massendurchsatz_0 = 1/L * factor *dif_quot_k_0
+massendurchsatz_1 = 1/L * factor *dif_quot_k_1
+massendurchsatz_2 = 1/L * factor *dif_quot_k_2
+massendurchsatz_3 = 1/L * factor *dif_quot_k_3
+#in g/J * J/K * K/min = g/min 
+#massendurchsatz 0:  -16.8+/-2.0
+#massendurchsatz 1:  -14.7+/-1.9
+#massendurchsatz 2:  -11.5+/-1.4
+#massendurchsatz 3:  -9.0+/-1.0
+
+print("massendurchsatz 0: ", massendurchsatz_0)
+print("massendurchsatz 1: ", massendurchsatz_1)
+print("massendurchsatz 2: ", massendurchsatz_2)
+print("massendurchsatz 3: ", massendurchsatz_3)
