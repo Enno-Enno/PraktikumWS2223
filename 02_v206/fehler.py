@@ -123,7 +123,7 @@ for i,value in enumerate(druck_k):
 
 rho_0 = ufloat(5.51, 0)
 #in g/L = g/(dm)^3 = 10^3 g/m^3
-#umwandlung in g/m:
+#umwandlung in g/m^3:
 rho_0 *= 10**3
 #in g/m^3
 
@@ -151,8 +151,6 @@ print("rho: ", rho_k)
 
 kappa = ufloat(1.14, 0)
 
-#test = (rho_0)**(1/kappa)
-#print(test)
 
 n_mech_3 = 1/(kappa - 1) * (druck_w[3] * (druck_k[3]/druck_w[3])**(1/kappa) - druck_k[3]) * 1/rho_k[3] * massendurchsatz_0
 n_mech_9 = 1/(kappa - 1) * (druck_w[9] * (druck_k[9]/druck_w[9])**(1/kappa) - druck_k[9]) * 1/rho_k[9] * massendurchsatz_1
@@ -160,7 +158,19 @@ n_mech_15 = 1/(kappa - 1) * (druck_w[15] * (druck_k[15]/druck_w[15])**(1/kappa) 
 n_mech_21 = 1/(kappa - 1) * (druck_w[21] * (druck_k[21]/druck_w[21])**(1/kappa) - druck_k[21]) * 1/rho_k[21] * massendurchsatz_3
 #n_mech in 1 * Pa * m^3/g * g/min = Pa * m^3 / min = kg /(m* s^2) * m^3 /min = kg* m^2 /(s^2 * min)
 
-print("mechanische leistung nach 3s:", n_mech_3)
-n_mech_3 /= 60
+n_mech_3  /= 60
+n_mech_9  /= 60
+n_mech_15 /= 60
+n_mech_21 /= 60
+
 
 print("mechanische leistung nach 3s:", n_mech_3)
+print("mechanische leistung nach 9s:", n_mech_9)
+print("mechanische leistung nach 15s:", n_mech_15)
+print("mechanische leistung nach 21s:", n_mech_21)
+
+#mechanische leistung nach 3s pro minute: -119+/-14
+#mechanische leistung nach 3s: -1.98+/-0.24
+#mechanische leistung nach 9s: -3.0+/-0.4
+#mechanische leistung nach 15s: -3.7+/-0.4
+#mechanische leistung nach 21s: -3.8+/-0.4
