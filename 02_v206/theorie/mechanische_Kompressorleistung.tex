@@ -1,28 +1,29 @@
  \subsection{Mechanische Kompressorleistung}
 
-Der Kompressor in der Wärmepumpe komprimiert das Volumen des Transportgases nahezu adiabatisch \cite[vgl.][]{man:v206}.
-Wenn er ein Gasvolumen $V_a$ auf den Wert $V_b$ verringert gilt allgemein für die Arbeit \cite[vgl.][]{man:v206}:
+Der Kompressor in der Wärmepumpe komprimiert das Volumen des Transportgases nahezu adiabatisch (\cite[vgl.][]{man:v206}).
+Das bedeutet, dass bei der Kompression nahezu keine Temperaturänderung stattfindet.
+Wenn er ein Gasvolumen $V_\text{a}$ auf den Wert $V_\text{b}$ verringert gilt allgemein für die Arbeit \cite[vgl.][]{man:v206}:
 \begin{align}
-    A_m = - \int_{V_a}^{V_b} p \diff V
+    A_\text{m} = - \int_{V_\text{a}}^{V_\text{b}} p \diff V
 \end{align}
 Für adiabatische Verformungen gilt zusätzlich die Poisson`sche Gleichung
 \begin{align}
-    p_a V_{a}^{\kappa} = p_{b} V_{b}^{\kappa} = p V^{\kappa} = \mathrm{const.}
+    p_\text{a} V_\text{a}^{\kappa} = p_\text{b} V_\text{b}^{\kappa} = p V^{\kappa} = \mathrm{const.}
 \end{align}
 $\kappa$ steht hier für das Verhältnis aus den Wärmekapazitäten $\frac{C_V}{C_p}$.
 $C_V$ Steht hierbei für die Wärmekapazität bei konstantem Volumen und $C_p$ für die Wärmekapazität bei konstantem Druck.
 % Eine Herleitung findet sich in \cite[][320]{demtroeder}
 In \cite{man:v206} wird hieraus die eine Formel für die Mechanische Arbeit
 \begin{align}
-    A_{\text{m}} = \frac{1}{\kappa - 1} \left( p_b \sqrt[\kappa]{\frac{p_a}{p_b}} -p_a \right) V_a
+    A_{\text{m}} = \frac{1}{\kappa - 1} \left( p_\text{b} \sqrt[\kappa]{\frac{p_\text{a}}{p_\text{b}}} -p_\text{a} \right) V_\text{a}
 \end{align}
 und für die mechanische Kompressorleistung hergeleitet:
 \begin{align}
-    N_{\text{mech}} = \frac{\Delta A_m}{\Delta t} = \frac{1}{\kappa - 1}%
-     \left(p_b \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a \right) \frac{1}{\rho_{\text{k}}}\frac{\Delta m}{\Delta t}
+    N_{\text{mech}} = \frac{\Delta A_\text{m}}{\Delta t} = \frac{1}{\kappa - 1}%
+     \left(p_\text{b} \sqrt[\kappa]{\frac{p_\text{a}}{p_\text{b}}} - p_\text{a} \right) \frac{1}{\rho_{\text{k}}}\frac{\Delta m}{\Delta t}
      \label{eq:mech_leistung}
 \end{align}
-Hierbei ist $\rho_{\text{k}}$ die Dichte des Gases in $V_a$ und kann mittels der idealen Gasgleichung $p V = k_\text{B} N T$
+Hierbei ist $\rho_{\text{k}}$ die Dichte des Gases in $V_\text{a}$ und kann mittels der idealen Gasgleichung $p V = k_\text{B} N T$
 mit der Boltzmannkonstante $ k_\text{B}$ und der Teilchenanzahl $N$ wie folgt genähert werden
 \begin{align*}
     \frac{p V}{T} =  k_\text{B} N = \text{const}.
@@ -31,5 +32,5 @@ Somit ergibt sich mit $V = \frac{m}{\rho}$ für die Volumina $V_0$ und $V_\text{
 \begin{align}
     \nonumber   \frac{p_0 m}{\rho_0 T_0} = \frac{p_{\text{k}} m}{\rho_{\text{k}} T_{\text{k}}}
     \intertext{und somit schließlich}
-    \rho_{\text{k}} = 
+    \rho_{\text{k}} = \frac{\rho_0 T_0 p_\text{k}}{p_0 T_\text{k}}
 \end{align}
