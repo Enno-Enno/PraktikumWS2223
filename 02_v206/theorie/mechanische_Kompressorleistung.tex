@@ -19,6 +19,17 @@ In \cite{man:v206} wird hieraus die eine Formel für die Mechanische Arbeit
 und für die mechanische Kompressorleistung hergeleitet:
 \begin{align}
     N_{\text{mech}} = \frac{\Delta A_m}{\Delta t} = \frac{1}{\kappa - 1}%
-     \left(p_b \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a \right) \frac{1}{\rho_{a}}\frac{\Delta m}{\Delta t}
+     \left(p_b \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a \right) \frac{1}{\rho_{\text{k}}}\frac{\Delta m}{\Delta t}
+     \label{eq:mech_leistung}
 \end{align}
-Hierbei ist $\rho_a$ die Dichte des Gases in $V_a$
+Hierbei ist $\rho_{\text{k}}$ die Dichte des Gases in $V_a$ und kann mittels der idealen Gasgleichung $p V = k_\text{B} N T$
+mit der Boltzmannkonstante $ k_\text{B}$ und der Teilchenanzahl $N$ wie folgt genähert werden
+\begin{align*}
+    \frac{p V}{T} =  k_\text{B} N = \text{const}.
+\end{align*}
+Somit ergibt sich mit $V = \frac{m}{\rho}$ für die Volumina $V_0$ und $V_\text{k}$ des Transportgases mit $m_0 = m_\text{k} = m$
+\begin{align}
+    \nonumber   \frac{p_0 m}{\rho_0 T_0} = \frac{p_{\text{k}} m}{\rho_{\text{k}} T_{\text{k}}}
+    \intertext{und somit schließlich}
+    \rho_{\text{k}} = 
+\end{align}

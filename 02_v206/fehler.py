@@ -98,3 +98,19 @@ print("massendurchsatz 0: ", massendurchsatz_0)
 print("massendurchsatz 1: ", massendurchsatz_1)
 print("massendurchsatz 2: ", massendurchsatz_2)
 print("massendurchsatz 3: ", massendurchsatz_3)
+
+
+
+#rechnungen für mechanische Leistung N_mech:
+
+#dm/dt in g/min
+
+rho_0 = ufloat(5.51, 0)
+#in g/L = g/(dm)^3 = 10^3 g/m^3
+#umwandlung in g/m:
+rho_0 *= 10**3
+#in g/m^3
+
+rho = 
+
+kappa = 1.14
