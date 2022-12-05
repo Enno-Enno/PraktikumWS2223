@@ -103,7 +103,7 @@ Man erhält
 \end{align*}
 Sodass sich schließlich  $\nu_\text{real}$ in Tabelle \ref{tab:gueteziffern} ergibt.
 Man erkennt große Diskrepanzen zwischen idealen und realen Werten,
-die rechnerisch als prozentuale Abweichungen der Mittelwerte $\Delta \nu$ in der selben Tabelle angegeben sind.
+die rechnerisch als Quotient der beiden Werte angegeben sind.
 
 \begin{table}
     \caption[]{Ideale und reale Güteziffern mit ihrer Abweichung}
@@ -111,17 +111,17 @@ die rechnerisch als prozentuale Abweichungen der Mittelwerte $\Delta \nu$ in der
     \sisetup{table-format = 2.2}
     \begin{tabular}{S[table-format = 2.0] S S[table-format =1.2] @{${}\pm{}$} S[table-format =1.2] S}
         \toprule
-        {$t /\unit[]{\min}$} & {$\nu_\text{ideal}$} & \multicolumn{2}{c}{$\nu_\text{real}$} & {$\Delta \nu$} \\
+        {$t /\unit[]{\min}$} & {$\nu_\text{ideal}$} & \multicolumn{2}{c}{$\nu_\text{real}$} & {$\frac{\nu_\text{real}}{\nu_\text{ideal}} \text{ in \%}$} \\
         \midrule
-        3  & 45.9 & 2.77 & 0.13 & 93.90 \\
-        9  & 14.2 & 2.30 & 0.12 & 83.80 \\
-        15 & 9.3  & 1.73 & 0.08 & 81.72 \\
-        21 & 7.4  & 1.33 & 0.06 & 82.43 \\ 
+        3  & 45.9 & 2.77 & 0.13 &  6.10 \\
+        9  & 14.2 & 2.30 & 0.12 & 16.20 \\
+        15 & 9.3  & 1.73 & 0.08 & 18.28 \\
+        21 & 7.4  & 1.33 & 0.06 & 17.57 \\ 
         \bottomrule 
     \end{tabular}
     \centering
 \end{table}
-%Abweichung nu:  [0.93899782 0.83802817 0.8172043  0.82432432]
+%Abweichung nu:  [0.06100218 0.16197183 0.1827957  0.17567568]
 
 %nu real 0:  2.77+/-0.13
 %nu real 1:  2.30+/-0.12

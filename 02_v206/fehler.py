@@ -9,7 +9,7 @@ gew_zeiten = [3, 9, 15, 21]
 #    return ((a*t**alpha)/(1 + b*t**alpha) + c)
 
 def dif_quot(t, a, b, c, alpha) :
-    return (alpha* a * t**(alpha-1)/(1 + b* t**(alpha))**2)
+    return ((alpha* a * t**(alpha-1))/((1 + b* t**(alpha))**2))
 #in K/min
 
 a_k = ufloat(-0.9113, 0.0742)

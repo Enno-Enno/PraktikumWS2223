@@ -1,10 +1,11 @@
 \subsection[]{Der Massendurchsatz}
-Um den Massendurchsatz zu bestimmen, werden die zuvor in Abschnitt \ref{sec: dif_quot} Differentialquotienten des kalten Reservoirs benötigt.
+Um den Massendurchsatz zu bestimmen, werden die zuvor in Abschnitt \ref{sec: dif_quot}
+berechneten Differentialquotienten des kalten Reservoirs benötigt.
 Des Weiteren muss die Verdampfungswärme $L$ des Transportmediums, hier: $\ce{Cl2F2C}$, für Formel \eqref{eq:massedurchsatz} ermittelt werden.
 
 
 \subsubsection[]{Bestimmung der Verdampfungswärme}
-Zur Bestimmung der Verdampfungswärme $L$ werden die Wertepaare $\left(p_{\text{k}}, \frac{1}{T_{\text{k}}}\right)$ logarithmisch dargestellt (vgl. \eqref{eq:Dampfdruckkurve})
+Zur Bestimmung der Verdampfungswärme $L$ werden die Wertepaare $\left(\frac{1}{T_{\text{k}}}, \ln{\left(\frac{p_{\text{k}}}{p_0}\right)}\right)$ logarithmisch dargestellt (vgl. \eqref{eq:Dampfdruckkurve})
 und anschließend eine lineare Ausgleichsrechnung zur Bestimmung von $L$ durchgeführt.
 Dies baut auf der Formel 
 \begin{align*}
@@ -46,7 +47,7 @@ $\frac{\diff m}{\diff t} = \frac{1}{L} \frac{\diff Q_2}{\diff t}$, die Werte sin
     \sisetup{table-format = 3.1}
     \begin{tabular}{S[table-format = 2.0] S @{${}\pm{}$} S[table-format =1.1]}
         \toprule
-        {$t /\unit[]{\min}$} & \multicolumn{2}{c}{$\frac{\diff m}{\diff t} / (\unit[]{\gram\per\min})$} \\
+        {$t /\unit[]{\min}$} & \multicolumn{2}{c}{$\frac{\diff m}{\diff t} / \frac{\unit{\gram}}{\unit{\min}}$} \\
         \midrule
         3  & -16.8 & 2.0\\
         9  & -14.7 & 1.9\\

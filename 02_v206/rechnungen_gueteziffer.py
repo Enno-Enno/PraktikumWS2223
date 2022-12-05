@@ -109,6 +109,6 @@ real = [2.8, 2.3, 1.7, 1.3]
 abweichung = np.zeros(4)
 
 for i, value in enumerate(ideal):
-    abweichung[i] = 1 - (real[i] / ideal[i])
+    abweichung[i] = (real[i] / ideal[i])
 
 print("Abweichung nu: ", abweichung)
