@@ -1,0 +1,79 @@
+
+\subsection[]{Messreihe 3: Überprüfung der Andradeschen Gleichung}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/Messreihe3.pdf}
+    \caption{Die Fallzeit nach \ref{tab:grKu_steigendeTemp}.}
+    \label{fig:groKu_steigendeTemp}
+\end{figure}
+
+\begin{table}
+    \centering
+    \sisetup{table-format=1.2}
+    \begin{tabular}[]{S[table-format=2.0] S[table-format=0.5] S @{${}\pm{}$} S[table-format=1.3] S @{${}\pm{}$} S[table-format=1.3]}
+        \toprule
+        {$T /\unit{\celsius}$} & {$\rho_{\text{Wasser}}$ \cite{geschke}} & \multicolumn{2}{c}{$ \eta / \unit{\milli\Pa\s}$} & \multicolumn{2}{c}{$ \eta / \unit{\milli\Pa\s}$} \\
+            26  &  0.99679   & 1.03  & 0.021 &        1.02 & 0.027  \\
+            27  &  0.99652   & 1.01  & 0.018 &        1.01 & 0.026  \\
+            30  &  0.99565   & 0.96  & 0.017 &        0.95 & 0.026  \\
+            32  &  0.99565   & 0.93  & 0.028 &        0.91 & 0.028  \\
+            35  &  0.994     & 0.86  & 0.015 &        0.85 & 0.030  \\
+            38  &  0.9922    & 0.83  & 0.025 &        0.81 & 0.023  \\
+            40  &  0.9922    & 0.79  & 0.016 &        0.77 & 0.020  \\
+            43  &  0.9902    & 0.75  & 0.04  &        0.73 & 0.04   \\
+            48  &  0.988     & 0.69  & 0.012 &        0.69 & 0.019  \\
+            52  &  0.988     & 0.66  & 0.020 &        0.63 & 0.028  \\
+    \end{tabular}
+    \label{tab:viskositaeten_temp}
+    \caption{Die Viskosität in Abhängigkeit der Temperatur}
+\end{table}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{build/plot.pdf}
+    \caption{Die Viskositäten nach \textbf{Tabelle 6}.}
+    \label{fig:groKu_steigendeTemp_eta}
+\end{figure}
+
+%Formt man die Andradesche Gleichung \eqref{eq:andrade} so um, dass auf beiden Seiten der Logarithmus gezogen wird, ergibt sich
+%
+%\begin{align}
+%    \ln {\left( \eta \right)} = \frac{B}{T} + \ln{\left( A \right)}.
+%\end{align}
+%Mit den zuvor \ref{tab:viskositaeten_temp} berechneten Werten für die Viskosität kann mittels der Numerical Python Funktion \texttt{polyfit}
+%eine Ausgleichsgerade erstellt werden. Dadurch lassen sich die Konstanten $A$ und $B$ ermitteln.
+
+Für die regression der in \ref{tab:viskositaeten_temp} angegebenen und in \ref{fig:groKu_steigendeTemp_eta} dargestellten Größen
+hat uns leider die Zeit gefehlt. 
+
+\subsection[]{Die Reynoldszahl}
+Um zu ermitteln, ob es sich um eine laminare Strömung handelt, wird jeweils die dimensionslose Reynoldszahl $Re$ für die kleine und große Kugel bestimmt
+(vgl. Abschnitt \ref{sec:vorbereitung}).
+Zur Berechnung fehlen noch Mittelwert und Standardabweichung der Fallgeschwindigkeit $\overline{v}$ jeweils für oben und unten
+(Dichte von Wasser bei Zimmertemperatur: $\rho = \qty{0.99841}{\g \per \cm^3}$, s.o.).
+
+\begin{table}
+    \caption[]{Reynoldszahl $Re$ in Abhängigkeit der Fallgeschwindigkeit $\overline{v}$}
+    \label{tab:reynold}
+    \centering
+    \begin{tabular}[]{S S S[table-format=1.4] @{${}\pm{}$} S[table-format=1.4] S[table-format=4.1] @{${}\pm{}$} S[table-format=3.1]}
+        \toprule
+        {Kugel} & {Strecke} & \multicolumn{2}{c}{$\overline{v} / \left(\unit{\cm\per\s}\right)$} & \multicolumn{2}{c}{$Re$} \\
+        \bottomrule
+        {klein} & {oben} & 0.811 & 0.010 & 549 & 14 \\
+         & {unten} & 0.816 & 0.012 & 555 & 17 \\
+        {groß} & {oben} & 0.1428 & 0.0012 & 96.5 & 1.5 \\
+         & {unten} & 0.1404 & 0.0030 & 95.5 & 2.5 \\
+    \end{tabular}
+\end{table}
+
+% Kugel % Strecke % MW G % S G % MW Rey % S Rey
+%Reynold:
+%Geschwindigkeit klein oben:  0.811+/-0.010
+%Geschwindigkeit klein unten:  0.816+/-0.012
+%Geschwindigkeit gross oben:  0.1428+/-0.0012
+%Geschwindigkeit gross unten:  0.1404+/-0.0030
+
+%rey klein oben:  549+/-14
+%rey klein unten:  555+/-17
+%rey gross oben:  96.5+/-1.5
+%rey gross unten:  95.5+/-2.5
