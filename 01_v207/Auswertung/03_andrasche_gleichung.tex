@@ -1,8 +1,6 @@
 
 \subsection[]{Messreihe 3: Überprüfung der Andradeschen Gleichung}
 
-In dieser Messreihe wird
-
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/Messreihe3.pdf}
@@ -10,7 +8,11 @@ In dieser Messreihe wird
     \label{fig:groKu_steigendeTemp}
 \end{figure}
 
-
+In dieser Messreihe wird die Temperatur schrittweise erhöht um die Temperaturabhängigkeit der Viskosität herauszufinden.
+Die empirische Gleichung für die Viskosität \ref{eq:empirisch} enthält die Dichte des Wassers, die auch temperaturabhängig ist.
+In \ref{tab:viskositaeten_temp} werden die Dichten des Wassers aus \cite[][290]{geschke} übernommen. 
+Bei den Temperaturen, die nicht in \cite[][290]{geschke} enthalten sind wird auf die nächste angegebene Temperatur gerundet.
+%Idee für die Diskussion hier villeicht noch Vergelichswerte aus dem Geschke hinzufügen.
 \begin{table}
     \centering
     \sisetup{table-format=1.2}
@@ -27,8 +29,9 @@ In dieser Messreihe wird
             43  &  0.9902    & 0.75  & 0.04  &        0.73 & 0.04   \\
             48  &  0.988     & 0.69  & 0.012 &        0.69 & 0.019  \\
             52  &  0.988     & 0.66  & 0.020 &        0.63 & 0.028  \\
+        	%                        \pm                   \pm 
     \end{tabular}
-    \caption{Die Viskosität in Abhängigkeit der Temperatur}
+    \caption{Die Viskosität in Abhängigkeit der Temperatur nach}
     \label{tab:viskositaeten_temp}
 \end{table}
 \begin{figure}
