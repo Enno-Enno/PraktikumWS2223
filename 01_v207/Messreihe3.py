@@ -6,11 +6,11 @@ import scipy as scp
 
 temp, t_oben, t_unten = np.genfromtxt("Messdaten_grKu_steigendeTemp.txt", unpack=True)
 n=10
-artm_t_oben  =np.zeros(n)
+artm_t_oben  =np.zeros(n)   #arithmetische Mittel
 artm_t_unten =np.zeros(n)
-sdev_t_oben  =np.zeros(n)
+sdev_t_oben  =np.zeros(n)   #standardabweichungen 
 sdev_t_unten =np.zeros(n)
-single_temp  =np.zeros(n)
+single_temp  =np.zeros(n)   #array mit Temperaturen, aber jede Temperatur nur einmal
 
 for j in range(n):
     for i, temperature in enumerate(temp):
