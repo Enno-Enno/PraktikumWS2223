@@ -1,21 +1,24 @@
 \subsection{Kenngrößen der Glaskugeln}
 
-Die Standard-Messunsicherheit der Schieblehre wird mit \qty{0.01}{\mm} angegeben.
+Die Standard-Messunsicherheit der Schieblehre wird mit $\qty{0.01}{\mm}$ angegeben.
 Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volumen
-$V=\frac{4 \pi}{3} \left(\frac{d}{2}\right)^3$ und $\rho = \frac{m}{V}$.
-Die Messunsicherheiten werden mithilfe der Gaußschen Fehlerfortpflanzung berechnet.
-Es gilt:
 \begin{align*}
-    \rho &= \frac{m}{V} = \frac{3 m}{4 \pi} \left(  \frac{2}{d} \right)^{3} = \frac{6 m}{\pi} d^{-3} \\%
-    \frac{\partial \rho}{\partial d} &= -\frac{18 m}{\pi} d^{-4}  \\%
-    %
-    \intertext{Da für die Masse keine Standardabweichung gegeben ist,%
-     erhält die Gaußsche Fehlerfortpflanzung nur ein Argument}%
-    \Delta \rho &= \sqrt{\left(\frac{\partial \rho}{\partial d} \right)^{2} \Delta d^{2} }%
-    =\sqrt{\left(-\frac{18 m}{\pi} d^{-4} \right)^{2}} \Delta d \\%
-\end{align*}%
+    V = \frac{4 \pi}{3} \left(\frac{d}{2}\right)^3 & \rho = \frac{m}{V}
+\end{align*}
+Die Messunsicherheiten werden mithilfe der Gaußschen Fehlerfortpflanzung \ref{eq:gauspflanz} berechnet.
+%Es gilt:
+%%%%%
+%\begin{align*}
+%    \rho &= \frac{m}{V} = \frac{3 m}{4 \pi} \left(  \frac{2}{d} \right)^{3} = \frac{6 m}{\pi} d^{-3} \\%
+%    \frac{\partial \rho}{\partial d} &= -\frac{18 m}{\pi} d^{-4}  \\%
+%    %
+%    \intertext{Da für die Masse keine Standardabweichung gegeben ist,%
+%     erhält die Gaußsche Fehlerfortpflanzung nur ein Argument}%
+%    \Delta \rho &= \sqrt{\left(\frac{\partial \rho}{\partial d} \right)^{2} \Delta d^{2} }%
+%    =\sqrt{\left(-\frac{18 m}{\pi} d^{-4} \right)^{2}} \Delta d \\%
+%\end{align*}%
 %
-Einsetzen der Unsicherheiten und der gemessen Werte aus Tabelle \ref{tab:kenngroessen} ergibt die Werte in Tabelle \ref{tab:Dichten}.%
+%Einsetzen der Unsicherheiten und der gemessen Werte aus Tabelle \ref{tab:kenngroessen} ergibt die Werte in Tabelle \ref{tab:Dichten}.%
 
 \begin{table}
     \caption{}
@@ -27,45 +30,12 @@ Einsetzen der Unsicherheiten und der gemessen Werte aus Tabelle \ref{tab:kenngro
         \midrule
         {klein} & 4.4531 & 15.61 & 0.01 & 2.2359 & 0.005\\
         {groß}  & 2.9528 & 15.78 & 0.01 & 2.4073 & 0.005\\
+        %                        \pm             \pm
         \bottomrule 
 
     \end{tabular}
 \end{table}
-Um Rechenfehler zu vermeiden werden für die konkrete Berechnung der Messunsicherheiten 
-das Python-Paket uncertainties \cite{uncertainties} \cite{python} verwendet.
+%Um Rechenfehler zu vermeiden werden für die konkrete Berechnung der Messunsicherheiten 
+%das Python-Paket uncertainties \cite{uncertainties} \cite{python} verwendet.
 
 
-\subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
-\label{sec:auswertung_mr1}
-
-Für die kleine Kugel oben ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} 
-also für die Fallzeit ein arithmetisches Mittel von%
-%
-\begin{align*}
-    \overline{t}_{\text{kl, oben}} &= \frac{1}{10} \sum_{k=1}^{10} {t_{\text{kl, oben}, k}} = \qty[]{12.324}{\s}\\%
-%
-\intertext{mit einer Standardabweichung von}%
-%
-    \Delta \overline{t}_{\text{kl, oben}} &= 
-    \sqrt[]{\frac{1}{N \left(N-1\right)} \sum_{k=1}^{10} \left(t_{\text{kl, oben}, k} - \overline{t}_{\text{kl, oben}}\right)^2}
-    = \qty[]{0.155}{\s}\\%
-    %
-\end{align*}
-Analog folgt für unten eine Fallzeit von der Mittelwert $\overline{t}_{\text{kl, unten}} = \qty[]{12.248}{\s}$
-und die Standardabweichung $\Delta\overline{t}_{\text{kl, unten}} = \qty[]{0.184}{\s}$.
-
-%Durchschnittszeiten kleine Kugel:
-%oben: 12.32400 mit Fehler:  0.15500
-%unten: 12.24800 mit Fehler:  0.18405
-
-%Durchschnittszeiten grosse Kugel:
-%oben: 35.02400 mit Fehler:  0.29574
-%unten: 35.60000 mit Fehler:  0.75913
-
-Für die kleine Kugel beträgt nach \cite*[]{va207} die Apparaturkonstante $K_{\text{kl}} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
-Nach \cite[]{geschke} beträgt bei $T = \qty{19}{\degreeCelsius}$ die Dichte von Wasser $\rho = \qty{0.99841}{\g \per \cm^3}$.
-Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität oben $\eta_{\text{kl, oben}} = \left(1.165 \pm 0.015\right) 10^{-3} \, \unit{\pascal \s}$
-und unten $\eta_{\text{kl, unten}} = \left(1.158 \pm 0.018\right) 10^{-3} \, \unit{\pascal \s}$.
-
-%eta klein oben:  0.001165+/-0.000015
-%eta klein unten:  0.001158+/-0.000018

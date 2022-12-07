@@ -1,0 +1,29 @@
+\subsection{Fehlerrechnung}
+
+\subsubsection{arithmetisches Mittel}
+
+
+\subsubsection{Standardabweichung}
+
+
+\subsubsection{Gaußsche Fehlerfortpflanzung}
+
+Wenn zu Messdaten die Standardabweichung bekannt ist, und mit diesen Messdaten weiter gerechnet werden soll,
+wird die Gaußsche Fehlerfortpflanzung verwendet. 
+Angenommen wir haben $k$ Messwerte $x_i [i \in \mathbb{N}, i \leq k]$ mit den Standardabweichungen $\Delta x_i$
+und eine abgeleitete Größe $f(x_i)$ dann ist der Fehler von $f$
+\begin{align}
+    \Delta f(x_i) = \sqrt{
+    \left(\frac{\partial f}{\partial x_1} \Delta x_1\right)^2%
+     + \left(\frac{\partial f}{\partial x_2} \Delta x_2\right)^2%
+     + \dots%
+     + \left(\frac{\partial f}{\partial x_k} \Delta x_k\right)^2%
+    }.
+    \label{eq:gauspflanz}
+\end{align} 
+Im Ergebnis gibt es dann den Mittelwert von $f$ mit der errechneten Abweichung $\overline{f} \pm \Delta f $.
+Um Rechenfehler zu vermeiden wird das Python Paket \texttt{uncertainties} \cite[][]{uncertainties} verwendet.
+Hier wird die Fehlerfortpflanzung automatisch verrechnet, wenn man die Variablen als \texttt{ufloat} definiert.
+
+
+%\subsubsection{Fehlerrechnung bei der linearen Regression}

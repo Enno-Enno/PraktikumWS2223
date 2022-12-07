@@ -1,0 +1,60 @@
+\subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
+\label{sec:auswertung_mr1}
+
+\begin{table}[]
+    \caption{Kleine Kugel bei Zimmertemperatur; Fallhöhe = 10 cm}
+    \label{tab:klKu_Zitemp}
+    \centering
+    \sisetup{table-format=2.2}
+    \begin{tabular}{S S}
+        \toprule
+        \multicolumn{2}{c}{Fallzeit $ t / \unit{\s}$}\\
+        {oben} & {unten}\\
+        \midrule
+        12.21 &  12.66 \\
+        12.40 &  12.00 \\
+        12.25 &  12.32 \\
+        12.65 &  12.06 \\
+        12.16 &  12.32 \\
+        12.13 &  12.09 \\
+        12.50 &  12.15 \\
+        12.38 &  12.18 \\
+        12.34 &  12.38 \\
+        12.22 &  12.32 \\
+        \bottomrule
+
+    \end{tabular}
+\end{table}
+%
+%
+Für die kleine Kugel oben ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} 
+also für die Fallzeit ein arithmetisches Mittel von%
+%
+\begin{align*}
+    \overline{t}_{\text{kl, oben}} &= \frac{1}{10} \sum_{k=1}^{10} {t_{\text{kl, oben}, k}} = \qty[]{12.324}{\s}\\%
+%
+\intertext{mit einer Standardabweichung von}%
+%
+    \Delta \overline{t}_{\text{kl, oben}} &= 
+    \sqrt[]{\frac{1}{N \left(N-1\right)} \sum_{k=1}^{10} \left(t_{\text{kl, oben}, k} - \overline{t}_{\text{kl, oben}}\right)^2}
+    = \qty[]{0.155}{\s}\\%
+    %
+\end{align*}
+Analog folgt für unten eine Fallzeit von der Mittelwert $\overline{t}_{\text{kl, unten}} = \qty[]{12.248}{\s}$
+und die Standardabweichung $\Delta\overline{t}_{\text{kl, unten}} = \qty[]{0.184}{\s}$.
+%
+%Durchschnittszeiten kleine Kugel:
+%oben: 12.32400 mit Fehler:  0.15500
+%unten: 12.24800 mit Fehler:  0.18405
+%
+%Durchschnittszeiten grosse Kugel:
+%oben: 35.02400 mit Fehler:  0.29574
+%unten: 35.60000 mit Fehler:  0.75913
+%
+Für die kleine Kugel beträgt nach \cite*[]{va207} die Apparatekonstante $K_{\text{kl}} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
+Nach \cite[]{geschke} beträgt bei $T = \qty{19}{\degreeCelsius}$ die Dichte von Wasser $\rho = \qty{0.99841}{\g \per \cm^3}$.
+Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität oben $\eta_{\text{kl, oben}} = \left(1.165 \pm 0.015\right) 10^{-3} \, \unit{\pascal \s}$
+und unten $\eta_{\text{kl, unten}} = \left(1.158 \pm 0.018\right) 10^{-3} \, \unit{\pascal \s}$.
+
+%eta klein oben:  0.001165+/-0.000015
+%eta klein unten:  0.001158+/-0.000018
