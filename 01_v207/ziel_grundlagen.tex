@@ -1,0 +1,47 @@
+\section{Ziel}
+In diesem Versuch wird die dynamische Viskosität\footnote{Nicht zu verwechseln mit der \textit{kinematischen} Viskosität.
+Im folgenden wird die \textit{dynamische} Viskosität mit Viskosität bezeichnet.} $\eta$ 
+von destilliertem Wasser in Abhängigkeit der Temperatur mit Hilfe des Kugelfall-Viskosimeters nach Höppler ermittelt.
+
+
+
+\section{Grundlagen}
+\label{sec:grundlagen}
+Reale Stoffe (d.h. Flüssigkeiten oder Gase) sind \textit{strömend}, wenn sie einen makroskopischen Impuls haben.
+Die thermische Bewegung der einzelnen Moleküle kann dabei vernachlässigt werden.
+Die Strömung kann mit Hilfe der Strömungsgeschwindigkeit $\symbf{u}\left(\symbf{r},t\right)$ beschrieben werden.
+Als \textit{Stromlinie} oder \textit{Stromfaden} bezeichnet man die Ortskurve, die ein Flüssigkeitselement, etwa ein Korkstück, durchläuft.
+Eine Stromlinie wird durch Reibungskräfte im Medium beeinflusst \cite[]{demtroeder}.
+Ein Maß für die Stärke der inneren Reibung bzw. die Zähigkeit des Stoffes ist die \textit{dynamische Viskosität} $\eta$ mit der SI-Einheit $\unit{\Pa \s}$.
+Diese ist eine temperaturabhängige Materialkonstante \cite[]{geschke}.
+Man unterscheidet hierbei zwischen idealen bzw. nicht-viskosen Stoffen, für die $\eta \simeq 0$ gilt, und viskosen Stoffen,
+deren Strömungsverhalten in laminar und turbulent eingeteilt wird (vgl. Abschnitt \ref{sec:vorbereitung}).
+
+Die Reibung, die eine Kugel mit Radius $r$ und Geschwindigkeit $v$ in einem Fluid erfährt wird mit Hilfe der Stokesschen Reibung 
+
+\begin{align}
+    F_R = 6 \pi \eta v r    
+\end{align}
+
+beschrieben.
+Sie wirkt mit der Auftriebskraft $\symbf{F}_A$ der Schwerkraft $\symbf{F}_g$ entgegen. 
+Mit steigender Geschwindigkeit $v$ wächst die Reibungskraft $\symbf{F}_R$, bis sich ein Kräftegleichgewicht einstellt
+und $v$ einen konstanten Wert annimmt.
+Dabei wird die Viskosität des Fluids mit der empirischen Formel 
+
+\begin{align}
+    \label{eq:empirisch}
+    \eta = K \left(\rho_K -\rho_{Fl}\right) \cdot t
+\end{align}
+
+ermittelt, wobei $K$ eine Apparaturkonstante ist, die Fallhöhe und Kugelgeometrie berücksichtigt,
+$\rho_K$ bzw. $\rho_{Fl}$ die Dichte der Kugel bzw. des Fluids sind und $t$ die Fallzeit darstellt.
+
+
+Durch die \textit{Andradesche Gleichung} wird die Temperaturabhängigkeit der Viskosität von Flüssigkeiten dargestellt.
+\begin{equation}
+\label{eq:andrade}
+    \eta \left(T\right) = A \exp{\left(\frac{B}{T}\right)}
+\end{equation}
+$A$ und $B$ sind dabei Konstanten \cite*[]{va207}.
+
