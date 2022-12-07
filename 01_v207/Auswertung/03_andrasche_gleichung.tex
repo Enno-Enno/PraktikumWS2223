@@ -1,11 +1,15 @@
 
 \subsection[]{Messreihe 3: Überprüfung der Andradeschen Gleichung}
+
+In dieser Messreihe wird
+
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/Messreihe3.pdf}
     \caption{Die Fallzeit nach \ref{tab:grKu_steigendeTemp}.}
     \label{fig:groKu_steigendeTemp}
 \end{figure}
+
 
 \begin{table}
     \centering
@@ -30,20 +34,28 @@
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot.pdf}
-    \caption{Die Viskositäten nach \textbf{Tabelle 6}.}
-    \label{fig:groKu_steigendeTemp_eta}
+    \caption{Die errechneten Viskositäten in einer logarithmischen Darstellung mit einem linearen Fit}
+    \label{fig:groKu_steigendeTemp_eta_fit}
 \end{figure}
-
-%Formt man die Andradesche Gleichung \eqref{eq:andrade} so um, dass auf beiden Seiten der Logarithmus gezogen wird, ergibt sich
 %
-%\begin{align}
-%    \ln {\left( \eta \right)} = \frac{B}{T} + \ln{\left( A \right)}.
-%\end{align}
-%Mit den zuvor \ref{tab:viskositaeten_temp} berechneten Werten für die Viskosität kann mittels der Numerical Python Funktion \texttt{polyfit}
-%eine Ausgleichsgerade erstellt werden. Dadurch lassen sich die Konstanten $A$ und $B$ ermitteln.
+\noindent
+Formt man die Andradesche Gleichung \eqref{eq:andrade} so um, dass auf beiden Seiten der Logarithmus gezogen wird, ergibt sich
+\begin{align}
+    \ln {\left( \eta \right)} = \frac{B}{T} + \ln{\left( A \right)}.
+\end{align}
+Die Werte für die Viskosität sollten also nach der theoretischen Erwartung linear mit dem inversen der Temperatur zusammenhängen.
+Von den zuvor berechneten Werten \ref{tab:viskositaeten_temp} wird der natürliche logarythmus geplottet.
+Die lineare Regression mit der \texttt{polyfit} Einstellung \texttt{deg=1} wird gebildet.
+Durch das Prinzip der kleinsten Abstandsquadrate entsteht so eine Funktion der Form
+\begin{align*}
+    f(x) = mx + b
+\end{align*}
+Für die Parameter ergeben sich die Werte:
+\begin{align*}
+    m = 1761.27 & b = -5.85
+\end{align*}
+Dadurch lassen sich die Konstanten $A$ und $B$ ermitteln.
 
-Für die regression der in \ref{tab:viskositaeten_temp} angegebenen und in \ref{fig:groKu_steigendeTemp_eta} dargestellten Größen
-hat uns leider die Zeit gefehlt. 
 
 \subsection[]{Die Reynoldszahl}
 Um zu ermitteln, ob es sich um eine laminare Strömung handelt, wird jeweils die dimensionslose Reynoldszahl $Re$ für die kleine und große Kugel bestimmt

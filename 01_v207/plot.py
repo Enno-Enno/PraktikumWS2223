@@ -145,7 +145,9 @@ eta_unten[9] = eta(K_gr_unten,rho_gr_Kugel ,dichten[50] ,unc_t_unten[9])
 
 #Mittel_eta_ln = np.ln(Mittel_eta) 
 
-#x_plot = np.linspace(single_temp[0], single_temp[9])
+x_plot = np.linspace(single_temp_k[0], single_temp_k[9], 1000)
+
+#x_plot = np.linspace(1/single_temp_k[9], 1/single_temp_k[0], 1000)
 print("eta_oben:", eta_oben)
 print("eta_unten:", eta_unten)
 print(unp.nominal_values(eta_oben))
@@ -156,15 +158,17 @@ eta_unten_log = unp.log(eta_unten)
 print("eta_oben_log:", eta_oben_log)
 print("eta_unten_log:", eta_unten_log)
 
+#params, covariance_matrix = np.polyfit(1/single_temp_k , unp.nominal_values(eta_oben_log),deg=1,cov=True)
+params, covariance_matrix = np.polyfit(1/single_temp_k , np.log(unp.nominal_values(eta_oben)),deg=1,cov=True)
 
-
-
+print(params)
 
 plt.figure(constrained_layout=True)
-##plt.yscale('log') # aufpassen vielleicht gibt es da noch ein Problem mit den std_devs!
-plt.errorbar(1 / single_temp, unp.nominal_values(eta_oben_log), yerr=unp.std_devs(eta_oben_log) ,fmt='x', label="Viskositäten oben")
-plt.xlabel("$\\left(\\frac{{1}}{{T}} \\right) / \\unit{{\\celsius}}$")
-plt.ylabel("$ \\ln(\\eta) / \\unit{\milli\Pa\s}")
+#plt.yscale('log') # aufpassen vielleicht gibt es da noch ein Problem mit den std_devs!
+plt.plot(1 / single_temp_k, unp.nominal_values(eta_oben_log), 'x', label="Viskositäten oben")
+plt.plot(1/x_plot, params[0]* (1/x_plot) + params[1])
+plt.xlabel("$\\left(\\frac{{1}}{{T}} \\right) / \\frac{{1}}{{\\unit{{\\kelvin}}}}$")
+plt.ylabel("$ \\ln(\\eta)")
 
 
 plt.savefig("build/plot.pdf")
