@@ -1,6 +1,24 @@
 \subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
 \label{sec:auswertung_mr1}
 
+Bei Messungen von denen die Standardmessunsicherheit nicht bekannt ist, 
+ist es sinnvoll mehrere Messungen zu machen und von ihnen das arithmetische Mittel zu bilden.
+So entsteht eine genauere Messung. % Überdenken
+Das arithmetische Mittel einer Messreihe mit $N$ Werten $x_i$ wird folgendermaßen berechnet:
+\begin{align}
+    \overline{x} = \frac{1}{N} \sum_{i=1}^{N}x_i
+    \label{eq:artim_mit}
+\end{align}
+
+Der Standardmessfehler des arithmetischen Mittels der Messreihe berechnet sich dann so.
+\begin{align}
+    \delta \overline{x} = \sqrt[]{\frac{1}{N \left(N-1\right)} \sum_{k=1}^{N} \left(x_{i} - \overline{t_{}}\right)^2}
+    \label{eq:}
+\end{align}
+
+In der ersten Messreihe wird die Zeit für die kleinere Kugel gemessen.
+Das Wasser hat eine Zimmertemperatur von \qty{19}{\celsius} 
+und die Fallstrecke beträgt \qty[]{10}{\cm} 
 \begin{table}[]
     \caption{Kleine Kugel bei Zimmertemperatur; Fallhöhe = 10 cm}
     \label{tab:klKu_Zitemp}
@@ -51,10 +69,32 @@ und die Standardabweichung $\Delta\overline{t}_{\text{kl, unten}} = \qty[]{0.184
 %oben: 35.02400 mit Fehler:  0.29574
 %unten: 35.60000 mit Fehler:  0.75913
 %
-Für die kleine Kugel beträgt nach \cite*[]{va207} die Apparatekonstante $K_{\text{kl}} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
-Nach \cite[]{geschke} beträgt bei $T = \qty{19}{\degreeCelsius}$ die Dichte von Wasser $\rho = \qty{0.99841}{\g \per \cm^3}$.
-Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität oben $\eta_{\text{kl, oben}} = \left(1.165 \pm 0.015\right) 10^{-3} \, \unit{\pascal \s}$
-und unten $\eta_{\text{kl, unten}} = \left(1.158 \pm 0.018\right) 10^{-3} \, \unit{\pascal \s}$.
+Für die kleine Kugel beträgt nach \cite*{va207} die Apparatekonstante $K_{\text{kl}} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
+Nach \cite[][290]{geschke} beträgt bei $T = \qty{19}{\degreeCelsius}$ die Dichte von Wasser $\rho = \qty{0.99841}{\g \per \cm^3}$.
+%%%% Vielleicht muss das an eine frühere Stelle, ich denke aber nicht
+Da für die beiden unterschiedlichen Ausrichtungen des Viskosimeters kleine Unterschiede zu erwarten sind,
+werden die Ergebnisse in $x_\text{oben}$ und in $x_\text{unten}$ aufgeteilt.
+Dies steht dafür auf welcher Seite (oben oder unten) die Schläuche von der Wärmeinheit des 
+Viskosimeters \textbf{Referenz zu Abbildung einfügen} bei der jeweiligen Messung sind.
+\begin{table}
+    \centering
+    \caption{Berechnete Viskosität des Wassers nach Fallrichtung aufgeteilt}
+    \label{tab:visk_kl_Zitemp}
+    \sisetup{table-format=1.3}
+    \begin{tabular}[]{c S @{${}\pm{}$} S}
+        \toprule
+            & \multicolumn{2}{c}{$\eta / \unit{\milli\pascal\s}  $} \\
+        \midrule
+        $\eta_\text{kl, oben} $ & \num{1.165} &  \num{0.015}    \\
+        $\eta_\text{kl, unten} $ & \num{1.158} &  \num{0.018}    \\
+        \bottomrule
+        \end{tabular}
+\end{table}
+%Mit Gleichung \eqref{eq:empirisch} folgt somit für die Viskosität oben $\eta_{\text{kl, oben}} = \left(1.165 \pm 0.015\right) 10^{-3} \, \unit{\pascal \s}$
+%und unten 
+%$\eta_{\text{kl, unten}} = \left(1.158 \pm 0.018\right) 10^{-3} \, \unit{\pascal \s}$.
+%%%%%%%%%%%%%% Eigentlich wäre das hier in einer Tabelle viel schöner.
+
 
 %eta klein oben:  0.001165+/-0.000015
 %eta klein unten:  0.001158+/-0.000018

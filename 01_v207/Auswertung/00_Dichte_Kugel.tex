@@ -1,27 +1,45 @@
 \subsection{Kenngrößen der Glaskugeln}
 
+
+
+Wenn zu Messdaten die Standardabweichung bekannt ist, und mit diesen Messdaten weiter gerechnet werden soll,
+wird die gaußsche Fehlerfortpflanzung verwendet. 
+Angenommen wir haben $k$ Messwerte $x_i [i \in \mathbb{N}, i \leq k]$ mit den Standardabweichungen $\Delta x_i$
+und eine abgeleitete Größe $f(x_i)$ dann ist der Fehler von $f$
+\begin{align}
+    \Delta f(x_i) = \sqrt{
+    \left(\frac{\partial f}{\partial x_1} \Delta x_1\right)^2%
+     + \left(\frac{\partial f}{\partial x_2} \Delta x_2\right)^2%
+     + \dots%
+     + \left(\frac{\partial f}{\partial x_k} \Delta x_k\right)^2%
+    }.
+    \label{eq:gauspflanz}
+\end{align} 
+Im Ergebnis gibt es dann den Mittelwert von $f$ mit der errechneten Abweichung $\overline{f} \pm \Delta f $.
+%Um Rechenfehler zu vermeiden wird das Python Paket \texttt{uncertainties} \cite[][]{uncertainties} verwendet.
+%Hier wird die Fehlerfortpflanzung automatisch verrechnet, wenn man die Variablen als \texttt{ufloat} definiert.
+
+Die gaußsche Fehlerfortpflanzung \ref{eq:gauspflanz} wird hier das erste mal verwendet.
 Die Standard-Messunsicherheit der Schieblehre wird mit $\qty{0.01}{\mm}$ angegeben.
 Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volumen
 \begin{align*}
-    V = \frac{4 \pi}{3} \left(\frac{d}{2}\right)^3 & \rho = \frac{m}{V}
+    V = \frac{4 \pi}{3} \left(\frac{d}{2}\right)^3 & \rho = \frac{m}{V} \\
+    %%%%%
+    %\rho &= \frac{m}{V} = \frac{3 m}{4 \pi} \left(  \frac{2}{d} \right)^{3} = \frac{6 m}{\pi} d^{-3} \\%
+    \frac{\partial \rho}{\partial d} = -\frac{18 m}{\pi} d^{-4} %
 \end{align*}
-Die Messunsicherheiten werden mithilfe der Gaußschen Fehlerfortpflanzung \ref{eq:gauspflanz} berechnet.
-%Es gilt:
-%%%%%
-%\begin{align*}
-%    \rho &= \frac{m}{V} = \frac{3 m}{4 \pi} \left(  \frac{2}{d} \right)^{3} = \frac{6 m}{\pi} d^{-3} \\%
-%    \frac{\partial \rho}{\partial d} &= -\frac{18 m}{\pi} d^{-4}  \\%
-%    %
-%    \intertext{Da für die Masse keine Standardabweichung gegeben ist,%
-%     erhält die Gaußsche Fehlerfortpflanzung nur ein Argument}%
-%    \Delta \rho &= \sqrt{\left(\frac{\partial \rho}{\partial d} \right)^{2} \Delta d^{2} }%
-%    =\sqrt{\left(-\frac{18 m}{\pi} d^{-4} \right)^{2}} \Delta d \\%
-%\end{align*}%
 %
-%Einsetzen der Unsicherheiten und der gemessen Werte aus Tabelle \ref{tab:kenngroessen} ergibt die Werte in Tabelle \ref{tab:Dichten}.%
+\begin{align*}
+\intertext{Da für die Masse keine Standardabweichung gegeben ist,%
+ erhält die Gaußsche Fehlerfortpflanzung nur ein Argument}%
+    \Delta \rho &= \sqrt{\left(\frac{\partial \rho}{\partial d} \right)^{2} \Delta d^{2} }%
+    =\sqrt{\left(-\frac{18 m}{\pi} d^{-4} \right)^{2} \Delta d^{2} } \\%
+\end{align*}%
+
+
 
 \begin{table}
-    \caption{}
+    \caption{Die Dichte $\rho$ mit Messfehlern}
     \label{tab:Dichten}
     \centering
     \begin{tabular}[]{S S[table-format=1.4] S[table-format=2.2] @{${}\pm{}$} S[table-format=0.2] S[table-format=1.4] @{${}\pm{}$} S[table-format=0.2]}
