@@ -1,6 +1,7 @@
 \subsection{Messreihe 1: kleine Kugel, konstante Temperatur}
 \label{sec:auswertung_mr1}
 
+\subsubsection[]{Arithmetisches Mittel und Standardabweichung}
 Bei Messungen von denen die Standardmessunsicherheit nicht bekannt ist, 
 ist es sinnvoll mehrere Messungen zu machen und von ihnen das arithmetische Mittel zu bilden.
 So entsteht eine genauere Messung. % Überdenken
@@ -9,18 +10,21 @@ Das arithmetische Mittel einer Messreihe mit $N$ Werten $x_i$ wird folgendermaß
     \overline{x} = \frac{1}{N} \sum_{i=1}^{N}x_i
     \label{eq:artim_mit}
 \end{align}
-
-Der Standardmessfehler des arithmetischen Mittels der Messreihe berechnet sich dann so.
+%
+Der Standardmessfehler des arithmetischen Mittels der Messreihe berechnet sich dann wie folgt:
 \begin{align}
     \Delta \overline{x} = \sqrt[]{\frac{1}{N \left(N-1\right)} \sum_{k=1}^{N} \left(x_{i} - \overline{x}\right)^2}
     \label{eq:stddev_mit}
 \end{align}
+%
 
-In der ersten Messreihe wird die Zeit für die kleinere Kugel gemessen.
+\subsubsection[]{Fallzeit der kleinen Kugel}
+In der ersten Messreihe werden die Fallzeiten für die kleinere Kugel gemessen.
 Das Wasser hat eine Zimmertemperatur von \qty{19}{\celsius} 
-und die Fallstrecke beträgt \qty[]{10}{\cm} 
-\begin{table}[]
-    \caption{Kleine Kugel bei Zimmertemperatur; Fallhöhe = 10 cm}
+und die Fallstrecke beträgt \qty[]{10}{\cm}. 
+Somit ergeben sich die Daten in Tabelle \ref{tab:klKu_Zitemp}.
+\begin{table}%[h!]
+    \caption{Fallzeit der kleinen Kugel bei Zimmertemperatur}
     \label{tab:klKu_Zitemp}
     \centering
     \sisetup{table-format=2.2}
@@ -40,14 +44,29 @@ und die Fallstrecke beträgt \qty[]{10}{\cm}
         12.34 &  12.38 \\
         12.22 &  12.32 \\
         \bottomrule
-
     \end{tabular}
 \end{table}
-
-Das arithmetischen Mittel der Laufzeiten $\overline{t_text{oben}}$ und $\overline{t_text{unten}}$
-werden nach \eqref{eq:artim_mit} für $N= 10$ Werte aus \ref{tab:klKu_Zitemp} berechnet.
-Die Standardmessfehler des Mittelwertes werden in der 
-
+%
+Das arithmetischen Mittel der Laufzeiten $\overline{t_\text{oben}}$ und $\overline{t_\text{unten}}$
+werden nach \eqref{eq:artim_mit} für $N= 10$ Werte aus Tabelle \ref{tab:klKu_Zitemp} berechnet.
+Die Standardmessfehler des Mittelwertes werden gemäß \eqref{eq:artim_mit} berechnet.
+Die Ergebnisse sind in Tabelle \ref{tab:mittel_fallzeit_klein} einzusehen.
+%
+\begin{table}
+    \centering
+    \caption{Durchschnittliche Fallzeit für die kleine Kugel}
+    \label{tab:mittel_fallzeit_klein}
+    \sisetup{table-format=2.2}
+    \begin{tabular}[]{c S @{${}\pm{}$} S}
+        \toprule
+        Ausrichtung   & \multicolumn{2}{c}{$\overline{t} / \unit{\s}  $} \\
+        \midrule
+        oben  & \num{12.32} &  \num{0.16}    \\
+        unten & \num{12.25} &  \num{0.18}    \\
+        \bottomrule
+        \end{tabular}
+\end{table}
+%
 %
 % Alte Version:
 %%%%%Für die kleine Kugel oben ergibt sich mit Tabelle \ref{tab:klKu_Zitemp} 
@@ -74,14 +93,18 @@ Die Standardmessfehler des Mittelwertes werden in der
 %oben: 35.02400 mit Fehler:  0.29574
 %unten: 35.60000 mit Fehler:  0.75913
 %
+
+\newpage
+\subsubsection[]{Viskosität des Wassers}
 Für die kleine Kugel beträgt nach \cite*{va207} die Apparatekonstante $K_{\text{kl}} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
 Nach \cite[][290]{geschke} beträgt bei $T = \qty{19}{\degreeCelsius}$ die Dichte von Wasser $\rho = \qty{0.99841}{\g \per \cm^3}$.
+Mit Gleichung \eqref{eq:empirisch} folgen somit für die Viskosität des Wassers die Werte in Tabelle \ref{tab:visk_kl_Zitemp}. 
 %%%% Vielleicht muss das an eine frühere Stelle, ich denke aber nicht
 % Da für die beiden unterschiedlichen Ausrichtungen des Viskosimeters kleine Unterschiede zu erwarten sind,
 % werden die Ergebnisse in $x_\text{oben}$ und in $x_\text{unten}$ aufgeteilt.
 % Dies steht dafür auf welcher Seite (oben oder unten) die Schläuche von der Wärmeinheit des 
 % Viskosimeters \textbf{Referenz zu Abbildung einfügen} bei der jeweiligen Messung sind.
-
+%
 \begin{table}
     \centering
     \caption{Viskosität des Wassers nach Fallrichtung aufgeteilt}
