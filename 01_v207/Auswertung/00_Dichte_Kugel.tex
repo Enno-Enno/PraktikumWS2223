@@ -18,9 +18,9 @@ und eine abgeleitete Größe $f(x_i)$ dann ist der Fehler von $f$
 Im Ergebnis gibt es dann den Mittelwert von $f$ mit der errechneten Abweichung $\overline{f} \pm \Delta f $.
 %Um Rechenfehler zu vermeiden wird das Python Paket \texttt{uncertainties} \cite[][]{uncertainties} verwendet.
 %Hier wird die Fehlerfortpflanzung automatisch verrechnet, wenn man die Variablen als \texttt{ufloat} definiert.
-Die Gaußsche Fehlerfortpflanzung \eqref{eq:gauspflanz} wird hier das erste Mal verwendet.
+%Die Gaußsche Fehlerfortpflanzung \eqref{eq:gauspflanz} wird hier das erste Mal verwendet.
 Die Standard-Messunsicherheit der Schieblehre wird mit $\qty{0.01}{\mm}$ angegeben.
-Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volumen
+Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volumen.
 \begin{align*}
     V &= \frac{4 \pi}{3} \left(\frac{d}{2}\right)^3 & \rho &= \frac{m}{V} \\
     \frac{\partial \rho}{\partial d} &= -\frac{18 m}{\pi} d^{-4} %
@@ -28,16 +28,17 @@ Die Dichte $\rho$ errechnet sich aus dem Verhältnis zwischen Masse $m$ und Volu
 %%%%%
 %\rho &= \frac{m}{V} = \frac{3 m}{4 \pi} \left(  \frac{2}{d} \right)^{3} = \frac{6 m}{\pi} d^{-3} \\%
 %
-Da für die Masse keine Standardabweichung gegeben ist, enthält die Gaußsche Fehlerfortpflanzung nur einen Summanden unter der Wurzel
+Da für die Masse keine Standardabweichung gegeben ist, enthält die Gaußsche Fehlerfortpflanzung nur einen Summanden unter der Wurzel.
 \begin{align*}
     \Delta \rho &= \sqrt{\left(\frac{\partial \rho}{\partial d} \right)^{2} \Delta d^{2} }%
-    =\sqrt{\left(-\frac{18 m}{\pi} d^{-4} \right)^{2} \Delta d^{2} }.%
+    =\sqrt{\left(-\frac{18 m}{\pi} d^{-4} \right)^{2} \Delta d^{2} }%
 \end{align*}%
+Für die Dichten $\rho$ der Kugeln folgen somit die Werte in Tabelle \ref{tab:Dichten}.
 
 
 
 \begin{table}
-    \caption{Die Dichte $\rho$ mit Messfehlern}
+    \caption{Die Dichten $\rho$ mit Messfehlern}
     \label{tab:Dichten}
     \centering
     \begin{tabular}[]{S S[table-format=1.4] S[table-format=2.2] @{${}\pm{}$} S[table-format=0.2] S[table-format=1.4] @{${}\pm{}$} S[table-format=0.2]}
