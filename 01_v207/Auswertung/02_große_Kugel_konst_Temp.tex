@@ -1,13 +1,15 @@
 \subsection{Messreihe 2: große Kugel, konstante Temperatur}
+%
+\subsubsection[]{Fallzeiten der großen Kugel}
 \label{sec:auswertung_mr2}
 \begin{table}[]
-    \caption{Große Kugel bei Zimmertemperatur; Fallhöhe = 5 cm}
+    \caption{Fallzeiten der großen Kugel bei Zimmertemperatur}
     \label{tab:grKu_Zitemp}
     \centering
     \sisetup{table-format=2.2}
     \begin{tabular}{S S}
         \toprule
-        \multicolumn{2}{c}{Fallzeit $ t / \unit{\s}$}\\
+        \multicolumn{2}{c}{Fallzeit $ t_\text{groß} / \unit{\s}$}\\
         {oben} & {unten}\\
         \midrule
             34.78 &  34.75 \\
@@ -16,19 +18,53 @@
             35.22 &  35.63 \\
             35.47 &  35.78 \\
         \bottomrule
-
     \end{tabular}
 \end{table}
-
+%
 In der zweiten Messreihe werden die Mittelwerte und Standardmessfehler analog zu \ref{sec:auswertung_mr1} berechnet.
-Die $N=5$ Messwerte befinden sich in \ref{tab:grKu_Zitemp}
-
-
+Hierfür werden für beide Fallrichtungen je $N=5$ Messwerte auf einer Strecke von \qty[]{5}{\cm} erhoben.
+Die Messwerte befinden sich in Tabelle \ref{tab:grKu_Zitemp} und die zugehörigen Mittelwerte und Standardabweichungen
+in Tabelle \ref{tab:mittel_fallzeit_gross} gemäß \eqref{eq:empirisch}.
+%
+\begin{table}
+    \centering
+    \caption{Durchschnittliche Fallzeiten für die große Kugel}
+    \label{tab:mittel_fallzeit_gross}
+    \sisetup{table-format=2.2}
+    \begin{tabular}[]{c S @{${}\pm{}$} S}
+        \toprule
+        Ausrichtung   & \multicolumn{2}{c}{$\overline{t_\text{groß}} / \unit{\s}  $} \\
+        \midrule
+        oben  & \num{35.02} &  \num{0.30}    \\
+        unten & \num{35.60} &  \num{0.76}    \\
+        \bottomrule
+        \end{tabular}
+\end{table}
+%
+\subsubsection[]{Die Apparatekonstante}
+Zusammen mit den zuvor bestimmten durchschnittlichen Fallzeiten (vgl. Tabelle \ref{tab:mittel_fallzeit_gross})
+und Viskositäten $\eta_{\text{klein}}$ ergeben sich für beide Fallrichtungen die Apparatekonstanten in Tabelle \ref{tab:mittel_Apparatekonstante}.
+%
+\begin{table}
+    \centering
+    \caption{Apparatekonstanten für die große Kugel}
+    \label{tab:mittel_Apparatekonstante}
+    \sisetup{table-format=1.4}
+    \begin{tabular}[]{c S @{${}\pm{}$} S}
+        \toprule
+        Ausrichtung   & \multicolumn{2}{c}{$\overline{K_\text{groß}} / \left(\unit{\milli\Pa \cubic\cm\per\g}\right)  $} \\
+        \midrule
+        oben  & \num{0.0236} &  \num{0.0004}    \\
+        unten & \num{0.0231} &  \num{0.0006}    \\
+        \bottomrule
+        \end{tabular}
+\end{table}
+%
 %%%%Für die große Kugel erhält man ganz analog zu \ref{sec:auswertung_mr1} für oben die Werte $t_{\text{gr,oben}} = \left(35.024 \pm 0.296\right) \, \unit{\s}$ 
 %%%%bzw. für unten $t_{\text{gr,unten}} = \left(35.600 \pm 0.759\right) \, \unit{\s}$.
 %%%%
-%%%%Zusammen mit den zuvor bestimmten Viskositäten bei Zimmertemperatur $\eta_{\text{kl, oben}}$ und $\eta_{\text{kl, unten}}$ ergibt sich dann eine Apparaturkonstante von
-%%%%$K_{\text{gr, oben}} = \left(0.0236 \pm 0.0004 \right) \unit{\milli\Pa \cubic\cm\per\g}$ für oben bzw.
+%%%%Zusammen mit den zuvor bestimmten Viskositäten bei Zimmertemperatur $\eta_{\text{kl, oben}}$ und $\eta_{\text{kl, unten}}$ ergibt sich dann eine Apparatekonstante von
+%%%%$K_{\text{gr, oben}} =  \left(0.0236 \pm 0.0004 \right) \unit{\milli\Pa \cubic\cm\per\g}$ für oben bzw.
 %%%%$K_{\text{gr, unten}} = \left(0.0231 \pm 0.0006 \right) \unit{\milli\Pa \cubic\cm}$ für unten.
 
 %K oben und gross:  (2.36+/-0.04)e-05

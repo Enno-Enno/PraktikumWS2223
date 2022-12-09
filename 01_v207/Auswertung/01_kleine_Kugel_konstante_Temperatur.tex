@@ -18,19 +18,19 @@ Der Standardmessfehler des arithmetischen Mittels der Messreihe berechnet sich d
 \end{align}
 %
 
-\subsubsection[]{Fallzeit der kleinen Kugel}
+\subsubsection[]{Fallzeiten der kleinen Kugel}
 In der ersten Messreihe werden die Fallzeiten für die kleinere Kugel gemessen.
 Das Wasser hat eine Zimmertemperatur von \qty{19}{\celsius} 
 und die Fallstrecke beträgt \qty[]{10}{\cm}. 
 Somit ergeben sich die Daten in Tabelle \ref{tab:klKu_Zitemp}.
 \begin{table}%[h!]
-    \caption{Fallzeit der kleinen Kugel bei Zimmertemperatur}
+    \caption{Fallzeiten der kleinen Kugel bei Zimmertemperatur}
     \label{tab:klKu_Zitemp}
     \centering
     \sisetup{table-format=2.2}
     \begin{tabular}{S S}
         \toprule
-        \multicolumn{2}{c}{Fallzeit $ t / \unit{\s}$}\\
+        \multicolumn{2}{c}{Fallzeit $ t_\text{klein} / \unit{\s}$}\\
         {oben} & {unten}\\
         \midrule
         12.21 &  12.66 \\
@@ -52,14 +52,14 @@ werden nach \eqref{eq:artim_mit} für $N= 10$ Werte aus Tabelle \ref{tab:klKu_Zi
 Die Standardmessfehler des Mittelwertes werden gemäß \eqref{eq:artim_mit} berechnet.
 Die Ergebnisse sind in Tabelle \ref{tab:mittel_fallzeit_klein} einzusehen.
 %
-\begin{table}
+\begin{table}[H]
     \centering
-    \caption{Durchschnittliche Fallzeit für die kleine Kugel}
+    \caption{Durchschnittliche Fallzeiten für die kleine Kugel}
     \label{tab:mittel_fallzeit_klein}
     \sisetup{table-format=2.2}
     \begin{tabular}[]{c S @{${}\pm{}$} S}
         \toprule
-        Ausrichtung   & \multicolumn{2}{c}{$\overline{t} / \unit{\s}  $} \\
+        Ausrichtung   & \multicolumn{2}{c}{$\overline{t_\text{klein}} / \unit{\s}  $} \\
         \midrule
         oben  & \num{12.32} &  \num{0.16}    \\
         unten & \num{12.25} &  \num{0.18}    \\
@@ -94,11 +94,12 @@ Die Ergebnisse sind in Tabelle \ref{tab:mittel_fallzeit_klein} einzusehen.
 %unten: 35.60000 mit Fehler:  0.75913
 %
 
-\newpage
+%\newpage
 \subsubsection[]{Viskosität des Wassers}
-Für die kleine Kugel beträgt nach \cite*{va207} die Apparatekonstante $K_{\text{kl}} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
+Für die kleine Kugel beträgt nach \cite{va207} die Apparatekonstante $K_{\text{klein}} = \qty[]{0.07640}{\milli\Pa \cubic\cm}$.
 Nach \cite[][290]{geschke} beträgt bei $T = \qty{19}{\degreeCelsius}$ die Dichte von Wasser $\rho = \qty{0.99841}{\g \per \cm^3}$.
-Mit Gleichung \eqref{eq:empirisch} folgen somit für die Viskosität des Wassers die Werte in Tabelle \ref{tab:visk_kl_Zitemp}. 
+Mit Gleichung \eqref{eq:empirisch} folgen somit für die Viskosität des Wassers die Werte in Tabelle \ref{tab:visk_kl_Zitemp},
+wobei die Fehler gemäß \eqref{eq:gauspflanz} berechnet wurden. 
 %%%% Vielleicht muss das an eine frühere Stelle, ich denke aber nicht
 % Da für die beiden unterschiedlichen Ausrichtungen des Viskosimeters kleine Unterschiede zu erwarten sind,
 % werden die Ergebnisse in $x_\text{oben}$ und in $x_\text{unten}$ aufgeteilt.
@@ -107,12 +108,12 @@ Mit Gleichung \eqref{eq:empirisch} folgen somit für die Viskosität des Wassers
 %
 \begin{table}
     \centering
-    \caption{Viskosität des Wassers nach Fallrichtung aufgeteilt}
+    \caption{Durchschnittliche Viskositäten des Wassers für die kleine Kugel}
     \label{tab:visk_kl_Zitemp}
     \sisetup{table-format=1.3}
     \begin{tabular}[]{c S @{${}\pm{}$} S}
         \toprule
-        Ausrichtung   & \multicolumn{2}{c}{$\eta / \unit{\milli\pascal\s}  $} \\
+        Ausrichtung   & \multicolumn{2}{c}{$\overline{\eta_{\text{klein}}} / \unit{\milli\pascal\s}  $} \\
         \midrule
         oben & \num{1.165} &  \num{0.015}    \\
         unten & \num{1.158} &  \num{0.018}    \\
