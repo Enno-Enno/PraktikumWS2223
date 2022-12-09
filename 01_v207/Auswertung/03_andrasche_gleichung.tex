@@ -13,9 +13,9 @@
     \label{tab:grKu_steigendeTemp}
     \centering
     \sisetup{table-format=2.2}
-    \begin{tabular}{S[table-format=2.0] S[table-format=2.2] S[table-format=2.2]  S S S S}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.2] S  S @{${}\pm{}$}S[table-format=1.2] S @{${}\pm{}$} S[table-format=1.2]}
         \toprule
-        & \multicolumn{2}{c}{Fallzeit $ t / \unit{\s}$} & & \multicolumn{3}{c}{ $ \overline{t} / \unit{\s}$} \\
+        & \multicolumn{2}{c}{Fallzeit $ t / \unit{\s}$} & \multicolumn{4}{c}{ $ \overline{t} / \unit{\s}$} \\
         {T / \unit{\celsius}} & {oben} & {unten}  & \multicolumn{2}{c}{oben} & \multicolumn{2}{c}{unten}\\
         \midrule
             26 & 31.37 &  31.22 &   31.0   & 0.4        &  31.21  & 0.02  \\
@@ -36,7 +36,7 @@
                & 22.35 &  22.15 &          &            &         &       \\
             48 & 20.57 &  21.00 &   20.45  & 0.07       &  20.89  & 0.18  \\
                & 20.32 &  20.78 &          &            &         &       \\
-            52 & 19.65 &  19.09 &   19.56  & 0.5        &  19.125 & 0.7   \\
+            52 & 19.65 &  19.09 &   19.56  & 0.5        &  19.1   & 0.7   \\
                & 19.46 &  19.16 &          &            &         &       \\
         \bottomrule  
     \end{tabular}
@@ -45,8 +45,9 @@
 %artm_t_unten [31.205 30.875 29.155 28.03  25.985 24.89  23.435 22.26  20.89  19.125]
 %sdev_t_oben  [0.355 0.115 0.03  0.67  0.105 0.595 0.235 1.14  0.07  0.495]
 %sdev_t_unten [0.015 0.035 0.245 0.425 0.625 0.285 0.07  1.145 0.175 0.675]
-
 In dieser Messreihe wird die Temperatur schrittweise erhöht um die Temperaturabhängigkeit der Viskosität herauszufinden.
+Zunächst werden nach \eqref{eq:artim_mit} die Mittelwerte für die Temperaturen berechnet.
+Die 
 Die empirische Gleichung für die Viskosität \ref{eq:empirisch} enthält die Dichte des Wassers, die auch temperaturabhängig ist.
 In \ref{tab:viskositaeten_temp} werden die Dichten des Wassers aus \cite[][290]{geschke} übernommen. 
 Bei den Temperaturen, die nicht in \cite[][290]{geschke} enthalten sind wird auf die nächste angegebene Temperatur gerundet.
