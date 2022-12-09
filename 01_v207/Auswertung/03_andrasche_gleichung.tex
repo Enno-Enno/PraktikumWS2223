@@ -13,31 +13,31 @@
     \label{tab:grKu_steigendeTemp}
     \centering
     \sisetup{table-format=2.2}
-    \begin{tabular}{S[table-format=2.0] S[table-format=2.2] S  S @{${}\pm{}$}S[table-format=1.2] S @{${}\pm{}$} S[table-format=1.2]}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.2] S  S  S }
         \toprule
-        & \multicolumn{2}{c}{Fallzeit $ t / \unit{\s}$} & \multicolumn{4}{c}{ $ \overline{t} / \unit{\s}$} \\
-        {T / \unit{\celsius}} & {oben} & {unten}  & \multicolumn{2}{c}{oben} & \multicolumn{2}{c}{unten}\\
+        & \multicolumn{2}{c}{Fallzeit $ t / \unit{\s}$} & \multicolumn{2}{c}{ $ \overline{t} / \unit{\s}$} \\
+        {T / \unit{\celsius}} & {oben} & {unten}  & {oben} & {unten}\\
         \midrule
-            26 & 31.37 &  31.22 &   31.0   & 0.4        &  31.21  & 0.02  \\
-               & 30.66 &  31.19 &          &            &         &       \\
-            27 & 30.43 &  31.12 &   30.4   & 0.1        &  30.88  & 0.04  \\
-               & 30.37 &  30.63 &          &            &         &       \\
-            30 & 29.03 &  29.78 &   28.93  & 0.03       &  29.16  & 0.25  \\
-               & 28.82 &  28.53 &          &            &         &       \\
-            32 & 27.63 &  27.96 &   27.87  & 0.67       &  28.03  & 0.425 \\
-               & 28.10 &  28.10 &          &            &         &       \\
-            35 & 25.82 &  25.81 &   25.75  & 0.105      &  25.9   & 0.6   \\
-               & 25.68 &  26.16 &          &            &         &       \\
-            38 & 24.69 &  24.81 &   24.8   & 0.6        &  24.89  & 0.29  \\
-               & 24.93 &  24.97 &          &            &         &       \\
-            40 & 23.81 &  23.78 &   23.56  & 0.235      &  23.44  & 0.07  \\
-               & 23.31 &  23.09 &          &            &         &       \\
-            43 & 22.28 &  22.37 &   22.32  & 1.14       &  22.26  & 1.15  \\
-               & 22.35 &  22.15 &          &            &         &       \\
-            48 & 20.57 &  21.00 &   20.45  & 0.07       &  20.89  & 0.18  \\
-               & 20.32 &  20.78 &          &            &         &       \\
-            52 & 19.65 &  19.09 &   19.56  & 0.5        &  19.1   & 0.7   \\
-               & 19.46 &  19.16 &          &            &         &       \\
+            26 & 31.37 &  31.22 &   31.02   &  31.21    \\
+               & 30.66 &  31.19 &           &           \\
+            27 & 30.43 &  31.12 &   30.4    &  30.88    \\
+               & 30.37 &  30.63 &           &           \\
+            30 & 29.03 &  29.78 &   28.93   &  29.16    \\
+               & 28.82 &  28.53 &           &           \\
+            32 & 27.63 &  27.96 &   27.87   &  28.03    \\
+               & 28.10 &  28.10 &           &           \\
+            35 & 25.82 &  25.81 &   25.75   &  25.99    \\
+               & 25.68 &  26.16 &           &           \\
+            38 & 24.69 &  24.81 &   24.89   &  24.89    \\
+               & 24.93 &  24.97 &           &           \\
+            40 & 23.81 &  23.78 &   23.56   &  23.44    \\
+               & 23.31 &  23.09 &           &           \\
+            43 & 22.28 &  22.37 &   22.32   &  22.26    \\
+               & 22.35 &  22.15 &           &           \\
+            48 & 20.57 &  21.00 &   20.45   &  20.89    \\
+               & 20.32 &  20.78 &           &           \\
+            52 & 19.65 &  19.09 &   19.56   &  19.13    \\
+               & 19.46 &  19.16 &           &           \\
         \bottomrule  
     \end{tabular}
 \end{table}
@@ -46,12 +46,15 @@
 %sdev_t_oben  [0.355 0.115 0.03  0.67  0.105 0.595 0.235 1.14  0.07  0.495]
 %sdev_t_unten [0.015 0.035 0.245 0.425 0.625 0.285 0.07  1.145 0.175 0.675]
 In dieser Messreihe wird die Temperatur schrittweise erhöht um die Temperaturabhängigkeit der Viskosität herauszufinden.
-Zunächst werden nach \eqref{eq:artim_mit} die Mittelwerte für die Temperaturen berechnet.
-Die 
-Die empirische Gleichung für die Viskosität \ref{eq:empirisch} enthält die Dichte des Wassers, die auch temperaturabhängig ist.
-In \ref{tab:viskositaeten_temp} werden die Dichten des Wassers aus \cite[][290]{geschke} übernommen. 
+Zunächst werden nach \eqref{eq:artim_mit} die Mittelwerte für die für die Fallzeiten berechnet \ref{tab:grKu_steigendeTemp}.
+Der Mittelwert aus den beiden Werten wird je auf die zweite Nachkommastelle gerundet,
+da die Messdaten nur zwei Nachkommastellen haben.
+Mit der empirischen Gleichung \eqref{eq:empirisch} werden die Viskositäten des Wassers berechnet
+Die Temperaturabhängige Dichte des Wassers wird aus \cite[][290]{geschke} übernommen. 
 Bei den Temperaturen, die nicht in \cite[][290]{geschke} enthalten sind wird auf die nächste angegebene Temperatur gerundet.
-%Idee für die Diskussion hier villeicht noch Vergelichswerte aus dem Geschke hinzufügen.
+Für die verschiedenen Temperaturren sind dort auch Werte für die Viskosität gegeben. 
+In \ref{tab:viskositaeten_temp} werden diese zum vergleich aufgelistet.
+%Idee für die Diskussion hier vielleicht noch Vergleichswerte aus dem Geschke hinzufügen.
 \begin{table}
     \centering
     \sisetup{table-format=1.3}
@@ -75,7 +78,31 @@ Bei den Temperaturen, die nicht in \cite[][290]{geschke} enthalten sind wird auf
     \caption{Die Viskosität in Abhängigkeit von der Temperatur}
     \label{tab:viskositaeten_temp}
 \end{table}
-
+% Variante der Tabelle mit Standardfehler
+%%%\begin{table}
+%%%    \centering
+%%%    \sisetup{table-format=1.3}
+%%%    \begin{tabular}[]{S[table-format=2.0] S[table-format=0.5] S @{${}\pm{}$} S[table-format=1.3] S @{${}\pm{}$}  S[table-format=1.3] S[table-format=1.3]}
+%%%        \toprule
+%%%        {$T /\unit{\celsius}$} & {$\rho_{\text{Wasser}}$ \cite{geschke}} & \multicolumn{2}{c}{$ \eta_\text{oben} / \unit{\milli\Pa\s}$} & \multicolumn{2}{c}{$ \eta_\text{unten} / \unit{\milli\Pa\s}$} & {$ \eta_\text{Geschke} / \unit{\milli\Pa\s}$\cite{geschke}}\\
+%%%        \midrule
+%%%            26  &  0.99679   & 1.032  & 0.021 &        1.017 & 0.027 & 0.874 \\
+%%%            27  &  0.99652   & 1.012  & 0.018 &        1.006 & 0.026 & 0.855 \\
+%%%            30  &  0.99565   & 0.963  & 0.017 &        0.951 & 0.026 & 0.801 \\
+%%%            32  &  0.99565   & 0.928  & 0.028 &        0.914 & 0.028 & 0.801 \\
+%%%            35  &  0.994     & 0.859  & 0.015 &        0.848 & 0.030 & 0.723 \\
+%%%            38  &  0.9922    & 0.828  & 0.025 &        0.813 & 0.023 & 0.656 \\
+%%%            40  &  0.9922    & 0.787  & 0.016 &        0.766 & 0.020 & 0.656 \\
+%%%            43  &  0.9902    & 0.75   & 0.04  &        0.73  & 0.04  & 0.599 \\
+%%%            48  &  0.988     & 0.685  & 0.012 &        0.685 & 0.019 & 0.549 \\
+%%%            52  &  0.988     & 0.655  & 0.020 &        0.627 & 0.028 & 0.549 \\
+%%%        	%                        \pm                   \pm 
+%%%        \bottomrule
+%%%    \end{tabular}
+%%%    \caption{Die Viskosität in Abhängigkeit von der Temperatur}
+%%%    \label{tab:viskositaeten_temp}
+%%%\end{table}
+%%%
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{build/plot.pdf}
