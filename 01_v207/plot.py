@@ -158,17 +158,22 @@ eta_unten_log = unp.log(eta_unten)
 print("eta_oben_log:", eta_oben_log)
 print("eta_unten_log:", eta_unten_log)
 
-#params, covariance_matrix = np.polyfit(1/single_temp_k , unp.nominal_values(eta_oben_log),deg=1,cov=True)
-params, covariance_matrix = np.polyfit(1/single_temp_k , np.log(unp.nominal_values(eta_oben)),deg=1,cov=True)
+#params_o, covariance_matrix = np.polyfit(1/single_temp_k , unp.nominal_values(eta_oben_log),deg=1,cov=True)
+params_o, covariance_matrix = np.polyfit(1/single_temp_k , np.log(unp.nominal_values(eta_oben)),deg=1,cov=True)
+params_u, covariance_matrix = np.polyfit(1/single_temp_k , np.log(unp.nominal_values(eta_unten)),deg=1,cov=True)
 
-print(params)
+print("params_o:", params_o)
+print("params_u:", params_u)
 
 plt.figure(constrained_layout=True)
 #plt.yscale('log') # aufpassen vielleicht gibt es da noch ein Problem mit den std_devs!
 plt.plot(1 / single_temp_k, unp.nominal_values(eta_oben_log), 'x', label="Viskositäten oben")
-plt.plot(1/x_plot, params[0]* (1/x_plot) + params[1])
+plt.plot(1 / single_temp_k, unp.nominal_values(eta_unten_log), 'x', label="Viskositäten unten")
+plt.plot(1/x_plot, params_o[0]* (1/x_plot) + params_o[1], label="Linearer Fit für oben")
+plt.plot(1/x_plot, params_u[0]* (1/x_plot) + params_u[1], label="Linearer Fit für unten")
 plt.xlabel("$\\left(\\frac{{1}}{{T}} \\right) / \\frac{{1}}{{\\unit{{\\kelvin}}}}$")
 plt.ylabel("$ \\ln(\\eta)")
+plt.legend()
 
 
 plt.savefig("build/plot.pdf")
