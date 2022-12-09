@@ -1,30 +1,31 @@
-\subsection{Messreihe 2: große Kugel, konstante Temperatur}
+\subsection{Messreihe 2: große Kugel, konstante Temperatur}%
 %
-\subsubsection[]{Fallzeiten der großen Kugel}
-\label{sec:auswertung_mr2}
-\begin{table}[]
-    \caption{Fallzeiten der großen Kugel bei Zimmertemperatur}
-    \label{tab:grKu_Zitemp}
-    \centering
-    \sisetup{table-format=2.2}
-    \begin{tabular}{S S}
-        \toprule
-        \multicolumn{2}{c}{Fallzeit $ t_\text{groß} / \unit{\s}$}\\
-        {oben} & {unten}\\
-        \midrule
-            34.78 &  34.75 \\
-            34.65 &  34.94 \\
-            35.00 &  36.90 \\
-            35.22 &  35.63 \\
-            35.47 &  35.78 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
+\subsubsection[]{Fallzeiten der großen Kugel}%
+\label{sec:auswertung_mr2}%
+\begin{table}[]%
+    \caption{Fallzeiten der großen Kugel bei Zimmertemperatur}%
+    \label{tab:grKu_Zitemp}%
+    \centering%
+    \sisetup{table-format=2.2}%
+    \begin{tabular}{S S}%
+        \toprule%
+        \multicolumn{2}{c}{Fallzeit $ t_\text{groß} / \unit{\s}$}\\%
+        {oben} & {unten}\\%
+        \midrule%
+            34.78 &  34.75 \\%
+            34.65 &  34.94 \\%
+            35.00 &  36.90 \\%
+            35.22 &  35.63 \\%
+            35.47 &  35.78 \\%
+        \bottomrule%
+    \end{tabular}%
+\end{table}%
 %
+\noindent
 In der zweiten Messreihe werden die Mittelwerte und Standardmessfehler analog zu \ref{sec:auswertung_mr1} berechnet.
 Hierfür werden für beide Fallrichtungen je $N=5$ Messwerte auf einer Strecke von \qty[]{5}{\cm} erhoben.
-Die Messwerte befinden sich in Tabelle \ref{tab:grKu_Zitemp} und die zugehörigen Mittelwerte und Standardabweichungen
-in Tabelle \ref{tab:mittel_fallzeit_gross} gemäß \eqref{eq:empirisch}.
+Die Messwerte befinden sich in Tabelle \ref{tab:grKu_Zitemp} und die zugehörigen Mittelwerte sowie deren mittels
+\eqref{eq:gauspflanz} bestimmten Standardabweichungen in Tabelle \ref{tab:mittel_fallzeit_gross}.
 %
 \begin{table}
     \centering
@@ -42,8 +43,10 @@ in Tabelle \ref{tab:mittel_fallzeit_gross} gemäß \eqref{eq:empirisch}.
 \end{table}
 %
 \subsubsection[]{Die Apparatekonstante}
-Zusammen mit den zuvor bestimmten durchschnittlichen Fallzeiten (vgl. Tabelle \ref{tab:mittel_fallzeit_gross})
-und Viskositäten $\eta_{\text{klein}}$ ergeben sich für beide Fallrichtungen die Apparatekonstanten in Tabelle \ref{tab:mittel_Apparatekonstante}.
+Zusammen mit den zuvor bestimmten durchschnittlichen Fallzeiten $\overline{t_\text{groß}}$ (vgl. Tabelle \ref{tab:mittel_fallzeit_gross})
+und Viskositäten $\overline{\eta_{\text{klein}}}$ ergeben sich für beide Fallrichtungen die Apparatekonstanten  gemäß \eqref{eq:empirisch}
+in Tabelle \ref{tab:mittel_Apparatekonstante}.
+Auch hier berechnen sich die Standardabweichungen mittels \eqref{eq:gauspflanz}.
 %
 \begin{table}
     \centering
@@ -66,7 +69,6 @@ und Viskositäten $\eta_{\text{klein}}$ ergeben sich für beide Fallrichtungen d
 %%%%Zusammen mit den zuvor bestimmten Viskositäten bei Zimmertemperatur $\eta_{\text{kl, oben}}$ und $\eta_{\text{kl, unten}}$ ergibt sich dann eine Apparatekonstante von
 %%%%$K_{\text{gr, oben}} =  \left(0.0236 \pm 0.0004 \right) \unit{\milli\Pa \cubic\cm\per\g}$ für oben bzw.
 %%%%$K_{\text{gr, unten}} = \left(0.0231 \pm 0.0006 \right) \unit{\milli\Pa \cubic\cm}$ für unten.
-
+%
 %K oben und gross:  (2.36+/-0.04)e-05
 %K unten und gross:  (2.31+/-0.06)e-05
-
