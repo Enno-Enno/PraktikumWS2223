@@ -117,6 +117,18 @@ eta_unten[7] = eta(K_gr_unten,rho_gr_Kugel ,dichten[45] ,unc_t_unten[7])
 eta_unten[8] = eta(K_gr_unten,rho_gr_Kugel ,dichten[50] ,unc_t_unten[8])
 eta_unten[9] = eta(K_gr_unten,rho_gr_Kugel ,dichten[50] ,unc_t_unten[9])
 
+eta_geschke = unp.uarray(np.zeros(n),np.zeros(n))
+eta_geschke[0] = ufloat(0.874 , 0)
+eta_geschke[1] = ufloat(0.855 , 0)
+eta_geschke[2] = ufloat(0.801 , 0)
+eta_geschke[3] = ufloat(0.801 , 0)
+eta_geschke[4] = ufloat(0.723 , 0)
+eta_geschke[5] = ufloat(0.656 , 0)
+eta_geschke[6] = ufloat(0.656 , 0)
+eta_geschke[7] = ufloat(0.599 , 0)
+eta_geschke[8] = ufloat(0.549 , 0)
+eta_geschke[9] = ufloat(0.549 , 0)
+
 #### Nicht mehr nötig mit unp.uarray
 ##Mittel_eta= np.zeros(n)
 ##Fehler_eta= np.zeros(n)
@@ -158,9 +170,32 @@ eta_unten_log = unp.log(eta_unten)
 print("eta_oben_log:", eta_oben_log)
 print("eta_unten_log:", eta_unten_log)
 
+eta_mw = unp.uarray(np.zeros(n),np.zeros(n))
+delta_pct = unp.uarray(np.zeros(n),np.zeros(n))
+delta = unp.uarray(np.zeros(n),np.zeros(n))
+
+for index in range(n):
+    eta_mw[index] = (eta_oben[index] + eta_unten[index]) /2
+
+for index in range(n):
+    delta[index] = eta_mw[index] - eta_geschke[index]
+    delta_pct[index] = delta[index] / eta_mw[index] 
+
+
+
 #params_o, covariance_matrix = np.polyfit(1/single_temp_k , unp.nominal_values(eta_oben_log),deg=1,cov=True)
 params_o, covariance_matrix = np.polyfit(1/single_temp_k , np.log(unp.nominal_values(eta_oben)),deg=1,cov=True)
 params_u, covariance_matrix = np.polyfit(1/single_temp_k , np.log(unp.nominal_values(eta_unten)),deg=1,cov=True)
 
 print("params_o:", params_o)
 print("params_u:", params_u)
+
+print("A_oben= ", np.exp(params_o[1]))
+print("A_unten= ", np.exp(params_u[1]))
+
+for index in range(n):
+    print("eta_mw",index,":",eta_mw[index])
+for index in range(n):
+    print("delta",index,":",delta[index])
+for index in range(n):
+    print("delta_pct",index,":",delta_pct[index])

@@ -29,12 +29,40 @@ Auch ist nicht bekannt, was die Genauigkeit zwischen den markierten Abständen a
 
 \noindent
 \textbf{Systematischer Fehler:} 
-Der Vergleich in Tabelle \ref{tab:viskositaeten_temp} mit den Literaturwerten zeigt, 
-dass die gemessenen Werte konstant \num{0.1} bis \qty{0.2}{\milli\pascal\s} größer sind als die Literaturwerte. 
+In Tabelle \ref{tab:viskositaeten_vergleich} werden die Mittelwerte $\overline{\eta}$ der gemessenen Viskositäten für die verschiedenen Temperaturen aus Tabelle \ref{tab:viskositaeten_temp}
+mit den aus \cite[][290]{geschke} gegebenen Werten verglichen.
+Die Literaturwerte sind um 13 bis 20 \% kleiner als die gemessenen Werte.
 Es ist davon auszugehen, dass es einen systematischen Fehler gibt, der die Ergebnisse für die
 Viskosität verfälscht.
 Mögliche Fehlerquelle kann z.B. eine fehlerhaft angegebene Apparatekonstante sein.
-Ein anderer möglicher Fehler ist eine falsche Massenangabe für die große oder kleine Kugel.
+Diese kann durch kleine Unterschiede zwischen den Viskosimetern erklärt werden.
+So ein Fehler würde die Ergebnisse um einen konstanten Faktor verfälschen.
+Die Abweichungen liegen in einem hinreichend ähnlichen Bereich um einen solchen Fehler zu vermuten.
+
+
+\begin{table}
+    \centering
+    \caption{Vergleich gemessene Viskositäten mit Literaturwert \cite[][290]{geschke}}
+    \label{tab:viskositaeten_vergleich}
+    \sisetup{table-format=1.3}
+    \begin{tabular}[]{S S S S}
+        \toprule
+        {$\overline{\eta_\text{gemessen}} / \unit{\milli\pascal\s}$}%
+        &{$\eta_\text{Geschke}/\unit{\milli\pascal\s}$ \cite[][]{geschke}} %
+        &{$\Delta \overline{\eta}/ \unit{\milli\pascal\s}$}% 
+        &{$\Delta \eta_\text{rel}$}\\
+        1.024  & 0.874 & 0.150 &  0.147\\
+        1.009  & 0.855 & 0.154 &  0.153\\
+        0.957  & 0.801 & 0.156 &  0.163\\
+        0.921  & 0.801 & 0.120 &  0.130\\
+        0.853  & 0.723 & 0.130 &  0.153\\
+        0.821  & 0.656 & 0.165 &  0.201\\
+        0.776  & 0.656 & 0.120 &  0.155\\
+        0.737  & 0.599 & 0.138 &  0.188\\
+        0.685  & 0.549 & 0.136 &  0.198\\
+        0.641  & 0.549 & 0.092 &  0.143\\
+    \end{tabular}
+\end{table}
 
 %vergleich mit Literaturwert
 
@@ -50,6 +78,7 @@ Rein rechnerisch hängt dies in erster Linie mit den großen Unterschieden der G
 Diese wiederum begründet sich vor allem mit der um den etwa Faktor 3 unterschiedliche Gerätekonstante.
 Da $v$ proportional zur Apparatekonstante $K$ ist, lässt sich die unterschiedliche Geschwindigkeit 
 durch die unterschiedlichen Beschaffenheiten des Geräts (z.B. geringerer Abstand zwischen Kugeloberfläche und Wand) begründen.
+Die Ergebnisse zu der andradeschen Gleichung sind nicht durch Verwirbelungen verfälscht worden.
 %Es lässt sich also annehmen, dass durch die unterschiedlichen Gerätekonstanten und Dichten andere Strömungungen entstehen, sodass 
 %die große Kugel langsamer fällt als die kleine Kugel.
 
