@@ -1,6 +1,7 @@
 %FRAGEN:
 %U_0 (IM AP 2.28)??
 %GAIN IN RECHNUNGEN??
+%Noch mehr auf Verifikation eingehen?
 %
 %
 %
@@ -8,18 +9,22 @@
 %
 %
 \subsection[]{Verifikation der Funktion eines phasenempfindlichen Gleichrichters}
-Mit dem linken Ausgang des Funktionsgenerators (ohne die Beschriftung \enquote{phase shift}) lassen sich die Spannungsamplituden variieren.
-Es wird eine konstante Spannung gewählt.
+\label{sec:gleichrichter}
+Mit dem linken Ausgang des Funktionsgenerators lassen sich die Spannungsamplituden variieren,
+während der rechten Ausgang ohne die Beschriftung \enquote{phase shift} eine konstante Spannung erzeugt.
 %𝑈0 = 2,28 V nach Altprotokoll(?)
 %5.1 so semi erfüllt(?)
 %
 Im nächsten Schritt wird der Schaltplan \textbf{SCHALTPLAN REFERENZIEREN} aufgebaut,
 um die Funktionsweise eines phasenempfindlichen Gleichrichters zu verifizieren.
+Dabei wird der Noise Generator gebrückt.
 Dies findet ohne Verwendung des Tiefpasses statt.
+Es wird ein sinusförmiges Signal $U_\text{sig}$ von ca. \qty[]{1}{\kilo\hertz} und \qty[]{10}{\milli\volt} am Oszillator Output eingestellt.
+Dieses Signal wird mit einem Sinus- / Referenzsignal $U_\text{ref}$ identischer Frequenz gemischt.
 Der Gain Regulierer des Verstärkers hat einen Wert von 1 und der Gain Regulierer des Lock-in Detektors einen Wert von 20.
 %% FRAGE: MUSS MAN DAS IN DER RECHNUNG BERÜCKSICHTIGEN?
 Mit dem Phasenschieber werden insgesamt fünf verschiedene Phasenverschiebungen $\phi$ eingestellt,
-die in Abbildung \ref{fig:phasenunterschiede} einzusehen sind.
+die in Abbildung \ref{fig:phasenunterschiede_ohne_noise} einzusehen sind.
 %
 \begin{figure}%
     \begin{subfigure}{0.5\textwidth}%
@@ -61,56 +66,37 @@ die in Abbildung \ref{fig:phasenunterschiede} einzusehen sind.
     \label{fig:phase5}%
     \end{subfigure}%
     %
-    \caption{Spannungsverläufe für unterschiedliche Phasen}%
-    \label{fig:phasenunterschiede}%
+    \caption{Spannungsverläufe für unterschiedliche Phasen ohne Integration und ohne Noise Generator}%
+    \label{fig:phasenunterschiede_ohne_noise}%
 \end{figure}%
 %  
-%Anhand der Abbildung \ref{fig:phasenunterschiede}
+%Anhand der Abbildung \ref{fig:phasenunterschiede_ohne_noise}
 %
 
 \noindent
-Schaltet man den Tiefpass hinzu, ergeben sich je nach Phase $\phi$ die Spannungsamplituden $U$ in Tabelle \ref{tab:u_out_tp_ohne_noise}.
-%Spannungsamplitude von channel 1:
-% 871.2
-% 712.8
-% 653.4
-% 613.8
-% 455.4
-% 950.4
-% 1190  
-% 990.0
-% 1170  
-% 1030  
+Schaltet man den Tiefpass hinzu, ergeben sich je nach Phase $\phi$ die Spannungsamplituden $U_\text{out}$ in Tabelle \ref{tab:u_out_tp_ohne_noise}.
+%
 \begin{table}
     \centering
-    \caption[]{Amplitude der Ausgangsspannung nach Integration durch den Tiefpass}
+    \caption[]{Ausgangsspannung nach Integration ohne Geräuschsignal}
+%    \caption[]{Amplitude der Ausgangsspannung nach Integration durch den Tiefpass}
     \label{tab:u_out_tp_ohne_noise}
     \sisetup{table-format=3.0}
     \begin{tabular}[]{S c S[table-format=2.2]}
         \toprule
-        {$\phi / \unit[]{\degree}$} & {$\phi / \unit[]{\radian}$} & {$U / \unit[]{\volt}$} \\
+        {$\phi / \unit[]{\degree}$} & {$\phi / \unit[]{\radian}$} & {$U_\text{out} / \unit[]{\volt}$} \\
         \midrule
-           0 &     0          & -0.10 \\
-          45 & $    \pi / 4 $ & -0.10 \\
-          90 & $    \pi / 2 $ &  0.04 \\
-         135 & $ 3  \pi / 4 $ &  0.18 \\
-         180 & $    \pi     $ &  0.28 \\
-         225 & $ 5  \pi / 4 $ &  0.26 \\
-         270 & $ 3  \pi / 2 $ &  0.14 \\
-         300 & $ 5  \pi / 3 $ &  0.06 \\
-         315 & $ 7  \pi / 4 $ &  0.00 \\
-         330 & $ 11 \pi / 6 $ & -0.06 \\
+           0 &     0          & -0.10 \\ % Spannungsamplitude von channel 1 in mV: 871.2
+          45 & $    \pi / 4 $ & -0.10 \\ % Spannungsamplitude von channel 1 in mV: 712.8
+          90 & $    \pi / 2 $ &  0.04 \\ % Spannungsamplitude von channel 1 in mV: 653.4
+         135 & $ 3  \pi / 4 $ &  0.18 \\ % Spannungsamplitude von channel 1 in mV: 613.8
+         180 & $    \pi     $ &  0.28 \\ % Spannungsamplitude von channel 1 in mV: 455.4
+         225 & $ 5  \pi / 4 $ &  0.26 \\ % Spannungsamplitude von channel 1 in mV: 950.4
+         270 & $ 3  \pi / 2 $ &  0.14 \\ % Spannungsamplitude von channel 1 in mV: 1190  
+         300 & $ 5  \pi / 3 $ &  0.06 \\ % Spannungsamplitude von channel 1 in mV: 990.0
+         315 & $ 7  \pi / 4 $ &  0.00 \\ % Spannungsamplitude von channel 1 in mV: 1170  
+         330 & $ 11 \pi / 6 $ & -0.06 \\ % Spannungsamplitude von channel 1 in mV: 1030  
         \bottomrule
-%-100.0
-%-100.0
-%  40.0
-% 180.0
-% 280.0
-% 260.0
-% 140.0
-%  60.0
-%   0.0
-% -60.0
     \end{tabular} 
 \end{table}
 %
@@ -122,9 +108,10 @@ Da die Spannungswerte gemäß \textbf{REFERENZ!!!!} $2 \pi$-periodisch sein soll
 durchgeführt, was mittels der Funktion \texttt{curve\_fit} aus dem Python \cite{python} Paket \texttt{scipy.optimize} \cite[]{scipy} realisiert wird.
 Es ergibt sich Plot \ref{eq:ausgleich_tp_ohne_noise} mit den Parametern
 \begin{align*}
-    A &= \left(\num[]{-0.2002} \pm \num[]{0.0055}\right) \, \unit{\volt} & B &=  \num[]{0.9938} \pm \num[]{0.0208} \\
-    C &= \num[]{-0.2768} \pm \num[]{0.0779} & D &= \left(\num[]{0.0869} \pm \num[]{0.0054}\right) \, \unit[]{\volt} \\
+    A_\text{out} &= \left(\num[]{-0.2002} \pm \num[]{0.0055}\right) \, \unit{\volt} & B_\text{out} &=  \num[]{0.9938} \pm \num[]{0.0208} \\
+    C_\text{out} &= \num[]{-0.2768} \pm \num[]{0.0779} & D_\text{out} &= \left(\num[]{0.0869} \pm \num[]{0.0054}\right) \, \unit[]{\volt},
 \end{align*}
+wobei die Fehler durch die Kovarianzmatrix berechnet werden.
 % cosinus für av_ch2:
 % a = -0.20018493
 % b = 0.99376117
@@ -133,13 +120,14 @@ Es ergibt sich Plot \ref{eq:ausgleich_tp_ohne_noise} mit den Parametern
 %fehler:
 %[0.00549263 0.02075618 0.07790146 0.0054004 ]
 %
-\begin{figure}
-    \includegraphics*[]{build/B01_ausgleichsplot.pdf}
+\begin{figure}[H]
+    \includegraphics[]{build/B01_ausgleichsplot.pdf}
     \caption[]{Ausgleichsfunktion \eqref{eq:ausgleich_tp_ohne_noise} zu den Werten aus Tabelle \ref{tab:u_out_tp_ohne_noise}}
     \label{fig:ausgleichsplot1}
 \end{figure}
 
-\noindent Vergleicht man die Ergebnisse mit \textbf{REFERENZ!!!}, so ergibt sich mit
+\noindent Vergleicht man die Ergebnisse mit \textbf{REFERENZ!!!}, lässt sich die Funktionsweise eines phasenempfindlichen Gleichrichters verifizieren.
+Ebenso ergibt sich für die Amplitude der Eingangsspannung $U_0$:
 \begin{align*}
     U_0 = \frac{\pi}{2} A = \left(-0.314 \pm 0.009\right) \, \unit[]{\volt}
 \end{align*}
