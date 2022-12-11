@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from uncertainties import ufloat
 
-
+print("B01------------------------------------------------------------------")
 phi, amp_ch1, av_ch2 = np.genfromtxt("B01_messdaten.txt", unpack=True)
 
 def cosinus(x, a, b, c, d):
@@ -52,7 +52,7 @@ x = np.linspace(0,2*np.pi,1000)
 #plt.savefig("build/B01_ausgleichsplot_channel1.pdf")
 
 plt.figure(constrained_layout=True)
-plt.plot(phi_rad, av_ch2, "x", label="Amplitude $A$")
+plt.plot(phi_rad, av_ch2, "x", label="$U_\\text{out}$")
 plt.plot(x, cosinus(x, *params_ch2), "-", label="Ausgleichsfunktion")
 plt.xlim(0, 2 * np.pi)
 plt.xlabel("$\\phi / \\unit{{\\radian}}$")
@@ -81,3 +81,5 @@ param_d = ufloat( 0.08687120, 0.0054004 )
 u_0 = np.pi/2 * param_a
 print("U_0 = ", u_0)
 #U_0 =  -0.314+/-0.009
+print("-------------------------------------------------------")
+#CH1 ERGIBT KEINEN SINN --> CH2 VERWENDEN
