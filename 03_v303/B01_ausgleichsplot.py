@@ -79,8 +79,12 @@ param_b = ufloat( 0.99376117, 0.02075618)
 param_c = ufloat(-0.27683892, 0.07790146)
 param_d = ufloat( 0.08687120, 0.0054004 )
 
-u_0 = np.pi/2 * param_a /gain
-print("U_0 = ", u_0)
+u_0 = ufloat(0.0100, 0.0000) #geht auch ohne ufloat aber testweise
+u_0_exp = np.pi/2 * param_a /gain
+print("U_0_exp = ", u_0_exp)
 #U_0 =  -0.0157+/-0.0004
+del_u_0 = -1 * u_0_exp / u_0
+print("delta u_0 = ", del_u_0)
+#delta u_0 =  1.57+/-0.04
 print("-------------------------------------------------------")
 #CH1 ERGIBT KEINEN SINN --> CH2 VERWENDEN

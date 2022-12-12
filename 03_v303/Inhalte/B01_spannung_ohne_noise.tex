@@ -6,25 +6,27 @@
 %
 %
 %
-\subsection[]{Verifikation der Funktion eines phasenempfindlichen Gleichrichters}
+\subsection{Schaltung ohne Noise Generator}
+\label{sec:ohne_noise}
+\subsubsection{Verifikaton des Gleichrichters}
 \label{sec:gleichrichter}
 Mit dem linken Ausgang des Funktionsgenerators lassen sich die Spannungsamplituden variieren,
 während der rechten Ausgang ohne die Beschriftung \enquote{phase shift} eine konstante Spannung erzeugt.
-%𝑈0 = 2,28 V nach Altprotokoll(?)
-%5.1 so semi erfüllt(?)
 %
 Im nächsten Schritt wird der Schaltplan \textbf{SCHALTPLAN REFERENZIEREN} aufgebaut,
 um die Funktionsweise eines phasenempfindlichen Gleichrichters zu verifizieren.
 Dabei wird der Noise Generator gebrückt.
 Dies findet ohne Verwendung des Tiefpasses statt.
-Es wird ein sinusförmiges Signal $U_\text{sig}$ von ca. \qty[]{1}{\kilo\hertz} und \qty[]{10}{\milli\volt} am Oszillator Output eingestellt.
+Es wird ein sinusförmiges Signal $U_\text{sig}$ von \qty[]{1}{\kilo\hertz} und $U_0 = \qty[]{10}{\milli\volt}$ am Oszillator Output eingestellt.
 Dieses Signal wird mit einem Sinus- / Referenzsignal $U_\text{ref}$ identischer Frequenz gemischt.
 Der Gain Regulierer des Verstärkers hat einen Wert von 1 und der Gain Regulierer des Lock-in Detektors einen Wert von 20.
 %% FRAGE: MUSS MAN DAS IN DER RECHNUNG BERÜCKSICHTIGEN?
 Mit dem Phasenschieber werden insgesamt fünf verschiedene Phasenverschiebungen $\phi$ eingestellt,
 die in Abbildung \ref{fig:phasenunterschiede_ohne_noise} einzusehen sind.
+Vergleicht man diese Ergebnisse mit \textbf{REFERENZ ABBILDUNG!!!}, lässt sich
+die Funktionsweise eines phasenempfindlichen Gleichrichters verifizieren.
 %
-\begin{figure}%
+\begin{figure}[H]%
     \begin{subfigure}{0.5\textwidth}%
     \centering%
     \includegraphics[width = 7.3cm]{./Oszilloskop Bilder/png/5.2/1 MAP002.png}%
@@ -68,10 +70,10 @@ die in Abbildung \ref{fig:phasenunterschiede_ohne_noise} einzusehen sind.
     \label{fig:phasenunterschiede_ohne_noise}%
 \end{figure}%
 %  
-%Anhand der Abbildung \ref{fig:phasenunterschiede_ohne_noise}
 %
-
-\noindent
+%
+\subsubsection{Spannung in Abhängigkeit der Phase nach Integration ohne Geräusche}
+\label{sec: integration_ohne_noise}
 Schaltet man den Tiefpass hinzu, ergeben sich je nach Phase $\phi$ die Spannungsamplituden $U_\text{out}$ in Tabelle \ref{tab:u_out_tp_ohne_noise}.
 %
 \begin{table}
@@ -98,6 +100,8 @@ Schaltet man den Tiefpass hinzu, ergeben sich je nach Phase $\phi$ die Spannungs
     \end{tabular} 
 \end{table}
 %
+
+\noindent
 Da die Spannungswerte gemäß \textbf{REFERENZ!!!!} $2 \pi$-periodisch sein sollen, wird eine Ausgleichsrechnung mit der Funktion 
 \begin{align}
     \label{eq:ausgleich_tp_ohne_noise}
@@ -125,9 +129,12 @@ wobei die Fehler durch die Kovarianzmatrix berechnet werden.
 \end{figure}
 
 \noindent
-Vergleicht man die Ergebnisse mit \textbf{REFERENZ!!!}, lässt sich die Funktionsweise eines phasenempfindlichen Gleichrichters verifizieren.
-Ebenso ergibt sich für die Amplitude der Eingangsspannung $U_0$, wenn man noch durch die obigen Gain Faktoren 1 und 20 teilt:
+Im Vergleich mit Gleichung \textbf{REFERENZ!!!} ergibt sich für die Amplitude der Eingangsspannung $U_{0,\text{exp}}$,
+wenn man noch durch die obigen Gain Faktoren 1 und 20 teilt:
 \begin{align*}
-    U_0 = \frac{\pi}{2} \frac{1}{1 \cdot 20} A = \left(-0.314 \pm 0.009\right) \, \unit[]{\volt}
+    U_{0,\text{exp}} = \frac{\pi}{2} \frac{1}{1 \cdot 20} A = \left(-0.0157 \pm 0.0004\right) \, \unit[]{\volt}
 \end{align*}
-%U_0 =  -0.314+/-0.009
+Dies entspricht einem relativen Fehler von $\Delta U_0 = \left(57 \pm 4\right) \, \%$.
+
+%#delta u_0 =  1.57+/-0.04
+

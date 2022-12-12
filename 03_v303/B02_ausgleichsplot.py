@@ -5,7 +5,6 @@ from uncertainties import ufloat
 
 print("B02------------------------------------------------------------------")
 
-
 phi, amp_ch1, av_ch2 = np.genfromtxt("B02_messdaten.txt", unpack=True)
 #amp_ch1 und av_ch2 sind schon in V
 
@@ -16,15 +15,12 @@ phi_rad = phi/360 * 2 * np.pi
 #umwandlung von deg in rad
 
 
-#print("phi in rad:")
-#print(phi_rad)
-
-params_ch1, covariance_matrix_ch1 = curve_fit(cosinus, phi_rad, amp_ch1)
+#params_ch1, covariance_matrix_ch1 = curve_fit(cosinus, phi_rad, amp_ch1)
 params_ch2, covariance_matrix_ch2 = curve_fit(cosinus, phi_rad, av_ch2, p0=(1, 1, 1, 100))
 
-print("cosinus für amp_ch1: ")
-for name, value in zip("abcd", params_ch1):
-    print(f"{name} = {value:8.8f}")
+#print("cosinus für amp_ch1: ")
+#for name, value in zip("abcd", params_ch1):
+#    print(f"{name} = {value:8.8f}")
 #cosinus für amp_ch1: 
 #a = 0.33217717
 #b = 0.81383641
@@ -79,7 +75,8 @@ param_b = ufloat(0.99333910 , 0.01503098)
 param_c = ufloat(-0.27544268, 0.05641517)
 param_d = ufloat(0.08103079 , 0.00536591)
 
-u_0 = np.pi/2 * param_a
+gain = 5 * 20
+u_0_noise = np.pi/2 * param_a
 print("U_0 = ", u_0)
 #U_0 =  -0.431+/-0.009
 print("-------------------------------------------------------")

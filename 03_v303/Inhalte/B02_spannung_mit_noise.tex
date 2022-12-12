@@ -1,16 +1,20 @@
 %%FRAGEN:
-%MIT GAIN; NOISE AMPLITUDE, ATTENUATOR RECHNEN?
 %FIT UND PARAMETER EXTREM NAH AN GLEICHRICHTER??
-\subsection[]{Verifikation der Funktionsweise eines Lock-in Verstärkers}
+\subsection{Schaltung mit Noise Generator}
+\label{sec:mit_noise}
 Wie in Schaltplan \textbf{PLAN REFERENZIEREN!!!} dargestellt wird über den Noise Generator ein Rauschsignal hinzu gegeben.
 Das Signal ist von der gleichen Größenordnung wie die Signalspannung $U_\text{sig}$.
-Analog zu Abschnitt \ref{sec:gleichrichter} werden alle Messungen wiederholt, erst ohne und dann mit Noise Generator.
-Der Gain Regulierer am Verstärker ist nun auf $5$ gestellt, die Noise Amplitude und der Noise Attenuator auf $10^{-3}$.
-%FRAGE: MUSS MAN DAMIT RECHEN?
-Für die Messreihe ohne Integration durch den Tiefpass ergeben sich die Spannungsverlüfe \ref{fig:phasenunterschiede_mit_noise}.
+Der Gain Regulierer am Verstärker ist nun auf 5 gestellt, die Noise Amplitude und der Noise Attenuator auf $10^{-3}$.
+Der Gain Regulator des Lock-in Detektors steht weiterhin auf 20.
+Analog zu Abschnitt \ref{sec:ohne_noise} werden alle Messungen wiederholt, erst ohne und dann mit Integrationsglied.
+
+
+\subsubsection{Ohne Tiefpass}
+\label{sec:mit_noise_ohne_tp}
+Für die Messreihe ohne Integration durch den Tiefpass ergeben sich die Spannungsverläufe \ref{fig:phasenunterschiede_mit_noise}.
 %
 %
-\begin{figure}%
+\begin{figure}[H]%
     \begin{subfigure}{0.5\textwidth}%
     \centering%
     \includegraphics[width = 7.3cm]{./Oszilloskop Bilder/png/5.3/n1.png}%
@@ -54,7 +58,8 @@ Für die Messreihe ohne Integration durch den Tiefpass ergeben sich die Spannung
     \label{fig:phasenunterschiede_mit_noise}%
 \end{figure}%
 
-\noindent
+
+\subsubsection{Spannung in Abhängigkeit der Phase nach Integration mit Geräuschen}
 Unter Verwendung des Tiefpasses ergeben sich abhängig von der Phasenverschiebungen $\phi$ die Spannungen
 $U_\text{noise}$ in \ref{tab:u_noise}.
 %
