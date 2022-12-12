@@ -19,7 +19,7 @@ Dabei wird der Noise Generator gebrückt.
 Dies findet ohne Verwendung des Tiefpasses statt.
 Es wird ein sinusförmiges Signal $U_\text{sig}$ von \qty[]{1}{\kilo\hertz} und $U_0 = \qty[]{10}{\milli\volt}$ am Oszillator Output eingestellt.
 Dieses Signal wird mit einem Sinus- / Referenzsignal $U_\text{ref}$ identischer Frequenz gemischt.
-Der Gain Regulierer des Verstärkers hat einen Wert von 1 und der Gain Regulierer des Lock-in Detektors einen Wert von 20.
+Der Gain Regulierer des Vorverstärkers hat einen Wert von 1 und der Gain Regulierer des Lock-in Detektors einen Wert von 20.
 %% FRAGE: MUSS MAN DAS IN DER RECHNUNG BERÜCKSICHTIGEN?
 Mit dem Phasenschieber werden insgesamt fünf verschiedene Phasenverschiebungen $\phi$ eingestellt,
 die in Abbildung \ref{fig:phasenunterschiede_ohne_noise} einzusehen sind.
@@ -132,7 +132,7 @@ wobei die Fehler durch die Kovarianzmatrix berechnet werden.
 Im Vergleich mit Gleichung \textbf{REFERENZ!!!} ergibt sich für die Amplitude der Eingangsspannung $U_{0,\text{out}}$,
 wenn man noch durch die obigen Gain Faktoren 1 und 20 teilt:
 \begin{align*}
-    U_{0,\text{out}} = \frac{\pi}{2} \frac{1}{1 \cdot 20} A_\text{out} = \left(-15.7 \pm 0.4\right) \, \unit[]{\milli\volt}
+    U_{0,\text{out}} = \frac{\pi}{2} \frac{1}{1 \cdot 20} A_\text{out} = \left(\num[]{-15.7} \pm \num[]{0.4}\right) \, \unit{\milli\volt}
 \end{align*}
 Dies entspricht einem Verhältnis von $\Delta U_{0,\text{out}} = \left(57 \pm 4\right) \, \%$
 im Vergleich zu $U_0 = \qty[]{10}{\milli\volt}$.

@@ -1,30 +1,66 @@
 \subsection{Photodetektorschaltung}
-
+Es wird der Schaltplan \textbf{REFERENZ!!!} aufgebaut und die Leuchtdiode mit einer Rechteckspannung der Frequenz \qty[]{214.26}{\hertz}  moduliert.
+Der Gain Regulierer am Preamplifier wird auf 10 gestellt, der Regulierer am Lock-in / Amplitude Detector auf 20.
+Die Leuchtdiode steht auf der Schiene bei $x_\text{LED} = \qty[]{5}{\cm}$ während der Photodetektor verschoben wird, 
+sodass für den Abstand $r$ zwischen LED und Detektor $r = x_\text{PD} - x_\text{LED}$ gilt.
+Die Werte für Abstand $r$ und Spannung $U_\text{r}$ sind in Tabelle \ref{tab:abstand_spanung} einzusehen.
 \begin{table}
     \centering
     \caption{Spannung in Abhängigkeit des Abstandes}
     \label{tab:abstand_spanung}
-    \begin{tabular}[]{S[table-format = 3.0] S[table-format = 1.3]}
+    \begin{tabular}[]{S[table-format = 3.0] S[table-format = 3.0] S[table-format = 1.3]}
         \toprule
-        {$r / \unit[]{\cm}$} & {$U_\text{r} / \unit[]{\volt}$} \\
+        {$x_\text{PD} / \unit[]{\cm}$} & {$r / \unit[]{\cm}$} & {$U_\text{r} / \unit[]{\volt}$} \\
         \midrule
-         10 & 4.49  \\
-         15 & 1.34  \\
-         20 & 0.48  \\
-         25 & 0.24  \\
-         30 & 0.225 \\
-         40 & 0.125 \\
-         50 & 0.082 \\
-         60 & 0.070 \\
-         70 & 0.056 \\
-         80 & 0.045 \\
-         90 & 0.035 \\
-        100 & 0.030 \\
-        110 & 0.025 \\
-        120 & 0.021 \\
-        130 & 0.020 \\
-        140 & 0.019 \\
-        150 & 0.017 \\
+         10 &   5 & 4.49  \\
+         15 &  10 & 1.34  \\
+         20 &  15 & 0.48  \\
+         25 &  20 & 0.24  \\
+         30 &  25 & 0.225 \\
+         40 &  35 & 0.125 \\
+         50 &  45 & 0.082 \\
+         60 &  55 & 0.070 \\
+         70 &  65 & 0.056 \\
+         80 &  75 & 0.045 \\
+         90 &  85 & 0.035 \\
+        100 &  95 & 0.030 \\
+        110 & 105 & 0.025 \\
+        120 & 115 & 0.021 \\
+        130 & 125 & 0.020 \\
+        140 & 135 & 0.019 \\
+        150 & 145 & 0.017 \\
         \bottomrule        
     \end{tabular}
 \end{table}
+
+\noindent
+Es kann von einer Spannungsabnahme proportional zu $r^{-2}$ ausgegangen werden.
+Mit der Funktion \texttt{curve\_fit} des Python \cite[]{python} Pakets \texttt{scipy.optimize} \cite[]{scipy} wird eine nicht-lineare Ausgleichsrechnung
+der Funktion 
+\begin{align}
+    \label{eq:ausgleich2}
+    U(r) = C \frac{1}{x^{2}} + D
+\end{align}
+durchgeführt.
+Es ergeben sich die Parameter 
+\begin{align*}
+    C &= \left(\num[]{0.0113} \pm \num[]{0.0001}\right)\unit{\volt\meter\squared} & D &= \left(\num[]{0.0254} \pm \num[]{0.0142}\right)\unit{\volt} 
+\end{align*}
+%#a = 0.01125850
+%#b = 0.02540392
+%#fehler:  [0.00014112 0.01423447]
+sowie Plot \ref{fig:ausgleich3_plot}.
+%
+\begin{figure}
+    \includegraphics[]{build/B03_ausgleichsplot.pdf}
+    \caption[]{Ausgleichsfunktion \eqref{eq:ausgleich2} zu den Werten aus Tabelle \ref{tab:abstand_spanung}}
+    \label{fig:ausgleich3_plot}
+\end{figure}
+
+\noindent
+Sowohl in Tabelle \ref{tab:abstand_spanung} als auch in Abbildung \ref{fig:ausgleich3_plot} ist erkennbar, 
+dass kein maximaler Abstand $r_\text{max}$ erreicht wird, bei dem das Licht nicht mehr nachgewiesen werden kann.
+Das hängt damit zusammen, dass die Schiene zu kurz ist.
+
+
+%% In Diskussion: Umgebungslicht wird als noise gefiltert

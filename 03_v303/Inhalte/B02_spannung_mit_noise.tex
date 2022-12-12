@@ -4,7 +4,7 @@
 \label{sec:mit_noise}
 Wie in Schaltplan \textbf{PLAN REFERENZIEREN!!!} dargestellt wird über den Noise Generator ein Rauschsignal hinzu gegeben.
 Das Signal ist von der gleichen Größenordnung wie die Signalspannung $U_\text{sig}$.
-Der Gain Regulierer am Verstärker ist nun auf 5 gestellt, die Noise Amplitude und der Noise Attenuator auf $10^{-3}$.
+Der Gain Regulierer am Vorverstärker ist nun auf 5 gestellt, die Noise Amplitude und der Noise Attenuator auf $10^{-3}$.
 Der Gain Regulator des Lock-in Detektors steht weiterhin auf 20.
 Analog zu Abschnitt \ref{sec:ohne_noise} werden alle Messungen wiederholt, erst ohne und dann mit Integrationsglied.
 
@@ -108,13 +108,13 @@ Auch hier errechnen sich die Fehler auf die Parameter durch die Kovarianzmatrix.
 
 \noindent
 Es ist leicht erkennbar, dass die beiden Ausgleichsfunktionen nah bei einander liegen. 
-Da allerdings der Gain Regulator am Verstärker um den Faktor 5 größer als zuvor eingestellt ist,
+Da allerdings der Gain Regulator am Vorverstärker um den Faktor 5 größer als zuvor eingestellt ist,
 folgt für die Amplitude der Eingangsspannung ein Wert von 
 \begin{align*}
-    U_{0,\text{noise}} = \frac{\pi}{2} \frac{1}{5 \cdot 20} A_\text{noise} = \left(-4.31 \pm 0.09\right) \, \unit[]{\milli\volt},
+    U_{0,\text{noise}} = \frac{\pi}{2} \frac{1}{5 \cdot 20} A_\text{noise} = \left(\num[]{-4.31} \pm \num[]{0.09}\right) \, \unit[]{\milli\volt},
 \end{align*}
-was einem Verhältnis von $\Delta U_{0,\text{noise}} = \left(43.1 \pm 0.9\right) \, \%$ im Vergleich zu $U_0$ entspricht.
-Im Vergleich zu vorher gibt es somit einen Unterschied von $\frac{U_{0,\text{out}}}{U_{0,\text{noise}}} = \left(3.64 \pm 0.12\right)$.
+was einem Verhältnis von $\Delta U_{0,\text{noise}} = \left(\num[]{43.1} \pm \num[]{0.9}\right) \, \%$ im Vergleich zu $U_0$ entspricht.
+Im Vergleich zu vorher gibt es somit einen Unterschied von $\frac{U_{0,\text{out}}}{U_{0,\text{noise}}} = \left(\num[]{3.64} \pm \num[]{0.12}\right)$.
 %\begin{align*}
 %    \frac{U_{0,\text{out}}}{U_{0,\text{noise}}} = \left(3.64 \pm 0.12\right).
 %\end{align*}
