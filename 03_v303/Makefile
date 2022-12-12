@@ -1,6 +1,6 @@
 all: build/v303_Clara_Sondermann_Enno_Wellmann.pdf
 	
-build/v303_Clara_Sondermann_Enno_Wellmann.pdf: v303_Clara_Sondermann_Enno_Wellmann.tex FORCE build/B01_ausgleichsplot.pdf build/B02_ausgleichsplot.pdf | build
+build/v303_Clara_Sondermann_Enno_Wellmann.pdf: v303_Clara_Sondermann_Enno_Wellmann.tex FORCE build/B01_ausgleichsplot.pdf build/B02_ausgleichsplot.pdf build/B03_ausgleichsplot.pdf| build
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
 	max_print_line=1048576 \
@@ -23,7 +23,8 @@ build/B01_ausgleichsplot.pdf: B01_ausgleichsplot.py ../matplotlibrc ../header-ma
 build/B02_ausgleichsplot.pdf: B02_ausgleichsplot.py ../matplotlibrc ../header-matplotlib.tex B02_messdaten.txt | build
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python B02_ausgleichsplot.py
 
-
+build/B03_ausgleichsplot.pdf: B03_ausgleichsplot.py ../matplotlibrc ../header-matplotlib.tex B03_messdaten.txt | build
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python B03_ausgleichsplot.py
 
 
 build:
