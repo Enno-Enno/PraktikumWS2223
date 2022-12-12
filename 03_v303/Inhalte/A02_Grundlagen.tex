@@ -31,18 +31,24 @@ Die Therme für $U_\text{ref}$ und $U_\text{sig}$ werden multipliziert
 \begin{align}
     U_\text{sig} \cdot U_\text{ref} = 
     \frac{2}{\pi} U_0 \left(1 - \frac{2}{3} \cos(2 \omega t) - \frac{2}{15}\cos{4 \omega t} - \cdots \right) 
+    \label{eq:Uref_Usig}
 \end{align}
 Die entstehende Schwingung enthält nun die geraden Oberwellen der Grundfrequenz \cite[vgl.][]{man:v303}.
 Bei einem Phasenunterschied von $\Phi=0$ wirkt diese also wie ein Gleichrichter.
-Durch einen Tiefpassfilter, der an die wird die 
-% Was passiert wenn man eine Rechteckschwingung als Signal hat?
-% Tiefpassfilter als Integrierglied
-
 \begin{figure}
     \centering
     \includegraphics[width=0.3\textwidth]{Abbildungen/Signalverläufe.png}
     \caption{Signalverläufe bei einer Sinusförmigen Signalspannung \cite{man:v303}}
 \end{figure}
-
-
-
+Durch einen Tiefpassfilter, werden anschließend die schwingenden Anteile von \ref{eq:Uref_Usig} entfernt.
+Übrig bleibt nur die erste Ordnung von \ref{eq:Uref_Usig}
+\begin{align}
+    U_\text{out} = \frac{2}{\pi} U_0
+\end{align}
+Wird das Referenzsignal um die Phase $\Phi$ zu $U_\text{sig}$ verschoben ergibt sich \cite[vgl.][]{man:v303}:
+\begin{align}
+    U_\text{out} = \frac{2}{\pi} U_0 \cos(\Phi)
+    \label{eq:Uout_von_Phi}
+\end{align}
+% Was passiert wenn man eine Rechteckschwingung als Signal hat?
+% Tiefpassfilter als Integrierglied
