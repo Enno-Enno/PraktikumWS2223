@@ -55,6 +55,7 @@ x = np.linspace(0,2*np.pi,1000)
 plt.figure(constrained_layout=True)
 plt.plot(phi_rad, av_ch2, "x", label="$U_\\text{out}$")
 plt.plot(x, cosinus(x, *params_ch2), "-", label="Ausgleichsfunktion")
+plt.grid()
 plt.xlim(0, 2 * np.pi)
 plt.xlabel("$\\phi / \\unit{{\\radian}}$")
 plt.ylabel("$U / \\unit{{\\volt}}$")
@@ -82,7 +83,7 @@ param_d = ufloat( 0.08687120, 0.0054004 )
 u_0 = ufloat(0.0100, 0.0000) #geht auch ohne ufloat aber testweise
 u_0_exp = np.pi/2 * param_a /gain
 print("U_0_exp = ", u_0_exp)
-#U_0 =  -0.0157+/-0.0004
+#U_0_exp =  -0.0157+/-0.0004
 del_u_0 = -1 * u_0_exp / u_0
 print("delta u_0 = ", del_u_0)
 #delta u_0 =  1.57+/-0.04

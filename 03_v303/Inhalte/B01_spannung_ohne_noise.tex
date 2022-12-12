@@ -73,7 +73,7 @@ die Funktionsweise eines phasenempfindlichen Gleichrichters verifizieren.
 %
 %
 \subsubsection{Spannung in Abhängigkeit der Phase nach Integration ohne Geräusche}
-\label{sec: integration_ohne_noise}
+\label{sec:integration_ohne_noise}
 Schaltet man den Tiefpass hinzu, ergeben sich je nach Phase $\phi$ die Spannungsamplituden $U_\text{out}$ in Tabelle \ref{tab:u_out_tp_ohne_noise}.
 %
 \begin{table}
@@ -129,12 +129,13 @@ wobei die Fehler durch die Kovarianzmatrix berechnet werden.
 \end{figure}
 
 \noindent
-Im Vergleich mit Gleichung \textbf{REFERENZ!!!} ergibt sich für die Amplitude der Eingangsspannung $U_{0,\text{exp}}$,
+Im Vergleich mit Gleichung \textbf{REFERENZ!!!} ergibt sich für die Amplitude der Eingangsspannung $U_{0,\text{out}}$,
 wenn man noch durch die obigen Gain Faktoren 1 und 20 teilt:
 \begin{align*}
-    U_{0,\text{exp}} = \frac{\pi}{2} \frac{1}{1 \cdot 20} A = \left(-0.0157 \pm 0.0004\right) \, \unit[]{\volt}
+    U_{0,\text{out}} = \frac{\pi}{2} \frac{1}{1 \cdot 20} A_\text{out} = \left(-15.7 \pm 0.4\right) \, \unit[]{\milli\volt}
 \end{align*}
-Dies entspricht einem relativen Fehler von $\Delta U_0 = \left(57 \pm 4\right) \, \%$.
+Dies entspricht einem Verhältnis von $\Delta U_{0,\text{out}} = \left(57 \pm 4\right) \, \%$
+im Vergleich zu $U_0 = \qty[]{10}{\milli\volt}$.
 
 %#delta u_0 =  1.57+/-0.04
 

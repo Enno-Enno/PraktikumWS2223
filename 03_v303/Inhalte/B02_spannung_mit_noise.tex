@@ -12,6 +12,11 @@ Analog zu Abschnitt \ref{sec:ohne_noise} werden alle Messungen wiederholt, erst 
 \subsubsection{Ohne Tiefpass}
 \label{sec:mit_noise_ohne_tp}
 Für die Messreihe ohne Integration durch den Tiefpass ergeben sich die Spannungsverläufe \ref{fig:phasenunterschiede_mit_noise}.
+Im Vergleich zu den Signalen in Abbildung \ref{fig:phasenunterschiede_ohne_noise} ist erkennbar, dass bei gleicher Siganlspannung $U_\text{sig}$
+die Signale am Oszilloskop die gleiche Form (augenscheinlich gleiche Frequenz und Amplitude) haben.
+Die einzige Ausnahme ist hierbei das Bild von $\phi = \qty[]{180}{\degree}$ (vgl. \ref{fig:phase5} und \ref{fig:phase10}).
+Verglichen mit den Abbildungen im Anhang sieht es allerdings so aus, als wäre versehentlich bei der Durchführung mit dem Noise Generator eine Phase von 
+\qty[]{270}{\degree} eingestellt worden, wodurch sich diese Diskrepanz erklären lässt.
 %
 %
 \begin{figure}[H]%
@@ -50,7 +55,7 @@ Für die Messreihe ohne Integration durch den Tiefpass ergeben sich die Spannung
     \begin{subfigure}{0.5\textwidth}%
     \centering%
     \includegraphics[width = 7.3cm]{./Oszilloskop Bilder/png/5.3/n5.png}%
-    \caption{$\phi = \qty[]{180}{\degree}$}%
+    \caption{$\phi = \qty[]{180}{\degree}$ (laut Notizen)}%
     \label{fig:phase10}%
     \end{subfigure}%
     %
@@ -85,14 +90,36 @@ $U_\text{noise}$ in \ref{tab:u_noise}.
         \bottomrule
     \end{tabular}
 \end{table} 
-Analog zu Abschnitt \ref{sec:gleichrichter} ergeben sich mit der Ausgleichsfunktion \eqref{eq:ausgleich_tp_ohne_noise} die Parameter
+Analog zu Abschnitt \ref{sec:integration_ohne_noise} ergeben sich mit der Ausgleichsfunktion \eqref{eq:ausgleich_tp_ohne_noise} die Parameter
 \begin{align*}
     A_\text{noise} &= \left(\num[]{-0.2747} \pm \num[]{0.0055}\right) \, \unit{\volt} & B_\text{noise} &=  \num[]{0.9933} \pm \num[]{0.0150} \\
-    C_\text{noise} &= \num[]{-0.2754} \pm \num[]{0.0564} & D_\text{noise} &= \left(\num[]{0.0810} \pm \num[]{0.0054}\right) \, \unit[]{\volt},
+    C_\text{noise} &= \num[]{-0.2754} \pm \num[]{0.0564} & D_\text{noise} &= \left(\num[]{0.0810} \pm \num[]{0.0054}\right) \, \unit[]{\volt}.
 \end{align*}
+Auch hier errechnen sich die Fehler auf die Parameter durch die Kovarianzmatrix.
 %param_a = ufloat(-0.27466768, 0.00545352)
 %param_b = ufloat(0.99333910 , 0.01503098)
 %param_c = ufloat(-0.27544268, 0.05641517)
 %param_d = ufloat(0.08103079 , 0.00536591)
+\begin{figure}[H]
+    \includegraphics[]{build/B02_ausgleichsplot.pdf}
+    \caption[]{Ausgleichsfunktion \eqref{eq:ausgleich_tp_ohne_noise} zu den Werten aus Tabelle \ref{tab:u_noise}}
+    \label{fig:ausgleichsplot2}
+\end{figure}
 
-%Siganlveränderungen beschreiben!!!
+\noindent
+Es ist leicht erkennbar, dass die beiden Ausgleichsfunktionen nah bei einander liegen. 
+Da allerdings der Gain Regulator am Verstärker um den Faktor 5 größer als zuvor eingestellt ist,
+folgt für die Amplitude der Eingangsspannung ein Wert von 
+\begin{align*}
+    U_{0,\text{noise}} = \frac{\pi}{2} \frac{1}{5 \cdot 20} A_\text{noise} = \left(-4.31 \pm 0.09\right) \, \unit[]{\milli\volt},
+\end{align*}
+was einem Verhältnis von $\Delta U_{0,\text{noise}} = \left(43.1 \pm 0.9\right) \, \%$ im Vergleich zu $U_0$ entspricht.
+Im Vergleich zu vorher gibt es somit einen Unterschied von $\frac{U_{0,\text{out}}}{U_{0,\text{noise}}} = \left(3.64 \pm 0.12\right)$.
+%\begin{align*}
+%    \frac{U_{0,\text{out}}}{U_{0,\text{noise}}} = \left(3.64 \pm 0.12\right).
+%\end{align*}
+
+%#U_0_noise =  -0.00431+/-0.00009
+%#delta u_noise =  0.431+/-0.009
+%abweichung out noise :  3.64+/-0.12
+

@@ -50,6 +50,7 @@ x = np.linspace(0,2*np.pi,1000)
 plt.figure(constrained_layout=True)
 plt.plot(phi_rad, av_ch2, "x", label="$U_\\text{noise}$")
 plt.plot(x, cosinus(x, *params_ch2), "-", label="Ausgleichsfunktion")
+plt.grid()
 plt.xlim(0, 2 * np.pi)
 plt.xlabel("$\\phi / \\unit{{\\radian}}$")
 plt.ylabel("$U / \\unit{{\\volt}}$")
@@ -75,9 +76,18 @@ param_b = ufloat(0.99333910 , 0.01503098)
 param_c = ufloat(-0.27544268, 0.05641517)
 param_d = ufloat(0.08103079 , 0.00536591)
 
+u_0 = ufloat(0.0100, 0.0000) #geht auch ohne ufloat aber testweise
 gain = 5 * 20
-u_0_noise = np.pi/2 * param_a
-print("U_0 = ", u_0)
-#U_0 =  -0.431+/-0.009
+u_0_noise = np.pi/2 * param_a / gain
+print("U_0_noise = ", u_0_noise)
+del_u_noise = -1 * u_0_noise / u_0
+print("delta u_noise = ", del_u_noise)
+u_0_exp = ufloat(-0.0157, 0.0004)
+abweichung_out_noise = u_0_exp / u_0_noise
+print("abweichung out noise : ", abweichung_out_noise)
 print("-------------------------------------------------------")
 #CH1 ERGIBT KEINEN SINN --> CH2 VERWENDEN
+
+#U_0_noise =  -0.00431+/-0.00009
+#delta u_noise =  0.431+/-0.009
+#abweichung out noise :  3.64+/-0.12
