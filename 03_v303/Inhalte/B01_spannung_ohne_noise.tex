@@ -13,7 +13,7 @@
 Mit dem linken Ausgang des Funktionsgenerators lassen sich die Spannungsamplituden variieren,
 während der rechten Ausgang ohne die Beschriftung \enquote{phase shift} eine konstante Spannung erzeugt.
 %
-Im nächsten Schritt wird der Schaltplan \textbf{SCHALTPLAN REFERENZIEREN} aufgebaut,
+Im nächsten Schritt wird der Schaltplan (Abb. \ref{fig:Lock-In-Schema}) aufgebaut,
 um die Funktionsweise eines phasenempfindlichen Gleichrichters zu verifizieren.
 Dabei wird der Noise Generator gebrückt.
 Dies findet ohne Verwendung des Tiefpasses statt.
@@ -102,7 +102,7 @@ Schaltet man den Tiefpass hinzu, ergeben sich je nach Phase $\phi$ die Spannungs
 %
 
 \noindent
-Da die Spannungswerte gemäß \textbf{REFERENZ!!!!} $2 \pi$-periodisch sein sollen, wird eine Ausgleichsrechnung mit der Funktion 
+Da die Spannungswerte gemäß \ref{eq:Uout_von_Phi} $2 \pi$-periodisch sein sollen, wird eine Ausgleichsrechnung mit der Funktion 
 \begin{align}
     \label{eq:ausgleich_tp_ohne_noise}
     U(\phi) = A \cos{\left(B \phi + C\right)} + D 
@@ -129,7 +129,7 @@ wobei die Fehler durch die Kovarianzmatrix berechnet werden.
 \end{figure}
 
 \noindent
-Im Vergleich mit Gleichung \textbf{REFERENZ!!!} ergibt sich für die Amplitude der Eingangsspannung $U_{0,\text{out}}$,
+Im Vergleich mit Gleichung \eqref{eq:Uout_von_Phi} ergibt sich für die Amplitude der Eingangsspannung $U_{0,\text{out}}$,
 wenn man noch durch die obigen Gain Faktoren 1 und 20 teilt:
 \begin{align*}
     U_{0,\text{out}} = \frac{\pi}{2} \frac{1}{1 \cdot 20} A_\text{out} = \left(\num[]{-15.7} \pm \num[]{0.4}\right) \, \unit{\milli\volt}
