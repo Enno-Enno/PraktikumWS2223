@@ -1,5 +1,5 @@
 \subsection{Photodetektorschaltung}
-Es wird der Schaltplan \textbf{REFERENZ!!!} aufgebaut und die Leuchtdiode mit einer Rechteckspannung der Frequenz \qty[]{214.26}{\hertz}  moduliert.
+Es wird der Schaltplan \ref{fig:Lock-In-LED} aufgebaut und die Leuchtdiode mit einer Rechteckspannung der Frequenz \qty[]{214.26}{\hertz}  moduliert.
 Der Gain Regulierer am Preamplifier wird auf 10 gestellt, der Regulierer am Lock-in / Amplitude Detector auf 20.
 Die Leuchtdiode steht auf der Schiene bei $x_\text{LED} = \qty[]{5}{\cm}$ während der Photodetektor verschoben wird, 
 sodass für den Abstand $r$ zwischen LED und Detektor $r = x_\text{PD} - x_\text{LED}$ gilt.
@@ -39,7 +39,7 @@ Mit der Funktion \texttt{curve\_fit} des Python \cite[]{python} Pakets \texttt{s
 der Funktion 
 \begin{align}
     \label{eq:ausgleich2}
-    U(r) = C \frac{1}{x^{2}} + D
+    U(r) = C \frac{1}{r^{2}} + D
 \end{align}
 durchgeführt.
 Es ergeben sich die Parameter 

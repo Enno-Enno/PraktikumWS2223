@@ -12,7 +12,8 @@
 \label{sec:gleichrichter}
 Mit dem linken Ausgang des Funktionsgenerators lassen sich die Spannungsamplituden variieren,
 während der rechten Ausgang ohne die Beschriftung \enquote{phase shift} eine konstante Spannung erzeugt.
-%
+
+\noindent
 Im nächsten Schritt wird der Schaltplan (Abb. \ref{fig:Lock-In-Schema}) aufgebaut,
 um die Funktionsweise eines phasenempfindlichen Gleichrichters zu verifizieren.
 Dabei wird der Noise Generator gebrückt.
@@ -23,8 +24,7 @@ Der Gain Regulierer des Vorverstärkers hat einen Wert von 1 und der Gain Reguli
 %% FRAGE: MUSS MAN DAS IN DER RECHNUNG BERÜCKSICHTIGEN?
 Mit dem Phasenschieber werden insgesamt fünf verschiedene Phasenverschiebungen $\phi$ eingestellt,
 die in Abbildung \ref{fig:phasenunterschiede_ohne_noise} einzusehen sind.
-Vergleicht man diese Ergebnisse mit \textbf{REFERENZ ABBILDUNG!!!}, lässt sich
-die Funktionsweise eines phasenempfindlichen Gleichrichters verifizieren.
+Somitlässt sich die Funktionsweise eines phasenempfindlichen Gleichrichters verifizieren.
 %
 \begin{figure}[H]%
     \begin{subfigure}{0.5\textwidth}%
@@ -102,7 +102,7 @@ Schaltet man den Tiefpass hinzu, ergeben sich je nach Phase $\phi$ die Spannungs
 %
 
 \noindent
-Da die Spannungswerte gemäß \ref{eq:Uout_von_Phi} $2 \pi$-periodisch sein sollen, wird eine Ausgleichsrechnung mit der Funktion 
+Da die Spannungswerte gemäß Gleichung \eqref{eq:Uout_von_Phi} $2 \pi$-periodisch sein sollen, wird eine Ausgleichsrechnung mit der Funktion 
 \begin{align}
     \label{eq:ausgleich_tp_ohne_noise}
     U(\phi) = A \cos{\left(B \phi + C\right)} + D 
