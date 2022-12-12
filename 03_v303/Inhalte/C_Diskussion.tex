@@ -1,10 +1,10 @@
 \section{Diskussion}
-%auf Aufgabenstellung (Verifikation Gleichrichter und Lock-in-Verstärker sowie photodetektorschaltung eingehen)
 \subsection{Gleichrichter}
 Anhand der Abbildung \ref{fig:phasenunterschiede_ohne_noise} lässt sich die Funktionsweise eines Gleichrichters verifizieren.
 Dies ist insbesondere an dem Vergleich für $\phi = \qty[]{0}{\degree}$ erkennbar:
 Der Signalverlauf in Abb. \ref{fig:phase1} hat die gleiche Form wie in der dritten Zeile von Abb. \ref{fig:signalverlaeufe}.
 
+%Verifikation Lock-in-Verstärker 
 
 %U_0 weicht etwas ab weil Fehler nirgends gegeben, ungenaue einstellungen am Gerät, ... -> systematischer Fehler
 % Systematischer Fehler Faktor 1.5 
@@ -13,3 +13,9 @@ Der Signalverlauf in Abb. \ref{fig:phase1} hat die gleiche Form wie in der dritt
 In \refname{}
 
 \subsection{Photodetektorschaltung}
+Durch die nicht-lineare Ausgleichsfunktion \eqref{eq:ausgleich2} und der Abb. \ref{fig:ausgleich3_plot} wird gezeigt, 
+dass die detektierte Spannung $U_\text{r}$ proportional zu $1/r^2$ ist.
+Die Rauschunterdrückung des Lock-in-Verstärkers kann aufgrund der geringen Abweichungen im Plot ebenfalls gezeigt werden:
+Bei der Durchführung des Versuchs war die Deckenbeleuchtung eingeschaltet und Tageslicht fiel durch Fenster ein und war durch Bewölkung unterschiedlich intensiv.
+Diese Störsignale wurden erfolgreich vom Lock-in-Verstärker heraus gefiltert.
+Ein maximaler Abstand zur Erfassung des Lichts kann aufgrund der geringen Länge der Schiene nicht ermittelt werden.
