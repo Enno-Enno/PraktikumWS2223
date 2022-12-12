@@ -5,6 +5,7 @@ from uncertainties import ufloat
 
 print("B01------------------------------------------------------------------")
 phi, amp_ch1, av_ch2 = np.genfromtxt("B01_messdaten.txt", unpack=True)
+gain = 1 * 20
 
 def cosinus(x, a, b, c, d):
     return(a * np.cos(b*x + c) +d)
@@ -78,8 +79,8 @@ param_b = ufloat( 0.99376117, 0.02075618)
 param_c = ufloat(-0.27683892, 0.07790146)
 param_d = ufloat( 0.08687120, 0.0054004 )
 
-u_0 = np.pi/2 * param_a
+u_0 = np.pi/2 * param_a /gain
 print("U_0 = ", u_0)
-#U_0 =  -0.314+/-0.009
+#U_0 =  -0.0157+/-0.0004
 print("-------------------------------------------------------")
 #CH1 ERGIBT KEINEN SINN --> CH2 VERWENDEN

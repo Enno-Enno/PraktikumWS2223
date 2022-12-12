@@ -41,15 +41,15 @@ print(error)
 
 x = np.linspace(0,2*np.pi,1000)
 
-plt.figure(constrained_layout=True)
-plt.plot(phi_rad, amp_ch1, "x", label="Amplitude $A$")
-plt.plot(x, cosinus(x, *params_ch1), "-", label="Ausgleichsfunktion")
-plt.xlim(0, 2 * np.pi)
-plt.xlabel("$\\phi / \\unit{{\\radian}}$")
-plt.ylabel("$U / \\unit{{\\volt}}$")
-plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi], ["0", "$\\pi / 2$", "$\\pi$", "$3 \\pi / 2$", "$2 \\pi$"])
-plt.legend()
-plt.savefig("build/B01_ausgleichsplot_channel1_mit_noise.pdf")
+#plt.figure(constrained_layout=True)
+#plt.plot(phi_rad, amp_ch1, "x", label="Amplitude $A$")
+#plt.plot(x, cosinus(x, *params_ch1), "-", label="Ausgleichsfunktion")
+#plt.xlim(0, 2 * np.pi)
+#plt.xlabel("$\\phi / \\unit{{\\radian}}$")
+#plt.ylabel("$U / \\unit{{\\volt}}$")
+#plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi], ["0", "$\\pi / 2$", "$\\pi$", "$3 \\pi / 2$", "$2 \\pi$"])
+#plt.legend()
+#plt.savefig("build/B01_ausgleichsplot_channel1_mit_noise.pdf")
 
 plt.figure(constrained_layout=True)
 plt.plot(phi_rad, av_ch2, "x", label="$U_\\text{noise}$")
@@ -60,7 +60,7 @@ plt.ylabel("$U / \\unit{{\\volt}}$")
 #plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi], ["0", "$\\frac{1}{2}\\pi$", "$\\pi$", "$\\frac{3}{2}\\pi$", "$2 \\pi$"])
 plt.xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi], ["0", "$\\pi / 2$", "$\\pi$", "$3 \\pi / 2$", "$2 \\pi$"])
 plt.legend()
-plt.savefig("build/B01_ausgleichsplot_mit_noise.pdf")
+plt.savefig("build/B02_ausgleichsplot.pdf")
 
 
 #cosinus für av_ch2:
