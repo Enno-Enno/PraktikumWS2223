@@ -1,21 +1,44 @@
 \section{Diskussion}
+%auf Aufgabenstellung (Verifikation Gleichrichter und Lock-in-Verstärker sowie photodetektorschaltung eingehen)
 \subsection{Gleichrichter}
 Anhand der Abbildung \ref{fig:phasenunterschiede_ohne_noise} lässt sich die Funktionsweise eines Gleichrichters verifizieren.
 Dies ist insbesondere an dem Vergleich für $\phi = \qty[]{0}{\degree}$ erkennbar:
-Der Signalverlauf in Abb. \ref{fig:phase1} hat die gleiche Form wie in der dritten Zeile von Abb. \ref{fig:signalverlaeufe}.
+Der Signalverlauf in Abb. \ref{fig:phase1} hat nahezu die gleiche Form wie 
+die gleichgerichte Funktion in der dritten Zeile von Abb. \ref{fig:signalverlaeufe}.
+Leichte Abweichungen lassen sich möglicherweise durch kleine Verzögerungen in den Bauteilen erklären, die eine kleine
+Phasenverschiebung hervorrufen können.
 
-%Verifikation Lock-in-Verstärker 
+\subsection{Tiefpass}
 
-%U_0 weicht etwas ab weil Fehler nirgends gegeben, ungenaue einstellungen am Gerät, ... -> systematischer Fehler
-% Systematischer Fehler Faktor 1.5 
+Die Messungen für $U_\text{out}$ am Ausgang des Tiefpasses 
+werden in beiden Messreihen durch den generierten Fit ausreichend gut angenähert.
+Das vermischen des Signals mit künstlichem Rauschen kann in der hier gewählten Konfiguration das Ergebnis nicht verfälschen.
 
 \subsection{Messfehler}
-In \refname{}
 
+In Abschnitt \ref{sec:integration_ohne_noise} weicht die gemessene Größe von $U_0$ um etwa $\qty[]{57}{\percent}$ nach oben von der eingestellten Größe ab.
+In Abschnitt \ref{sec:fit_mit_noise} gibt es Eine Abweichung um $\qty[]{57}{\percent}$ in die Entgegengesetzte Richtung.
+Zwischen den Messungen wurde ein Verstärker und der Rauschgenerator dazugeschaltet.
+Diese Technischen Elemente können eine Erklärung für die Abweichungen in den Messungen sein.
+Für die gleiche Größe der Abweichungen in beide Richtungen kann keine richtige Erklärung gefunden werden.
+Es wären weitere Experimente nötig um diese konsistenten Messfehler zu erklären.
+Die Messungen innerhalb einer Messreihe stimmen allerdings untereinander mit den Erwartungen überein, 
+weshalb die Messergebnisse als in sich konsistent betrachtet werden können.
+
+
+%U_0 weicht etwas ab weil Fehler nirgends gegeben, ungenaue Einstellungen am Gerät, ... -> systematischer Fehler
+% Systematischer Fehler Faktor 1.5 
 \subsection{Photodetektorschaltung}
-Durch die nicht-lineare Ausgleichsfunktion \eqref{eq:ausgleich2} und der Abb. \ref{fig:ausgleich3_plot} wird gezeigt, 
-dass die detektierte Spannung $U_\text{r}$ proportional zu $1/r^2$ ist.
-Die Rauschunterdrückung des Lock-in-Verstärkers kann aufgrund der geringen Abweichungen im Plot ebenfalls gezeigt werden:
-Bei der Durchführung des Versuchs war die Deckenbeleuchtung eingeschaltet und Tageslicht fiel durch Fenster ein und war durch Bewölkung unterschiedlich intensiv.
-Diese Störsignale wurden erfolgreich vom Lock-in-Verstärker heraus gefiltert.
-Ein maximaler Abstand zur Erfassung des Lichts kann aufgrund der geringen Länge der Schiene nicht ermittelt werden.
+
+Bei der Messung mit der Leuchtdiode gibt es einige Technische Herausforderungen die kleinen Signalspannungen auf dem Oszilloskop zu messen.
+Dafür muss in mehreren Schritten der Messbereich für die präziseren Messungen heruntergesetzt werden.
+Mit diesen empfindlichen Messungen konnte keine Entfernung gefunden werden, bei der kein Signal mehr gemessen werden konnte. 
+% Schlechte Idee, mehr Arbeit: 
+% Die Distanz, bei der in dem gröbsten Messbereich das Signal nicht mehr sicher nachweisbar gewesen wäre beträgt 30 cm
+Der Fit der Funktion in der Form $1/x^2$ ist typisch für ein Signal im dreidimensionalen Raum,
+das sich in $r$ Richtung ausbreitet und in zwei Dimensionen verteilt.
+Die generierte Funktion kann die gemessenen Werte hinreichend gut abbilden.
+Es gibt allerdings hier systematische Messfehler in der Messung des Abstandes, 
+weil die Zahlen auf der Messleiste nicht direkt mit den Positionen der Leuchtdiode des Photodetektors übereinstimmen.
+Es konnte allerdings gezeigt werden dass trotz starker störsignale durch Sonnenlicht und Raumbeleuchtung, 
+das gewünschte Signal isoliert und gemessen werden konnte.
