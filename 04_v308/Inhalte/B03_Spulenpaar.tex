@@ -1,0 +1,45 @@
+\subsection{Spulenpaar}
+In diesem Versuch soll herausgefunden werden welcher Spulenabstand bei zwei gleichen Spulen
+am besten dafür geeignet ist ein homogenes Magnetfeld zu erzeugen.
+Hierzu werden zwei Spulen mit einer Windungszahl $n= 100$ je Spule, einem mittleren Spulendurchmesser $d = \qty{125}{\mm}$
+und einer Spulenbreite von $b = \qty[]{33}{\mm}$ mit einem konstanten Strom durchflossen.
+Der Abstand der Spulen wird auf $\qty[]{24}{cm}$, $\qty[]{12}{cm}$ und $\qty[]{6}{cm}$ eingestellt.
+In jeder Konfiguration wird das Magnetfeld senkrecht zur Spulenfläche innerhalb und außerhalb der Spulen gemessen.
+% Gucken 
+
+\subsubsection{Messungen zwischen den Spulen}
+Zwischen den Spulen wird soll ein homogenes Magnetfeld erzeugt werden.
+%Die Formel \textbf{Referenz zu Helmholtz-Formel} ergibt das Magnetfeld, dass in einer Helmholtz-Spule erwatet wird
+Um die Homogenität des Magnetfelds zu bewerten wird der Mittelwert $\overline{B}$ der Messdaten gebildet.
+Die Funktion $f(x) = \overline{B}$  wird als linearer Fit für die Messwerte dargestellt.
+
+
+\input{Inhalte/B03a_Tabellen}
+
+
+Die Standardabweichung der Messwerte wirkt so als Abschätzungsgröße der Homogenität des Magnetfeldes.
+Der Mittelwert von $N$ Messwerten wird mit
+\begin{align}
+    \overline{B} = \frac{1}{N} \sum_{i=1}^{N} B_{i}
+\end{align} 
+berechnet.
+Die Standardabweichung dieser Messwerte berechnet sich mit
+\begin{align}
+    \Delta B = \sqrt{\frac{1}{N-1} \sum_{i=1}{N}\left(B_{i}- \overline{B}\right)^2}
+\end{align}
+
+Die Standardabweichung ist nur ein gutes Maß für die Homogenität des Magnetfeldes, 
+wenn die Orte der Messungen gleichmäßig zwischen den Spulen verteilt sind bzw. einen hinreichend großen Bereich abdecken.
+Wenn das nicht vorausgesetzt wird könnte man zum Beispiel die Messungen außerhalb der Spulen in den ersten vier Millimetern
+alle Messwerte aufnehmen und aus einer geringen Standardabweichung auf ein homogenes Feld außerhalb der Spulen schließen,
+auch wenn da ein schwächerwerdenes Feld wirkt.
+
+
+In Abbildung \ref{fig:B03_innen} werden die gemessenen Magnetfelder nach $x$ graphisch dargestellt.
+Mit $x$ wird dabei der Abstand des Messgerätes von der Mitte der der linken Spule bezeichnet.
+\begin{figure}
+    \centering
+    \caption{Die Magnetfelder innerhalb der Spulen}
+    \label{fig:B03_innen}
+    \includegraphics[width=\textwidth]{build/B03_innen_Spulenpaar.pdf}
+\end{figure}
