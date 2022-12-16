@@ -269,8 +269,8 @@ print("mechanische leistung nach 9s:", n_mech_9)
 print("mechanische leistung nach 15s:", n_mech_15)
 print("mechanische leistung nach 21s:", n_mech_21)
 
-#mechanische leistung nach 3s: -13.3+/-0.8
-#mechanische leistung nach 9s: -19.9+/-1.2
+#mechanische leistung nach  3s: -13.3+/-0.8
+#mechanische leistung nach  9s: -19.9+/-1.2
 #mechanische leistung nach 15s: -25.3+/-1.7
 #mechanische leistung nach 21s: -25.5+/-2.0
 
