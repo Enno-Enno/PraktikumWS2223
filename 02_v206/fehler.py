@@ -77,7 +77,7 @@ print("L in J/mol: ", L)
 #L:  (1.66+/-0.09)e+04 in J/mol 
 
 # mol_in_g = ufloat(18.016, 0) #von Wasser
-mol_in_g = ufloat(120.913, 0)
+mol_in_g = ufloat(120.91, 0)
 L= L / mol_in_g
 print("L in J/g: ", L)
 #L in J/g:  138+/-8
