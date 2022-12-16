@@ -31,11 +31,12 @@ for name, value in zip('abp', params_w):
 #b = -0.00976323
 #p = 0.69217610
 
-x=np.linspace(0, 25, 1000)
+x=np.linspace(0.0001, 25, 1000)
 plt.plot(t, temp_k, "x", label="$T_{{\\text{k}}}$")
 plt.plot(t, temp_w, "x", label="$T_{{\\text{w}}}$")
 plt.plot(x, function_2(x, *params_k), "-", label = "Funktion 2 für $T_{{\\text{k}}}$")
 plt.plot(x, function_2(x, *params_w), "-", label = "Funktion 2 für $T_{{\\text{w}}}$")
+plt.ylim(270, 325)
 plt.grid()
 plt.legend()
 plt.xlabel("$t / \\unit{{\\minute}}$")
