@@ -1,4 +1,4 @@
-all: build/v303_Clara_Sondermann_Enno_Wellmann.pdf
+all: build/v303_Clara_Sondermann_Enno_Wellmann.pdf  
 	
 build/v303_Clara_Sondermann_Enno_Wellmann.pdf: v303_Clara_Sondermann_Enno_Wellmann.tex FORCE build/B01_ausgleichsplot.pdf build/B02_ausgleichsplot.pdf build/B03_ausgleichsplot.pdf| build
 	TEXINPUTS=..: \
