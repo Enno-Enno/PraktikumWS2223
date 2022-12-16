@@ -65,6 +65,7 @@ Verglichen mit den Abbildungen im Anhang sieht es allerdings so aus, als wäre v
 
 
 \subsubsection{Spannung in Abhängigkeit der Phase nach Integration mit Geräuschen}
+\label{sec:fit_mit_noise}
 Unter Verwendung des Tiefpasses ergeben sich abhängig von der Phasenverschiebungen $\phi$ die Spannungen
 $U_\text{noise}$ in \ref{tab:u_noise}.
 %
@@ -107,14 +108,19 @@ Auch hier errechnen sich die Fehler auf die Parameter durch die Kovarianzmatrix.
 \end{figure}
 
 \noindent
-Es ist leicht erkennbar, dass die beiden Ausgleichsfunktionen nah bei einander liegen. 
+Es ist leicht erkennbar, dass die beiden Ausgleichsfunktionen nah beieinander liegen. 
 Da allerdings der Gain Regulator am Vorverstärker um den Faktor 5 größer als zuvor eingestellt ist,
 folgt für die Amplitude der Eingangsspannung ein Wert von 
 \begin{align*}
     U_{0,\text{noise}} = \frac{\pi}{2} \frac{1}{5 \cdot 20} A_\text{noise} = \left(\num[]{-4.31} \pm \num[]{0.09}\right) \, \unit[]{\milli\volt},
 \end{align*}
-was einem Verhältnis von $\Delta U_{0,\text{noise}} = \left(\num[]{43.1} \pm \num[]{0.9}\right) \, \%$ im Vergleich zu $U_0$ entspricht.
-Im Vergleich zu vorher gibt es somit einen Unterschied von $\frac{U_{0,\text{out}}}{U_{0,\text{noise}}} = \left(\num[]{3.64} \pm \num[]{0.12}\right)$.
+%%%%%% Fragen!!!
+%%%%%%
+% Woher kommt \Delta U_0?
+% Wann wird die Differenz zwischen eingestelltem Wert und gemessenen wert gebildet?
+was einer relativen Abweichung von $U_0 = \qty{10}{\milli\volt}$ um $\Delta U_{0,\text{noise}} = - \left(\num[]{56.9} \pm \num[]{0.9}\right) \, \%$ entspricht.
+
+%%Im Vergleich zu vorher gibt es somit einen Unterschied von $\frac{U_{0,\text{out}}}{U_{0,\text{noise}}} = \left(\num[]{3.64} \pm \num[]{0.12}\right)$.
 %\begin{align*}
 %    \frac{U_{0,\text{out}}}{U_{0,\text{noise}}} = \left(3.64 \pm 0.12\right).
 %\end{align*}
