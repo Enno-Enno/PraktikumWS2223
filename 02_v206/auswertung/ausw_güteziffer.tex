@@ -4,97 +4,116 @@ die zeitliche Änderung des Temperaturverlaufs ermittelt werden.
 Dies geschieht, indem die die Messdaten der Temperaturen beider Reservoire aus Tabelle \ref{tab:messdaten} geplottet werden.
 Anschließend wird mit Hilfe einer nicht-linearen Ausgleichsrechnung eine Funktion $T \left(t\right)$ ermittelt, die den Verlauf 
 für das jeweilige Reservoir beschreiben soll.
-Diese Funktion wird nach der Zeit differenziert, sodass man $\nu$ für je vier unterschiedliche Temperaturen bestimmen kann.
+Diese Funktion wird nach der Zeit differenziert, sodass $\nu$ für je vier unterschiedliche Temperaturen bestimmt werden kann.
 Für die vier Berechnungen der Güteziffer werden Tabelle \ref{tab:messdaten} jeweils die Temperaturen $T_{\text{k}}$ und $T_{\text{w}}$ nach 
 $t_1 = \qty[]{3}{\s}$, $t_2 = \qty[]{9}{\s}$, $t_3 = \qty[]{15}{\s}$ und $t_4 = \qty[]{21}{\s}$ entnommen.
 
 
 \subsubsection{Plot der Temperaturverläufe}
-Plottet man die Temperaturverläufe der beiden Reservoire in Abhängigkeit von der Zeit ergibt sich Abbildung \ref{fig:temperaturverlauf}.
+Werden die Temperaturverläufe der beiden Reservoire in Abhängigkeit von der Zeit geplottet, ergibt sich Abbildung \ref{fig:temperaturverlauf}.
 
-\begin{figure}
+\begin{figure}[H]
     \includegraphics[]{build/plot_temp_verlauf.pdf}
-    \caption[]{Zeitabhängige Temperaturverläufe beider Reservoire}
+    \caption[]{Zeitabhängige Temperaturverläufe beider Reservoire.}
     \label{fig:temperaturverlauf}
 \end{figure}
 
 
-\subsubsection[]{Ermittlung der Ausgleichsfunktionen}
+\subsubsection{Ermittlung der Ausgleichsfunktionen}
 Um die Ausgleichskurve zu approximieren, sind folgende Funktionen möglich:
 \begin{align}
-    T \left(t\right) &= A t^2 + B t + C \label{eq:ausgleichsfunktion_1} \\
-    T \left(t\right) &= \frac{A}{1 + B t^{\alpha}} \label{eq:ausgleichsfunktion_2} \\
-    T \left(t\right) &= \frac{A t^{\alpha}}{1 + B t^{\alpha}} + C \label{eq:ausgleichsfunktion_3}
+    T \left(t\right) &= A t^2 + B t + C \label{eq:ausgleichsfunktion_1}, \\
+    T \left(t\right) &= \frac{A}{1 + B t^{\alpha}} \label{eq:ausgleichsfunktion_2}, \\
+    T \left(t\right) &= \frac{A t^{\alpha}}{1 + B t^{\alpha}} + C \label{eq:ausgleichsfunktion_3}.
 \end{align}
 Hierbei sind $A$, $B$, $C$ und $\alpha$ die zu bestimmenden Parameter, wobei $1 \leq \alpha \leq 2$ gelten soll.
 Mit Hilfe der Python \cite[]{python} Funktion \texttt{curve\_fit} aus dem Paket \texttt{scipy.optimize} 
 \cite[]{scipy} lassen sich die nicht-linearen Ausgleichsrechnungen durchführen.
-\begin{figure}
+\begin{figure}[H]
     \includegraphics[]{build/plot_ausgleich_1.pdf}
-    \caption[]{Ausgleichskurve zu Funktion \eqref{eq:ausgleichsfunktion_1}}
+    \caption[]{Ausgleichskurve zu Funktion \eqref{eq:ausgleichsfunktion_1}.}
     \label{fig:ausgleichsplot_1}
 \end{figure}
-\begin{figure}
+\begin{figure}[H]
     \includegraphics[]{build/plot_ausgleich_2.pdf}
-    \caption[]{Ausgleichskurve zu Funktion \eqref{eq:ausgleichsfunktion_2}}
+    \caption[]{Ausgleichskurve zu Funktion \eqref{eq:ausgleichsfunktion_2}.}
     \label{fig:ausgleichsplot_2}
 \end{figure}
-\begin{figure}
+\begin{figure}[H]
     \includegraphics[]{build/plot_ausgleich_3.pdf}
-    \caption[]{Ausgleichskurve zu Funktion \eqref{eq:ausgleichsfunktion_3}}
+    \caption[]{Ausgleichskurve zu Funktion \eqref{eq:ausgleichsfunktion_3}.}
     \label{fig:ausgleichsplot_3}
 \end{figure}
-Vergleicht man die Plots \ref{fig:ausgleichsplot_1}, \ref{fig:ausgleichsplot_2} und \ref{fig:ausgleichsplot_3} mit einander,
-erkennt man unmittelbar, dass die Approximation \eqref{eq:ausgleichsfunktion_2} auch nach einstellen der Startparameter am ungenausten ist.
+\noindent
+Werden die Plots \ref{fig:ausgleichsplot_1}, \ref{fig:ausgleichsplot_2} und \ref{fig:ausgleichsplot_3} mit einander verglichen,
+ist unmittelbar zu erkennen, dass die Approximation \eqref{eq:ausgleichsfunktion_2} auch nach einstellen der Startparameter am ungenausten ist.
 \eqref{eq:ausgleichsfunktion_1} und \eqref{eq:ausgleichsfunktion_3} erscheinen zunächst in etwa den gleichen Exaktheitsgrad zu haben.
-Im Folgenden wird mit \eqref{eq:ausgleichsfunktion_3} weiter gerechnet, da diese besonders für kleine Zeiten näher an den eigentlichen Messdaten liegt
-als \eqref{eq:ausgleichsfunktion_1}.
-Die entsprechenden Parameter betragen dann für das kalte Reservoir
+Im Folgenden wird mit \eqref{eq:ausgleichsfunktion_1} weiter gerechnet.
+Die entsprechenden Parameter betragen dann
 \begin{align*}
-    A_{\text{k}} &= -0.9113 \pm 0.0742 & B_{\text{k}} &= 0.0204 \pm 0.0008 \\
-    C_{\text{k}} &= 294.6660 \pm 0.1221 & \alpha_{\text{k}} &= 1.1946 \pm 0.0378 \\
-    %error kalt:  [0.07422951 0.00082891 0.12214775 0.03782461]
-    \intertext{und für das warme Reservoir}
-    A_{\text{w}} &= 1.1391 \pm 0.0429 & B_{\text{w}} &= 0.0229  \pm 0.0005 \\
-    C_{\text{w}} &= 294.0467 \pm 0.0704 & \alpha_{\text{w}} &= 1.2211 \pm 0.0175,
+    A_{\text{k}} &= \left(\num[]{  0.0150} \pm \num[]{0.0007}\right) \unit[]{\kelvin\per\min\squared}, & 
+    A_{\text{w}} &= \left(\num[]{ -0.0215} \pm \num[]{0.0006}\right) \unit[]{\kelvin\per\min\squared}, \\
+    B_{\text{k}} &= \left(\num[]{ -1.2606} \pm \num[]{0.0191}\right) \unit[]{\kelvin\per\min}, &  
+    B_{\text{w}} &= \left(\num[]{  1.6268} \pm \num[]{0.0161}\right) \unit[]{\kelvin\per\min}, \\             
+    C_{\text{k}} &= \left(\num[]{295.0128} \pm \num[]{0.1030}\right) \unit[]{\kelvin}, &                  
+    C_{\text{w}} &= \left(\num[]{293.5784} \pm \num[]{0.0867}\right) \unit[]{\kelvin},                  
 \end{align*}
-%error warm:  [0.04285291 0.0004705  0.07042233 0.01747473]
 wobei die Fehler der Kovarianzmatrix entnommen wurden.
 
+% a_k = ufloat(  0.01497863, 0.00073754)
+% b_k = ufloat( -1.26058547, 0.01908795)
+% c_k = ufloat(295.01282051, 0.1030449 )
+% 
+% a_w = ufloat( -0.02154457 , 0.00062077)
+% b_w = ufloat(  1.62675092 , 0.01606575)
+% c_w = ufloat(293.57844933 , 0.08672976)
 
-\subsubsection[]{Bestimmung der Differentialquotienten}
+
+\subsubsection{Bestimmung der Differentialquotienten}
 \label{sec: dif_quot}
-Differenziert man \eqref{eq:ausgleichsfunktion_3} nach der Zeit, erhält man mittels Quotientenregel
+Wird \eqref{eq:ausgleichsfunktion_1} nach der Zeit differenziert, ergibt sich mittels Quotientenregel
+%\begin{align*}
+%    \frac{\symup{d}T}{\symup{d}t} = \frac{\alpha A t^{\alpha -1}}{\left(1 + B t^{\alpha}\right)^2}.
+%\end{align*}
 \begin{align*}
-    \frac{\symup{d}T}{\symup{d}t} = \frac{\alpha A t^{\alpha -1}}{\left(1 + B t^{\alpha}\right)^2}.
+    \frac{\symup{d}T}{\symup{d}t} = 2 A t + B.
 \end{align*}
 %
-Setzt man für beide Reservoire jeweils die obigen Parameter und entsprechenden Zeiten ein, erhält man 
+Werden für beide Reservoire jeweils die obigen Parameter und entsprechenden Zeiten eingesetzt, ergibt sich 
 \begin{align*}
-    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_1\right) &= \left( -1.16 \pm 0.12 \right)\, \unit[]{\kelvin\per\min}  &
-    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_1\right) &= \left(  1.50 \pm 0.07 \right)\, \unit[]{\kelvin\per\min}   \\
-    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_2\right) &= \left( -1.02 \pm 0.12 \right)\, \unit[]{\kelvin\per\min}  &
-    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_2\right) &= \left(  1.27 \pm 0.07 \right)\, \unit[]{\kelvin\per\min} \\
-    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_3\right) &= \left( -0.80 \pm 0.09 \right)\, \unit[]{\kelvin\per\min} &
-    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_3\right) &= \left(  0.96 \pm 0.05 \right)\, \unit[]{\kelvin\per\min} \\
-    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_4\right) &= \left( -0.63 \pm 0.06 \right)\, \unit[]{\kelvin\per\min}  &
-    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_4\right) &= \left(  0.72 \pm 0.03 \right)\, \unit[]{\kelvin\per\min}.
+    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_1\right) &= \left(\num[]{-1.171} \pm \num[]{0.020} \right)\, \unit[]{\kelvin\per\min}  &
+    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_1\right) &= \left(\num[]{ 1.497} \pm \num[]{0.016} \right)\, \unit[]{\kelvin\per\min}   \\
+    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_2\right) &= \left(\num[]{-0.991} \pm \num[]{0.023} \right)\, \unit[]{\kelvin\per\min}  &
+    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_2\right) &= \left(\num[]{ 1.239} \pm \num[]{0.020} \right)\, \unit[]{\kelvin\per\min} \\
+    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_3\right) &= \left(\num[]{-0.811} \pm \num[]{0.029} \right)\, \unit[]{\kelvin\per\min} &
+    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_3\right) &= \left(\num[]{ 0.980} \pm \num[]{0.025} \right)\, \unit[]{\kelvin\per\min} \\
+    \frac{\symup{d}}{\symup{d}t} T_\text{k} \left(t_4\right) &= \left(\num[]{-0.630} \pm \num[]{0.040} \right)\, \unit[]{\kelvin\per\min}  &
+    \frac{\symup{d}}{\symup{d}t} T_\text{w} \left(t_4\right) &= \left(\num[]{ 0.722} \pm \num[]{0.031} \right)\, \unit[]{\kelvin\per\min}.
 \end{align*}
 %
+% #diff_quot k0:  -1.171 +/-0.020
+% #diff_quot w0:   1.497 +/-0.016
+% #diff_quot k1:  -0.991 +/-0.023
+% #diff_quot w1:   1.239 +/-0.020
+% #diff_quot k2:  -0.811 +/-0.029
+% #diff_quot w2:   0.980 +/-0.025
+% #diff_quot k3:  -0.630 +/-0.040
+% #diff_quot w3:   0.722 +/-0.031
 
-\subsubsection[]{Berechnung der Güteziffer}
+\subsubsection{Berechnung der Güteziffer}
+\label{sec:berechnung_guete}
 Gemäß Formel \eqref{eq:gueteTheorie} ergeben sich folgende ideale Güteziffern $\nu_\text{ideal}$ in Tabelle \ref{tab:gueteziffern}.
 %
 Mit Hilfe der spezifischen Wärmekapazität von Wasser $c_{\text{H2O}} = \qty{4190}{\joule\per\kg\per\kelvin}$ \cite[]{leifi}, der gegebenen Wärmekapazität
 der Kupferspirale $m_{\text{C}} c_{\text{C}} = \qty{750}{\joule\per\kelvin}$ und der zuvor bestimmten Differentialquotienten
-kann bei bei einer Wassermenge von $\qty[]{3}{\liter}$ pro Behälter (entspricht $m_\text{H2O}=\qty[]{3}{kg}$) die reale Güteziffer 
+kann bei einer Wassermenge von $\qty[]{3}{\liter}$ pro Behälter (entspricht $m_\text{H2O}=\qty[]{3}{kg}$) die reale Güteziffer 
 $\nu_{\text{real}}$ gemäß \eqref{eq:guetePraxis} bestimmt werden.
 Hierfür wird die gemittelte Leistungsaufnahme des Kompressors
 \begin{align*}
-    N = \frac{1}{n} \sum_{m=1}^{n} P_m.
+    N = \frac{1}{n} \sum_{m=1}^{n} P_m
 \end{align*}
 benötigt.
-Man erhält
+Somit ergibt sich
 \begin{align*}
     N_1  &=  \qty[]{7200}{\J\per\min} &
     N_2  &=  \qty[]{7360}{\J\per\min} &
@@ -102,29 +121,29 @@ Man erhält
     N_4  &=  \qty[]{7240}{\J\per\min}
 \end{align*}
 sodass sich schließlich  $\nu_\text{real}$ in Tabelle \ref{tab:gueteziffern} ergibt.
-Man erkennt große Diskrepanzen zwischen idealen und realen Werten,
-die rechnerisch als Quotient der beiden Werte angegeben sind.
+%Große Diskrepanzen zwischen idealen und realen Werten sind zu erkennen,
+%die rechnerisch als Quotient der beiden Werte in der Tabelle angegeben sind.
 
 \begin{table}
-    \caption[]{Ideale und reale Güteziffern mit ihrer Abweichung}
+    \caption[]{Ideale und reale Güteziffern mit ihrer Abweichung.}
     \label{tab:gueteziffern}
-    \sisetup{table-format = 2.2}
-    \begin{tabular}{S[table-format = 2.0] S S[table-format =1.2] @{${}\pm{}$} S[table-format =1.2] S}
+    \sisetup{table-format = 1.2}
+    \begin{tabular}{S[table-format = 2.0] S[table-format = 2.2] S @{${}\pm{}$} S S[table-format = 2.1] @{${}\pm{}$} S[table-format = 2.1]}
         \toprule
-        {$t /\unit[]{\min}$} & {$\nu_\text{ideal}$} & \multicolumn{2}{c}{$\nu_\text{real}$} & {$\frac{\nu_\text{real}}{\nu_\text{ideal}} \text{ in \%}$} \\
+        {$t /\unit[]{\min}$} & {$\nu_\text{ideal}$} & \multicolumn{2}{c}{$\nu_\text{real}$} & \multicolumn{2}{c}{$\frac{\nu_\text{real}}{\nu_\text{ideal}} \text{ in \%}$} \\
         \midrule
-        3  & 45.9 & 2.77 & 0.13 &  6.10 \\
-        9  & 14.2 & 2.30 & 0.12 & 16.20 \\
-        15 & 9.3  & 1.73 & 0.08 & 18.28 \\
-        21 & 7.4  & 1.33 & 0.06 & 17.57 \\ 
+        3  & 45.85 & 2.77 & 0.03 &  6.0 & 0.1 \\
+        9  & 14.19 & 2.24 & 0.04 & 15.8 & 0.3 \\
+        15 &  9.29 & 1.77 & 0.04 & 19.1 & 0.5 \\
+        21 &  7.40 & 1.33 & 0.06 & 18.0 & 0.8 \\ 
         \bottomrule 
     \end{tabular}
     \centering
 \end{table}
-%Abweichung nu:  [0.06100218 0.16197183 0.1827957  0.17567568]
 
-%nu real 0:  2.77+/-0.13
-%nu real 1:  2.30+/-0.12
-%nu real 2:  1.73+/-0.08
-%nu real 3:  1.33+/-0.06
 
+%#Abweichungen Nu:
+%#Abw 0:   6.0 +/-0.1
+%#Abw 1:  15.8 +/-0.3
+%#Abw 2:  19.1 +/-0.5
+%#Abw 3:  18.0 +/-0.8

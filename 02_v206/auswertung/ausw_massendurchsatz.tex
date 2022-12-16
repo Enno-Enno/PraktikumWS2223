@@ -1,10 +1,10 @@
-\subsection[]{Der Massendurchsatz}
+\subsection{Der Massendurchsatz}
 Um den Massendurchsatz zu bestimmen, werden die zuvor in Abschnitt \ref{sec: dif_quot}
 berechneten Differentialquotienten des kalten Reservoirs benötigt.
-Des Weiteren muss die Verdampfungswärme $L$ des Transportmediums, hier: $\ce{Cl2F2C}$, für Formel \eqref{eq:massedurchsatz} ermittelt werden.
+Des Weiteren muss die Verdampfungswärme $L$ des Transportmediums, hier $\ce{Cl2F2C}$, für Formel \eqref{eq:massedurchsatz} ermittelt werden.
 
 
-\subsubsection[]{Bestimmung der Verdampfungswärme}
+\subsubsection{Bestimmung der Verdampfungswärme}
 Zur Bestimmung der Verdampfungswärme $L$ werden die Wertepaare $\left(\frac{1}{T_{\text{k}}}, \ln{\left(\frac{p_{\text{k}}}{p_0}\right)}\right)$ logarithmisch dargestellt (vgl. \eqref{eq:Dampfdruckkurve})
 und anschließend eine lineare Ausgleichsrechnung zur Bestimmung von $L$ durchgeführt.
 Dies baut auf der Formel 
@@ -12,7 +12,7 @@ Dies baut auf der Formel
     p = p_0 \exp{\left(-\frac{L}{RT}\right)}
 \end{align*}
 aus Versuch \cite[]{man:v203} auf.
-$p_0$ ist dabei der Umgebungsdruck bei Zimmertemperatur und $R$ die universelle Gaskonstante.
+Der Umgebungsdruck bei Zimmertemperatur ist dabei $p_0$ und $R$ die universelle Gaskonstante.
 Sobald die Steigung $s$ der Ausgleichsgeraden ermittelt wurde, kann somit $L = -R \cdot s$ bestimmt werden.
 Laut der Wetterstation \cite*[][]{wetterstation} betrug der Luftdruck am Tag des Experiments
 $p_0 = \qty[]{1018.1}{\hecto\pascal} \simeq \qty[]{1.0}{\bar}$.
@@ -21,15 +21,17 @@ der Plot \ref{fig:ausgleichsgerade} erstellt.
 Es ergibt sich die Steigung $s = \left(\num[]{-2001.8141}\pm \num[]{111.7750} \right)$ und ein Achsenabschnitt von 
 $b = \left( \num[]{8.3639} \pm \num[]{0.3961} \right)$, 
 wobei letzterer für die Rechnungen nicht relevant ist. 
-Folglich gilt $L = \left(1.66 \pm 0.09 \right) 10^{4} \, \unit[]{\joule\per\mol}$. 
-$\qty[]{1}{\mol}$ Wasser entspricht nach \cite[]{chemie_schule} einer Masse von $m = \qty[]{18.016}{\gram}$, sodass gilt 
-$L = \left(920 \pm 50 \right) \, \unit[]{\joule\per\gram}$.
-%L:  (1.66+/-0.09)e+04
-%T in K, R in J/(mol*K) -> L in J/mol
-%L in J/g:  (9.2+/-0.5)e+02
-\begin{figure}
+Folglich gilt $L = \left(\num[]{1.66 \pm 0.09} \right) \cdot 10^{4} \, \unit[]{\joule\per\mol}$. 
+%$\qty[]{1}{\mol}$ Wasser entspricht nach \cite[]{chemie_schule} einer Masse von $m = \qty[]{18.016}{\gram}$, sodass gilt 
+%$L = \left(920 \pm 50 \right) \, \unit[]{\joule\per\gram}$.
+Die molare Masse des Transportmediums beträgt nach \cite[]{gestis} \qty[]{120.91}{\gram\per\mol}, sodass gilt
+$L = \left(\num[]{138 \pm 8} \right) \, \unit[]{\joule\per\gram}$.
+%L in J/mol:  (1.66+/-0.09)e+04
+%L in J/g:  138+/-8
+
+\begin{figure}[H]
     \includegraphics[]{build/plot_verdampfungswaerme.pdf}
-    \caption[]{lineare Ausgleichsgerade zur Bestimmung von $L$}
+    \caption[]{Lineare Ausgleichsgerade zur Bestimmung von $L$.}
     \label{fig:ausgleichsgerade}
 \end{figure}
 
@@ -37,28 +39,28 @@ $L = \left(920 \pm 50 \right) \, \unit[]{\joule\per\gram}$.
 %achsenabschn b=  8.363939543080686
 %#Fehler:  [111.77504319   0.39608049]
 
-\subsubsection[]{Berechnung des Massendurchsatzes}
+\subsubsection{Berechnung des Massendurchsatzes}
 Nach den Formeln \eqref{eq:massedurchsatz} und \eqref{eq:aenderung_q2} folgt somit für den Massendurchsatz
 $\frac{\diff m}{\diff t} = \frac{1}{L} \frac{\diff Q_2}{\diff t}$, die Werte sind in Tabelle \ref{tab:Massendurchsatz} einzusehen.
 
 \begin{table}
-    \caption[]{Massendurchsatz zu den vier betrachteten Zeiten}
+    \caption[]{Massendurchsatz zu den vier betrachteten Zeiten.}
     \label{tab:Massendurchsatz}
-    \sisetup{table-format = 3.1}
-    \begin{tabular}{S[table-format = 2.0] S @{${}\pm{}$} S[table-format =1.1]}
+    \sisetup{table-format = 3.0}
+    \begin{tabular}{S[table-format = 2.0] S @{${}\pm{}$} S[table-format =1.0]}
         \toprule
         {$t /\unit[]{\min}$} & \multicolumn{2}{c}{$\frac{\diff m}{\diff t} / \frac{\unit{\gram}}{\unit{\min}}$} \\
         \midrule
-        3  & -16.8 & 2.0\\
-        9  & -14.7 & 1.9\\
-        15 & -11.5 & 1.4\\
-        21 & -9.0  & 1.0\\ 
+        3  & -113 & 7 \\
+        9  & - 96 & 6 \\
+        15 & - 79 & 5 \\
+        21 & - 61 & 5 \\ 
         \bottomrule 
     \end{tabular}
     \centering
 \end{table}
 
-%massendurchsatz 0:  -16.8+/-2.0
-%massendurchsatz 1:  -14.7+/-1.9
-%massendurchsatz 2:  -11.5+/-1.4
-%massendurchsatz 3:  -9.0 +/-1.0
+% Massenfurchtsatz in g/min 0:  -113+/-7
+% Massenfurchtsatz in g/min 1:  - 96+/-6
+% Massenfurchtsatz in g/min 2:  - 79+/-5
+% Massenfurchtsatz in g/min 3:  - 61+/-5
