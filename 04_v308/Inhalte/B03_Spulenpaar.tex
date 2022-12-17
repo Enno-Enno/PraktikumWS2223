@@ -33,8 +33,8 @@ wenn die Orte der Messungen gleichmäßig zwischen den Spulen verteilt sind bzw.
 Wenn das nicht vorausgesetzt wird könnte man zum Beispiel die Messungen außerhalb der Spulen in den ersten vier Millimetern
 alle Messwerte aufnehmen und aus einer geringen Standardabweichung auf ein homogenes Feld außerhalb der Spulen schließen,
 auch wenn da ein schwächerwerdenes Feld wirkt.
-
-
+%
+%
 In Abbildung \ref{fig:B03_innen} werden die gemessenen Magnetfelder nach $x$ graphisch dargestellt.
 Mit $x$ wird dabei der Abstand des Messgerätes von der Mitte der der linken Spule bezeichnet.
 \begin{figure}
@@ -43,13 +43,22 @@ Mit $x$ wird dabei der Abstand des Messgerätes von der Mitte der der linken Spu
     \label{fig:B03_innen}
     \includegraphics[width=\textwidth]{build/B03_innen_Spulenpaar.pdf}
 \end{figure}
-
+%
 Die Werte betragen
 \begin{align}
-    \overline{B_{\qty{24}{\centi\meter}}}= \qty[]{0.742}{\milli\tesla}     &
-    \overline{B_{\qty{12}{\centi\meter}}}= \qty[]{1.516}{\milli\tesla}    &
-    \overline{B_{\qty{6 }{\centi\meter}}}= \qty[]{2.499}{\milli\tesla}     \\
-    \Delta B_{\qty{24}{\centi\meter}}= \qty[]{0.324}{\milli\tesla}     &
-    \Delta B_{\qty{12}{\centi\meter}}= \qty[]{0.882}{\milli\tesla}     &
-    \Delta B_{\qty{6 }{\centi\meter}}= \qty[]{0.014}{\milli\tesla}.     
+    \nonumber   
+    \overline{B_{\qty{24}{\centi\meter}}}&= \qty[]{0.742}{\milli\tesla}      &
+    \overline{B_{\qty{12}{\centi\meter}}}&= \qty[]{1.516}{\milli\tesla}     &
+    \overline{B_{\qty{6 }{\centi\meter}}}&= \qty[]{2.499}{\milli\tesla}     \\
+    \Delta B_{\qty{24}{\centi\meter}}&= \qty[]{0.324}{\milli\tesla}      &
+    \Delta B_{\qty{12}{\centi\meter}}&= \qty[]{0.088}{\milli\tesla}      &
+    \Delta B_{\qty{6 }{\centi\meter}}&= \qty[]{0.014}{\milli\tesla}.
+    \label{erg:B03Standardabweichungen} 
 \end{align}
+%%  Anmerkung man könnte noch was zum Feldgradienten schreiben, ich weiß aber nicht wie man den in der Auswertung 
+%%  berechnen/ Zeigen soll.
+%%  Drüber nochmal reden.
+
+\subsubsection{Messungen außerhalb der Spulen}
+Außerhalb der Spulen wird nach \textbf{Referenz Gleichung außerhalb der Spule} erwartet, dss das Magnetfeld
+proportional zu $\frac{1}{(R^2 + x^2)^{3/2}}$ abfällt.
