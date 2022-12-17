@@ -1,0 +1,38 @@
+\section[Theorie]{Theorie\footnote{Unter Verwendung der Quellen \cite[]{man:v308} und \cite[]{demtroeder2}}}
+
+\subsection{Magnetfelder}
+Bewegen sich elektrische Ladungen, so erzeugen sie Magnetfelder.
+Diese Felder können vektoriell durch die magnetischen Feldstärke $\symbf{H}$ quantifiziert werden.
+Ein wichtiges Mittel zur Veranschaulichung sind hierbei die Magnetfeldlinien.
+Sie verlaufen stets tangential zu den Vektoren, wobei die Dichte der Linien die Stärke des Feldes widerspiegelt.
+Wichtig ist hierbei, dass die Feldlinien immer geschlossen verlaufen.
+In Abbildung \ref{fig:ger_stromdurchfl_draht} ist exemplarisch das Magnetfeld eines geraden Stromdurchflossenen Drahtes aufgeführt.
+\begin{figure}[H]
+    \centering
+    \includegraphics*[]{./abbildungen/stromdurchfl_gerader_draht.png}
+    \caption[]{Magnetfeldlinien eines geraden stromdurchflossenen Drahtes \cite[S. 86]{demtroeder2}.}
+    \label{fig:ger_stromdurchfl_draht}
+\end{figure}
+%
+\noindent
+Mit Hilfe des Biot-Savart-Gesetzes 
+\begin{align}
+    \symbf{H} = \frac{I}{4 \pi} \oint_\Gamma \frac{\diff{\symbf{s}} \times \symbf{r}}{r^3}
+\end{align}
+lassen sich die Magnetfelder beliebiger stormdurchflossener Leiterschleifen \Gamma ermitteln.
+Die Feldlinien sind dabei senkrecht zum Strom $I$ verlaufende konzentrische Kreise\footnote{Nach Konvetion
+bilden die Richtung des Stroms und die Richtung der Feldlinien Rechtsschrauben}.
+\noindent
+Eine weitere wichtige Größe ist die magnetische Flussdichte
+\begin{align}
+    \symbf{B} = \mu_0 \cdot \mu_\text{r} \cdot \symbf{H},
+\end{align}
+die gilt, wenn die durch Elektronenbewegungen entstehenden magnetischen Momente aufgrund der 
+Wärmebewegung statistisch verteilt sind.
+Die Vakuum-Permeabilität $\mu_0 = 4 \pi \cdot 10^{-7}$ und die materialabhängige, dimensionslose relative Permeabilität $\mu_\text{r}$
+werden dabei häufig zur Permeabilität $\mu = \mu_0 \cdot \mu_\text{r}$ zusammengefasst.
+
+
+%Magnetfeldlinien
+%Biot Savart
+%Hall-Sonde
