@@ -17,6 +17,10 @@ magnetfeld_auf = np.concatenate((magnetfeld_C, magnetfeld_D))
 def f(t, a, b, c, d, e, f ):
     return a * t**5 +b * t**4 +c * t ** 3 + d * t **2 + e * t + f 
 
+def f1(t, a, b, c, d, e, f ):
+    return 5*a * t**4 + 4 *b * t**3 +3 * c * t ** 2 + 2 *d * t  + e 
+
+
 params_0,   covariance_matrix_0   = np.polyfit(strom_0, magnetfeld_0, deg=5, cov=True)
 params_auf, covariance_matrix_auf = np.polyfit(strom_auf, magnetfeld_auf, deg=5, cov=True)
 params_ab,  covariance_matrix_ab  = np.polyfit(strom_ab, magnetfeld_ab, deg=5, cov=True)
@@ -26,6 +30,7 @@ print("params_0:",  params_0  )
 print("Fehler_0   =",np.sqrt(np.diag(covariance_matrix_0))  )
 #print("Fehler_auf =",np.sqrt(np.diag(covariance_matrix_auf))  )
 #print("Fehler_ab  =",np.sqrt(np.diag(covariance_matrix_ab))  )
+print(f1(0,*params_0))
 
 x_plot= np.linspace(strom_auf[0],strom_auf[-1])
 x_plot_0= np.linspace(0,10)

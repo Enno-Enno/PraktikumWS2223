@@ -22,6 +22,7 @@ mu_0 = 4 * np.pi * 10 ** (-7)  # Newton /Ampere^2
 #
 def H(I):
     return  n / ( 2 * np.pi * r_t ) * I
+print(110.2697158461364 / H(1))
 
 
 #H =  n / ( 2 * np.pi * r_t ) * strom #  A/m

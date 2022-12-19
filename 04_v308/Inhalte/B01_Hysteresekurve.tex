@@ -107,7 +107,7 @@ Für jeden dieser Werte gibt es mehrere Datenpunkte, die für die Bestimmung rel
 Bei $I=0$ verändert sich das für die Remanenz relevante Messergebnis beim Umpolen der Stromzufuhr.
 Die Koerzitivkraft kann auch nicht immer abgelesen werden, wenn keine Stromeinstellung getroffen wird bei der Magnetfeld genau null ist.
 Relevant sind dann die beiden benachbarten Werte.
-In Tabelle \ref{tab:B01a_relevant} werden alle relevanten Werte aufgeführt.
+In Tabelle \ref{tab:B01a_relevant} werden alle relevanten Werte aufgeführt. 
 \begin{table}
     \centering
     \begin{tabular}[]{
@@ -140,7 +140,7 @@ In Tabelle \ref{tab:B01a_relevant} werden alle relevanten Werte aufgeführt.
 
 Für die Remanenz wird der Mittelwert von den Beträgen der relevanten Magnetfeldstärken berechnet.
 Für die Koerzitivkraft wird entsprechend der Mittelwert der Beträge der relevanten Stromstärken berechnet.
-Es ergibt $\overline{B_\text{r}} = (\num{74.0} \pm \num{56}) \unit{\m\tesla}$ und 
+Es ergibt $\overline{B_\text{r}} = (\num{74.0} \pm \num{56}) \unit{\milli\tesla}$ und 
 $\overline{H_\text{c}} = H(\overline{I_\text{c}}) = H\left((\num{0.5} \pm \num{0.35})\unit{\ampere} \right) = (\num{350} \pm \num{248})\unit{\ampere \per meter} $
 
 
@@ -150,4 +150,31 @@ $\overline{H_\text{c}} = H(\overline{I_\text{c}}) = H\left((\num{0.5} \pm \num{0
     \label{fig:Hysteresekurve_werte}
 \end{figure}
 
-Für die differentielle 
+Für die differentielle relative Permeabilität werden die Messwerte der Neukurve mit einem Polynom 5. Grades approximiert.
+Dazu wird Python Paket \texttt{numpy.polyfit} \cite[][]{numpy} verwendet. 
+Die Funktion der Form
+\begin{align}
+    f(I) = a_1 I^5 + a_2 I^4 + a_3 I^3 + a_4 I^2 + a_5 I + a_6 
+\end{align}
+mit den Parametern
+\begin{align*}
+%    [-6.57325588e-02  1.71820149e+00 -1.51721833e+01  4.17797196e+01
+%  1.10269716e+02  7.82781566e+00]
+    a_1 &=  \num{-6.57325588e-02} &
+    a_2 &=  \num{1.71820149e+00} &
+    a_3 &=  \num{-1.51721833e+01} \\
+    a_4 &=  \num{4.17797196e+01} &
+    a_5 &=  \num{1.10269716e+02} &
+    a_6 &=  \num{7.82781566e+00} &
+\end{align*}
+nähert die Messwerte im beobachteten Intervall hinreichend genau an.
+Die Ableitung von $F$ nach $I$ 
+\begin{align*}
+   \frac{\diff f(I)}{\diff I} = f'(I) = 5a_1 I^4 + 4a_2 I^3 + 3a_3 I^2 + 2a_4 I + a_5   
+\end{align*}
+ergibt für $I=0$
+\begin{align}
+    \mu_{r}(I=0) = f'(0) = \qty{110.27}{\milli\tesla\per\ampere} = \qty{0.157}{\milli\tesla\per\ampere\meter} 
+\end{align}
+Der Sättigungswert der Neukurve kann an den Messdaten abgelesen werden. 
+Für einen Strom von $\qty[]{10}{\ampere}$ erreichte die Neukurve einen maximalen Wert von \qty{732}{\milli\tesla}
