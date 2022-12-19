@@ -39,16 +39,16 @@ for name, value in zip('abc', params_w):
 
 #plot (auskommentiert damit das alles schneller läuft hihi):
 
-#x=np.linspace(0, 25, 1000)
-#plt.plot(t, temp_k, "x", label="$T_{{\\text{k}}}$")
-#plt.plot(t, temp_w, "x", label="$T_{{\\text{w}}}$")
-#plt.plot(x, function_1(x, *params_k), "-", label = "Funktion 1 für $T_{{\\text{k}}}$")
-#plt.plot(x, function_1(x, *params_w), "-", label = "Funktion 1 für $T_{{\\text{w}}}$")
-#plt.grid()
-#plt.legend()
-#plt.xlabel("$t / \\unit{{\\minute}}$")
-#plt.ylabel("$T/ \\unit{{\\kelvin}}$")
-#plt.savefig("build/plot_ausgleich_1.pdf")
+x=np.linspace(0, 25, 1000)
+plt.plot(t, temp_k, "x", label="$T_{{\\text{k}}}$")
+plt.plot(t, temp_w, "x", label="$T_{{\\text{w}}}$")
+plt.plot(x, function_1(x, *params_k), "-", label = "Funktion 1 für $T_{{\\text{k}}}$")
+plt.plot(x, function_1(x, *params_w), "-", label = "Funktion 1 für $T_{{\\text{w}}}$")
+plt.grid()
+plt.legend()
+plt.xlabel("$t / \\unit{{\\minute}}$")
+plt.ylabel("$T/ \\unit{{\\kelvin}}$")
+plt.savefig("build/plot_ausgleich_1.pdf")
 #min-K- Diagramm
 
 

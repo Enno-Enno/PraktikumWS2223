@@ -5,47 +5,49 @@
 Der Energie die einem der Reservoire durch Änderung der Temperatur hinzugefügt wird,
 heißt Wärmemenge
 \begin{align}
-    \diff Q = c m \diff T 
+    \diff Q = c m \diff T.
     \label{eq:dQ}
 \end{align} 
 %% Es ist wichtig sich zu entscheiden, wie die Hinzugefügte Wärmemenge heißen soll: Q_\text{w} oder \Delta Q_\text{w}
-$ c $ ist hier die spezifische Wärmekapazität des Materials,
+Hier ist $ c $ die spezifische Wärmekapazität des Materials,
  die im Allgemeinen von der Temperatur abhängen kann.
 Der erste Hauptsatz der Thermodynamik bringt die bewegte Wärmemenge
-mit der inneren Energie d.h. der gemittelten Temperatur der von aussen wirkenden Arbeit
+mit der inneren Energie d.h. der gemittelten Temperatur der von außen wirkenden Arbeit
 ins Verhältnis \cite[vgl][318]{demtroeder}. 
-Die Wärmepumpe kann als abgeschlossenes System betrachtet werden. 
+Die Wärmepumpe kann als abgeschlossenes System betrachtet werden, sodass 
 \begin{align}
-                \diff U &= \diff W + \diff Q \\
+                \diff U &= \diff W + \diff Q, \\
     \nonumber   \Delta U &= A + ( Q_\text{k} - Q_\text{w})
 \end{align}
-$Q_\text{w}$ steht hierbei für die Wärmemenge im wärmer werdenden Reservoir, $Q_\text{k}$ ist entsprechend die Wärmemenge im kälteren Reservoir.
-Da die Wärmepumpe die Wärmeenergie von einem Reservoir in das andere transportiert
-    bliebt die innere Energie konstant $ \Delta U = 0 $.
+gilt.
+Hierbei steht $Q_\text{w}$ für die Wärmemenge im wärmer werdenden Reservoir, $Q_\text{k}$ ist entsprechend die Wärmemenge im kälteren Reservoir.
+Da die Wärmepumpe die Wärmeenergie von einem Reservoir in das andere transportiert,
+    bleibt die innere Energie konstant $ \Delta U = 0 $ und es gilt
 
 \begin{align}
-    Q_\text{w}    &= A +  Q_\text{k} % Die Q_i hängen selber auch mit veränderungen in der Temperatur zusammen...
+    Q_\text{w}    &= A +  Q_\text{k}. % Die Q_i hängen selber auch mit veränderungen in der Temperatur zusammen...
 \end{align}
 %
-Die Wärmepumpe muss also die Arbeit $A$ aufwenden um die Wärmeenergie aus Reservoir k in Reservoir w zu überführen.
-An den einzelnen Reservoirs wird keine Arbeit in Form von einer Druckänderung gewirkt, da der Luftdruck konstant ist.
+Die Wärmepumpe muss also die Arbeit $A$ aufwenden, um die Wärmeenergie aus Reservoir k in Reservoir w zu überführen.
+An den einzelnen Reservoirs wird keine Arbeit in Form von einer Druckänderung 
 \begin{align*}
     \Delta W = - p \Delta V = 0 
 \end{align*}
+gewirkt, da der Luftdruck konstant ist.
 Wird jetzt idealisierend angenommen, dass in dem Prozess keine Wärme verloren geht, kann der zweite Hauptsatz der Thermodynamik
-verwendet werden um die Wärmemengen mit der abgegebenen Temperatur in Verbindung zu setzen \cite[vgl.][1]{man:v206}. 
-Es gilt:
+verwendet werden, um die Wärmemengen mit der abgegebenen Temperatur in Verbindung zu setzen \cite[vgl.][1]{man:v206}. 
+Es gilt
 \begin{align*}
-    \int \frac{1}{T} \diff Q = 0 % Warum auch immer das aus dem zweiten Hauptsatz folgt
+    \int \frac{1}{T} \diff Q = 0. % Warum auch immer das aus dem zweiten Hauptsatz folgt
 \end{align*}
-Daraus folgt:
+Daraus folgt
 \begin{align}
     \frac{Q_\text{w}}{T_\text{w}} - \frac{Q_\text{k}}{T_\text{k}} &= 0.% Überprüfen
     %\frac{Q_\text{w}}{T_\text{1}} - \frac{Q_\text{k}}{T_\text{k}} &= c m \left(\frac{T_\text{0}}{T_\text{1}} - 1 \right) -c m \left(\frac{T_\text{0}}{T_\text{1}} - 1 \right) \\
     % &= c m T_\text{0} \left(\frac{1}{T_\text{1}} - \frac{1}{T_\text{k}}\right) = 0
 \end{align}
-Diese beiden Formeln ineinander eingesetzt erhält ergeben für die Wärmemenge $Q_\text{w}$ folgende Relation \cite{man:v206}
+Diese beiden Formeln ineinander eingesetzt ergeben für die Wärmemenge $Q_\text{w}$ folgende Relation \cite{man:v206}
 \begin{align}
-\nonumber    Q_\text{w} &= A + \frac{T_\text{k}}{T_\text{w}}Q_\text{w} \\
+\nonumber    Q_\text{w} &= A + \frac{T_\text{k}}{T_\text{w}}Q_\text{w}, \\
     Q_\text{w} &= A \frac{T_\text{w}}{T_\text{w} - T_\text{k}}.
 \end{align}
