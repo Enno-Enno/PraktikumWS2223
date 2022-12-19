@@ -1,20 +1,35 @@
 \section{Diskussion}
 
-%allgemein
-%keine Fehlerangaben der Messgeräte
-%sonde nicht immer exakt orientiert
 
-%hysterese:
+\subsection{Fehlerabschätzung}
+Allgemein muss angemerkt werden, dass es an den Messgeräten keinerlei Angaben von Messfehlern gibt,
+sodass diese nicht in die Fehlerabschätzung mit eingehen können.
+
+\noindent
+Mögliche systematische Fehler in den Messungen können durch das Eisen im Beton des Gebäudes auftreten.
+Außerdem kann durch eine schiefe Anbringung der Hall-Sonden bzw. ein ungewolltes Verdrehen während der Messungen
+ein weiterer systematischer Fehler entstehen. 
+
+
+\subsection{Hysteresekurve}
 %Breite des luftspalt -> Randeffekte?
 %umpolung diskrepanz, vorhandener offset
 
-%Einzelspulen:
-%Fehler durch Messungen, vor allem Radius
-%Es ist gut erkennbar, dass innerhalb der kurzen Spule kein homogenes Magnetfeld besteht \ref{fig:plot_kurze_spule}
-%innerhalb langer spule schon
-%außerhalb beider Spulen divergiert das Feld
+\subsection{Lange und kurze Spule}
+Die beiden Plots \ref{fig:plot_kurze_spule} und \ref{fig:plot_lange_spule} unterstützen die die Tatsache, 
+dass sich die Feldlinien außerhalb der Spule auffächern.
+Allerdings gibt es große Diskrepanzen zur Formel \eqref{eq:spule_n_windungen}.
+Ganz explizit sind die theoretischen Werte betragsmäßig größer als die experimentellen Werte.
+Diese Unterschiede lassen sich dadurch erklären, dass in der Theorie davon ausgegangen wird, dass sich die Windungen an der gleichen Stelle befinden.
+Aufgrund der räumlichen Ausdehnung der beiden Spulen ist dies allerdings nicht gegeben und fällt besonders bei der langen Spule ins Gewicht.
+Am Plot \ref{fig:plot_kurze_spule} lässt sich durch die Steigung ebenfalls erkennen, dass im Inneren der kurzen Spule kein homogenes Feld vorhanden ist.
+Anhand von Plot \ref{fig:plot_lange_spule} kann man nur für Abstände nahe der Spulenmitte von einem homogenen Magnetfeld ausgehen.
+Für Abstände, die weiter von der Mitte entfernt sind, muss man von Verlusten durch Randeffekte ausgehen, die bei steigendem Abstand zunehmen.
 
 
-%Spulenpaar:
+\subsection{Spulenpaar}
 %Parameter der Spule nicht gut gewählt (zu kleiner Radius für Helmholtz...)
 %Schiene der Sonde wackelig -> muss festgehalten werden
+%Sonde kann beim Verschieben gedreht werden.
+
+

@@ -29,6 +29,15 @@ Um den Abstand von der Sonde zu der Spule besser darstellen zu können wird die 
 dass $x = 0$ ist, wenn die Sonde in der Mitte der Spule ist.
 Es gilt also bei einer Spulenlänge $l$ die Transformation  $x = x_\text{abgel} - x_\text{Sonde} + \frac{l}{2}$. 
 
+\noindent
+Des Weiteren wird Gleichung \eqref{eq:kreisfoermige_leiterschleife} mit n multipliziert und der Betrag genommen, sodass sich 
+\begin{align}
+    \label{eq:spule_n_windungen}
+    B_\text{theo} = n \cdot \frac{\mu_0 I}{2} \frac{R^2}{\left(R^2 + x^2\right)^{3/2}}
+\end{align}
+ergibt.
+Anschließend werden die Parameter der jeweiligen Spule eingesetzt.
+
 \subsubsection{Kurze Spule}
 \label{sec:kurze_spule}
 Die abgelesenen Positionen $x_\text{abgel}$, die Abstände $x$ zwischen Spulenrand und Sonde 
@@ -75,6 +84,7 @@ sowie die gemessenen magnetischen Flussdichten $B$ sind in Tabelle \ref{tab:mess
 \noindent
 Werden die Werte aus Tabelle \ref{tab:messergebnisse_kurze_spule} geplottet, ergibt sich Abbildung \ref{fig:plot_kurze_spule}.
 Dabei gibt die vertikale Linie den Wechsel zwischen dem Inneren und Äußeren der Spule an.
+Im gleichen Plot wird Gleichung \eqref{eq:spule_n_windungen} für das äußere Feld dargestellt.
 %
 \begin{figure}[H]
     \centering
@@ -88,6 +98,7 @@ Dabei gibt die vertikale Linie den Wechsel zwischen dem Inneren und Äußeren de
 Analog zum Vorgehen im vorigen Abschnitt \ref{sec:kurze_spule} werden auch hier die Werte für $x_\text{abgel}$, $x$ und $B$
 in Tabelle \ref{tab:messergebnisse_lange_spule} aufgelistet und in Abbildung \ref{fig:plot_lange_spule} geplottet.
 Die vertikale Linie gibt erneut den Wechsel zwischen Innerem und Äußerem der Spule an.
+Auch hier wird $B_\text{theo}$ gemäß \eqref{eq:spule_n_windungen} außerhalb der Spule geplottet.
 
 \begin{table}[H]
     \centering

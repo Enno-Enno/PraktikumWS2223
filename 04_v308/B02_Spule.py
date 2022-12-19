@@ -38,29 +38,32 @@ R_kurz = 8.5 / 2 #in cm
 I_lang = 1   # in A
 I_kurz = 0.6 # in A
 
-#def leiterschleife_lang(x, mu_0, n, I, R):
-#    return(mu_0/2 * n * I * R**2/(R**2 + x**2)**(3/2)) * 100
-#    #eigentlich in N/(A cm), durch Faktor 100 in N/(A m) = T
-#
-#params_lang, covariance_matrix_lang =  curve_fit(leiterschleife, x_lang, magnetfeld_lang)
-#params_kurz, covariance_matrix_kurz =  curve_fit(leiterschleife, x_kurz, magnetfeld_kurz)
-#
-#errors_lang = np.sqrt(np.diag(covariance_matrix_lang))
-#errors_kurz = np.sqrt(np.diag(covariance_matrix_kurz))
+def leiterschleife_lang(x, mu_0, n, I, R):
+    return(mu_0/2 * n * I * (R/100)**2/((R/100)**2 + ((x - 8.0)/100)**2)**(3/2) * 1000)
 
+def leiterschleife_kurz(x, mu_0, n, I, R):
+    return(mu_0/2 * n * I * (R/100)**2/((R/100)**2 + ((x - 4.5)/100)**2)**(3/2) * 1000)
+    #eigentlich in N/(A cm), durch Faktor 1/100 in N/(A m) = T
 
-#print("Funktion Leiterschleife für lang:")
-#for name, value in zip('', params_k):
-#    print(f"{name} = {value:8.8f}")
+#x_kurz_aussen = x_kurz[5:]
+x_kurz_aussen = np.linspace(4.5, 44.5, 1000)
 
-#print("params_kurz: ", params_kurz)
-#print("errors_kurz: ", errors_kurz)
+#x_lang_aussen = x_lang[9:]
+x_lang_aussen = np.linspace(8, 18, 1000)
+
+magnetfeld_lang_theo = -leiterschleife_lang(x_lang_aussen, mu_0, n_lang, I_lang, R_lang)
+magnetfeld_kurz_theo = -leiterschleife_kurz(x_kurz_aussen, mu_0, n_kurz, I_kurz, R_kurz)
+ 
+# print("theo:")
+# print("lang: ", magnetfeld_lang_theo)
+# print("kurz: ", magnetfeld_kurz_theo)
 
 #plot lange spule
 plt.figure(constrained_layout=True)
-plt.plot(x_lang, magnetfeld_lang, 'x', label = "$B_\\text{{lang}}(x)$")
-#plt.plot(x_lang, -leiterschleife(x_lang, mu_0, n_lang, I_lang, R_lang), "-", label = "Funktion für Spule mit n Windungen")
 plt.axvline(x=8, label = "Wechsel innen / außen")
+plt.plot(x_lang, magnetfeld_lang, 'x', label = "$B_\\text{{lang}}(x)$")
+plt.plot(x_lang_aussen, magnetfeld_lang_theo, "-", label = "$B_\\text{{theo}}(x)$")
+plt.ylim(-2.5, 0.5)
 plt.xlabel("$x/ \\unit{\\cm}$")
 plt.ylabel("$B/ \\unit{\\milli\\tesla}$")
 plt.grid()
@@ -69,8 +72,10 @@ plt.savefig("build/B02_lange_spule.pdf")
 
 #plot kurze Spule
 plt.figure(constrained_layout=True)
-plt.plot(x_kurz, magnetfeld_kurz, 'x', label = "$B_\\text{{kurz}}(x)$")
 plt.axvline(x=4.5, label = "Wechsel innen / außen")
+plt.plot(x_kurz, magnetfeld_kurz, 'x', label = "$B_\\text{{kurz}}(x)$")
+plt.plot(x_kurz_aussen, magnetfeld_kurz_theo, "-", label = "$B_\\text{{theo}}(x)$")
+plt.ylim(-20, 0.5)
 plt.xlabel("$x/ \\unit{\\cm}$")
 plt.ylabel("$B/ \\unit{\\milli\\tesla}$")
 plt.grid()
