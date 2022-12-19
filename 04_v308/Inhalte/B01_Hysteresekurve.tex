@@ -2,16 +2,101 @@
 In diesem Versuch wird die Magnetisierung eines Eisenkerns betrachtet.
 Wie in Abschnitt \ref{sec:A_Hysterese_Drcf} beschrieben wird der Strom nach und nach variiert 
 und den Magnetfeldern gegenübergestellt.
-Für die Hysteresekurve wird allerdings die Magnetfeldstärke im Vakuum $H$ gebraucht.
-Diese berechnet sich wie in Gleichung \ref{eq:toroid} mit
-\begin{align*}
-    H =  \mu_0 \frac{n}{2 \pi r_\text{T}} I
-\end{align*}
-Bei der gegebenen Toroidspule beträgt der Radius $r_\text{T}= \qty{13.5}{cm}$ und die Windungszahl $n = 595$
-Das Magnetische Moment berechnet sich analog zu Gleichung \ref{} 
+Wie in \textbf{vereinfachungsgleichung} dargestellt ist die Magnetisierung des eisenkerns nahezu äquivalent zu der Magnetisierung.
+Weil das äußere magnetfeld proportional zu der Stromstärke der Spule ist wird das Magnetfeld in Tabelle \ref{tab:hysterese_werte}
+und in \ref{fig:Hysteresekurve_werte} gegen die Stromstärke aufgestellt.
+
+
+
+%Für die Hysteresekurve wird allerdings die Magnetfeldstärke im Vakuum $H$ gebraucht.
+%Diese berechnet sich wie in Gleichung \ref{eq:toroid} mit
+%\begin{align*}
+%    H = \frac{B}{\mu_0}
+%    H =  \frac{1}{\mu_0} \frac{n}{2 \pi r_\text{T}} I
+%\end{align*}
+%Bei der gegebenen Toroidspule beträgt der Radius $r_\text{T}= \qty{13.5}{cm}$ und die Windungszahl $n = 595$
+%Das Magnetische Moment berechnet sich analog zu Gleichung \ref{eq:Magnetisierung}
+%\begin{align*}
+%    M = \frac{B}{\mu_0} - H
+%\end{align*}
 
 
 %%% Tabelle mit Werten
 
 
+\begin{table}
+    \centering
+    \begin{tabular}{
+        S[table-format=1.1]
+        S[table-format=3.1]
+        S[table-format=1.1]
+        S[table-format=3.1]
+        S[table-format=1.1]
+        S[table-format=3.1]
+    }
+    \toprule
+    \multicolumn{2}{c}{Neukruve} &
+    \multicolumn{2}{c}{Absinkende Stromstärke} &
+    \multicolumn{2}{c}{Steigende Stromstärke} \\
+    {$I/ \unit{\ampere}$} & {$B\simeq \mu_0 M$} &   
+    {$I/ \unit{\ampere}$} & {$B\simeq \mu_0 M$} &     
+    {$I/ \unit{\ampere}$} & {$B\simeq \mu_0 M$}      \\
+    \midrule
+        0.0  &  21.0    &  9.5  &  717.0     &    -9.5  &  -684.0 \\
+        0.5  &  55.0    &  9.0  &  708.0     &    -9.0  &  -676.0 \\
+        1.0  &  134.0   &  8.5  &  698.0     &    -8.5  &  -667.0 \\
+        1.5  &  225.0   &  8.0  &  688.0     &    -8.0  &  -657.0 \\
+        2.0  &  312.0   &  7.5  &  677.0     &    -7.5  &  -646.0 \\
+        2.5  &  381.0   &  7.0  &  665.0     &    -7.0  &  -635.0 \\
+        3.0  &  433.0   &  6.5  &  654.0     &    -6.5  &  -623.0 \\
+        3.5  &  478.0   &  6.0  &  640.0     &    -6.0  &  -614.0 \\
+        4.0  &  512.0   &  5.5  &  625.0     &    -5.5  &  -596.0 \\
+        4.5  &  542.0   &  5.0  &  609.0     &    -5.0  &  -580.0 \\
+        5.0  &  567.0   &  4.5  &  592.0     &    -4.5  &  -561.0 \\
+        5.5  &  592.0   &  4.0  &  573.0     &    -4.0  &  -543.0 \\
+        6.0  &  613.0   &  3.5  &  550.0     &    -3.5  &  -522.0 \\
+        6.5  &  634.0   &  3.0  &  527.0     &    -3.0  &  -496.0 \\
+        7.0  &  651.0   &  2.5  &  496.0     &    -2.5  &  -467.0 \\
+        7.5  &  666.0   &  2.0  &  458.0     &    -2.0  &  -434.0 \\
+        8.0  &  682.0   &  1.5  &  408.0     &    -1.5  &  -377.0 \\
+        8.5  &  695.0   &  1.0  &  323.0     &    -1.0  &  -301.0 \\
+        9.0  &  709.0   &  0.5  &  228.0     &    -0.5  &  -210.0 \\
+        9.5  &  720.0   &  0.0  &  142.0     &    -0.0  &  -117.0 \\
+        10.0 &  732.0   & -0.0  &  16.0      &     0.0  &  -21.0  \\
+             &          & -0.5  &  -5.0      &     0.5  &  -4.0   \\
+             &          & -1.0  &  -66.0     &     1.0  &  77.0   \\
+             &          & -1.5  &  -153.0    &     1.5  &  167.0  \\
+             &          & -2.0  &  -230.0    &     2.0  &  244.0  \\
+             &          & -2.5  &  -305.0    &     2.5  &  321.0  \\
+             &          & -3.0  &  -364.0    &     3.0  &  383.0  \\
+             &          & -3.5  &  -413.0    &     3.5  &  433.0  \\
+             &          & -4.0  &  -457.0    &     4.0  &  477.0  \\
+             &          & -4.5  &  -490.0    &     4.5  &  511.0  \\
+             &          & -5.0  &  -519.0    &     5.0  &  539.0  \\
+             &          & -5.5  &  -546.0    &     5.5  &  566.0  \\
+             &          & -6.0  &  -567.0    &     6.0  &  591.0  \\
+             &          & -6.5  &  -589.0    &     6.5  &  611.0  \\
+             &          & -7.0  &  -607.0    &     7.0  &  627.0  \\
+             &          & -7.5  &  -625.0    &     7.5  &  645.0  \\
+             &          & -8.0  &  -640.0    &     8.0  &  661.0  \\
+             &          & -8.5  &  -656.0    &     8.5  &  676.0  \\
+             &          & -9.0  &  -670.0    &     9.0  &  691.0  \\
+             &          & -9.5  &  -684.0    &     9.5  &  703.0  \\
+             &          & -10.0 &  -697.0    &     10.2 &  720.0  \\                                   
+    \bottomrule
+    \end{tabular}
+    \caption{Die Messwerte für die Spule mit dem Eisenkern.}
+    \label{tab:hysterese_werte}
+\end{table}
 %%% Graphische Darstellung mit curve-Fit 
+
+Die Remanenz $B_\text{r}$ und die Koerzitivkraft $H_\text{c}$können aus der Tabelle \ref{tab:hysterese_werte} bestimmt werden.
+Für jeden dieser Werte gibt es mehrere Datenpunkte, die für die Bestimmung relevant sind. 
+
+
+\begin{figure}
+    \includegraphics[]{build/B01_Hysteresekurve.pdf}
+    \caption{Die Hysteresekurve, mit polynom-Fit für die Neukurve}
+    \label{fig:Hysteresekurve_werte}
+\end{figure}
+
