@@ -48,12 +48,12 @@ Mit $x$ wird dabei der Abstand des Messgerätes von der Mitte der der linken Spu
 Die Werte betragen
 \begin{align}
     \nonumber   
-    \overline{B_{\qty{24}{\centi\meter}}}&= \qty[]{0.742}{\milli\tesla}      &
-    \overline{B_{\qty{12}{\centi\meter}}}&= \qty[]{1.516}{\milli\tesla}     &
-    \overline{B_{\qty{6 }{\centi\meter}}}&= \qty[]{2.499}{\milli\tesla}     \\
-    \Delta B_{\qty{24}{\centi\meter}}&= \qty[]{0.324}{\milli\tesla}      &
-    \Delta B_{\qty{12}{\centi\meter}}&= \qty[]{0.088}{\milli\tesla}      &
-    \Delta B_{\qty{6 }{\centi\meter}}&= \qty[]{0.014}{\milli\tesla}.
+    \overline{B}_{\qty{24}{\centi\meter},\text{innen}}&= \qty[]{0.742}{\milli\tesla}      &
+    \overline{B}_{\qty{12}{\centi\meter},\text{innen}}&= \qty[]{1.516}{\milli\tesla}     &
+    \overline{B}_{\qty{6 }{\centi\meter},\text{innen}}&= \qty[]{2.499}{\milli\tesla}     \\
+    \Delta B_{\qty{24}{\centi\meter},\text{innen}}&= \qty[]{0.324}{\milli\tesla}      &
+    \Delta B_{\qty{12}{\centi\meter},\text{innen}}&= \qty[]{0.088}{\milli\tesla}      &
+    \Delta B_{\qty{6 }{\centi\meter},\text{innen}}&= \qty[]{0.014}{\milli\tesla}.
     \label{erg:B03Standardabweichungen} 
 \end{align}
 %%  Anmerkung man könnte noch was zum Feldgradienten schreiben, ich weiß aber nicht wie man den in der Auswertung 
@@ -61,5 +61,16 @@ Die Werte betragen
 %%  Drüber nochmal reden.
 
 \subsubsection{Messungen außerhalb der Spulen}
-Außerhalb der Spulen wird nach \textbf{Referenz Gleichung außerhalb der Spule} erwartet, dss das Magnetfeld
-proportional zu $\frac{1}{(R^2 + x^2)^{3/2}}$ abfällt.
+%Außerhalb der Spulen wird nach \textbf{Referenz Gleichung außerhalb der Spule} erwartet, dss das Magnetfeld
+%proportional zu $\frac{1}{(R^2 + x^2)^{3/2}}$ abfällt.
+Bei den Messungen außerhalb der Spulen wird diese Messung der Homogenität wiederholt.
+\begin{align}
+    \nonumber   
+    \overline{B}_{\qty{24}{\centi\meter},\text{außen}}&= \qty[]{1.267}{\milli\tesla}      &
+    \overline{B}_{\qty{12}{\centi\meter},\text{außen}}&= \qty[]{0.795}{\milli\tesla}     &
+    \overline{B}_{\qty{6 }{\centi\meter},\text{außen}}&= \qty[]{0.758}{\milli\tesla}     \\
+    \Delta B_{\qty{24}{\centi\meter},\text{außen}}&= \qty[]{0.080}{\milli\tesla}      &
+    \Delta B_{\qty{12}{\centi\meter},\text{außen}}&= \qty[]{0.445}{\milli\tesla}      &
+    \Delta B_{\qty{6 }{\centi\meter},\text{außen}}&= \qty[]{0.580}{\milli\tesla}.
+    \label{erg:B03Standardabweichungen_aussen} 
+\end{align}
