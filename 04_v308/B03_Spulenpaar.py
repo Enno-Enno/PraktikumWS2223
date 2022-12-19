@@ -13,6 +13,8 @@ mw_12 = np.mean(magnetfeld_12[7:])* np.ones(7)
 mw_24 = np.mean(magnetfeld_24[:13])* np.ones(13)
 
 
+
+
 print("Hier entsteht der erste Plot")
 #plt.figure(constrained_layout=True)
 fig, (ax6, ax12, ax24) = plt.subplots(3,1, constrained_layout=True, sharey=True, figsize=(7,9))

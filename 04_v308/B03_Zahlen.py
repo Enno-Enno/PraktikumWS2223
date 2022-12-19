@@ -15,9 +15,26 @@ print("mw_6 :", mw_6 )
 print("mw_12:", mw_12)
 print("mw_24:", mw_24)
 
+
+
+
 std_6  = np.std(magnetfeld_6[:4]  )
 std_12 = np.std(magnetfeld_12[7:] )
 std_24 = np.std(magnetfeld_24[:13])
 print("std_6 :", std_6 )
 print("std_12:", std_12)
 print("std_24:", std_24)
+
+mw_a_6 = np.mean(magnetfeld_6[4:]   )
+mw_a_12 = np.mean(magnetfeld_12[:7] )
+mw_a_24 = np.mean(magnetfeld_24[13:])
+print("mw_a_24:", mw_a_24)
+print("mw_a_12:", mw_a_12)
+print("mw_a_6 :", mw_a_6 )
+
+std_a_6  = np.std(magnetfeld_6[4:]  )
+std_a_12 = np.std(magnetfeld_12[:7] )
+std_a_24 = np.std(magnetfeld_24[13:])
+print("std_a_24:", std_a_24)
+print("std_a_12:", std_a_12)
+print("std_a_6 :", std_a_6 )
