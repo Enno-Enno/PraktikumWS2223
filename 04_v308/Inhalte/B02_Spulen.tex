@@ -1,32 +1,118 @@
 \subsection{Kurze und lange Spule}
 \label{sec:kurze_und_lange_Spule}
-
-\begin{table}
-    \caption{Kenngrößen der Spulen}
+Der Vollständigkeit halber sind die in Abschnitt \ref{sec:durchführung_kurze_lange_spule} genannten Kenngrößen der Spulen sowie die an ihnen
+eingestellten Stromstärken in Tabelle \ref{tab:B02_Kenngroessen_Spulen} aufgeführt.
+%
+\begin{table}[H]
+    \centering
+    \caption{Die Kenngrößen der Spulen.}
     \label{tab:B02_Kenngroessen_Spulen}
     \begin{tabular}[]{
         c
-        S[table-format=3.0]
+        S[table-format=4.0]
         S[table-format=2.0]
-        S[table-format=1.2]
+        S[table-format=1.1]
         S[table-format=1.1]
     }
         \toprule
-                    & {Windungszahl $N$} & {Länge $l / \unit{\cm}$} & {Mittlerer Durchmesser $D / \unit{\cm}$} & {Stromstärke $I / \unit{\ampere}$}\\
+        {Spule} & {$n$} & {$l / \unit{\cm}$} & {$D / \unit{\cm}$} & {$I / \unit{\ampere}$} \\
         \midrule
-        lange Spule &       300          &          16              &           4.1                            &            1.0                    \\ 
-        kurze Spule &       3400         &          9               &           8.75                           &            0.6                    \\ 
+        lang &  300 & 16 & 4.1 & 1.0\\ 
+        kurz & 3400 &  9 & 8.5 & 0.6\\ 
+        \bottomrule
+    \end{tabular}
+\end{table}
+\noindent
+Wie in Abschnitt \ref{sec:durchführung_kurze_lange_spule} beschrieben steht die Hall-Sonde bei $x_\text{Sonde} = \qty[]{50}{\cm}$.
+Am linken Rand der Spulen $x_\text{abgel}$ die Position wird abgelesen.
+Um den Abstand von der Sonde zu der Spule besser darstellen zu können wird die $x$ Achse so gelegt, 
+dass $x = 0$ ist, wenn die Sonde in der Mitte der Spule ist.
+Es gilt also bei einer Spulenlänge $l$ die Transformation  $x = x_\text{abgel} - x_\text{Sonde} + \frac{l}{2}$. 
+
+\subsubsection{Kurze Spule}
+\label{sec:kurze_spule}
+Die abgelesenen Positionen $x_\text{abgel}$, die Abstände $x$ zwischen Spulenrand und Sonde 
+sowie die gemessenen magnetischen Flussdichten $B$ sind in Tabelle \ref{tab:messergebnisse_kurze_spule} angegeben.
+
+\begin{table}[H]
+    \centering
+    \caption{Abgeleser Abstand, Distanz und magnetische Flussdichte der kurzen Spule.}
+    \label{tab:messergebnisse_kurze_spule}
+    \begin{tabular}[]{
+        S[table-format=2.0] 
+        S[table-format=2.1] 
+        S[table-format=3.2] 
+        S[table-format=2.0]
+        S[table-format=2.1]  
+        S[table-format=2.2]}
+        \toprule
+        {$x_\text{abgel} / \unit{\centi\meter}$} &
+        {$x / \unit{\centi\meter}$} & 
+        {$B / \unit{\milli\tesla}$} &
+        {$x_\text{abgel} / \unit{\centi\meter}$} & 
+        {$x / \unit{\centi\meter}$} & 
+        {$B / \unit{\milli\tesla}$} \\
+        \midrule
+        45 & -0.5 & -19.65   &    62 & 16.5 & -0.80 \\
+        46 &  0.5 & -19.25   &    64 & 18.5 & -0.57 \\
+        47 &  1.5 & -18.29   &    66 & 20.5 & -0.42 \\
+        49 &  3.5 & -14.37   &    68 & 22.5 & -0.32 \\
+        50 &  4.5 & -11.87   &    70 & 24.5 & -0.25 \\
+        51 &  5.5 & -9.43    &    72 & 26.5 & -0.19 \\
+        52 &  6.5 & -7.38    &    74 & 28.5 & -0.15 \\
+        53 &  7.5 & -5.65    &    76 & 30.5 & -0.12 \\
+        54 &  8.5 & -4.46    &    78 & 32.5 & -0.10 \\
+        55 &  9.5 & -3.45    &    80 & 34.5 & -0.08 \\
+        56 & 10.5 & -2.69    &    82 & 36.5 & -0.07 \\
+        57 & 11.5 & -2.15    &    84 & 38.5 & -0.06 \\
+        58 & 12.5 & -1.75    &    86 & 40.5 & -0.05 \\
+        59 & 13.5 & -1.38    &    88 & 42.5 & -0.04 \\
+        60 & 14.5 & -1.16    &    90 & 44.5 & -0.03 \\
+        \bottomrule 
+    \end{tabular}
+\end{table}
+
+\noindent
+Werden die Werte aus Tabelle \ref{tab:messergebnisse_kurze_spule} geplottet, ergibt sich Abbildung \ref{fig:plot_kurze_spule}.
+Dabei gibt die vertikale Linie den Wechsel zwischen dem Inneren und Äußeren der Spule an.
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics{build/B02_kurze_spule.pdf}
+    \caption[]{$x$-$B$-Diagramm aus Tabelle \ref{tab:messergebnisse_kurze_spule} der kurzen Spule.}
+    \label{fig:plot_kurze_spule}
+\end{figure}
+%
+
+\subsubsection{Lange Spule}
+Analog zum Vorgehen im vorigen Abschnitt \ref{sec:kurze_spule} werden auch hier die Werte für $x_\text{abgel}$, $x$ und $B$
+in Tabelle \ref{tab:messergebnisse_lange_spule} aufgelistet und in Abbildung \ref{fig:plot_lange_spule} geplottet.
+Die vertikale Linie gibt erneut den Wechsel zwischen Innerem und Äußerem der Spule an.
+
+\begin{table}[H]
+    \centering
+    \caption[]{Abgeleser Abstand, Distanz und magnetische Flussdichte der langen Spule.}
+    \label{tab:messergebnisse_lange_spule}
+    \begin{tabular}[]{S[table-format=2.0] S[table-format=1.0] S[table-format=2.2] S[table-format=2.1] S[table-format=2.1] S[table-format=2.2]}
+        \toprule
+        {$x_\text{abgel} / \unit{\centi\meter}$} &{$x / \unit{\centi\meter}$} & {$B / \unit{\milli\tesla}$} & {$x_\text{abgel} / \unit{\centi\meter}$} &{$x / \unit{\centi\meter}$} & {$B / \unit{\milli\tesla}$} \\
+        \midrule 
+        42   &  0   & -2.30 & 50   &  8   & -0.24 \\ 
+        43   &  1   & -2.27 & 51   &  9   & -0.13 \\ 
+        44   &  2   & -2.21 & 52   & 10   & -0.09 \\ 
+        45   &  3   & -2.08 & 53   & 11   & -0.06 \\ 
+        46   &  4   & -1.85 & 54   & 12   & -0.04 \\ 
+        47   &  5   & -1.42 & 55   & 13   & -0.03 \\ 
+        48   &  6   & -0.80 & 57.5 & 15.5 & -0.02 \\ 
+        49   &  7   & -0.44 & 60   & 18   & -0.01 \\  
         \bottomrule
     \end{tabular}
 \end{table}
 
-In diesem Versuch werden die Magnetfelder einer langen und einer kurzen Spule ausgemessen und in einem x-B-Diagramm aufgestellt.
-Bei den Messungen wurde die Longitudinalsonde auf die richtige Höhe mittig von der Spule eingestellt 
-und bei der $\qty{50}{\cm}$ Marke auf der Messlatte aufgestellt. % In Durchführung festgeklebte Messlatte vlt erwähnen.
-Die Spule wird anschließend so weit wie es geht nach links über die Sonde gezogen und mit einem konstanten Strom betrieben.
-Die Position des linken Rands der Spule $x_\text{absolut}$ wird an der Messlatte abgelesen.
-Um den Abstand von der Sonde zu der Spule besser darstellen zu können wird die $x$ Achse so gelegt, 
-dass $x = 0$ ist, wenn die Sonde in der Mitte der Spule ist.
-Für die Transformation gilt also bei der langen Spule $x = x_\text{absolut} - \qty{50}{\cm} + \qty{8}{\cm}$ 
-
-\input{Inhalte/B02a_Tabellen.tex}
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics{build/B02_lange_spule.pdf}
+    \caption[]{$x$-$B$-Diagramm aus Tabelle \ref{tab:messergebnisse_lange_spule} der langen Spule.}
+    \label{fig:plot_lange_spule}
+\end{figure}
