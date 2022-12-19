@@ -19,13 +19,26 @@ magnetfeld = np.concatenate((magnetfeld_0,magnetfeld_A,magnetfeld_B,magnetfeld_C
 n = 595
 r_t = 0.135  #m
 mu_0 = 4 * np.pi * 10 ** (-7)  # Newton /Ampere^2
-#    
-H =  n / ( 2 * np.pi * r_t ) * strom #  A/m
+#
+def H(I):
+    return  n / ( 2 * np.pi * r_t ) * I
+
+
+#H =  n / ( 2 * np.pi * r_t ) * strom #  A/m
 H_0 =  n / ( 2 * np.pi * r_t )  * strom_0  #  A/m
 B_0 = mu_0 * H_0
 H_ab =  n / ( 2 * np.pi * r_t ) * strom_ab  #  A/m
 H_auf =  n / ( 2 * np.pi * r_t ) * strom_auf  # A/m
-moment = (magnetfeld / mu_0) - H #milli
+#moment = (magnetfeld / mu_0) - H #milli
 
-for index, H in enumerate(H_auf):
-    print(strom_ab[index],"{:.5}".format(H))
+rel_B = np.array([142,16,117,21])
+mw_rel_B = np.mean(rel_B)
+std_rel_B = np.std(rel_B)
+print("mw_rel_B:",mw_rel_B)
+print("std_rel_B:",std_rel_B)
+
+rel_I = np.array([0,0.5,0.5,1])
+mw_rel_I = np.mean(rel_I)
+std_rel_I = np.std(rel_I)
+print("mw_rel_H:", H(mw_rel_I))
+print("std_rel_I:",H(std_rel_I))
