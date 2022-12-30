@@ -40,4 +40,23 @@ ergibt sich somit gemäß Gleichung \eqref{eq:allg_relaxationsglg} die zeitliche
     \label{eq:entladung}
 \end{align}
 für den Entladevorgang.
-%%%%% FRAGE: AUFLADUNG AUCH??????????????????????????
+
+\noindent
+Ganz analog folgt für den Aufladevorgang mit den Randbedingungen
+\begin{align*}
+    Q(0) &= 0, & Q(\infty) &= C U_0 
+\end{align*}
+die Formel 
+\begin{align}
+    Q(t) = C U_0 \cdot \left(1-\exp\left(-\frac{t}{RC}\right)\right).
+\end{align}
+für die Ladung am Kondensator.
+
+\noindent
+Sowohl beim Auf- als auch beim Entladevorgang bezeichnet
+\begin{align}
+    \tau = R C
+\end{align}
+die sogenannte Zeitkonstante des Relaxationsvorgangs.
+Da sich während des Zeitintervalls $\tau$ die Kondensatorladung genau um $1/e$ ändert,
+ist $\tau$ somit ein Maß dafür, wie schnell das System gegen den Endzustand $Q(\infty)$ geht.

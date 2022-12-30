@@ -12,3 +12,46 @@ mit Amplitude $U_0$ und Kreisfrequenz $\omega$ angelegt.
     \caption{Schaltbild für den schwingenden RC-Kreis \cite{man:v353}.}
     \label{fig:schwingend}
 \end{figure}
+
+\noindent
+Falls $\omega << \frac{1}{\tau}$ gilt, sind die Spannungen am Generator und am Kondensator nahezu in Phase.
+Wird die Frequenz $\omega$ erhöht, so entsteht eine Phasenverschiebung $\phi$ zwischen den beiden Spannungen.
+Weiterhin nimmt die Amplitude der Kondensatorspannung ab.
+
+\noindent
+Zusammen mit dem zweiten Kirchhoffschen Gesetz über Generator- $U$, Widerstand- $U_\text{R}$ und Kondensatorspannung $U_\text{C}$ sowie dem Ansatz 
+\begin{align}
+    U_\text{C} = A(\omega) \cos\left(\omega t + \phi(\omega)\right)
+\end{align}
+und den Gesetzen
+\begin{align*}
+    U_\text{C} &= \frac{Q}{C} = R I
+\end{align*}
+folgt schließlich 
+\begin{align}
+    U_0 \cos(\omega t) = -A(\omega) \cdot \omega \cdot \tau \cdot \sin\left(\omega t + \phi\right) + A(\omega) \cdot \cos\left(\omega t + \phi\right).
+    \label{eq:zwischenergebnis_periodisch}
+\end{align}
+Dabei wird angenommen, dass die Spannungsquelle keinen Innenwiderstand hat.
+Da die Gleichung \eqref{eq:zwischenergebnis_periodisch} zu jeder Zeit $t$ gelten muss,
+lassen sich verschiedene Werte für $\omega t$ einsetzen.
+Für $\omega t = \frac{\pi}{2}$ folgt damit für die Phasenverschiebung die Frequenzabhängigkeit
+\begin{align}
+    \phi(\omega) = \arctan(- \omega \tau).
+    \label{eq:phasenverschiebung}
+\end{align}
+Für kleine $\omega$ geht $\phi$ gegen 0, für große $\omega$ asymptotisch gegen $\frac{\pi}{2}$.
+Im Falle $\omega = \frac{1}{\tau}$ gilt $\phi = \frac{\pi}{4}$.
+
+\noindent
+Außerdem ergibt sich mit $\omega t + \phi = \frac{\pi}{2}$ die Spannungsamplitude
+\begin{align}
+    A(\omega) = - \frac{\sin(\phi)}{\omega \tau} U_0
+\end{align}
+am Kondensator.
+Zusammen mit Gleichung \eqref{eq:phasenverschiebung} folgt hieraus schließlich
+\begin{align}
+    A(\omega) = \frac{U_0}{\sqrt{1+ (\omega \tau)^2}}.
+    \label{eq:amplitude}
+\end{align}
+Die Gleichungen \eqref{eq:entladung} und \eqref{eq:amplitude} lassen sich durch eine Fouriertransformation in einander überführen.
