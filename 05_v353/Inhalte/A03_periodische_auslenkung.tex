@@ -19,14 +19,15 @@ Wird die Frequenz $\omega$ erhöht, so entsteht eine Phasenverschiebung $\phi$ z
 Weiterhin nimmt die Amplitude der Kondensatorspannung ab.
 
 \noindent
+Aus den Gesetzen \eqref{eq:gesetze} ergibt sich 
+\begin{align}
+    I(t) = \frac{\diff{Q}}{\diff{t}} = C \frac{\diff{U_\text{C}}}{\diff{t}}.
+    \label{eq:stromstaerke}
+\end{align}
 Zusammen mit dem zweiten Kirchhoffschen Gesetz über Generator- $U$, Widerstand- $U_\text{R}$ und Kondensatorspannung $U_\text{C}$ sowie dem Ansatz 
 \begin{align}
     U_\text{C} = A(\omega) \cos\left(\omega t + \phi(\omega)\right)
 \end{align}
-und den Gesetzen
-\begin{align*}
-    U_\text{C} &= \frac{Q}{C} = R I
-\end{align*}
 folgt schließlich 
 \begin{align}
     U_0 \cos(\omega t) = -A(\omega) \cdot \omega \cdot \tau \cdot \sin\left(\omega t + \phi\right) + A(\omega) \cdot \cos\left(\omega t + \phi\right).

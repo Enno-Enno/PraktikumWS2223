@@ -1,2 +1,25 @@
 \subsection{Der RC-Kreis als Integrator}
-%hier weiter.......
+Eine Schaltung wie sie in Abbildung \ref{fig:schwingend} zu sehen ist kann unter der Voraussetzung
+\begin{align}
+    \omega >> \frac{1}{\tau}
+    \label{eq:voraussetzung_tp} 
+\end{align}
+die angelegte Wechselspannung $U(t)$ integrieren.
+Da im Idealfall nur Frequenzen unterhalb einer Grenzfrequenz beitragen, wird dies im Allgemeinen auch Tiefpass genannt.
+Ausgehend vom zweiten Kirchhoffschen Gesetz sowie Gleichung \eqref{eq:stromstaerke} ergibt sich
+\begin{align}
+    U(t) = \tau \frac{\diff{U_\text{C}}}{\diff{t}} + U_\text{C}.
+\end{align}
+Aus der Voraussetzung \eqref{eq:voraussetzung_tp} folgt
+\begin{align}
+    |U_\text{C}| &<< |U_\text{R}|, & |U_\text{C}| &<< |U|,
+\end{align}
+wodurch für die Generatorspannung 
+\begin{align*}
+    U(t) = \tau \frac{\diff{U_\text{C}}}{\diff{t}}
+\end{align*}
+genähert werden kann.
+Somit folgt schließlich
+\begin{align}
+    U_\text{C}(t) = \frac{1}{\tau} \int_0^t U(t') \diff{t'}.
+\end{align}
