@@ -5,14 +5,32 @@ Die entsprechende Schaltung mitsamt Oszilloskop ist in Abbildung \ref{fig:zeitko
 \begin{figure}[H]
     \centering
     \includegraphics[height=5cm]{abbildungen/zeitkonstante.png}
-    \caption[short]{Schaltung zur Bestimmung der Zeitkonstanten.}
+    \caption[short]{Schaltung zur Bestimmung der Zeitkonstanten \cite{man:v353}.}
     \label{fig:zeitkonst}
 \end{figure}
+\noindent
 Der Entladeprozess beginnt, sobald die Rechteckspannung auf Null zurück gesprungen ist, und dauert so lange, wie sie auf Null verharrt\footnote{Ganz 
-analog kann auch zur Bestimmung von $\tau$ der Aufladevorgang untersucht werden.
+analog kann zur Bestimmung von $\tau$ auch der Aufladevorgang untersucht werden.
 Dieser beginnt beim Sprung der Generatorspannung von Null auf den Maximalwert und dauert so lange, 
 wie sie auf diesem Wert verbleibt.}.
 Somit werden stets Ausschnitte des eigentlich unendlich langen Vorgangs beobachtet.
-Für eine höhere Ablesegenauigkeit werden Rechteckfrequenz und Ablenkgeschwindigkeit des Kathodenstrahls so eingestellt, 
+Für eine höhere Ablesegenauigkeit werden Rechteckfrequenz $f$ und Ablenkgeschwindigkeit des Kathodenstrahls so eingestellt, 
 dass ein ganzer Abschnitt möglichst groß auf dem Oszilloskop zu erkennen ist.
-%...
+Dabei muss auch die Position des Spannungsnullpunktes bekannt sein.
+Diese kann ermittelt werden, indem eine gegen $\tau$ große Frequenz $f$ eingestellt wird, da $U_\text{C}$ somit praktisch auf Null sinkt.
+Eine geeignete Darstellung am Oszilloskop ist in Abbildung \ref{fig:spannungsverlauf} einzusehen.
+% Die Zeitachseneichung kann am Drehknopf für die Ablenkgeschwindigkeit abgelesen werden.
+% Außerdem ist wichtig, dass der Triggerpegel richtig eingestellt ist.
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=4cm]{abbildungen/geeignete_darstellung.png}
+    \caption{Geeignete Darstellung des Spannungsverlaufs am Kondensator \cite{man:v353}.}
+    \label{fig:spannungsverlauf}
+\end{figure}
+\noindent
+Für die hier protokollierte Messreihe wird die Rechteckfrequenz auf $f = \qty{30.7}{\hertz}$ gestellt.
+Das Triggersignal wird DC gekoppelt.
+Die Pegel Voltdiv und Timdiv werden so eingestellt, 
+dass auf der vertikalen Achse ein Kästchen \qty[]{0.2}{\volt} und auf der horizontalen Achse \qty{2}{\ms} entspricht.
+Mit dem Regler zum Anpassen der x-Position wird die Kurve so verschoben, 
+dass man in Abhängigkeit von der verschobenen Zeit die Spannung an der y-Achse ablesen kann.
