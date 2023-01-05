@@ -1,7 +1,17 @@
 \subsection{Entladung des Kondensators}
 % Exponentitelle  form der gleichung
 
+Wie in Abschnitt \ref{sec:durchf_a} beschreiben werden die Werte des Oszillatorbildes aufgenommen. 
+In Tabelle \ref{tab:RC_a} werden die Spannungen zunächst als Kästcheneinheit aufgeschrieben.
+Ein Kästchen auf dem Oszilloskop entspricht $\qty{0.2}{\volt}$.
+Um eine bessere Auswertung zu ermöglichen werden in Abbildung \textbf{Referenz Plot 1} die Messergebnisse 
+um das Endladungsniveau $U(\infty) = \qty[]{3.81}{\volt}$ nach oben verschoben.
+Das ist legitim, da jedes mögliche Spannungsniveau als Nullniveau gewählt werden kann.
+% Hier noch weiterschreiben.
 \begin{align}
-    U(t)&= U_0 \exp(\frac{-t}{RC}) + U_{\inf} \\
-    \ln(U(t)) &= \ln(U_0) \frac{-t}{RC} + \ln(U_inf)
+    U(t)&= U_0 \exp \left(\frac{-t}{RC}\right) + U(\infty) \\
+    \ln(U(t)) &= \ln(U_0) \frac{-t}{RC} + \ln(U(\infty))
 \end{align}
+Mithilfe der \texttt{numpy} Funktion \texttt{polyfit} wird eine 
+
+\input{Inhalte/C01a_Tabelle.tex}
