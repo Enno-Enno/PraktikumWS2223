@@ -1,6 +1,6 @@
-all: build/v353_Enno_Wellmann_Clara_Sondermann.pdf build/C01_aufg_a.pdf
+all: build/v353_Enno_Wellmann_Clara_Sondermann.pdf
 	
-build/v353_Enno_Wellmann_Clara_Sondermann.pdf: v353_Enno_Wellmann_Clara_Sondermann.tex FORCE | build
+build/v353_Enno_Wellmann_Clara_Sondermann.pdf: v353_Enno_Wellmann_Clara_Sondermann.tex build/C01_aufg_a.pdf FORCE | build
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
 	max_print_line=1048576 \

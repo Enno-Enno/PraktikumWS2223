@@ -9,9 +9,11 @@ U_k, t_k = np. genfromtxt("messdaten/A/a_in_kaestchen.txt", unpack=True)
 
 U = U_k * 0.2 # U in Volt
 t = t_k * 2  # t in ms
+U_inf = 3.81 * 0.2 
 
+print("U_inf:", U_inf)
 for index,  zeit in enumerate(t):
-    print(zeit, U[index])
+    print(zeit, U[index] + U_inf)
 
 #U_ln = np.log(abs(U))
 
@@ -19,7 +21,6 @@ for index,  zeit in enumerate(t):
 #    return U_0 * np.exp(-t/ RC) + U_inf
 
 
-U_inf = 3.81 * 0.2 
 params, cov_matrix = np.polyfit(t , np.log(U + U_inf),deg=1, cov=True)
 U_pos = np.log(U + U_inf)
 abweichung = np.sqrt(np.diag(cov_matrix))
@@ -37,7 +38,7 @@ ax1.plot(t, U + U_inf,'x', label="U(t)")
 #ax1.plot(x_plot, U_fit(x_plot, *params ))
 #ax1.set_yscale("log")
 ax1.set_xlabel("$t / \\unit{{\\milli\\s}}$")
-ax1.set_ylabel("$U / \\unit{{\\volt}}$")
+ax1.set_ylabel("$ \\left(  U - U \\left(\\infty \\right) \\right)/ \\unit{{\\volt}}$")
 
 ax1.grid()
 
