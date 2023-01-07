@@ -5,26 +5,35 @@ Ein Kästchen auf dem Oszilloskop entspricht $\qty{0.2}{\volt}$.
 %
 \input{Inhalte/C01a_Tabelle.tex}
 %
-Um eine bessere Auswertung zu ermöglichen werden in Abbildung \ref{fig:a_Entladung} von den Messergebnissen 
-das Endladungsniveau mit $U(\infty) = \qty[]{-0.762}{\volt}$ abgezogen.
+Um eine bessere Auswertung zu ermöglichen wird zusätzlich auf die Messergebnisse der Betrag 
+des Endladungsniveaus $U(\infty) = \qty[]{-0.762}{\volt}$ addiert.
 Das ist legitim, da jedes mögliche Spannungsniveau als Nullniveau gewählt werden kann.
 Außerdem wird der Logarithmus der Spannungen gebildet um den erwarteten exponentiellen Verlauf mit einer linearen Regression anzunähern.
 Hierzu wird die \texttt{numpy} Funktion \texttt{polyfit} verwendet.
 %Vielleicht kommt dieser Formelblock auch wieder raus
 \begin{align*}
-    U(t)&= U_0 \exp \left(\frac{-t}{RC}\right) + U(\infty) \\
-    \ln(U(t)) &= \ln(U_0) \frac{-t}{RC} + \ln(U(\infty))
+    U(t)&= U_0 \exp \left(\frac{-t}{RC}\right) + \bigl| U(\infty) \bigr| \\
+    \ln(U(t)) &= \ln(U_0) \frac{-t}{RC} + \ln\bigl( U(\infty) \bigr)
 \end{align*}
 % params [-0.74102744 -0.96447492]
 % abweichung: [0.11292009 0.53204419]
 Die lineare Regression ergibt eine Funktion der Form
 \begin{align*}
-    y  = A t - B
+    y  = A t + B
 \end{align*}
 mit
 \begin{align*}
-    A = - \ln(U_0) \cdot \frac{1}{RC}
+    A &= - \ln(U_0) \cdot \frac{1}{RC} & B &= \ln\bigl( \mid U(\infty) \mid \bigr)
+\intertext{Die Werte aus der Regression lauten}
+    A &= (\num{-0.74}\pm \num{0.11}) \, \unit{1\per\s} & %Einheiten beachten
+    B &= \num{-0.96} \pm \num{0.28}
 \end{align*}
+Daraus folgt eine Zeitkonstante von
+\begin{align}
+%     tau: -2.8079693258420835
+% tau_abw: 0.4278871944437825
+    \tau = RC = - \frac{A}{\ln(U_0)} = \num{2.81} \pm \num{0.42}
+\end{align}
 
 
 \input{Inhalte/C01b_Plot1.tex}

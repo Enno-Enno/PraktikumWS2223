@@ -15,6 +15,7 @@ print("U_inf:", U_inf)
 for index,  zeit in enumerate(t):
     print(zeit, U[index] + U_inf)
 
+
 #U_ln = np.log(abs(U))
 
 #def U_fit(t, U_0, U_inf, RC):
@@ -25,6 +26,12 @@ params, cov_matrix = np.polyfit(t , np.log(U + U_inf),deg=1, cov=True)
 U_pos = np.log(U + U_inf)
 abweichung = np.sqrt(np.diag(cov_matrix))
 
+U_0_neu = U[0] + U_inf
+tau = params[0] / np.log(U_0_neu)
+tau_abw = abweichung[0] / np.log(U_0_neu)
+print("U_0_neu:", U_0_neu)
+print("tau:", tau)
+print("tau_abw:", tau_abw)
 
 print("params", params)
 print("cov_matrix:", cov_matrix)
