@@ -12,27 +12,27 @@ Außerdem wird der Logarithmus der Spannungen gebildet um den erwarteten exponen
 Hierzu wird die \texttt{numpy} Funktion \texttt{polyfit} verwendet.
 %Vielleicht kommt dieser Formelblock auch wieder raus
 \begin{align*}
-    U(t)&= U_0 \exp \left(\frac{-t}{RC}\right) + \bigl| U(\infty) \bigr| \\
-    \ln(U(t)) &= \ln(U_0) \frac{-t}{RC} + \ln\bigl( U(\infty) \bigr)
+    U(t)&= U(0) \exp \left(\frac{-t}{RC}\right) + \bigl| U(\infty) \bigr| \\
+    \ln(U(t)) &= \ln\bigl(U(0)\bigr) \frac{-t}{RC} + \ln\bigl( U(\infty) \bigr)
 \end{align*}
 % params [-0.74102744 -0.96447492]
 % abweichung: [0.11292009 0.53204419]
 Die lineare Regression ergibt eine Funktion der Form
 \begin{align*}
-    y  = A t + B
+    y  = a t + b
 \end{align*}
 mit
 \begin{align*}
-    A &= - \ln(U_0) \cdot \frac{1}{RC} & B &= \ln\bigl( \mid U(\infty) \mid \bigr)
+    a &= - \ln\bigl(U(0)\bigr) \cdot \frac{1}{RC} & b &= \ln\bigl( \mid U(\infty) \mid \bigr)
 \intertext{Die Werte aus der Regression lauten}
-    A &= (\num{-0.74}\pm \num{0.11}) \, \unit{1\per\s} & %Einheiten beachten
-    B &= \num{-0.96} \pm \num{0.28}
+    a &= (\num{-0.74}\pm \num{0.11}) \, \unit{1\per\s} & %Einheiten beachten
+    b &= \num{-0.96} \pm \num{0.28}
 \end{align*}
 Daraus folgt eine Zeitkonstante von
 \begin{align}
 %     tau: -2.8079693258420835
 % tau_abw: 0.4278871944437825
-    \tau = RC = - \frac{A}{\ln(U_0)} = \num{2.81} \pm \num{0.42}
+    \tau = RC = - \frac{a}{\ln\bigl(U(0)\bigr)} = \num{2.81} \pm \num{0.42}
 \end{align}
 
 

@@ -1,4 +1,4 @@
-all: build/v353_Enno_Wellmann_Clara_Sondermann.pdf
+all: build/v353_Enno_Wellmann_Clara_Sondermann.pdf build/C02_aufg_b.pdf
 	
 build/v353_Enno_Wellmann_Clara_Sondermann.pdf: v353_Enno_Wellmann_Clara_Sondermann.tex build/C01_aufg_a.pdf FORCE | build
 	TEXINPUTS=..: \
@@ -14,6 +14,9 @@ build/v353_Enno_Wellmann_Clara_Sondermann.pdf: v353_Enno_Wellmann_Clara_Sonderma
 
 build/C01_aufg_a.pdf: C01_aufg_a.py ../matplotlibrc ../header-matplotlib.tex messdaten/A/a_in_kaestchen.txt | build
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python C01_aufg_a.py
+
+build/C02_aufg_b.pdf: C02_aufg_b_c.py ../matplotlibrc ../header-matplotlib.tex messdaten/A/a_in_kaestchen.txt | build
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python C02_aufg_b_c.py
 
 
 
