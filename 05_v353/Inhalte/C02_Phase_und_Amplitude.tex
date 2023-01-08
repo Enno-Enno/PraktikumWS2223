@@ -1,5 +1,5 @@
 \subsection{Phasenverschiebung und Amplitude im RC-Kreis}
-In Tabelle \ref{tab:RC_a} werden die Messergebnisse aufgelistet. 
+In Tabelle \ref{tab:RC_b_c} werden die Messergebnisse aufgelistet. 
 Die Spalte \enquote{Kästchenwerte} enthält die Einstellungen des Oszilloskops.
 Je nach Einheit sind dort die Einstellungen Timediv und Voltdiv für die aktuelle und die folgenden Zeilen notiert.
 %
@@ -7,8 +7,24 @@ Je nach Einheit sind dort die Einstellungen Timediv und Voltdiv für die aktuell
 %
 Die Amplituden $A(\omega)$ werden durch die Amplitude der generierten Schwingung $U_0$ geteilt und in Abbildung \ref{fig:b_plot}
 in Abhängigkeit der Frequenz $\omega$ dargestellt.
-
-
-
+Um den zusammenhang für $A(\omega)$ darzustellen kann Gleichung \ref{eq:amplitude} verwendet werden.
+Nach $U_\text{C} / U_0$ umgestellt ergibt sich
+\begin{align*}
+    \frac{U_\text{C}}{U_0} = \frac{1}{\sqrt{1 + \omega^2 + \tau^2}}
+\end{align*}
+Mit der \texttt{scipy.optimize} Funktion \texttt{curvefit} \cite{scipy} wird der optimale Wert für $\tau$ ermittelt.
+Es ergibt sich $\tau = \num{0.007}\pm \num{0.0011}$
 
 \input{Inhalte/C02b_Plot_2.tex}
+
+
+% Fit mit Tangens und so
+\input{Inhalte/C02c_Plot_3.tex}
+% da kommt noch ein Polarplot hin
+
+In Abbildung \textbf{Polarplot} wird die mit $U_0$ normierte Amplitude mit der Phasenverschiebung $\phi$ in einem Polarplot dargestellt.
+Aus Gleichung \textbf{sinusgleichung} erhält man für diesen Zusammenhang die Relation
+\begin{align*}
+    \frac{A(\omega)}{U_0} = - \frac{\sin(\Phi)}{\omega \tau}
+\end{align*}
+Mit der berechneten 

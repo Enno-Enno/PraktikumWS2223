@@ -9,7 +9,7 @@ Um eine bessere Auswertung zu ermöglichen wird zusätzlich auf die Messergebnis
 des Endladungsniveaus $U(\infty) = \qty[]{-0.762}{\volt}$ addiert.
 Das ist legitim, da jedes mögliche Spannungsniveau als Nullniveau gewählt werden kann.
 Außerdem wird der Logarithmus der Spannungen gebildet um den erwarteten exponentiellen Verlauf mit einer linearen Regression anzunähern.
-Hierzu wird die \texttt{numpy} Funktion \texttt{polyfit} verwendet.
+Hierzu wird die \texttt{numpy} Funktion \texttt{polyfit} \cite{numpy} verwendet.
 %Vielleicht kommt dieser Formelblock auch wieder raus
 \begin{align*}
     U(t)&= U(0) \exp \left(\frac{-t}{RC}\right) + \bigl| U(\infty) \bigr| \\
@@ -25,14 +25,14 @@ mit
 \begin{align*}
     a &= - \ln\bigl(U(0)\bigr) \cdot \frac{1}{RC} & b &= \ln\bigl( \mid U(\infty) \mid \bigr)
 \intertext{Die Werte aus der Regression lauten}
-    a &= (\num{-0.74}\pm \num{0.11}) \, \unit{1\per\s} & %Einheiten beachten
+    a &= (\num{-0.74}\pm \num{0.11}) \, \unit{1\per\milli\s} & %Einheiten beachten
     b &= \num{-0.96} \pm \num{0.28}
 \end{align*}
 Daraus folgt eine Zeitkonstante von
 \begin{align}
-%     tau: -2.8079693258420835
-% tau_abw: 0.4278871944437825
-    \tau = RC = - \frac{a}{\ln\bigl(U(0)\bigr)} = (\num{2.81} \pm \num{0.42}) \unit{\second}
+%     tau: -2.8079693258420835 ms
+% tau_abw: 0.4278871944437825 ms
+    \tau = RC = - \frac{a}{\ln\bigl(U(0)\bigr)} = (\num{2.81} \pm \num{0.42}) \unit{\milli\second}
 \end{align}
 
 
