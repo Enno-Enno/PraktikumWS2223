@@ -65,7 +65,7 @@ for index, Phi in enumerate(Delta_Phi):
 
 Delta_Phi_plot = Delta_Phi * 2 * np.pi
 
-w_plot = f * 2 * np.pi
+w_plot = f * 2 * np.pi #in 1/s
 
 
 #### b) fit 
@@ -73,6 +73,7 @@ w_plot = f * 2 * np.pi
 def A_omega(w, RC_2):
     return 1 / np.sqrt(1+ (w) ** 2 * RC_2 **2) #Variante möglich mit variabler Null_Amplitude 
                                             # -> liefert besseren Fit ist aber nicht so einfach zu erklären...
+                                            # Enscheidung: Beide Plots zeichen und erklären warum sich der fehler nicht auf die berechnung von RC auswirkt.
 
 def A_omega_2(w, a, b):
     return np.exp(a * w + b)
@@ -80,7 +81,7 @@ def A_omega_2(w, a, b):
 A_plot = Amplitude / Null_Amplitude
 
 RC_2_ergeb, cov_matrix_2 = curve_fit(A_omega, w_plot, A_plot)#, p0=(0.00281) ) #
-abweichung_2 = np.sqrt(np.diag(cov_matrix_2))#
+abweichung_2 = np.sqrt(np.diag(cov_matrix_2))
 print("RC_2_ergeb:",RC_2_ergeb)
 print("cov_matrix_2:", cov_matrix_2)
 print("abweichung_2:", abweichung_2)
@@ -102,8 +103,8 @@ def A_Phi(w, Phi):
 
 
 x_plot= np.linspace(f[0], f[-1], 1000)
-w_plot_plot= np.linspace(w_plot[0], w_plot[-1], 1000)
-Phi_plot= np.linspace(Delta_Phi[0], Delta_Phi[-1], 1000)
+w_plot_plot= np.linspace(w_plot[0], w_plot[-1], 100) # in 1/s 
+Phi_plot= np.linspace(Delta_Phi_plot[0], Delta_Phi_plot[-1], 100)
 
 
 ### Die anderen drei Dateien übernehmen das plotten.
