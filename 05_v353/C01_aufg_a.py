@@ -36,6 +36,7 @@ print("tau_abw:", tau_abw)
 print("params", params)
 print("cov_matrix:", cov_matrix)
 print("abweichung:", abweichung)
+print("np.exp(params[0]*0+ params[1])/np.exp(params[0] * params[0] + params[1])",np.exp(params[0]*0+ params[1])/np.exp(params[0] * params[0] + params[1]))
 
 print("Hier entsteht Plot 1")
 fig, (ax1,ax2) = plt.subplots(2,1,constrained_layout=True, sharex=True)

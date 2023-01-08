@@ -59,30 +59,31 @@ print("Delta_Phi:")
 for index, Phi in enumerate(Delta_Phi):
     print(Phi)
 
-Delta_Phi = Delta_Phi * 2 * np.pi
+Delta_Phi_plot = Delta_Phi * 2 * np.pi
 
 
 #### b) fit 
 
 def A_omega(w, RC_2):
-    return 1 / np.sqrt(1+ w * RC_2)
+    return 1 / np.sqrt(1+ w ** 2 * RC_2 **2) #Variante möglich mit variabler Null_Amplitude 
+                                            # -> liefert besseren Fit ist aber nicht so einfach zu erklären...
 
 A_plot = Amplitude / Null_Amplitude
 
-params, cov_matrix = curve_fit(A_omega, f, A_plot)
-print("params:",params)
-print("cov_matrix:", cov_matrix)
+RC_2_ergeb, cov_matrix_2 = curve_fit(A_omega, f, A_plot, p0=(0.00281) )
+print("RC_2_ergeb:",RC_2_ergeb)
+print("cov_matrix_2:", cov_matrix_2)
 
+#### c) fit
 
-print("Hier entsteht Plot 2")
+def Phi_omega(w, RC_3):
+    return np.arctan(-w * RC_3)
+
+RC_3_ergeb, cov_matrix_3 = curve_fit(Phi_omega, f, Delta_Phi_plot, p0=(0.00281) )
+print("RC_3_ergeb:",RC_3_ergeb)
+print("cov_matrix_3:", cov_matrix_3)
+
 
 x_plot= np.linspace(f[0], f[-1])
-plt.figure(constrained_layout=True)
-plt.plot(f, A_plot, "x")
-plt.plot(x_plot, A_omega(x_plot, params))
 
-plt.yscale('log')
-plt.xlabel("$\\omega / \\unit{{\\hertz}}$")
-plt.ylabel("$A(\\omega)/ U_0$")
-
-plt.savefig("build/C02_aufg_b.pdf")
+### Die anderen beiden Dateien übernehmen das plotten.
