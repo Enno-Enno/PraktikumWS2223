@@ -1,6 +1,29 @@
 \section{Diskussion}
 
-% Bei A ist die lineare regression nicht besonders genau, weil die letzten paar Messwerte alle gleich sind 
+\subsection{Fehlerabschätzung}
+Es muss angemerkt werden, dass beim Ablesen am Oszilloskop Ablesefehler auftreten, wodurch ein möglicher systematischer Fehler entsteht.
+Bei einer hinreichend großen Abbildung des Spannungsverlaufs, bei der alle relevanten Werte erkennbar sind,
+sind diese Fehler allerdings ziemlich gering.
+
+\subsection{Entladung des Kondensators}
+Nach Gleichung \eqref{eq:tau_a} kann die Zeitkonstante des RC-Kreises zu $\tau_a = (\num{2.81} \pm \num{0.42}) \unit{\milli\second}$
+bestimmt werden.
+Da allerdings durch eine Genauigkeit von 2 Nachkommastellen der Spannung $U$ in Tabelle \ref{tab:RC_a} die letzten sieben Werte für $U$
+gleich sind, ist die lineare Regression in Abbildung \ref{fig:a_Entladung} nicht sehr genau.
+Durch die ersten Messwerte kann dennoch wie in Gleichung \eqref{eq:entladung} erwartet ein exponentieller Abfall gezeigt werden.
+
+\subsection{Phasenverschiebung und Amplitude}
+In diesem Versuchsteil hat das Groundlevel am Oszilloskop geschwankt, wodurch ein systematischer Fehler entstanden sein kann.
+
+\noindent
+Wie in Gleichung \eqref{eq:tau_b} angegeben errechnet sich die optimale Zeitkonstante in diesem Versuchsteil zu 
+$\tau_\text{b} = (\num{6.86}\pm \num{1.13})\unit{\milli\s}$.
+Im Vergleich zu $\tau_a$ ergibt sich etwa ein Faktor $\num{2.5}$.
+Diese Diskrepanz lässt sich durch den Generatorinnenwiderstand von $R_\text{i} = \qty[]{600}{\ohm}$ erklären.
+Durch den Innenwiderstand entsteht ein gewisser Spannungsabfall im Schaltkreis, der eigentlich im Kirchhoffschen Gesetz in Abschnitt
+\ref{sec:per_ausl} berücksichtigt werden muss. 
+Somit ergibt sich eine Spannung $U_\text{neu}$, die kleiner als $U_0$ ist und diese in Gleichung \eqref{eq:amplitude} ersetzen muss.
+
 % Das Groundlevel schwankt bei teil b & c
 
 
