@@ -27,7 +27,16 @@ ist dadurch keine direkte Verzerrung des Wertes für $\tau$ zu erwarten.
 
 In Abbildung \ref{fig:c_plot} wird die Phasenverschiebung $\Phi$ in Abhängigkeit von der Frequenz $f$ dargestellt.
 In der Ausgleichsrechnung für diesen Zusammenhang wird die Gleichung \refeq{eq:phasenverschiebung} verwendet.
-
+Da in dieser Gleichung davon ausgegangen wird, dass die Phasenunterschiede als negative Zahlen notiert wurden,
+und dass keine Dämpfung stattfindet wird ein Korrekturfaktor $a$ eingeführt.
+Die Gleichung, die sich ergibt lautet
+\begin{align*}
+    \Phi(\omega) = a \cdot \arctan(- \omega \tau_\text{c}).
+\end{align*}
+Es ergeben sich die Parameter
+\begin{align}
+    \tau_\text{c} = 
+\end{align}
 % 
 \input{Inhalte/C02c_Plot_3.tex}
 % da kommt noch ein Polarplot hin

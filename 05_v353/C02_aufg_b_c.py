@@ -87,7 +87,7 @@ print("cov_matrix_2:", cov_matrix_2)
 print("abweichung_2:", abweichung_2)
 
 #### c) fit
-
+#
 # print("OH FUCK!!!")
 # for index, zeit in enumerate(T):
     # print(zeit, f[index])
