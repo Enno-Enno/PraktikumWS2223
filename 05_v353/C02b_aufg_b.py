@@ -6,7 +6,7 @@ import C01_aufg_a as C01
 
 
 print("Hier entsteht Plot 2")
-
+#
 
 plt.figure(constrained_layout=True)
 plt.plot(C02.f, C02.A_plot, "x", label="gemessene Werte" )
@@ -15,7 +15,7 @@ plt.plot(C02.x_plot, 0.4 * C02.A_omega(C02.x_plot, *C02.RC_2_ergeb), label="$\\t
 #plt.plot(C02.x_plot, C02.A_omega(C02.x_plot, C01.tau), label="A(\omega) mit \\tau aus a)")
  
 plt.xscale('log')
-plt.xlabel("$ f / \\unit{{1\\per\\s}}$")
+plt.xlabel("$ f / \\unit{{\\hertz}}$")
 plt.ylabel("$U(\\omega)/ U_0$")
 plt.grid()
 plt.legend()

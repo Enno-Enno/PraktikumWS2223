@@ -8,23 +8,39 @@ Je nach Einheit sind dort die Einstellungen Timediv und Voltdiv für die aktuell
 Die Amplituden $A(\omega)$ werden durch die Amplitude der generierten Schwingung $U_0$ geteilt und in Abbildung \ref{fig:b_plot}
 in Abhängigkeit der Frequenz $\omega$ dargestellt.
 Um den zusammenhang für $A(\omega)$ darzustellen kann Gleichung \ref{eq:amplitude} verwendet werden.
-Nach $U_\text{C} / U_0$ umgestellt ergibt sich
+Nach $A(\omega) / U_0$ umgestellt ergibt sich
 \begin{align*}
-    \frac{U_\text{C}}{U_0} = \frac{1}{\sqrt{1 + \omega^2 + \tau^2}}
+    \frac{A(\omega)}{U_0} = \frac{1}{\sqrt{1 + \omega^2  \tau^2}}
 \end{align*}
 Mit der \texttt{scipy.optimize} Funktion \texttt{curvefit} \cite{scipy} wird der optimale Wert für $\tau$ ermittelt.
-Es ergibt sich $\tau = \num{0.007}\pm \num{0.0011}$
-
+Es ergibt sich 
+\begin{align}
+    \tau_\text{b} = (\num{0.0069}\pm \num{0.0011})\unit{\s} =(\num{6.9}\pm \num{1.1})\unit{\milli\s}.
+    \label{eq:tau_b}
+\end{align}
+Die durch die einfache Ausgleichsrechnung entstehende Kurve (Abb. \ref{fig:b_plot}) ist um einen konstanten Faktor zu groß.
+Wenn diese Kurve mit dem Faktor \num{0.4} multipliziert wird passt sie wiederum sehr gut zu den Messergebnissen.
+Da hier wohl eine Dämpfung gleichmäßig auf alle Messergebnisse gewirkt hat,
+ist dadurch keine direkte Verzerrung des Wertes für $\tau$ zu erwarten.
+%
 \input{Inhalte/C02b_Plot_2.tex}
 
+In Abbildung \ref{fig:c_plot} wird die Phasenverschiebung $\Phi$ in Abhängigkeit von der Frequenz $f$ dargestellt.
+In der Ausgleichsrechnung für diesen Zusammenhang wird die Gleichung \refeq{eq:phasenverschiebung} verwendet.
 
-% Fit mit Tangens und so
+% 
 \input{Inhalte/C02c_Plot_3.tex}
 % da kommt noch ein Polarplot hin
 
-In Abbildung \textbf{Polarplot} wird die mit $U_0$ normierte Amplitude mit der Phasenverschiebung $\phi$ in einem Polarplot dargestellt.
-Aus Gleichung \textbf{sinusgleichung} erhält man für diesen Zusammenhang die Relation
-\begin{align*}
-    \frac{A(\omega)}{U_0} = - \frac{\sin(\Phi)}{\omega \tau}
-\end{align*}
-Mit der berechneten 
+In Abbildung \ref{fig:d_polarplot} wird die mit $U_0$ normierte Amplitude mit der Phasenverschiebung $\phi$ in einem Polarplot dargestellt.
+Aus den vorherigen Regressionen lässt sich eine Ausgleichskurve an dem Polarplot zusammenführen.
+% In Gleichung \refeq{eq:sinusgleichung} wurde bereits gezeigt dass sich die Phasenverschiebung und die Amplitude ineinander umrechnen lassen.
+
+\input{Inhalte/C02d_Plot_4.tex}
+
+
+% Aus Gleichung \textbf{sinusgleichung} erhält man für diesen Zusammenhang die Relation
+% \begin{align*}
+    % \frac{A(\omega)}{U_0} = - \frac{\sin(\Phi)}{\omega \tau}
+% \end{align*}
+% Mit der berechneten 

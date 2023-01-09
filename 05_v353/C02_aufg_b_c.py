@@ -88,12 +88,18 @@ print("abweichung_2:", abweichung_2)
 
 #### c) fit
 
-def Phi_omega(w, RC_3):
-    return np.arctan(-w * RC_3)
+# print("OH FUCK!!!")
+# for index, zeit in enumerate(T):
+    # print(zeit, f[index])
 
-RC_3_ergeb, cov_matrix_3 = curve_fit(Phi_omega, f, Delta_Phi_plot, p0=(0.00281) )
+def Phi_omega(w, RC_3, a):
+    return a * np.arctan(- w * RC_3)
+
+RC_3_ergeb, cov_matrix_3 = curve_fit(Phi_omega,  f, Delta_Phi_plot, p0=(0.00281, 1) )
 print("RC_3_ergeb:",RC_3_ergeb)
 print("cov_matrix_3:", cov_matrix_3)
+abweichung_3 = np.sqrt(np.diag(cov_matrix_3))
+print("abweichung_3:", abweichung_3)
 
 ### d) fit 
 
@@ -103,8 +109,8 @@ def A_Phi(w, Phi):
 
 
 x_plot= np.linspace(f[0], f[-1], 1000)
-w_plot_plot= np.linspace(w_plot[0], w_plot[-1], 100) # in 1/s 
-Phi_plot= np.linspace(Delta_Phi_plot[0], Delta_Phi_plot[-1], 100)
+w_plot_plot= np.linspace(w_plot[0], 2.5 * w_plot[-1], 100) # in 1/s 
+Phi_plot= np.linspace(Delta_Phi_plot[0], Delta_Phi_plot[-1], 1000)
 
 
 ### Die anderen drei Dateien übernehmen das plotten.
