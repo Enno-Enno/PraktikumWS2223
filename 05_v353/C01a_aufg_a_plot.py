@@ -15,10 +15,13 @@ ax1.set_ylabel("$ \\left(  U - U \\left(\\infty \\right) \\right)/ \\unit{{\\vol
 
 ax1.grid()
 
+
+
 ax2.plot(C01.t, C01.U_pos, 'x')
-ax2.plot(x_plot, C01.params[0]*x_plot+ C01.params[1])
+ax2.plot(x_plot, C01.params[0]*x_plot+ C01.params[1], label="lineare Regression")
 ax2.set_xlabel("$t / \\unit{{\\milli\\s}}$")
 ax2.set_ylabel("$\ln\\left(U / U\\left(\\infty \\right)\\right)$")
 ax2.grid()
+fig.legend()
 
 plt.savefig("build/C01_aufg_a.pdf")

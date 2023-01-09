@@ -15,7 +15,7 @@ Nach $A(\omega) / U_0$ umgestellt ergibt sich
 Mit der \texttt{scipy.optimize} Funktion \texttt{curvefit} \cite{scipy} wird der optimale Wert für $\tau$ ermittelt.
 Es ergibt sich 
 \begin{align}
-    \tau_\text{b} = (\num{0.0069}\pm \num{0.0011})\unit{\s} =(\num{6.9}\pm \num{1.1})\unit{\milli\s}.
+    \tau_\text{b} = (\num{6.86}\pm \num{1.13})\unit{\milli\s} 
     \label{eq:tau_b}
 \end{align}
 Die durch die einfache Ausgleichsrechnung entstehende Kurve (Abb. \ref{fig:b_plot}) ist um einen konstanten Faktor zu groß.
@@ -35,11 +35,12 @@ Die Gleichung, die sich ergibt lautet
 \end{align*}
 Es ergeben sich die Parameter
 \begin{align}
-    \tau_\text{c} = 
+    \tau_\text{c} &= (\num{6.87} \pm \num{0.94}) \unit{\milli\s} & a &= \num{-0.5976186} \pm \num{0.02437771}
+    \label{eq:tau_c}
 \end{align}
 % 
 \input{Inhalte/C02c_Plot_3.tex}
-% da kommt noch ein Polarplot hin
+
 
 In Abbildung \ref{fig:d_polarplot} wird die mit $U_0$ normierte Amplitude mit der Phasenverschiebung $\phi$ in einem Polarplot dargestellt.
 Aus den vorherigen Regressionen lässt sich eine Ausgleichskurve an dem Polarplot zusammenführen.
