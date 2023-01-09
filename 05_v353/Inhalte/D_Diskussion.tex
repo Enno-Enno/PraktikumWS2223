@@ -9,22 +9,45 @@ sind diese Fehler allerdings ziemlich gering.
 Nach Gleichung \eqref{eq:tau_a} kann die Zeitkonstante des RC-Kreises zu $\tau_a = (\num{2.81} \pm \num{0.42}) \unit{\milli\second}$
 bestimmt werden.
 Da allerdings durch eine Genauigkeit von 2 Nachkommastellen der Spannung $U$ in Tabelle \ref{tab:RC_a} die letzten sieben Werte für $U$
-gleich sind, ist die lineare Regression in Abbildung \ref{fig:a_Entladung} nicht sehr genau.
+gleich groß sind, ist die lineare Regression in Abbildung \ref{fig:a_Entladung} nicht sehr genau.
 Durch die ersten Messwerte kann dennoch wie in Gleichung \eqref{eq:entladung} erwartet ein exponentieller Abfall gezeigt werden.
 
+
+
 \subsection{Phasenverschiebung und Amplitude}
-In diesem Versuchsteil hat das Groundlevel am Oszilloskop geschwankt, wodurch ein systematischer Fehler entstanden sein kann.
+In diesem Versuchsteil hat das Groundlevel am Oszilloskop geschwankt.
+Auch wenn beim Ablesen hierauf geachtet wurde, kann durch das Schwanken dennoch ein systematischer Fehler entstanden sein.
 
 \noindent
 Wie in Gleichung \eqref{eq:tau_b} angegeben errechnet sich die optimale Zeitkonstante in diesem Versuchsteil zu 
 $\tau_\text{b} = (\num{6.86}\pm \num{1.13})\unit{\milli\s}$.
 Im Vergleich zu $\tau_a$ ergibt sich etwa ein Faktor $\num{2.5}$.
-Diese Diskrepanz lässt sich durch den Generatorinnenwiderstand von $R_\text{i} = \qty[]{600}{\ohm}$ erklären.
+Diese Diskrepanz lässt vermutlich sich durch den Generatorinnenwiderstand von $R_\text{i} = \qty[]{600}{\ohm}$ erklären.
 Durch den Innenwiderstand entsteht ein gewisser Spannungsabfall im Schaltkreis, der eigentlich im Kirchhoffschen Gesetz in Abschnitt
 \ref{sec:per_ausl} berücksichtigt werden muss. 
 Somit ergibt sich eine Spannung $U_\text{neu}$, die kleiner als $U_0$ ist und diese in Gleichung \eqref{eq:amplitude} ersetzen muss.
 
-% Das Groundlevel schwankt bei teil b & c
+\noindent
+Dies geht mit der Tatsache einher, dass für die Ausgleichsrechnung in Abschnitt \ref{sec:phase_ampl} mit einem Faktor 
+$\num{0.4} = \frac{1}{\num{2.5}}$ als Dämpfung multipliziert werden muss.
+Die Dämpfung entspricht also genau dem Spannungsunterschied durch den Innenwiderstand $R_\text{i}$.
+Mit der angepassten Ausgleichsrechnung in Abbildung \ref{fig:b_plot} kann somit die Gleichung \eqref{eq:amplitude} 
+als Frequenzabhängigkeit der Amplitude verfiziert werden.
+
+\noindent
+Mit der Abbildung \ref{fig:c_plot} kann auch die Gleichung \eqref{eq:phasenverschiebung}, die die frequenzabhängige Phasenverschiebung 
+beschreibt, verifizieren.
+Der Korrekturfaktor $a$ lässt sich auch hier durch die Dämpfung erklären.
+Die Fehlerbalken der berechneten Zeitkonstante $\tau_\text{c} = (\num{6.87} \pm \num{0.94}) \unit{\milli\s}$ mitsamt des Fehlers
+in Gleichung \eqref{eq:tau_c} liegt vollständig in dem angegebenen Fehlerbereich der optimalen Konstanten $\tau_b$.
+Es kann also von einer hohen Genauigkeit für die Zeitkonstante ausgegangen werden.
+
+\noindent
+Anhand des Polarplots \ref{fig:d_polarplot} kann der Zusammenhang zwischen Phasenverschiebung $\phi$ und Amplitude $A$ visualisiert werden.
+%Ich schreib hier noch nichts weiteres zu weil Gleichung (12) in der Auswertung nicht verwendet wurde.
 
 
-%Innenwiderstand Spannungsquelle
+
+
+\subsection{RC-Kreis als Integrator}
+% Hier bin ich verwirrt was du getan hast weil C03_RC_Integrator.tex nicht eingebunden und unvollständig ist...
