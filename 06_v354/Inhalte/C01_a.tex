@@ -1,0 +1,62 @@
+\subsection{Amplitude der Einhüllenden}
+Die gemessenen Werte für die Amplitude $A$ in Abhängigkeit der Zeit $t$ der gedämpften Schwingung 
+sind in Tabelle \ref{tab:amplitude} einzusehen.
+%
+\begin{table}[H]
+    \centering
+    \caption{Spannungsamplitude $A$ in Abhängigkeit der Zeit $t$.}
+    \label{tab:amplitude}
+    \begin{tabular}[pos]{S[table-format = 3.0] S[table-format= 1.1]}
+        \toprule
+        {$t/ \mu \unit[]{\second}$} & {$A / \unit{\volt}$} \\
+        \midrule
+         0 & 2.8 \\
+        14 & 2.4 \\
+        26 & 2.0 \\
+        38 & 1.7 \\
+        52 & 1.5 \\
+        64 & 1.2 \\
+        78 & 1.1 \\
+        92 & 1.0 \\
+       104 & 0.9 \\
+       118 & 0.8 \\
+       130 & 0.7 \\
+       144 & 0.6 \\
+       156 & 0.4 \\
+       170 & 0.4 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\noindent
+Anhand von Gleichung \textbf{REF!!!} ergibt sich die Amplitude
+\begin{align}
+    A = A_0 \exp\left(- 2 \pi \mu t\right).
+\end{align}
+Für $A$ wird mit Hilfe der Python \cite[]{python} Funktion \texttt{curve\_fit} aus dem Paket
+\texttt{scipy.optimize} \cite[]{scipy} eine nicht-lineare Ausgleichsrechnung durchgeführt.
+Es ergibt sich Plot \ref{fig:plot1} sowie die Parameter 
+\begin{align}
+    A_0 &= (\num[]{2.7462} \pm \num[]{0.04881}) \, \unit{\volt}, & \mu &= (\num[]{1808.5104} \pm \num[]{55.5975}) \, \unit{\per\second}.
+\end{align}
+% #effektiver Widerstand R =  230+/-7
+% #effektive Abklingdauer T =  (8.80+/-0.27)e-05
+Hieraus folgen gemäß der Gleichungen \textbf{REF!!!} für die effektive Abklingdauer $T_\text{eff}$ und den effektiven Widerstand 
+\begin{align*}
+    R_\text{eff} = 4 \pi \mu L
+\end{align*}
+die Werte 
+\begin{align}
+    R_\text{eff} &= (\num[]{230} \pm \num[]{7}) \, \unit{\ohm}, & 
+    T_\text{eff} &= (\num[]{88} \pm \num[]{2.7}) \, \mu \unit{\second}.
+\end{align}
+Im Vergleich zu dem angeschlossenen Widerstand $R_1$ ergibt sich eine
+Abweichung von $\frac{R_\text{eff}}{R_1} = (\num[]{4.78} \pm \num[]{0.15})$.
+% effektiver Widerstand R =  230+/-7 ohm
+% effektive Abklingdauer T =  (8.80+/-0.27)e-05 s
+% Abweichung R =  4.78+/-0.15
+\begin{figure}[H]
+    \centering
+    \includegraphics{build/C01_a.pdf}
+    \caption{Ausgleichsplot für die Amplitude der gedämpften Schwingung.}
+    \label{fig:plot1}
+\end{figure}
