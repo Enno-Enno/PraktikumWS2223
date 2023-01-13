@@ -1,4 +1,4 @@
-\subsection{Amplitude der Einhüllenden}
+\subsection{Amplitude der Einhüllenden einer gedämpften Schwingung}
 Die gemessenen Werte für die Amplitude $A$ in Abhängigkeit der Zeit $t$ der gedämpften Schwingung 
 sind in Tabelle \ref{tab:amplitude} einzusehen.
 %
@@ -34,7 +34,7 @@ Anhand von Gleichung \textbf{REF!!!} ergibt sich die Amplitude
 \end{align}
 Für $A$ wird mit Hilfe der Python \cite[]{python} Funktion \texttt{curve\_fit} aus dem Paket
 \texttt{scipy.optimize} \cite[]{scipy} eine nicht-lineare Ausgleichsrechnung durchgeführt.
-Es ergibt sich Plot \ref{fig:plot1} sowie die Parameter 
+Es ergibt sich Plot \ref{fig:plot_amplitude} sowie die Parameter 
 \begin{align}
     A_0 &= (\num[]{2.7462} \pm \num[]{0.04881}) \, \unit{\volt}, & \mu &= (\num[]{1808.5104} \pm \num[]{55.5975}) \, \unit{\per\second}.
 \end{align}
@@ -58,5 +58,5 @@ Abweichung von $\frac{R_\text{eff}}{R_1} = (\num[]{4.78} \pm \num[]{0.15})$.
     \centering
     \includegraphics{build/C01_a.pdf}
     \caption{Ausgleichsplot für die Amplitude der gedämpften Schwingung.}
-    \label{fig:plot1}
+    \label{fig:plot_amplitude}
 \end{figure}

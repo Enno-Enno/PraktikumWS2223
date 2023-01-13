@@ -1,0 +1,86 @@
+\subsection{Frequenzabhängigkeit der Kondensatorspannung und der Phase}
+Die Schwingdauer $T$, die Spannung am Kondensator $U_\text{C}$, der zeitliche Abstand $\Delta t$ der Nulldurchgänge von
+Kondensator- und Generatorspannung sowie die Phasenverschiebung $\phi$ sind in Tabelle \ref{tab:frequenz} in Abhängigkeit von 
+der Frequenz $\nu$ einzusehen.
+Dabei gilt 
+\begin{align*}
+    \nu = \frac{1}{T}
+\end{align*}
+und $\phi$ errechnet sich mittels
+\begin{align*}
+    \phi = 2 \pi \Delta t \, \nu.
+\end{align*}
+%
+\begin{table}[H]
+    \centering
+    \caption{Messdaten für $T$, $U_\text{C}$, $\Delta t$ und $\phi$ in Abhängigkeit von $\nu$.}
+    %nu 3.3, T 2.1(?), u 1.2, delta 1.1, phi ?
+    \label{tab:frequenz}
+    \begin{tabular}{S[table-format = 3.0] S[table-format= 2.1] S[table-format = 1.2] S[table-format = 1.1] S[table-format = 2.2]}
+        \toprule
+        {$\nu / \unit[]{\kilo\hertz}$} & {$T / \mu \unit{\s}$} & {$U_\text{C} / \unit{\volt}$} & {$\Delta t / \mu \unit{\s}$} & {$\phi$} \\
+        \midrule
+         13 & 75.0 & 0.85 & 0.0 &  \\
+         26 & 38.5 & 0.90 & 1.0 &  \\
+         38 & 26.0 & 0.85 & 2.0 &  \\
+         51 & 19.5 & 1.10 & 1.5 &  \\
+         65 & 15.5 & 1.70 & 1.0 &  \\
+         74 & 13.5 & 1.00 & 1.5 &  \\
+         80 & 12.5 & 1.30 & 2.0 &  \\
+         80 & 12.5 & 1.40 & 2.0 &  \\
+         83 & 12.0 & 1.50 & 2.5 &  \\
+         87 & 11.5 & 1.60 & 2.5 &  \\
+         87 & 11.5 & 1.50 & 3.0 &  \\
+         91 & 11.0 & 1.40 & 3.5 &  \\
+         91 & 11.0 & 1.30 & 3.5 &  \\
+         95 & 10.5 & 1.20 & 4.0 &  \\
+         95 & 10.5 & 1.00 & 4.0 &  \\
+        100 & 10.0 & 0.90 & 4.0 &  \\
+        105 &  9.5 & 0.80 & 4.5 &  \\
+        111 &  9.0 & 0.80 & 4.5 &  \\
+        118 &  8.5 & 0.50 & 4.0 &  \\
+        125 &  8.0 & 0.65 & 4.5 &  \\
+        143 &  7.0 & 0.50 & 4.0 &  \\
+        154 &  6.5 & 0.35 & 3.5 &  \\
+        167 &  6.0 & 0.30 & 3.0 &  \\
+        182 &  5.5 & 0.24 & 3.0 &  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\noindent
+
+\subsubsection{Kondensatorspannung}
+Für die Kondensatorspannung $U_\text{C}$ ergibt sich der halblogarithmische Plot \ref{fig:plot_spannung}, aus dem die 
+Resonanzüberhöhung $q$ am Peak der Messdaten entnommen wird.
+Die beiden verhältnismäßig hohen Spannungswerte im Bereich zwischen $\qty{50}{\kilo\hertz}$ und $\qty{75}{\kilo\hertz}$
+lassen sich dabei vermutlich auf Messungenauigkeiten zurückführen.
+Somit lässt sich die Resonanzüberhöhung zu $q = \exp(6.5) = 1.9$ bestimmen. 
+Mit Tabelle \ref{tab:frequenz} lässt sich $\nu_0 = \qty{87}{\kilo\hertz}$ als die Frequenz ablesen, an der die Überhöhung eintritt.
+Gemäß Gleichung \textbf{REF!!!} lässt sich die theoretische Resonanzüberhöhung zu 
+\begin{align}
+    q_\text{theo} = \frac{1}{\nu_0 R C} = (\num{10.78} \pm \num{0.02})
+\end{align}
+bestimmen, wobei für $R$ der Widerstand $R_2$ eingesetzt wurde.
+Dies entspricht einer Abweichung von $\frac{q}{q_\text{theo}} = (\num{17.63} \pm \num{0.03}) \, \%$.
+\begin{figure}[H]
+    \centering
+    \includegraphics{build/C03_c_d.pdf}
+    \caption{Halblogarithmische Darstellung der Spannung in Abhängigkeit der Frequenz.}
+    \label{fig:plot_spannung}
+\end{figure}
+
+\noindent
+Eine lineare Darstellung der Messdaten ist in Tabelle \ref{fig:plot_spannung} zu sehen.
+Anhand dieser werden die Werte für $\nu_+ = $ und $\nu_-$ ermittelt.
+\textbf{HIER WEITER}
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics{build/C03_c_d_linear.pdf}
+    \caption{Lineare Darstellung der Spannung in Abhängigkeit der Frequenz.}
+    \label{fig:plot_spannung}
+\end{figure}
+
+
+\subsubsection{Phase}
+\textbf{FEHLERRECHNUNG/ FORTPFL ERGÄNZEN!!!}
