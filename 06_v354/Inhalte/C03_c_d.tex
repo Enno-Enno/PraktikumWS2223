@@ -16,38 +16,39 @@ und $\phi$ errechnet sich mittels
     \caption{Messdaten für $T$, $U_\text{C}$, $\Delta t$ und $\phi$ in Abhängigkeit von $\nu$.}
     %nu 3.3, T 2.1(?), u 1.2, delta 1.1, phi ?
     \label{tab:frequenz}
-    \begin{tabular}{S[table-format = 3.0] S[table-format= 2.1] S[table-format = 1.2] S[table-format = 1.1] S[table-format = 2.2]}
+    \begin{tabular}{S[table-format = 3.0] S[table-format= 2.1] S[table-format = 1.2] S[table-format = 1.1] S[table-format = 1.4]}
         \toprule
         {$\nu / \unit[]{\kilo\hertz}$} & {$T / \mu \unit{\s}$} & {$U_\text{C} / \unit{\volt}$} & {$\Delta t / \mu \unit{\s}$} & {$\phi$} \\
         \midrule
-         13 & 75.0 & 0.85 & 0.0 &  \\
-         26 & 38.5 & 0.90 & 1.0 &  \\
-         38 & 26.0 & 0.85 & 2.0 &  \\
-         51 & 19.5 & 1.10 & 1.5 &  \\
-         65 & 15.5 & 1.70 & 1.0 &  \\
-         74 & 13.5 & 1.00 & 1.5 &  \\
-         80 & 12.5 & 1.30 & 2.0 &  \\
-         80 & 12.5 & 1.40 & 2.0 &  \\
-         83 & 12.0 & 1.50 & 2.5 &  \\
-         87 & 11.5 & 1.60 & 2.5 &  \\
-         87 & 11.5 & 1.50 & 3.0 &  \\
-         91 & 11.0 & 1.40 & 3.5 &  \\
-         91 & 11.0 & 1.30 & 3.5 &  \\
-         95 & 10.5 & 1.20 & 4.0 &  \\
-         95 & 10.5 & 1.00 & 4.0 &  \\
-        100 & 10.0 & 0.90 & 4.0 &  \\
-        105 &  9.5 & 0.80 & 4.5 &  \\
-        111 &  9.0 & 0.80 & 4.5 &  \\
-        118 &  8.5 & 0.50 & 4.0 &  \\
-        125 &  8.0 & 0.65 & 4.5 &  \\
-        143 &  7.0 & 0.50 & 4.0 &  \\
-        154 &  6.5 & 0.35 & 3.5 &  \\
-        167 &  6.0 & 0.30 & 3.0 &  \\
-        182 &  5.5 & 0.24 & 3.0 &  \\
+         13 & 75.0 & 0.85 & 0.0 & 0.0000 \\
+         26 & 38.5 & 0.90 & 1.0 & 0.1632 \\
+         38 & 26.0 & 0.85 & 2.0 & 0.4833 \\
+         51 & 19.5 & 1.10 & 1.5 & 0.4833 \\
+         65 & 15.5 & 1.70 & 1.0 & 0.4054 \\
+         74 & 13.5 & 1.00 & 1.5 & 0.6981 \\
+         80 & 12.5 & 1.30 & 2.0 & 1.0053 \\
+         80 & 12.5 & 1.40 & 2.0 & 1.0053 \\
+         83 & 12.0 & 1.50 & 2.5 & 1.3090 \\
+         87 & 11.5 & 1.60 & 2.5 & 1.3659 \\
+         87 & 11.5 & 1.50 & 3.0 & 1.6391 \\
+         91 & 11.0 & 1.40 & 3.5 & 1.9992 \\
+         91 & 11.0 & 1.30 & 3.5 & 1.9992 \\
+         95 & 10.5 & 1.20 & 4.0 & 2.3936 \\
+         95 & 10.5 & 1.00 & 4.0 & 2.3936 \\
+        100 & 10.0 & 0.90 & 4.0 & 2.5133 \\
+        105 &  9.5 & 0.80 & 4.5 & 2.9762 \\
+        111 &  9.0 & 0.80 & 4.5 & 3.1416 \\
+        118 &  8.5 & 0.50 & 4.0 & 2.9568 \\
+        125 &  8.0 & 0.65 & 4.5 & 3.5343 \\
+        143 &  7.0 & 0.50 & 4.0 & 3.5904 \\
+        154 &  6.5 & 0.35 & 3.5 & 3.3833 \\
+        167 &  6.0 & 0.30 & 3.0 & 3.1416 \\
+        182 &  5.5 & 0.24 & 3.0 & 3.4272 \\
         \bottomrule
     \end{tabular}
 \end{table}
 \noindent
+
 
 \subsubsection{Kondensatorspannung}
 Für die Kondensatorspannung $U_\text{C}$ ergibt sich der halblogarithmische Plot \ref{fig:plot_spannung}, aus dem die 
@@ -70,12 +71,13 @@ Dies entspricht einer Abweichung von $\frac{q}{q_\text{theo}} = (\num{17.63} \pm
 \end{figure}
 
 \noindent
-Eine lineare Darstellung der Messdaten ist in Abbildung \ref{fig:plot_spannung} zu sehen.
+Eine lineare Darstellung der Messdaten ist in Abbildung \ref{fig:plot_spannung_linear} zu sehen.
 Anhand dieser wird der Wert für $\Delta \nu = \nu_+ -\nu_- = \qty{18}{\kilo\hertz}$ ermittelt.
 Gemäß Gleichung \textbf{REF!!!} errechnet sich der entsprechende theoretische Wert zu 
 $\Delta \nu_\text{theo} = (\num{50.4} \pm \num{0.2}) \, \unit{{\kilo\hertz}}$,
 was einer Abweichung von $\frac{\Delta \nu}{\Delta \nu_\text{theo}} = (\num{35.72} \pm \num{0.11}) \, \%$ entspricht.
-\textbf{VLT FALSCHES R VERWENDET; MAL ABWARTEN}
+%\textbf{VLT FALSCHES R VERWENDET; MAL ABWARTEN}
+
 %delta nu theo:  (5.040+/-0.016)e+04
 %abweichung nu:  0.3572+/-0.0011
 %
@@ -83,7 +85,7 @@ was einer Abweichung von $\frac{\Delta \nu}{\Delta \nu_\text{theo}} = (\num{35.7
     \centering
     \includegraphics{build/C03_c_d_linear.pdf}
     \caption{Lineare Darstellung der Spannung in Abhängigkeit der Frequenz.}
-    \label{fig:plot_spannung}
+    \label{fig:plot_spannung_linear}
 \end{figure}
 
 
