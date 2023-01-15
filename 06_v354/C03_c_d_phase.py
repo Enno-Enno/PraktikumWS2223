@@ -46,18 +46,34 @@ R2 = ufloat(509.5, 0.5) #ohm
 C = 10**(-9) * ufloat(2.093, 0.003) #farad
 L = 10**(-3) * ufloat(10.11, 0.03) #henry
 
-#x1 = (74+80)/2
-#x2 = 95
-#y0 = 0.2
-#y_wurzel = 1.9/(2**(1/2))
+x_res = 87
+y_res = np.pi/2
+y0 = -0.1
+x1 = 76
+x2 = 95
+y1 = np.pi/4
+y2 = 3* np.pi/4
 
-#delta_nu = x2-x1 #kilo hertz
-#print("delta nu: ", delta_nu)
-##delta nu:  18.0 kHz
-#delta_nu_theo = R2/L
-#print("delta nu theo: ", delta_nu_theo)
-#abweichung_nu = delta_nu * 10**3/delta_nu_theo
-#print("abweichung nu: ", abweichung_nu)
+nu_res_theo = 1/(2* np.pi) * (1/(L*C) - R2**2/(2 * L**2))**(1/2)
+print("res_freq: ", nu_res_theo)
+abweichung_res = x_res * 10**3 /nu_res_theo
+print("abweichung res: ", abweichung_res)
+#res_freq:  (3.413+/-0.006)e+04
+#abweichung res:  2.549+/-0.004
+#ohne vorfaktor vor wurzel: res_freq:  (2.1445+/-0.0035)e+05, abweichung res:  0.4057+/-0.0007 -> noch ungenauer (vgl. Bereich)
+nu1 = 1/(2* np.pi) * (- R2/(2*L) + ((R2)**2 / (4 * L**2) + 1 / (L*C))**(1/2))
+nu2 = 1/(2* np.pi) * (+ R2/(2*L) + ((R2)**2 / (4 * L**2) + 1 / (L*C))**(1/2))
+delta_nu1 = x1 * 10**3/nu1
+delta_nu2 = x2 * 10**3/nu2
+print("nu1 = ", nu1)
+print("nu2 = ", nu2)
+#nu1 =  (3.082+/-0.005)e+04
+#nu2 =  (3.884+/-0.007)e+04
+print("delta nu 1: ", delta_nu1)
+print("delta nu 2: ", delta_nu2)
+#delta nu 1:  2.466+/-0.004
+#delta nu 2:  2.446+/-0.004
+
 
 plt.figure(constrained_layout=True)
 plt.plot(nu[1:]/1000, np.log(phi[1:]), "x", label="Messdaten")
@@ -70,14 +86,10 @@ plt.savefig("build/C03_c_d_phase.pdf")
 
 plt.figure(constrained_layout=True)
 plt.plot(nu[:17]/1000, phi[:17], "x", label="Messdaten")
-#plt.axhline(y = 1.9/(2**(1/2)), label="$\\frac{U_C}{\\sqrt{2} U}$")
-#plt.hlines(y_wurzel, x1, x2, color="r", linestyles ="dotted", label="$\\frac{U_C}{\\sqrt{2} U}$")
-#plt.vlines(x1, y0, y_wurzel, color="g", linestyles ="dotted")
-#plt.vlines(x2, y0, y_wurzel, color="g", linestyles ="dotted")
-#test weiter:
-#plt.hlines(*results_wurzel[1:])
-#plt.xlim(73, 101)
-#plt.ylim(y0, 2.2)
+plt.vlines(x_res, y0, y_res, color="r", linestyles ="dotted", label="$\\nu_\\text{res}$")
+plt.vlines(x1, y0, y1, color="g", linestyles ="dotted", label="$\\nu_1$ bzw. $\\nu_2$")
+plt.vlines(x2, y0, y2, color="g", linestyles ="dotted") #, label="$\\nu_1$ bzw. $\\nu_2$")
+plt.ylim(y0, np.pi)
 plt.yticks([0, np.pi/4, np.pi/2, 3*np.pi/4, np.pi], ["0", "$\\pi / 4$", "$\\pi / 2$", "$3 \\pi / 4$", "$\\pi$"])
 plt.grid()
 plt.legend()
