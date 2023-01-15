@@ -1,0 +1,43 @@
+\subsection{Angetriebener Harmonischer Oszillator}
+Nun wird der Gedämpfte Harmonische Oszillator mit einer Sinusschwingung angetrieben.
+Die Homogene Differenzialgleichung \ref{eq:Hom_DGL} wird um eine Treibende Sinusschwingung ergänzt
+\begin{align}
+    \frac{\diff^2 U_C}{\diff t^2}+ \frac{R}{L} \frac{\diff U_C}{\diff t} + \frac{1}{LC} U_C = U_0 e^{i \omega t} .
+    \label{eq:inhom_DGL}
+\end{align}
+Mit dem Ansatz $U_C(\omega, t) = U(\omega) e^{i \omega t}$ entsteht die Gleichung
+\begin{align*}
+    -LC \omega^2 U + i \omega RC U + U = U_0
+\end{align*}
+Für $U(\omega)$ ergibt sich der Betrag
+\begin{align}
+    \mid U \mid = U_0 \sqrt{\frac{\left(1-LC \omega^2 \right)^2+ \omega^2 R^2 C^2}{\left(\left(1-LC \omega^2 \right)^2 + \omega^2 R^2 C^2\right)^2 }}
+    \label{eq:Betrag_U}
+\end{align}
+und die Phase 
+\begin{align}
+    \phi(\omega) = \arctan\left(\frac{-\omega RC}{1-LC \omega^2}\right)
+    \label{eq:Phi_omega}
+\end{align}
+Aus Gleichung \ref{eq:Betrag_U} ergibt sich auch die Lösungsfunktion $U_C$
+\begin{align}
+    U_C(\omega) = \frac{U_0}{\sqrt{\left(1-LC \omega^2 \right)^2+ \omega^2 R^2 C^2}}
+    \label{eq:U_c_omega}
+\end{align}
+Für $\omega \rightarrow \infty$ geht diese Funktion gegen 0 während sie für $\omega \rightarrow 0$ gegen $U_0$ geht.
+Bei der Resonanzfrequenz $\omega_\text{res}$ hat die Kurve von $U_C$ ein Maximum, das größer als die Eingangsfrequenz sein kann. 
+\begin{align}
+    \omega_\text{res} = \sqrt{\frac{1}{LC}- \frac{R^2}{2L^2}}
+\end{align}
+Besonders interessant ist der Fall Schwacher Dämpfung 
+\begin{align*}
+    \frac{1}{LC} >> \frac{R^2}{2L^2}
+\end{align*}
+Für diesen Fall nähert sich die Resonanzfrequenz der Schwingung an die Grundfrequenz $\omega_0$ an (vgl. Gleichung \eqref{eq:Schwingungsdauer_0}).
+Die Maximale Amplitude erreicht so einen Wert von
+\begin{align}
+    \U_\text{C, max} = \frac{1}{\omega_0 RC}U_0 = \frac{1}{R}\sqrt{\frac{L}{C}}U_0
+    \label{eq:UC_max}
+\end{align}
+Die Breite des Peaks wird mit $\omega_+$ und $\omega_-$ beschrieben.
+Das sind die Frequenzen, bei denen die Amplitude von $U_C$ auf $U_\text{C, max}/\sqrt{2}$ absinkt.
