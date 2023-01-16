@@ -1,6 +1,13 @@
 \subsection{Gedämpfter Harmonischer Oszillator}
 Die Schwingkreise in diesem Versuch bestehen aus einem Kondensator, einer Spule und einem Widerstand, 
-die in Reihe geschaltet sind (vgl Abb. \textbf{Ref}).
+die in Reihe geschaltet sind (vgl Abb. \ref{fig:ged_Schwingkreis_Schema}).
+%%%%%%%%%%%%%%%%%%%%%% blink
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{Abbildungen/ged_Schwingkreis_Schema.png}
+    \caption{Ein gedämpfter Schwingkreis \cite{man:v354}.}
+    \label{fig:ged_Schwingkreis_Schema}
+\end{figure}
 Aus den Kirchhoffschen Regeln lässt sich eine Differenzialgleichung zweiter Ordnung für den gedämpften Schwingkreis herleiten.
 Sie lautet
 \begin{align}
@@ -40,7 +47,14 @@ Die Lösung für diesen fall lautet
     \label{eq:Schwingfall}
 \end{align}
 und ist eine gedämpfte Schwingung.
-In Abbildung \textbf{Ref} wird die Form dieser Schwingung mit der einhüllenden e-Funktion und dem schwingenden Anteil dargestellt.
+%%%%%%%%%%%%%%%%%%%%%% blink
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Abbildungen/Schwingfall_Funktion.png}
+    \caption{Die Funktion im Schwingfall bei niedriger Dämpfung \cite{man:v354}.}
+    \label{fig:Schwingfall}
+\end{figure}
+In Abbildung \ref{fig:Schwingfall} wird die Form dieser Schwingung mit der einhüllenden e-Funktion und dem schwingenden Anteil dargestellt.
 Die Amplitude der Schwingung geht mit der Zeit exponentiell gegen 0. Die Schwingungsdauer hat den Wert
 \begin{subequations}\label{eq:Schwingungsdauer}
 \begin{align}
@@ -69,13 +83,20 @@ proportional zu
 \begin{align*}
     exp \left(-  \left( R/2L - \sqrt{R^2 / 4 L^2 - 1/LC} \right) t \right)
 \end{align*}
-verläuft und einem einfachen Relaxationsverhalten folgt.
+verläuft und einem einfachen Relaxationsverhalten folgt (vgl. Abb. \ref{fig:Abfall_Funktionen} durchgezogene Linien).
+%%%%%%%%%%%%%%%%%%%%%% blink
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{Abbildungen/Abfall_Funktionen.png}
+    \caption{Einige aperiodische Funktionen bei großer Dämpfung und im aperiodischen Grenzfall \cite{man:v354}.}
+    \label{fig:Abfall_Funktionen}
+\end{figure}
 Wenn $\stackrel{~}{\nu} = 0$ ist also
 \begin{align*}
     \frac{1}{LC} = \frac{R^2}{4L^2}
 \end{align*}
 gilt ist der aperiodische Grenzfall erreicht.
-Hier geht $I(t)$ ohne Überschwingung am schnellsten gegen Null (Abb. \textbf{Ref} gestrichelte Linie).
+Hier geht $I(t)$ ohne Überschwingung am schnellsten gegen Null (Abb. \ref{fig:Abfall_Funktionen} gestrichelte Linie).
 Die Lösung hierzu ist
 \begin{align}
     I(t) = A e^{- \frac{R}{2L} t} = A e^{- \frac{t}{\sqrt{LC}}} .
