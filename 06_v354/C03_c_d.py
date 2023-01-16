@@ -20,13 +20,14 @@ print("nu: ",nu)
 R2 = ufloat(509.5, 0.5) #ohm
 C = 10**(-9) * ufloat(2.093, 0.003) #farad
 L = 10**(-3) * ufloat(10.11, 0.03) #henry
-omega_0 = 87 * 10**3
+omega_0 = 1/(2 * np.pi) * 87 * 10**3
 q_theo = 1/(omega_0 * C* R2)
 print("q_theo: ", q_theo)
 #q_theo:  10.779+/-0.019
 q_abweichung = 1.9/q_theo
 print("q_abweichung: ", q_abweichung)
 # q_abweichung:  0.17627+/-0.00031
+# mit Faktor 1/(2 * np.pi) * : q_theo:  67.72+/-0.12 q_abweichung:  0.02805+/-0.00005
 
 #test: peaks finden
 #peaks, _ = find_peaks(u_quot)
@@ -45,10 +46,14 @@ y_wurzel = 1.9/(2**(1/2))
 delta_nu = x2-x1 #kilo hertz
 print("delta nu: ", delta_nu)
 #delta nu:  18.0 kHz
-delta_nu_theo = R2/L
+delta_nu_theo = 1/(2 * np.pi) * R2/L
 print("delta nu theo: ", delta_nu_theo)
 abweichung_nu = delta_nu * 10**3/delta_nu_theo
 print("abweichung nu: ", abweichung_nu)
+# delta nu:  18.0
+# delta nu theo:  (5.040+/-0.016)e+04
+# abweichung nu:  0.3572+/-0.0011
+# mit faktor 1/(2 * np.pi) * : delta nu:  18.0, delta nu theo:  8021+/-25, abweichung nu:  2.244+/-0.007
 
 plt.figure(constrained_layout=True)
 plt.plot(nu/1000, np.log(u_quot), "x", label="Messdaten")
