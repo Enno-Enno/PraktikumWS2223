@@ -57,12 +57,16 @@ Die beiden verhältnismäßig hohen Spannungswerte im Bereich zwischen $\qty{50}
 lassen sich dabei vermutlich auf Messungenauigkeiten zurückführen.
 Somit lässt sich die Resonanzüberhöhung zu $q = \exp(6.5) = 1.9$ bestimmen. 
 Mit Tabelle \ref{tab:frequenz} lässt sich $\nu_0 = \qty{87}{\kilo\hertz}$ als die Frequenz ablesen, an der die Überhöhung eintritt.
-Gemäß Gleichung \textbf{REF!!!} lässt sich die theoretische Resonanzüberhöhung zu 
+Gemäß Gleichung \eqref{eq:UC_max} lässt sich die theoretische Resonanzüberhöhung zu 
 \begin{align}
-    q_\text{theo} = \frac{1}{\nu_0 R C} = (\num{10.78} \pm \num{0.02})
+%    q_\text{theo} = \frac{1}{\nu_0 R C} = (\num{10.78} \pm \num{0.02})
+    q_\text{theo} = \frac{1}{\omega_0 R C} = (\num{67.72} \pm \num{0.12})
 \end{align}
 bestimmen, wobei für $R$ der Widerstand $R_2$ eingesetzt wurde.
-Dies entspricht einer Abweichung von $\frac{q}{q_\text{theo}} = (\num{17.63} \pm \num{0.03}) \, \%$.
+Dies entspricht einer Abweichung von $\frac{q}{q_\text{theo}} = (\num{2.81} \pm \num{0.01}) \, \%$.
+
+% q_theo:  67.72+/-0.12 q_abweichung:  0.02805+/-0.00005
+%
 \begin{figure}[H]
     \centering
     \includegraphics{build/C03_c_d.pdf}
@@ -72,15 +76,31 @@ Dies entspricht einer Abweichung von $\frac{q}{q_\text{theo}} = (\num{17.63} \pm
 
 \noindent
 Eine lineare Darstellung der Messdaten ist in Abbildung \ref{fig:plot_spannung_linear} zu sehen.
-Anhand dieser wird der Wert für $\Delta \nu = \nu_+ -\nu_- = \qty{18}{\kilo\hertz}$ ermittelt.
-Gemäß Gleichung \textbf{REF!!!} errechnet sich der entsprechende theoretische Wert zu 
-$\Delta \nu_\text{theo} = (\num{50.4} \pm \num{0.2}) \, \unit{{\kilo\hertz}}$,
-was einer Abweichung von $\frac{\Delta \nu}{\Delta \nu_\text{theo}} = (\num{35.72} \pm \num{0.11}) \, \%$ entspricht.
+Anhand dieser wird der Wert für 
+\begin{align}
+    \Delta \nu &= \nu_+ -\nu_- = \qty{18}{\kilo\hertz}
+    \intertext{ermittelt.
+    Gemäß Gleichung \eqref{eq:omega_Breite_pm} errechnet sich der entsprechende theoretische Wert zu}
+    \Delta \nu_\text{theo} &= (\num{8.0} \pm \num{0.2}) \, \unit{{\kilo\hertz}},
+    \intertext{was einer Abweichung von}
+    \frac{\Delta \nu}{\Delta \nu_\text{theo}} &= (\num{224.4} \pm \num{0.7}) \, \%
+\end{align}
+entspricht.
+%$\Delta \nu = \nu_+ -\nu_- = \qty{18}{\kilo\hertz}$ ermittelt.
+%Gemäß Gleichung \eqref{eq:omega_Breite_pm} errechnet sich der entsprechende theoretische Wert zu 
+%$\Delta \nu_\text{theo} = (\num{8.0} \pm \num{0.2}) \, \unit{{\kilo\hertz}}$,
+%was einer Abweichung von $\frac{\Delta \nu}{\Delta \nu_\text{theo}} = (\num{224.4} \pm \num{0.7}) \, \%$ entspricht.
+
+% $\Delta \nu_\text{theo} = (\num{50.4} \pm \num{0.2}) \, \unit{{\kilo\hertz}}$,
+%was einer Abweichung von $\frac{\Delta \nu}{\Delta \nu_\text{theo}} = (\num{35.72} \pm \num{0.11}) \, \%$ entspricht.
+
 %\textbf{VLT FALSCHES R VERWENDET; MAL ABWARTEN}
+
+% mit faktor 1/(2 * np.pi) * : delta nu:  18.0, delta nu theo:  8021+/-25, abweichung nu:  2.244+/-0.007
 
 %delta nu theo:  (5.040+/-0.016)e+04
 %abweichung nu:  0.3572+/-0.0011
-%
+
 \begin{figure}[H]
     \centering
     \includegraphics{build/C03_c_d_linear.pdf}
