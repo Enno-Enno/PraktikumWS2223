@@ -28,6 +28,7 @@ Für $\omega \rightarrow \infty$ geht diese Funktion gegen 0 während sie für $
 Bei der Resonanzfrequenz $\omega_\text{res}$ hat die Kurve von $U_C$ ein Maximum, das größer als die Eingangsfrequenz sein kann. 
 \begin{align}
     \omega_\text{res} = \sqrt{\frac{1}{LC}- \frac{R^2}{2L^2}}
+    \label{eq:Resonanzfrequenz}
 \end{align}
 Besonders interessant ist der Fall Schwacher Dämpfung 
 \begin{align*}
@@ -41,4 +42,30 @@ Die Maximale Amplitude erreicht so einen Wert von
 \end{align}
 Die Breite des Peaks wird mit $\omega_+$ und $\omega_-$ beschrieben.
 Das sind die Frequenzen, bei denen die Amplitude von $U_C$ auf $U_\text{C, max}/\sqrt{2}$ absinkt.
-Die 
+$\omega_-$ und $\omega_+$ werden nun durch die Gleichung
+\begin{align*}
+    \frac{U_0}{\sqrt{2}} \frac{1}{\omega_0 RC} = \frac{U_0}{C\sqrt{\omega_\pm^2 R^2 + \left(\omega_\pm^2 L - 1/C\right)^2}}
+\end{align*}
+Da $R^2/ L^2 << \omega_0^2$ kann in der Näherung für die Breite der Resonanzkurve geschlossen werden, dass
+\begin{align}
+    \omega_+ - \omega_- \simeq \frac{R}{L}
+    \label{eq:omega_Breite_pm}
+\end{align}
+Diese Rechnungen halten auch noch ihre Gültigkeit, 
+wenn sie nicht mit der Winkelgeschwindigkeit $\omega$ sondern mit der Frequenz $\nu$ berechnet werden.
+Im Fall der starken Dämpfung gibt es keinen Peak bei der Resonanzfrequenz, 
+die Intensität von $U_C$ fällt monoton mit ansteigender Frequenz ab.
+
+Die Phasenverschiebung wird mit Gleichung \eqref{eq:Phi_omega} beschrieben.
+An der Stelle $\omega_0^2 = \frac{1}{LC}$ ist $\phi = -\pi/2$
+Die Werte $\omega_1$ und $\omega_2$ sind die werte bei denen die Phasenverschiebung bei $\pi/4$ bzw $\frac{3}{4}\pi$ liegt.
+Sie lassen sich folgendermaßen berechnen:
+\begin{align*}
+    \omega_{1,2} = \pm \frac{R}{2L} + \sqrt{R^2+ 4L^2 +1/LC}
+\end{align*}
+Daraus erhält man für den fall mit niedriger Dämpfung
+\begin{align}
+    \omega_1 -\omega_2 = \frac{R}{L}
+    \label{eq:omega_Breite_12}
+\end{align}
+Damit sind beide Definitonen der Breite des Peaks gleich breit.
