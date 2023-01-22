@@ -35,19 +35,18 @@ Die angegebenen Fehler in den Tabellen sind dabei den Messgeräten entnommen.
 
 \noindent
 Die Massen der verwendeten Belastungsgewichte sowie der Halterung sind in Tabelle \ref{tab:massen} einzusehen.
-Sie haben jeweils einen Fehler von $\qty{0.1}{\gram}$.
 
 \begin{table}[H]
     \centering
     \caption[]{Bestimmte Massen der Gewichte und der Halterung.}
     \label{tab:massen}
-    \begin{tabular}[pos]{S S[table-format = 3.1]}
+    \begin{tabular}[pos]{S S[table-format = 3.1] S[table-format = 1.1]}
         \toprule
-        {Körper} & {$m / \unit[]{\gram}$}  \\
+        {Körper} & \multicolumn{2}{c}{$m / \unit[]{\gram}$}  \\
         \midrule
-        {Halterung} & 50.4 \\
-        {schwere Masse} & 501.5 \\
-        {leichte Masse} & 199.3 \\
+        {Halterung}     &  50.4 & 0.1 \\
+        {schwere Masse} & 501.5 & 0.1 \\
+        {leichte Masse} & 199.3 & 0.1 \\
         \bottomrule
     \end{tabular}
 \end{table}
