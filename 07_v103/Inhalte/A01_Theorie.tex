@@ -1,0 +1,58 @@
+\section[Theorie]{Theorie\footcite{man:v103}}
+Die Spannung $\sigma$ ist die Kraft pro Flächeneinheit, die auf einen gedehnten Körper wirkt.
+Das Elastizitätsmodul $E$ ist eine Kenngröße für die Elastische Ausdehnung von Materialien. % Die Reihenfolge ist nicht so geil...
+Im Hookeschen Gesetz verbindet $E$ die elastische Spannung $\sigma$ mit der Ausdehnung entlang einer Fläche
+\begin{align}
+    \sigma = E \frac{\Delta L}{L}.
+    \label{eq:Hook_Gesetz}
+\end{align}
+\begin{figure}
+    \includegraphics[width=0.6\textwidth]{Abbildungen/Längenausdehnung.png}
+    \caption{Dehnung einer Stabförmigen }
+    \label{fig:laengenausdehnung}
+\end{figure}
+Dieser Lineare Zusammenhang, ist nur bei sehr kleinen Auslenkungen gültig.
+Bei größeren Dehnungen beginnt die plastische Verformung, die in diesem Versuch nicht betrachtet werden soll.
+Mit den geeigneten Messvorrichtungen, die auch sehr kleine Auslenkungen eines Stabes messen kann, 
+könnte $E$ direkt gemessen werden.
+So eine Vorrichtung ist hier aber nicht vorhanden. 
+Die Elastizität wird deshalb in der Biegung des Stabes beobachtet, da hier auch kleinere Kräfte für größere Auslenkungen genügen.
+
+Um die Auslenkung des Stabes zu berechnen muss die Stärke des inneren Drehmoments $M_\sigma$ berechnet werden, 
+die dem äußeren Drehmoment entgegenwirkt.
+Bei der Biegung des Stabs wird die obere Hälfte gestreckt und die untere Hälfte gestaucht.
+In der Mitte gibt es eine neutrale Faser, die weder gestreckt noch gestaucht wird.
+Das Drehmoment, das der Verbiegung entgegenwirkt wird mit 
+\begin{align}
+    M_\sigma = \int_{Q}^{} y \sigma(y) \,\diff q 
+    \label{eq:inneres_Moment_int}
+\end{align}
+berechnet.
+Hier wird ein Integral über den Querschnitt der Stange berechnet.
+In der Näherung für kleine Winkel gilt für $\sigma(y)$
+\begin{align*}
+    \sigma(y) = E \frac{y}{R} .
+\end{align*}
+Mit der Auslenkung $D(x)$ des Stabs kann eine Näherung für den Krümmungsradius $R$ gefunden werden.
+\begin{align*}
+    \frac{1}{R} &\simeq  \frac{\diff^2 D}{\diff x^2} & &\text{wenn} & \left(\frac{\diff D}{\diff x}\right)^2 << 1 
+\end{align*}
+Schließlich wird für die einseitige Biegung des Stabes das äußere Drehmoment $M_F = F(L - x)$ mit dem Inneren Drehmoment gleichgesetzt.
+Nach den Näherungen für $\sigma(y)$ ergibt sich
+\begin{align}
+    M_\sigma = E \, \frac{\diff^2 D}{\diff x^2} \int_{Q} y^2 \,\diff q = F (L - x) = M_F  . % Man kann hier auch einfach I einsetzen in der Auswertung.
+    \label{eq:Momentengleichung_einseitig}
+\end{align}
+Der Therm 
+\begin{align}
+    I := \int_{Q} y^2 \,\diff q
+\end{align} 
+wird als Flächenträgheitsmoment bezeichnet.
+In diesem Versuch gibt es eine runde und eine Rechteckige Stange.
+Laut \cite{uni_siegen} ergeben sich für einen quadratischen Stab mit der Seitenlänge $a$ und einen runden Stab mit dem Radius $r$ folgende Flächenträgheitsmomente
+\begin{align}
+    I_\text{rechteckig} &= \frac{a^4}{12} & I_\text{rund} &= \frac{\pi r^2}{4}
+    \label{eq:Flachentragheitsmomente}
+\end{align}
+
+Bei zweiseitiger Auflage des Stabes ger
