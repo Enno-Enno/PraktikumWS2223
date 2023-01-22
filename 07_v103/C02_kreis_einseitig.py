@@ -5,12 +5,12 @@ from uncertainties import ufloat
 import C00_umrechnung_kreis_einseitig as c00
 
 
-masse_stab_kreis = ufloat(412.0, 0.1) / 1000 # in kg
+# masse_stab_kreis = ufloat(412.0, 0.1) / 1000 # in kg -> brauchen wa nicht :P
 masse_halterung = ufloat(50.4, 0.1) / 1000 # in kg
 masse_gewicht_einseitig = ufloat(199.3, 0.1) / 1000 # in kg
-gesamtmasse = masse_stab_kreis + masse_halterung + masse_gewicht_einseitig
-print("gesamtmasse: ", gesamtmasse)
-#gesamtmasse:  0.66170+/-0.00017 kg
+gesamtmasse_einseitig = masse_halterung + masse_gewicht_einseitig
+print("gesamtmasse_einseitig: ", gesamtmasse_einseitig)
+#gesamtmasse_einseitig:  0.24970+/-0.00014 kg
 
 radius_cm = ufloat(1.000, 0.005) #in cm
 radius_m = radius_cm /100 # in m
@@ -19,9 +19,9 @@ print("traegeheit_kreis: ", traegeheit_kreis)
 #traegeheit_kreis:  (7.85+/-0.16)e-09 m^4
 
 gravitation = 9.81 #m/s^2
-kraft_kreis_einseitig = gesamtmasse * gravitation
+kraft_kreis_einseitig = gesamtmasse_einseitig * gravitation
 print("kraft_kreis_einseitig: ", kraft_kreis_einseitig)
-#kraft_kreis_einseitig:  6.4913+/-0.0017 # kg m/s^2 (= newton)
+#kraft_kreis_einseitig:  2.4496+/-0.0014 # kg m/s^2 (= newton)
 
 laenge_kreis_einseitig = 50.5 / 100 # in meter
 faktor_einseitig_m = laenge_kreis_einseitig * c00.x_m **2 - (c00.x_m **3)/3 # in m^3
@@ -53,7 +53,7 @@ print("Fehler: ", errors)
 
 elastizitaet = kraft_kreis_einseitig/(2 * traegeheit_kreis * params) # in N/(m^4* 1/m^2) = N/m^2
 print("elastizitaet: ", elastizitaet)
-#elastizitaet:  [21259230175.72359+/-425221017.4762093] N/m^2
+#elastizitaet:  [8022411628.9529705+/-160512553.2876061] N/m^2
 
 skalierungsfaktor = 100 * 10**3 # zur skalierung der y achse (meter zu 0.01 millimeter) der ausgleichsgerade
 

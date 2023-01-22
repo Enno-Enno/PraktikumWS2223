@@ -1,4 +1,6 @@
 \subsection{Kreisförmiger Querschnitt, einseitige Einspannung}
+Bei diesem Versuchsteil hängt die Masse $m_\text{eins}$ bei $L = \qty{50.5}{\cm}$.
+Die Messdaten sind in Tabelle \ref{tab:messdaten_kreis_einseitig} einzusehen.
 
 \begin{table}[H]
     \centering
@@ -36,3 +38,22 @@
         \bottomrule
     \end{tabular}
 \end{table}
+
+\noindent
+Analog zu Abschnitt \ref{sec:rechteck_einseitig} ergibt sich die Ausgleichsgerade in Abbildung \ref{fig:plot_kreis_einseitig}
+mit einer Steigung von 
+\begin{align*}
+    s = (\num{0.0194} \pm \num{0.0001}) \, \unit{\per\meter^2}.
+\end{align*}
+Daraus folgt der Elastizitätsmodul
+\begin{align}
+    E_\text{kreis,eins} = (\num{8.0224} \pm \num{0.1605}) \cdot 10^9 \, \unit{\newton\per\meter^2}.
+\end{align}
+% [8,022,411,628.+/-160,512,553.] N/m^2
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[]{build/C02_kreis_einseitig.pdf}
+    \caption{Ausgleichsgerade \eqref{eq:ausgleichsfunktion_einseitig} zu den Messdaten aus Tabelle \ref{tab:messdaten_kreis_einseitig}.}
+    \label{fig:plot_kreis_einseitig}
+\end{figure}

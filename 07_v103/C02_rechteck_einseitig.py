@@ -5,12 +5,12 @@ from uncertainties import ufloat
 import C00_umrechnung_rechteck_einseitig as c00
 
 
-masse_stab_rechteck = ufloat(535.9, 0.1) / 1000 # in kg
+#masse_stab_rechteck = ufloat(535.9, 0.1) / 1000 # in kg
 masse_halterung = ufloat(50.4, 0.1) / 1000 # in kg
 masse_gewicht_einseitig = ufloat(199.3, 0.1) / 1000 # in kg
-gesamtmasse = masse_stab_rechteck + masse_halterung + masse_gewicht_einseitig
-print("gesamtmasse: ", gesamtmasse)
-#gesamtmasse:  0.78560+/-0.00017 kg
+gesamtmasse_einseitig = masse_halterung + masse_gewicht_einseitig # + masse_stab_rechteck -> es geht um masse des angehängten gewichts
+print("gesamtmasse_einseitig: ", gesamtmasse_einseitig)
+#gesamtmasse_einseitig:  0.24970+/-0.00014 kg
 
 seite_cm = ufloat(1.000, 0.005) #in cm
 seite_m = seite_cm /100 # in m
@@ -19,9 +19,9 @@ print("traegeheit_rechteck: ", traegeheit_rechteck)
 #traegeheit_rechteck:  (8.33+/-0.08)e-06 m^4
 
 gravitation = 9.81 #m/s^2
-kraft_rechteck_einseitig = gesamtmasse * gravitation
+kraft_rechteck_einseitig = gesamtmasse_einseitig * gravitation
 print("kraft_rechteck_einseitig: ", kraft_rechteck_einseitig)
-#kraft_rechteck_einseitig:  7.7067+/-0.0017 # kg m/s^2 (= newton)
+#kraft_rechteck_einseitig:  2.4496+/-0.0014 kg m/s^2 (= newton)
 
 laenge_rechteck_einseitig = 51.5 / 100 # in meter
 faktor_einseitig_m = laenge_rechteck_einseitig * c00.x_m **2 - (c00.x_m **3)/3 # in m^3
@@ -57,7 +57,7 @@ print("Fehler: ", errors)
 
 elastizitaet = kraft_rechteck_einseitig/(2 * traegeheit_rechteck * params) # in N/(m^4* 1/m^2) = N/m^2
 print("elastizitaet: ", elastizitaet)
-#elastizitaet:  [366896583026.0803+/-7338377510.5384245] N/m^2
+#elastizitaet:  [116616696514.27222+/-2333268919.524976] N/m^2
 
 skalierungsfaktor = 100 * 10**3 # zur skalierung der y achse (meter zu 0.01 millimeter) der ausgleichsgerade
 
