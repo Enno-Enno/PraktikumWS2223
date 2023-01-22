@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from uncertainties import ufloat
-import C00_umrechnung_kreis_einseitig as c00
+import c00_umrechnung_kreis_einseitig as c00
 
 
 # masse_stab_kreis = ufloat(412.0, 0.1) / 1000 # in kg -> brauchen wa nicht :P

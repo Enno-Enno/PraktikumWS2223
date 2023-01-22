@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from uncertainties import ufloat
-import C00_umrechnung_rechteck_einseitig as c00
+import c00_umrechnung_rechteck_einseitig as c00
 
 
 #masse_stab_rechteck = ufloat(535.9, 0.1) / 1000 # in kg
