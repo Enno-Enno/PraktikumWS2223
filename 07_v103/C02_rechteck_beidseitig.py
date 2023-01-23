@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from uncertainties import ufloat
-import c00_umrechnung_rechteck_beidseitig as c00
+import C00_umrechnung_rechteck_beidseitig as c00
 
 #indexcheck für links/rechts
 # print(c00.x_cm[:18])
