@@ -49,11 +49,18 @@ die Werte
     R_\text{eff} &= (\num[]{230} \pm \num[]{7}) \, \unit{\ohm}, & 
     T_\text{eff} &= (\num[]{88} \pm \num[]{2.7}) \, \mu \unit{\second}.
 \end{align}
-Im Vergleich zu dem angeschlossenen Widerstand $R_1$ ergibt sich eine
-Abweichung von $\frac{R_\text{eff}}{R_1} = (\num[]{4.78} \pm \num[]{0.15})$.
 % effektiver Widerstand R =  230+/-7 ohm
 % effektive Abklingdauer T =  (8.80+/-0.27)e-05 s
-% Abweichung R =  4.78+/-0.15
+Im Vergleich zu dem angeschlossenen Widerstand $R_1$ bzw. der nach Gleichung \eqref{eq:Abklingdauer} errechneten Abklingdauer
+$T_\text{ex} = \frac{2L}{R_1} = (\num[]{420.4} \pm \num[]{1.5}) \, \mu \unit{\second}$
+%0.0004204+/-0.0000015
+ergeben sich die prozentualen Abweichungen
+\begin{align*}
+    \frac{|R_\text{eff} - R_1|}{R_1} &= (\num[]{378} \pm \num[]{15}) \, \%, &
+    \frac{|T_\text{eff} - T_\text{ex}|}{T_\text{ex}} &= (\num[]{79.1} \pm \num[]{0.6}) \, \%.
+\end{align*}
+% Abweichung R =  3.78+/-0.15
+% delta_T:  -0.791+/-0.006
 \begin{figure}[H]
     \centering
     \includegraphics{build/C01_a.pdf}

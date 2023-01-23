@@ -11,6 +11,6 @@ print("R_ap_theo = ", R_ap_theo)
 
 R_ap = 3.54 * 10**3
 
-abweichung = R_ap/R_ap_theo
+abweichung = (R_ap - R_ap_theo) / R_ap_theo
 print("abweichung = ", abweichung)
-#abweichung =  0.8053+/-0.0013
+#abweichung =  -0.1947+/-0.0013

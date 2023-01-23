@@ -24,17 +24,24 @@ mu = ufloat(params[1], errors[1]) #in 1/s
 L = 10**(-3) * ufloat(10.11, 0.03) #in H
 R_eff = 4 * np.pi * mu * L # in 1/s * H = ohm
 print("effektiver Widerstand R = ", R_eff)
+#effektiver Widerstand R =  230+/-7
 T_eff = 1/ (2* np.pi * mu) # in s
 print("effektive Abklingdauer T = ", T_eff)
-
-# R_test =2 * L / T_eff
-# print("Test R: ", R_test) -> entspricht R_eff
+#effektive Abklingdauer T =  (8.80+/-0.27)e-05
 
 #effektiver Widerstand R =  230+/-7 ohm
 #effektive Abklingdauer T =  (8.80+/-0.27)e-05 s
 R1 = ufloat(48.1, 0.1)
-delta_R = R_eff/R1
+delta_R = (R_eff - R1) / R1
 print("Abweichung R = ", delta_R)
+#Abweichung R =  3.78+/-0.15
+
+T_eff_theo = 2 * L / R1
+print("T_eff_theo: ", T_eff_theo)
+#T_eff_theo:  0.0004204+/-0.0000015
+delta_T = (T_eff - T_eff_theo) / T_eff_theo
+print("delta_T: ", delta_T)
+#delta_T:  -0.791+/-0.006
 
 x_ms = np.linspace(c00.time_micro[0], c00.time_micro[13])
 x_sec = np.linspace(c00.time[0], c00.time[13]) #--> zum einsetzen in einhüllende
