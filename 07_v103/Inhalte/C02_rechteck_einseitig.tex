@@ -54,24 +54,28 @@ geplottet.
 Außerdem wird eine linearen Ausgleichsrechnung mit Hilfe der Python \cite[]{python} Funktion \texttt{curve\_fit} aus dem Paket
 \texttt{scipy.optimize} \cite[]{scipy} durchgeführt, mit dem die Steigung $s$ der Funktion 
 \begin{align}
-    D(x) = s \left(L x^2 - \frac{x^3}{3}\right)
+    D(x) = s \left(L x^2 - \frac{x^3}{3}\right) + b
     \label{eq:ausgleichsfunktion_einseitig}
 \end{align}
 bestimmt wird.
-Hieraus wird ein Wert von 
+Hieraus werden die Werte 
 \begin{align*}
-    s = (\num{0.0126} \pm \num{0.0002}) \, \unit{\per\meter^2}
+    s &= (\num{0.0126} \pm \num{0.0002}) \, \frac{1}{\unit{\meter^2}}, & b &= (\num{0.000019} \pm \num{0.000011}) \, \unit{\meter}
 \end{align*}
 ermittelt.
+% parameter:
+% s = 0.01225490 1/m^2
+% b = 0.00001901 m
+% Fehler:  [2.49712761e-04 1.07332779e-05]
 Der Plot der Messdaten und der Ausgleichsfunktion ist in Abbildung \ref{fig:plot_rechteck_einseitig} zu sehen.
 Gemäß Gleichung \textbf{REF!!!} errechnet sich das Flächenträgheitsmoment des Stabes zu 
 $I = (\num{8.33} \pm \num{0.08}) \cdot 10^{-6} \, \unit{\meter^4}$.
 %(8.33+/-0.08)e-06 m^4
 Mit der Gewichtskraft $F = m_\text{eins} \, g$ folgt somit für den Elastizitätsmodul gemäß Gleichung \textbf{REF!!!}
 \begin{align}
-    E_\text{recht,eins} = \frac{F}{2 I s} = (\num{116.6167} \pm \num{2.3333}) \cdot 10^9 \, \unit{\newton\per\meter^2}.
+    E_\text{recht,eins} = \frac{F}{2 I s} = (\num{119.9} \pm \num{2.4}) \cdot 10^9 \, \unit{\newton\per\meter^2}.
 \end{align}
-%[116,616,696,514.27222+/-2333268919.524976] N/m^2
+%elastizitaet:  (1.199+/-0.024)e+11 N/m^2 N/m^2
 
 \begin{figure}[H]
     \centering

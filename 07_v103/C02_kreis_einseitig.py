@@ -37,23 +37,24 @@ print("faktor_einseitig_kubik: ", faktor_einseitig_kubik)
 #  26.35416667 22.65883333 19.1835     15.94416667 12.95683333 10.2375
 #   7.80216667  5.66683333  3.8475      2.36016667  1.22083333  0.4455    ]
 
-def linear_function(faktor, s):
-    return(s * faktor)
+def linear_function(faktor, s, b):
+    return(s * faktor + b)
 
 params, covariance_matrix = curve_fit(linear_function, faktor_einseitig_m, c00.delta_d)
 errors = np.sqrt(np.diag(covariance_matrix))
 print("parameter: ")
-for name, value in zip("s", params):
+for name, value in zip("sb", params):
     print(f"{name} = {value:8.8f}")
 print("Fehler: ", errors)
 # parameter:
-# s = 0.01943850 1/m^2
-# Fehler: [0.00012869] 1/m^2
+# s = 0.01894926 1/m^2
+# b = 0.00002598 m
+# Fehler: [1.67829930e-04 7.02274751e-06]
 
 
-elastizitaet = kraft_kreis_einseitig/(2 * traegeheit_kreis * params) # in N/(m^4* 1/m^2) = N/m^2
+elastizitaet = kraft_kreis_einseitig/(2 * traegeheit_kreis * params[0]) # in N/(m^4* 1/m^2) = N/m^2
 print("elastizitaet: ", elastizitaet)
-#elastizitaet:  [8022411628.9529705+/-160512553.2876061] N/m^2
+#elastizitaet:  (8.23+/-0.16)e+09 N/m^2
 
 skalierungsfaktor = 100 * 10**3 # zur skalierung der y achse (meter zu 0.01 millimeter) der ausgleichsgerade
 
