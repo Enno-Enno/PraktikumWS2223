@@ -6,11 +6,13 @@ Im Hookeschen Gesetz verbindet $E$ die elastische Spannung $\sigma$ mit der Ausd
     \sigma = E \frac{\Delta L}{L}.
     \label{eq:Hook_Gesetz}
 \end{align}
-\begin{figure}
+\begin{figure}[H]
+    \centering
     \includegraphics[width=0.6\textwidth]{Abbildungen/Längenausdehnung.png}
-    \caption{Dehnung einer Stabförmigen }
+    \caption{Dehnung eines Stabförmigen Materials in der Länge \cite{man:v103}}
     \label{fig:laengenausdehnung}
 \end{figure}
+\noindent
 Dieser Lineare Zusammenhang, ist nur bei sehr kleinen Auslenkungen gültig.
 Bei größeren Dehnungen beginnt die plastische Verformung, die in diesem Versuch nicht betrachtet werden soll.
 Mit den geeigneten Messvorrichtungen, die auch sehr kleine Auslenkungen eines Stabes messen kann, 
@@ -22,6 +24,7 @@ Um die Auslenkung des Stabes zu berechnen muss die Stärke des inneren Drehmomen
 die dem äußeren Drehmoment entgegenwirkt.
 Bei der Biegung des Stabs wird die obere Hälfte gestreckt und die untere Hälfte gestaucht.
 In der Mitte gibt es eine neutrale Faser, die weder gestreckt noch gestaucht wird.
+Diese neutrale Faser liegt in den Koordinatensystemen bei $y = 0$ 
 Das Drehmoment, das der Verbiegung entgegenwirkt wird mit 
 \begin{align}
     M_\sigma = \int_{Q}^{} y \sigma(y) \,\diff q 
@@ -55,12 +58,20 @@ Laut \cite{uni_siegen} ergeben sich für einen quadratischen Stab mit der Seiten
     \label{eq:Flachentragheitsmomente}
 \end{align}
 %
-Schließlich ergibt sich für die Auslenkung die Formel
+Durch Integration über D ergibt sich für die Auslenkung die Formel
 \begin{align}
-    D(x) = \frac{F}{2 E I} \left(L x^2 - \frac{x^3}{3} \right).
+    D(x) = \frac{F}{2 E I} \left(L x^2 - \frac{x^3}{3} \right)
     \label{eq:D_x_einseitig}
 \end{align}
-Wenn der Stab an beiden Seiten aufgehängt wird ergibt sich für die Auslenkung
+bei der einseitigen Einspannung.
+Wenn der Stab an beiden Seiten aufgehängt wird ergibt sich für die Auslenkung von x für
+$0 \leq x \leq L/2$
+\begin{align}
+    D(x) = \frac{F}{48 E I} \left(3 L^2- 4 x^3\right).
+    \label{D_x_links}
+\end{align}
+Für die Auslenkung auf der Rechten Seite ($L/2 \leq x \leq L $) folgt
 \begin{align}
     D(x) = \frac{F}{48 E I} \left(4x^3 - 12L x^2 + 9L^2 x - L^3 \right). 
+    \label{D_x_rechts}
 \end{align}
