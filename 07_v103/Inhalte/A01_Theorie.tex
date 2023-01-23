@@ -9,7 +9,7 @@ Im Hookeschen Gesetz verbindet $E$ die elastische Spannung $\sigma$ mit der Ausd
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{Abbildungen/Längenausdehnung.png}
-    \caption{Dehnung eines Stabförmigen Materials in der Länge \cite{man:v103}}
+    \caption{Dehnung eines Stabförmigen Materials in der Länge \cite{man:v103}.}
     \label{fig:laengenausdehnung}
 \end{figure}
 \noindent
@@ -31,7 +31,13 @@ Das Drehmoment, das der Verbiegung entgegenwirkt wird mit
     \label{eq:inneres_Moment_int}
 \end{align}
 berechnet.
-Hier wird ein Integral über den Querschnitt der Stange berechnet.
+\begin{figure}
+    \centering
+    \includegraphics[width = 0.5\textwidth]{Abbildungen/Biegungsintegral.png}
+    \caption{Skizze zur Berechnung des Flächenträgheitsmomentes \cite{man:v103}}
+    \label{fig:Biegungsintegral}
+\end{figure}
+Hier wird ein Integral über den Querschnitt der Stange berechnet (vgl. Abb \ref{fig:Biegungsintegral}).
 In der Näherung für kleine Winkel gilt für $\sigma(y)$
 \begin{align*}
     \sigma(y) = E \frac{y}{R} .
@@ -70,7 +76,7 @@ $0 \leq x \leq L/2$
     D(x) = \frac{F}{48 E I} \left(3 L^2- 4 x^3\right).
     \label{eq:D_x_links}
 \end{align}
-Für die Auslenkung auf der Rechten Seite ($L/2 \leq x \leq L $) folgt
+Für die Auslenkung auf der linken Seite ($L/2 \leq x \leq L $) folgt
 \begin{align}
     D(x) = \frac{F}{48 E I} \left(4x^3 - 12L x^2 + 9L^2 x - L^3 \right). 
     \label{eq:D_x_beidseitig_links}
