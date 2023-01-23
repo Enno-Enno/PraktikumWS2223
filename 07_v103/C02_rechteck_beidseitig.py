@@ -85,11 +85,24 @@ print("elastizitaet_rechts: ", elastizitaet_rechts)
 # alte elastizitaet_rechts:  [132233510268.6883+/-2644887261.9365697]
 # elastizitaet_rechts:  (1.670+/-0.033)e+11
 
+elastizitaet_rechteck_einseitig = ufloat(1.199, 0.024) * 10**11
+
+abweichung_links = (elastizitaet_links - elastizitaet_rechteck_einseitig) / elastizitaet_rechteck_einseitig
+abweichung_rechts = (elastizitaet_rechts - elastizitaet_rechteck_einseitig) / elastizitaet_rechteck_einseitig
+abweichung_rechts_links = (elastizitaet_rechts - elastizitaet_links) / elastizitaet_rechts
+
+print("abweichung_links: ", abweichung_links)
+# abweichung_links:  0.052+/-0.030
+print("abweichung_rechts: ", abweichung_rechts)
+# abweichung_rechts:  0.39+/-0.04
+print("abweichung_rechts_links: ", abweichung_rechts_links)
+# abweichung_rechts_links: 0.244643964027347643+/-0.000000000000000007
+
 skalierungsfaktor = 100 * 10**3 # zur skalierung der y achse (meter zu 0.01 millimeter) der ausgleichsgerade
 
 
 plt.figure(constrained_layout = True)
-plt.plot(faktor_beidseitig_links_kubik, c00.delta_d_mm[18:], "x", label = "Messdaten links")
+plt.plot(faktor_beidseitig_links_kubik, c00.delta_d_mm[18:], "x", label = "Messdaten links, Rechteck")
 plt.plot(faktor_beidseitig_links_kubik, skalierungsfaktor*linear_function(faktor_beidseitig_links_m, *params_links), "-", label = "Ausgleichsgerade links") 
 plt.grid()
 plt.legend()
@@ -98,7 +111,7 @@ plt.ylabel("$D/ (\\qty{0.01}{\\milli\\meter})$")
 plt.savefig("build/C02_rechteck_beidseitig_links.pdf")
 
 plt.figure(constrained_layout = True)
-plt.plot(faktor_beidseitig_rechts_kubik, c00.delta_d_mm[:18], "x", label = "Messdaten rechts")
+plt.plot(faktor_beidseitig_rechts_kubik, c00.delta_d_mm[:18], "x", label = "Messdaten rechts, Rechteck")
 plt.plot(faktor_beidseitig_rechts_kubik, skalierungsfaktor*linear_function(faktor_beidseitig_rechts_m, *params_rechts), "-", label = "Ausgleichsgerade rechts")
 plt.grid()
 plt.legend()

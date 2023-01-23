@@ -60,7 +60,7 @@ skalierungsfaktor = 100 * 10**3 # zur skalierung der y achse (meter zu 0.01 mill
 
 
 plt.figure(constrained_layout = True)
-plt.plot(faktor_einseitig_kubik, c00.delta_d_mm, "x", label = "Messdaten")
+plt.plot(faktor_einseitig_kubik, c00.delta_d_mm, "x", label = "Messdaten, Rechteck")
 plt.plot(faktor_einseitig_kubik, skalierungsfaktor*linear_function(faktor_einseitig_m, *params), "-", label = "Ausgleichsgerade") 
 plt.grid()
 plt.legend()

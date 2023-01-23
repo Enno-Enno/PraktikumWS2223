@@ -1,55 +1,142 @@
 \subsection{Rechteckiger Querschnitt, beidseitige Auflegung}
 \label{sec:rechteck_beidseitig}
-Es sei angemerkt, dass die Messlatte zur Bestimmung der Position $x$ rechts einen Wert von $\qty{0}{\cm}$ und nach links größer wird,
+Es sei angemerkt, dass die Messlatte zur Bestimmung der Position $x$ rechts einen Wert von $\qty{0}{\cm}$ hat und nach links größer wird,
 also gespiegelt im Verleich zu einem üblichen Lineal ist. 
-Dies ist im Folgenden bei den Bezeichnungen \enquote{links} und \enquote{rechts} zu beachten.
+Dies ist im Folgenden bei den Bezeichnungen \enquote{links} und \enquote{rechts} zu beachten, die beschreiben, ob links oder rechts von dem Gewicht gemessen wird.
 Bei der beidseitigen Auflegung hat der Stab zwischen den beiden Auflagepunkten eine Länge von $L = \qty{56}{\cm}$.
-Es wird die größere Masse mit der Halterung aus Tabelle \ref{tab:massen} bei $\qty{30}{\cm}$ verwendet, sodass sich die Gesamtmasse
-$(\num{551.90} \pm \num{0.14}) \, \unit{\gram}$ ergibt.
+Es wird die größere Masse mit der Halterung aus Tabelle \ref{tab:massen} verwendet, sodass sich die Gesamtmasse
+$m_\text{beid} = (\num{551.90} \pm \num{0.14}) \, \unit{\gram}$ ergibt.
+Das Gewicht wird jeweils bei bei $x = \qty{30}{\cm}$ angehängt.
+In Tabelle \ref{tab:messdaten_rechteck_beidseitig} sind die Messdaten dieses Versuchteils aufgeführt.
 %0.55190+/-0.00014 kg
 \begin{table}[H]
     \centering
     \caption{Messdaten des Stabes mit rechteckigem Querschnitt bei beidseitiger Auflegung.}
     \label{tab:messdaten_rechteck_beidseitig}
     \sisetup{table-format = 3.0}
-    \begin{tabular}[]{S[table-format = 2.0] S S S[table-format = 2.0]}
+    \begin{tabular}[]{S S[table-format = 2.0] S S S[table-format = 2.0]}
         \toprule
-        {$x / \unit{\centi\meter}$} & {$D_0 / (\qty{0.01}{\milli\meter})$} & {$D_\text{m} / (\qty{0.01}{\milli\meter})$} & {$D / (\qty{0.01}{\milli\meter})$} \\
+        {} & {$x / \unit{\centi\meter}$} & {$D_0 / (\qty{0.01}{\milli\meter})$} & {$D_\text{m} / (\qty{0.01}{\milli\meter})$} & {$D / (\qty{0.01}{\milli\meter})$} \\
         \midrule
-         3 &  79 &  73 &  6 \\
-         5 &  82 &  73 &  9 \\
-         7 &  83 &  75 &  8 \\
-         9 &  86 &  78 &  8 \\
-        11 &  91 &  82 &  9 \\
-        13 &  96 &  84 & 12 \\
-        15 & 105 &  89 & 16 \\
-        17 & 106 &  93 & 13 \\
-        19 & 115 &  99 & 16 \\
-        21 & 126 & 110 & 16 \\
-        22 & 129 & 112 & 17 \\
-        23 & 133 & 118 & 15 \\
-        24 & 138 & 121 & 17 \\
-        25 & 142 & 125 & 17 \\
-        26 & 148 & 129 & 19 \\
-        27 & 150 & 133 & 17 \\
-        28 & 153 & 135 & 18 \\
-        29 & 159 & 141 & 18 \\
-        31 & 170 & 152 & 18 \\
-        32 & 172 & 160 & 12 \\
-        33 & 181 & 165 & 16 \\
-        34 & 189 & 172 & 17 \\
-        35 & 197 & 179 & 18 \\
-        36 & 203 & 187 & 16 \\
-        37 & 210 & 194 & 16 \\
-        38 & 214 & 199 & 15 \\
-        39 & 219 & 205 & 14 \\
-        40 & 225 & 209 & 16 \\
-        41 & 231 & 216 & 15 \\
-        42 & 234 & 222 & 12 \\
-        44 & 244 & 232 & 12 \\
-        46 & 241 & 234 &  7 \\
-        48 & 247 & 241 &  6 \\
-        49 & 251 & 246 &  5 \\
+        {rechts} &  3 &  79 &  73 &  6 \\
+                 &  5 &  82 &  73 &  9 \\
+                 &  7 &  83 &  75 &  8 \\
+                 &  9 &  86 &  78 &  8 \\
+                 & 11 &  91 &  82 &  9 \\
+                 & 13 &  96 &  84 & 12 \\
+                 & 15 & 105 &  89 & 16 \\
+                 & 17 & 106 &  93 & 13 \\
+                 & 19 & 115 &  99 & 16 \\
+                 & 21 & 126 & 110 & 16 \\
+                 & 22 & 129 & 112 & 17 \\
+                 & 23 & 133 & 118 & 15 \\
+                 & 24 & 138 & 121 & 17 \\
+                 & 25 & 142 & 125 & 17 \\
+                 & 26 & 148 & 129 & 19 \\
+                 & 27 & 150 & 133 & 17 \\
+                 & 28 & 153 & 135 & 18 \\
+                 & 29 & 159 & 141 & 18 \\
+        \midrule
+         {links} & 31 & 170 & 152 & 18 \\
+                 & 32 & 172 & 160 & 12 \\
+                 & 33 & 181 & 165 & 16 \\
+                 & 34 & 189 & 172 & 17 \\
+                 & 35 & 197 & 179 & 18 \\
+                 & 36 & 203 & 187 & 16 \\
+                 & 37 & 210 & 194 & 16 \\
+                 & 38 & 214 & 199 & 15 \\
+                 & 39 & 219 & 205 & 14 \\
+                 & 40 & 225 & 209 & 16 \\
+                 & 41 & 231 & 216 & 15 \\
+                 & 42 & 234 & 222 & 12 \\
+                 & 44 & 244 & 232 & 12 \\
+                 & 46 & 241 & 234 &  7 \\
+                 & 48 & 247 & 241 &  6 \\
+                 & 49 & 251 & 246 &  5 \\
         \bottomrule
     \end{tabular}
 \end{table}
+
+\subsubsection{Rechte Seite}
+Für die rechte Seite des Stabes wird gemäß Gleichung \textbf{REF!!!} analog zu zuvor je eine lineare Ausgleichsrechnung durchgeführt,
+die proportional zum Ausdruck in der Klammer ist
+\begin{align}
+    D_\text{r} = s_\text{r} \left(3 L^2 x_\text{r} - 4 x_\text{r}^3\right) + b_\text{r}.
+    \label{eq:ausgleichsfunktion_beidseitig_rechts}
+\end{align}
+Hieraus folgen 
+\begin{align*}
+    s_\text{r} &= (\num{0.00081} \pm \num{0.00007}) \, \frac{1}{\unit{\meter^2}}, & 
+    b_\text{r} &= (\num{0.000032} \pm \num{0.000009}) \, \unit{\meter}.
+\end{align*}
+% parameter rechts:
+% s = 0.00081058 1/m^2
+% b = 0.00003190 m
+% Fehler_rechts:  [6.62325831e-05 9.33628425e-06]
+Der Plot der Ausgleichsgeraden \eqref{eq:ausgleichsfunktion_beidseitig_rechts} ist in Abbildung \ref{fig:plot_rechteck_beidseitig_rechts}
+zu sehen.
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[]{build/C02_rechteck_beidseitig_rechts.pdf}
+    \caption{Ausgleichsgerade \eqref{eq:ausgleichsfunktion_beidseitig_rechts} zu den Messdaten aus Tabelle \ref{tab:messdaten_rechteck_beidseitig} (rechts).}
+    \label{fig:plot_rechteck_beidseitig_rechts}
+\end{figure}
+
+\noindent
+Gemäß Gleichung \textbf{REF!!!} ergibt sich somit ein Elastizitätsmodul von 
+\begin{align}
+    E_\text{Recht,r} = \frac{F}{48 I s_\text{r}} = (\num{170.0} \pm \num{3.3}) \cdot 10^9 \, \unit{\newton\per\meter^2},
+\end{align}
+% elastizitaet_rechts:  (1.670+/-0.033)e+11
+was einer Abweichung von 
+\begin{align*}
+    \frac{E_\text{Recht,r} - E_\text{Recht}}{E_\text{Recht}} = (\num{39} \pm \num{4}) \, \%
+\end{align*}
+% abweichung_rechts:  0.39+/-0.04
+im Vergleich zum einseitigem Wert entspricht.
+
+
+
+
+\subsubsection{Linke Seite}
+\label{sec:rechteck_beidseitig_links}
+Analog folgt mit Gleichung \textbf{REF!!!} für die linke Seite
+\begin{align}
+    D_\text{l} = s_\text{l} \left(4 x_\text{l}^3 - 12 L x_\text{l}^2 + 9 L^2 x_\text{l} - L^3\right) + b_\text{l}, 
+    \label{eq:ausgleichsfunktion_beidseitig_links}
+\end{align}
+woraus die Werte 
+\begin{align*}
+    s_\text{l} &= (\num{0.00107} \pm \num{0.00014}) \, \frac{1}{\unit{\meter^2}}, & 
+    b_\text{l} &= (\num{-0.000010} \pm \num{0.000020}) \, \unit{\meter}
+\end{align*}
+folgen.
+% parameter links:
+% s = 0.00107311 1/m^2
+% b = -0.00000955 m
+% Fehler_links:  [1.44046984e-04 1.99148559e-05]
+Der Plot für die linke Seite ist in Abbildung \ref{fig:plot_rechteck_beidseitig_links}
+zu sehen.
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[]{build/C02_rechteck_beidseitig_links.pdf}
+    \caption{Ausgleichsgerade \eqref{eq:ausgleichsfunktion_beidseitig_links} zu den Messdaten aus Tabelle \ref{tab:messdaten_rechteck_beidseitig} (links).}
+    \label{fig:plot_rechteck_beidseitig_links}
+\end{figure}
+
+\noindent
+Somit gilt 
+\begin{align}
+    E_\text{Recht,l} = \frac{F}{48 I s_\text{l}} = (\num{126.1} \pm \num{2.5}) \cdot 10^9 \, \unit{\newton\per\meter^2},
+\end{align}
+% elastizitaet_links:  (1.261+/-0.025)e+11 N/m^2
+was den Abweichungen 
+\begin{align*}
+    \frac{E_\text{Recht,l} - E_\text{Recht}}{E_\text{Recht}} &= (\num{5.2} \pm \num{0.3}) \, \%, \\
+    \frac{E_\text{Recht,r} - E_\text{Recht,l}}{E_\text{Recht,r}} &= (\num{24.5} \pm \num{0.0}) \, \%
+\end{align*}
+entspricht.
+% abweichung_links:  0.052+/-0.030
+% abweichung_rechts_links: 0.244643964027347643+/-0.000000000000000007

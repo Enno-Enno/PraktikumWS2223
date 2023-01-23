@@ -1,48 +1,122 @@
 \subsection{Kreisförmiger Querschnitt, beidseitige Auflegung}
-
+Es werden das gleiche Belastungsgewicht und die gleichen Abstände wie in Abschnitt \ref{sec:rechteck_beidseitig} verwendet.
+Die Messdaten sind in Tabelle \ref{tab:messdaten_kreis_beidseitig} zu sehen.
+Die Auswertung erfolgt somit komplett analog.
+%
 \begin{table}[H]
     \centering
     \caption{Messdaten des Stabes mit runder Querschnitt bei beidseitiger Auflegung.}
     \label{tab:messdaten_kreis_beidseitig}
     \sisetup{table-format = 3.0}
-    \begin{tabular}[]{S[table-format = 2.0] S S S[table-format = 2.0]}
+    \begin{tabular}[]{S S[table-format = 2.0] S S S[table-format = 2.0]}
         \toprule
-        {$x / \unit{\centi\meter}$} & {$D_0 / (\qty{0.01}{\milli\meter})$} & {$D_\text{m} / (\qty{0.01}{\milli\meter})$} & {$D / (\qty{0.01}{\milli\meter})$} \\
+        {} & {$x / \unit{\centi\meter}$} & {$D_0 / (\qty{0.01}{\milli\meter})$} & {$D_\text{m} / (\qty{0.01}{\milli\meter})$} & {$D / (\qty{0.01}{\milli\meter})$} \\
         \midrule
-         3 & 86 & 86 &  0 \\
-         5 & 87 & 86 &  1 \\
-         7 & 89 & 86 &  3 \\
-         9 & 88 & 85 &  3 \\
-        11 & 88 & 83 &  5 \\
-        13 & 86 & 79 &  7 \\
-        15 & 84 & 76 &  8 \\
-        17 & 81 & 72 &  9 \\
-        19 & 79 & 68 & 11 \\
-        21 & 81 & 69 & 12 \\
-        22 & 79 & 68 & 11 \\
-        23 & 80 & 67 & 13 \\
-        24 & 79 & 66 & 13 \\
-        25 & 79 & 64 & 15 \\
-        26 & 79 & 63 & 16 \\
-        27 & 79 & 63 & 16 \\
-        28 & 79 & 63 & 16 \\
-        29 & 78 & 62 & 16 \\
-        31 & 78 & 61 & 17 \\
-        32 & 78 & 61 & 17 \\
-        33 & 78 & 62 & 16 \\
-        34 & 77 & 62 & 15 \\
-        35 & 79 & 64 & 15 \\
-        36 & 80 & 64 & 16 \\
-        37 & 79 & 63 & 16 \\
-        38 & 79 & 63 & 16 \\
-        39 & 77 & 64 & 13 \\
-        40 & 77 & 63 & 14 \\
-        41 & 78 & 62 & 16 \\
-        42 & 77 & 62 & 15 \\
-        44 & 75 & 63 & 12 \\
-        46 & 71 & 63 &  8 \\
-        48 & 70 & 63 &  7 \\
-        49 & 71 & 63 &  8 \\
+        {rechts} &  3 & 86 & 86 &  0 \\
+                 &  5 & 87 & 86 &  1 \\
+                 &  7 & 89 & 86 &  3 \\
+                 &  9 & 88 & 85 &  3 \\
+                 & 11 & 88 & 83 &  5 \\
+                 & 13 & 86 & 79 &  7 \\
+                 & 15 & 84 & 76 &  8 \\
+                 & 17 & 81 & 72 &  9 \\
+                 & 19 & 79 & 68 & 11 \\
+                 & 21 & 81 & 69 & 12 \\
+                 & 22 & 79 & 68 & 11 \\
+                 & 23 & 80 & 67 & 13 \\
+                 & 24 & 79 & 66 & 13 \\
+                 & 25 & 79 & 64 & 15 \\
+                 & 26 & 79 & 63 & 16 \\
+                 & 27 & 79 & 63 & 16 \\
+                 & 28 & 79 & 63 & 16 \\
+                 & 29 & 78 & 62 & 16 \\
+        \midrule
+         {links} & 31 & 78 & 61 & 17 \\
+                 & 32 & 78 & 61 & 17 \\
+                 & 33 & 78 & 62 & 16 \\
+                 & 34 & 77 & 62 & 15 \\
+                 & 35 & 79 & 64 & 15 \\
+                 & 36 & 80 & 64 & 16 \\
+                 & 37 & 79 & 63 & 16 \\
+                 & 38 & 79 & 63 & 16 \\
+                 & 39 & 77 & 64 & 13 \\
+                 & 40 & 77 & 63 & 14 \\
+                 & 41 & 78 & 62 & 16 \\
+                 & 42 & 77 & 62 & 15 \\
+                 & 44 & 75 & 63 & 12 \\
+                 & 46 & 71 & 63 &  8 \\
+                 & 48 & 70 & 63 &  7 \\
+                 & 49 & 71 & 63 &  8 \\
         \bottomrule
     \end{tabular}
 \end{table}
+
+\subsubsection{Rechte Seite}
+Für die lineare Ausgleichsrechnung ergeben sich die Werte
+\begin{align*}
+    s_\text{r} &= (\num{0.00109} \pm \num{0.00007}) \, \frac{1}{\unit{\meter^2}}, & 
+    b_\text{r} &= (\num{-0.000046} \pm \num{0.000009}) \, \unit{\meter}.
+\end{align*}
+% parameter rechts:
+% s = 0.00108506 1/m^2
+% b = -0.00004673 m
+% Fehler_rechts:  [6.64784236e-05 9.37093844e-06]
+Der Plot der Ausgleichsgeraden \eqref{eq:ausgleichsfunktion_beidseitig_rechts} für den zylinderförmigen Stab
+ist in Abbildung \ref{fig:plot_kreis_beidseitig_rechts} zu sehen.
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[]{build/C02_kreis_beidseitig_rechts.pdf}
+    \caption{Ausgleichsgerade \eqref{eq:ausgleichsfunktion_beidseitig_rechts} zu den Messdaten aus Tabelle \ref{tab:messdaten_kreis_beidseitig} (rechts).}
+    \label{fig:plot_kreis_beidseitig_rechts}
+\end{figure}
+
+\noindent
+Der Elastizitätsmodul errechnet sich somit zu
+\begin{align}
+    E_\text{Kreis,r} = (\num{212} \pm \num{4}) \cdot 10^9 \, \unit{\newton\per\meter^2},
+\end{align}
+% elastizitaet_rechts:  (2.12+/-0.04)e+11
+was der Abweichung
+\begin{align*}
+    \frac{E_\text{Kreis,r} - E_\text{Kreis}}{E_\text{Kreis}} = (\num{61} \pm \num{4}) \, \%
+\end{align*}
+% abweichung_rechts: 0.61+/-0.04
+entspricht.
+
+
+
+
+\subsubsection{Linke Seite}
+Analog zu Abschnitt \ref{sec:rechteck_beidseitig_links} ergeben sich die Werte
+\begin{align*}
+    s_\text{l} &= (\num{0.00088} \pm \num{0.00010}) \, \frac{1}{\unit{\meter^2}}, & 
+    b_\text{l} &= (\num{0.000020} \pm \num{0.000014}) \, \unit{\meter}
+\end{align*}
+% parameter links:
+% s = 0.00087826 1/m^2
+% b = 0.00002034 m
+% Fehler_links:  [1.04203935e-04 1.44064544e-05]
+für die Ausgleichsgerade.
+In Abbildung \ref{fig:plot_kreis_beidseitig_links} ist der Plot für die linke Seite des zylinderförmigen Stabes zu sehen.
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[]{build/C02_kreis_beidseitig_links.pdf}
+    \caption{Ausgleichsgerade \eqref{eq:ausgleichsfunktion_beidseitig_links} zu den Messdaten aus Tabelle \ref{tab:messdaten_kreis_beidseitig} (links).}
+    \label{fig:plot_kreis_beidseitig_links}
+\end{figure}
+
+\noindent
+Der Elastizitätsmodul beträgt somit
+\begin{align}
+    E_\text{Kreis,l} = (\num{262} \pm \num{5}) \cdot 10^9 \, \unit{\newton\per\meter^2}.
+\end{align}
+% elastizitaet_links:  (2.62+/-0.05)e+11 N/m^2
+Dadurch ergeben sich die Abweichungen
+\begin{align*}
+    \frac{E_\text{Kreis,l} - E_\text{Kreis}}{E_\text{Kreis}} &= (\num{99} \pm \num{6}) \, \%, \\
+    \frac{E_\text{Kreis,l} - E_\text{Kreis,r}}{E_\text{Kreis,r}} &= (\num{23.5} \pm \num{0.0}) \, \%.
+\end{align*}
+% abweichung_links:  0.99+/-0.06
+% abweichung_rechts_links: -0.235470533236481899264+/-0.000000000000000000031

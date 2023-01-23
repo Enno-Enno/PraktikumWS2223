@@ -12,11 +12,11 @@ gesamtmasse_einseitig = masse_halterung + masse_gewicht_einseitig
 print("gesamtmasse_einseitig: ", gesamtmasse_einseitig)
 #gesamtmasse_einseitig:  0.24970+/-0.00014 kg
 
-radius_cm = ufloat(1.000, 0.005) #in cm
+radius_cm = 1/2 * ufloat(1.000, 0.005) #in cm
 radius_m = radius_cm /100 # in m
 traegeheit_kreis = np.pi * radius_m **4 / 4
 print("traegeheit_kreis: ", traegeheit_kreis)
-#traegeheit_kreis:  (7.85+/-0.16)e-09 m^4
+#traegeheit_kreis:  (4.91+/-0.10)e-10 m^4
 
 gravitation = 9.81 #m/s^2
 kraft_kreis_einseitig = gesamtmasse_einseitig * gravitation
@@ -54,13 +54,13 @@ print("Fehler: ", errors)
 
 elastizitaet = kraft_kreis_einseitig/(2 * traegeheit_kreis * params[0]) # in N/(m^4* 1/m^2) = N/m^2
 print("elastizitaet: ", elastizitaet)
-#elastizitaet:  (8.23+/-0.16)e+09 N/m^2
+#elastizitaet:  (1.317+/-0.026)e+11 N/m^2
 
 skalierungsfaktor = 100 * 10**3 # zur skalierung der y achse (meter zu 0.01 millimeter) der ausgleichsgerade
 
 
 plt.figure(constrained_layout = True)
-plt.plot(faktor_einseitig_kubik, c00.delta_d_mm, "x", label = "Messdaten")
+plt.plot(faktor_einseitig_kubik, c00.delta_d_mm, "x", label = "Messdaten, Kreis")
 plt.plot(faktor_einseitig_kubik, skalierungsfaktor*linear_function(faktor_einseitig_m, *params), "-", label = "Ausgleichsgerade") 
 plt.grid()
 plt.legend()

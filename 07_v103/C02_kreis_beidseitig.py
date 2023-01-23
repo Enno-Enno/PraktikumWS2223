@@ -20,11 +20,11 @@ gesamtmasse_beidseitig = masse_halterung + masse_gewicht_beidseitig # + masse_st
 print("gesamtmasse_beidseitig: ", gesamtmasse_beidseitig)
 #gesamtmasse_beidseitig:  0.55190+/-0.00014 kg
 
-radius_cm = ufloat(1.000, 0.005) #in cm
+radius_cm = 1/2 * ufloat(1.000, 0.005) #in cm
 radius_m = radius_cm /100 # in m
 traegeheit_kreis = np.pi * radius_m **4 / 4
 print("traegeheit_kreis: ", traegeheit_kreis)
-#traegeheit_kreis:  (7.85+/-0.16)e-09 m^4
+#traegeheit_kreis:  (4.91+/-0.10)e-10 m^4
 
 gravitation = 9.81 #m/s^2
 kraft_kreis_beidseitig = gesamtmasse_beidseitig * gravitation
@@ -73,17 +73,31 @@ print("Fehler_rechts: ", errors_rechts)
 
 elastizitaet_links = kraft_kreis_beidseitig/(48 * traegeheit_kreis * params_links[0]) # in N/(m^4* 1/m^2) = N/m^2
 print("elastizitaet_links: ", elastizitaet_links)
-# elastizitaet_links:  (1.635+/-0.033)e+10 N/m^2
+# elastizitaet_links:  (2.62+/-0.05)e+11 N/m^2
 
 elastizitaet_rechts = kraft_kreis_beidseitig/(48 * traegeheit_kreis * params_rechts[0]) # in N/(m^4* 1/m^2) = N/m^2
 print("elastizitaet_rechts: ", elastizitaet_rechts)
-# elastizitaet_rechts:  (1.324+/-0.026)e+10
+# elastizitaet_rechts:  (2.12+/-0.04)e+11
+
+elastizitaet_kreis_einseitig = ufloat(1.317, 0.026)* 10**11
+
+abweichung_links = (elastizitaet_links - elastizitaet_kreis_einseitig) / elastizitaet_kreis_einseitig
+abweichung_rechts = (elastizitaet_rechts - elastizitaet_kreis_einseitig) / elastizitaet_kreis_einseitig
+abweichung_rechts_links = (elastizitaet_rechts - elastizitaet_links) / elastizitaet_rechts
+
+print("abweichung_links: ", abweichung_links)
+# abweichung_links:  0.99+/-0.06
+print("abweichung_rechts: ", abweichung_rechts)
+# abweichung_rechts:  0.61+/-0.04
+print("abweichung_rechts_links: ", abweichung_rechts_links)
+# abweichung_rechts_links: -0.235470533236481899264+/-0.000000000000000000031
+
 
 skalierungsfaktor = 100 * 10**3 # zur skalierung der y achse (meter zu 0.01 millimeter) der ausgleichsgerade
 
 
 plt.figure(constrained_layout = True)
-plt.plot(faktor_beidseitig_links_kubik, c00.delta_d_mm[18:], "x", label = "Messdaten links")
+plt.plot(faktor_beidseitig_links_kubik, c00.delta_d_mm[18:], "x", label = "Messdaten links, Kreis")
 plt.plot(faktor_beidseitig_links_kubik, skalierungsfaktor*linear_function(faktor_beidseitig_links_m, *params_links), "-", label = "Ausgleichsgerade links") 
 plt.grid()
 plt.legend()
@@ -92,7 +106,7 @@ plt.ylabel("$D/ (\\qty{0.01}{\\milli\\meter})$")
 plt.savefig("build/C02_kreis_beidseitig_links.pdf")
 
 plt.figure(constrained_layout = True)
-plt.plot(faktor_beidseitig_rechts_kubik, c00.delta_d_mm[:18], "x", label = "Messdaten rechts")
+plt.plot(faktor_beidseitig_rechts_kubik, c00.delta_d_mm[:18], "x", label = "Messdaten rechts, Kreis")
 plt.plot(faktor_beidseitig_rechts_kubik, skalierungsfaktor*linear_function(faktor_beidseitig_rechts_m, *params_rechts), "-", label = "Ausgleichsgerade rechts")
 plt.grid()
 plt.legend()
