@@ -4,17 +4,27 @@ Die Kenngrößen des Stabes mit kreisförmiger Querschnittsfläche sind in Tabel
 die Kenngrößen des Stabes mit der rechteckigen Querschnittsfläche in Tabelle \ref{tab:rechteck}.
 Hierbei ist $m$ die Masse, $l$ die Länge, $d$ der Durchmesser, $b$ die Breite und $t$ die Tiefe der jeweiligen Probekörper.
 Die angegebenen Fehler in den Tabellen sind dabei den Messgeräten entnommen.
+Außerdem ist die Dichte $\rho = \frac{m}{V}$ des jeweiligen Stabes angegebenen, wobei $V$ das Volumen ist.
+Für den Stab mit kreisförmigen Querschnitt gilt 
+\begin{align*}
+    V_\text{Kreis} = \pi \left(\frac{d}{2}\right)^2 \, l_\text{Kreis}
+\end{align*}
+und für den Stab mit rechteckigem Querschnitt
+\begin{align*}
+    V_\text{Recht} = b \, d \, l_\text{Recht}.
+\end{align*}
+Die Fehler der Dichten lassen sich über die Gaußsche Fehlerfortpflanzung \eqref{eq:gauspflanz} berechnen.
 
 \begin{table}[H]
     \centering
     \caption{Kenngrößen des zylinderförmigen Stabes.}
     \label{tab:kreis}
     \sisetup{table-format = 1.3}
-    \begin{tabular}[]{S @{${}\pm{}$} S S[table-format = 2.1] S[table-format = 3.1] @{${}\pm{}$} S[table-format = 1.1]}
+    \begin{tabular}[]{S @{${}\pm{}$} S S[table-format = 2.1] S[table-format = 3.1] @{${}\pm{}$} S[table-format = 1.1] S[table-format = 1.2] @{${}\pm{}$}  S[table-format = 1.2]}
         \toprule
-        \multicolumn{2}{c}{$d / \unit[]{\cm}$} & {$l_\text{Kreis} / \unit[]{\cm}$} & \multicolumn{2}{c}{$m_\text{Kreis} / \unit[]{\gram}$} \\
+        \multicolumn{2}{c}{$d / \unit[]{\cm}$} & {$l_\text{Kreis} / \unit[]{\cm}$} & \multicolumn{2}{c}{$m_\text{Kreis} / \unit[]{\gram}$} & \multicolumn{2}{c}{$\rho_\text{Kreis} / \left(\unit[]{\gram / \cm ^3}\right)$} \\
         \midrule
-        1.000 & 0.005 & 59.2 & 410.0 & 0.1 \\
+        1.000 & 0.005 & 59.2 & 410.0 & 0.1 & 8.82 & 0.09 \\ %dichte Kreis in g/cm^3:  8.82+/-0.09
         \bottomrule
     \end{tabular}
 \end{table}
@@ -24,14 +34,15 @@ Die angegebenen Fehler in den Tabellen sind dabei den Messgeräten entnommen.
     \caption{Kenngrößen des Stabes mit rechteckigem Querschnitt.}
     \label{tab:rechteck}
     \sisetup{table-format = 1.3}
-    \begin{tabular}[]{S @{${}\pm{}$} S S @{${}\pm{}$} S S[table-format=2.1] S[table-format=3.1] @{${}\pm{}$} S[table-format=1.1]}
+    \begin{tabular}[]{S @{${}\pm{}$} S S @{${}\pm{}$} S S[table-format=2.1] S[table-format=3.1] @{${}\pm{}$} S[table-format=1.1] S[table-format = 1.2] @{${}\pm{}$}  S[table-format = 1.2]}
         \toprule
         \multicolumn{2}{c}{$b / \unit[]{\cm}$} & 
         \multicolumn{2}{c}{$t / \unit[]{\cm}$} & 
         {$l_\text{Recht} / \unit[]{\cm}$} & 
-        \multicolumn{2}{c}{$m_\text{Recht} / \unit[]{\gram}$} \\
+        \multicolumn{2}{c}{$m_\text{Recht} / \unit[]{\gram}$} & 
+        \multicolumn{2}{c}{$\rho_\text{Recht} / \left(\unit[]{\gram / \cm ^3}\right)$} \\
         \midrule
-        1.000 & 0.005 & 1.000 & 0.005 & 60.3 & 535.9 & 0.1 \\
+        1.000 & 0.005 & 1.000 & 0.005 & 60.3 & 535.9 & 0.1 & 8.89 & 0.09 \\ % 8.89+/-0.09
         \bottomrule
     \end{tabular}
 \end{table}
