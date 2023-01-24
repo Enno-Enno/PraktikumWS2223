@@ -67,7 +67,7 @@ Gemäß Gleichung \eqref{eq:UC_max} lässt sich die theoretische Resonanzüberh�
 \end{align}
 % q_theo:  4.314+/-0.008
 bestimmen, wobei für $R$ der Widerstand $R_2$ eingesetzt wurde.
-Dies entspricht einer Abweichung von $\frac{q}{q_\text{theo}} = (\num{2.81} \pm \num{0.01}) \, \%$.
+Dies entspricht einer Abweichung von
 \begin{align*}
     \frac{|q - q_\text{theo}|}{R_\text{theo}} &= (\num[]{56.42} \pm \num[]{0.08}) \, \%.
 \end{align*}
@@ -86,13 +86,18 @@ Eine lineare Darstellung der Messdaten ist in Abbildung \ref{fig:plot_spannung_l
 Anhand dieser wird der Wert für 
 \begin{align}
     \Delta \nu &= \nu_+ -\nu_- = \qty{18}{\kilo\hertz}
-    \intertext{ermittelt.
-    Gemäß Gleichung \eqref{eq:omega_Breite_pm} errechnet sich der entsprechende theoretische Wert zu}
-    \Delta \nu_\text{theo} &= (\num{8.0} \pm \num{0.2}) \, \unit{{\kilo\hertz}},
-    \intertext{was einer Abweichung von}
-    \frac{\Delta \nu}{\Delta \nu_\text{theo}} &= (\num{224.4} \pm \num{0.7}) \, \%
 \end{align}
-entspricht.
+ermittelt.
+Gemäß Gleichung \eqref{eq:omega_Breite_pm} errechnet sich der entsprechende theoretische Wert zu
+\begin{align*}
+    \Delta \omega_\text{theo} &= \frac{R_2}{L} = (\num{50.40} \pm \num{0.16}) \, \unit{{\kilo\hertz}} %(5.040+/-0.016)e+04 Hz
+    \intertext{bzw.}
+    \Delta \nu_\text{theo} &= \frac{\Delta \omega_\text{theo}}{2 \pi} = (\num{8.02} \pm \num{0.03}) \, \unit{{\kilo\hertz}}. %8021+/-25 Hz
+\end{align*}
+Das entspricht einer Abweichung von
+\begin{align}
+    \frac{|\Delta \nu - \Delta \nu_\text{theo}|}{\Delta \nu_\text{theo}} &= (\num{124.4} \pm \num{0.7}) \, \%. %1.244+/-0.007
+\end{align}
 %$\Delta \nu = \nu_+ -\nu_- = \qty{18}{\kilo\hertz}$ ermittelt.
 %Gemäß Gleichung \eqref{eq:omega_Breite_pm} errechnet sich der entsprechende theoretische Wert zu 
 %$\Delta \nu_\text{theo} = (\num{8.0} \pm \num{0.2}) \, \unit{{\kilo\hertz}}$,

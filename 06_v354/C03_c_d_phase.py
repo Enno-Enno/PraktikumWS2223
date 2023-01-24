@@ -56,23 +56,23 @@ y2 = 3* np.pi/4
 
 nu_res_theo = 1/(2* np.pi) * (1/(L*C) - R2**2/(2 * L**2))**(1/2)
 print("res_freq: ", nu_res_theo)
-abweichung_res = x_res * 10**3 /nu_res_theo
+abweichung_res = (x_res * 10**3 - nu_res_theo) /nu_res_theo
 print("abweichung res: ", abweichung_res)
 #res_freq:  (3.413+/-0.006)e+04
-#abweichung res:  2.549+/-0.004
+#abweichung res:  1.549+/-0.004
 #ohne vorfaktor vor wurzel: res_freq:  (2.1445+/-0.0035)e+05, abweichung res:  0.4057+/-0.0007 -> noch ungenauer (vgl. Bereich)
 nu1 = 1/(2* np.pi) * (- R2/(2*L) + ((R2)**2 / (4 * L**2) + 1 / (L*C))**(1/2))
 nu2 = 1/(2* np.pi) * (+ R2/(2*L) + ((R2)**2 / (4 * L**2) + 1 / (L*C))**(1/2))
-delta_nu1 = x1 * 10**3/nu1
-delta_nu2 = x2 * 10**3/nu2
+delta_nu1 = (x1 * 10**3 - nu1)/nu1
+delta_nu2 = (x2 * 10**3 - nu2)/nu2
 print("nu1 = ", nu1)
 print("nu2 = ", nu2)
 #nu1 =  (3.082+/-0.005)e+04
 #nu2 =  (3.884+/-0.007)e+04
 print("delta nu 1: ", delta_nu1)
 print("delta nu 2: ", delta_nu2)
-#delta nu 1:  2.466+/-0.004
-#delta nu 2:  2.446+/-0.004
+#delta nu 1:  1.466+/-0.004
+#delta nu 2:  1.446+/-0.004
 
 
 plt.figure(constrained_layout=True)
