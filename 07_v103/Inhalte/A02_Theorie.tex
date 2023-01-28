@@ -6,12 +6,12 @@ Im Hookeschen Gesetz verbindet $E$ die elastische Spannung $\sigma$ mit der Ausd
     \sigma = E \frac{\Delta L}{L}.
     \label{eq:Hook_Gesetz}
 \end{align}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.6\textwidth]{Abbildungen/Längenausdehnung.png}
-    \caption{Dehnung eines Stabförmigen Materials in der Länge \cite{man:v103}.}
-    \label{fig:laengenausdehnung}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.6\textwidth]{Abbildungen/Längenausdehnung.png}
+%     \caption{Dehnung eines Stabförmigen Materials in der Länge \cite{man:v103}.}
+%     \label{fig:laengenausdehnung}
+% \end{figure}
 \noindent
 Dieser Lineare Zusammenhang, ist nur bei sehr kleinen Auslenkungen gültig.
 Bei größeren Dehnungen beginnt die plastische Verformung, die in diesem Versuch nicht betrachtet werden soll.
@@ -37,7 +37,9 @@ berechnet.
     \caption{Skizze zur Berechnung des Flächenträgheitsmomentes \cite{man:v103}}
     \label{fig:Biegungsintegral}
 \end{figure}
-Hier wird ein Integral über den Querschnitt der Stange berechnet (vgl. Abb \ref{fig:Biegungsintegral}).
+Hier wird ein Integral über den Querschnitt der Stange berechnet.
+In Abbildung \ref{fig:Biegungsintegral} wird die position der y-Achse mit der Neutralen Faser bei y=0
+ dargestellt.
 In der Näherung für kleine Winkel gilt für $\sigma(y)$
 \begin{align*}
     \sigma(y) = E \frac{y}{R} .
@@ -60,8 +62,9 @@ wird als Flächenträgheitsmoment bezeichnet.
 In diesem Versuch gibt es eine runde und eine Rechteckige Stange.
 Laut \cite{uni_siegen} ergeben sich für einen quadratischen Stab mit der Seitenlänge $a$ und einen runden Stab mit dem Radius $r$ folgende Flächenträgheitsmomente
 \begin{align}
-    I_\text{rechteckig} &= \frac{a^4}{12} & I_\text{rund} &= \frac{\pi r^4}{4}
-    \label{eq:Flachentragheitsmomente}
+    I_\text{rechteckig} &= \frac{a^4}{12}  \label{eq:Flachentragheitsmomente}\\
+    I_\text{rund} &= \frac{\pi r^4}{4}
+    \label{eq:Flachentragheitsmoment_rund}
 \end{align}
 %
 Durch Integration über D ergibt sich für die Auslenkung die Formel
