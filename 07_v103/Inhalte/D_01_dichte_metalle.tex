@@ -1,27 +1,35 @@
 \subsection{Materialien}
-Vergleicht man die Dichten der Stäbe aus den Tabellen \ref{tab:kreis} und \ref{tab:rechteck} mit dem Literaturwert \cite{geschke} 
-der Dichte von Kupfer $\rho_\text{Cu} = \qty{8.92}{\gram / \cm ^3}$, so ergeben sich die relativen Abweichungen
-\begin{align*}
-    \frac{|\rho_\text{Kreis} - \rho_\text{Cu}|}{\rho_\text{Cu}} &= (\num{1.1} \pm \num{1.0}) \, \%, &
-    \frac{|\rho_\text{Recht} - \rho_\text{Cu}|}{\rho_\text{Cu}} &= (\num{0.4} \pm \num{1.0}) \, \%. &
-\end{align*}
+Die Dichten der Stäbe aus den Tabellen \ref{tab:kreis} und \ref{tab:rechteck} überschneiden sich in ihrer 
+Messunsicherheit mit dem Literaturwert \cite{geschke} 
+der Dichte von Kupfer $\rho_\text{Cu} = \qty{8.92}{\gram / \cm ^3}$.% so ergeben sich die relativen Abweichungen
+% \begin{align*}
+%     \frac{|\rho_\text{Kreis} - \rho_\text{Cu}|}{\rho_\text{Cu}} &= (\num{1.1} \pm \num{1.0}) \, \%, &
+%     \frac{|\rho_\text{Recht} - \rho_\text{Cu}|}{\rho_\text{Cu}} &= (\num{0.4} \pm \num{1.0}) \, \%. &
+% \end{align*}
 %Abweichung Dichte Kreis:  -0.011+/-0.010
 %Abweichung Dichte Rechteck:  -0.004+/-0.010
-Daher lässt sich vermuten, dass die beiden Stäbe jeweils aus Kuper bestehen.
+Daher lässt sich vermuten, dass die beiden Stäbe jeweils aus Kupfer bestehen.
 
 \noindent
-Kupfer hat nach \cite{uni_kiel} einen Elastizitätsmodul von $E_\text{Cu} = {124} \cdot 10^9 \unit{\newton / \meter^2}$.
-Bei einseitiger Auflegung ergeben sich für den Stab mit dem kreisförimigen Querschnitt dadurch die prozentuale Abweichung
+Kupfer hat nach \cite{uni_kiel} ein Elastizitätsmodul von $E_\text{Cu} = {124} \cdot 10^9 \unit{\newton / \meter^2}$.
+In den Experimenten wurde das Elastizitätsmodul der Stangen bestimmt.
+Bei einseitiger Auflage ergibt der Vergleich mit dem Literaturwert die prozentuale Abweichung
 \begin{align*}
+    E_\text{Kreis} &= (\num{131.7} \pm \num{2.6}) \cdot 10^9 \, \unit{\newton\per\meter^2}&
     \frac{|E_\text{Kreis} - E_\text{Cu}|}{E_\text{Cu}} &= (\num{6.2} \pm \num{2.1}) \, \%,
     \intertext{und für den Stab mit dem rechteckigem Querschnitt}
+    E_\text{Recht} &= (\num{119.9} \pm \num{2.4}) \cdot 10^9 \, \unit{\newton\per\meter^2}&
     \frac{|E_\text{Recht} - E_\text{Cu}|}{E_\text{Cu}} &= (\num{3.3} \pm \num{1.9}) \, \%.
 \end{align*}
-Bei beidseitiger Auflegung ergeben sich für den Stab mit kreisförimigen Querschnitt links bzw. rechts
+Bei beidseitiger Auflage ergeben sich für den Stab mit kreisförmigen Querschnitt links bzw. rechts
 \begin{align*}
-    \frac{|E_\text{Kreis,l} - E_\text{Cu}|}{E_\text{Cu}} &= (\num{111} \pm \num{4}) \, \%, &
-    \frac{|E_\text{Kreis,r} - E_\text{Cu}|}{E_\text{Cu}} &= (\num{71.0} \pm \num{3.2}) \, \%,
+    E_\text{Kreis,l} &= (\num{262} \pm \num{5}) \cdot 10^9 \, \unit{\newton\per\meter^2}&
+    \frac{|E_\text{Kreis,l} - E_\text{Cu}|}{E_\text{Cu}} &= (\num{111} \pm \num{4}) \, \%, \\
+    E_\text{Kreis,r} &= (\num{212} \pm \num{4}) \cdot 10^9 \, \unit{\newton\per\meter^2}&
+    \frac{|E_\text{Kreis,r} - E_\text{Cu}|}{E_\text{Cu}} &= (\num{71.0} \pm \num{3.2}) \, \%,\\
     \intertext{und für den Stab mit dem rechteckigem Querschnitt}
-    \frac{|E_\text{Recht,l} - E_\text{Cu}|}{E_\text{Cu}} &= (\num{1.7} \pm \num{2.0}) \, \%, &
+    E_\text{Recht,l} &= \frac{F}{48 I s_\text{l}} = (\num{126.1} \pm \num{2.5}) \cdot 10^9 \, \unit{\newton\per\meter^2}&
+    \frac{|E_\text{Recht,l} - E_\text{Cu}|}{E_\text{Cu}} &= (\num{1.7} \pm \num{2.0}) \, \%, \\
+    E_\text{Recht,r} &= \frac{F}{48 I s_\text{r}} = (\num{167.0} \pm \num{3.3}) \cdot 10^9 \, \unit{\newton\per\meter^2}&
     \frac{|E_\text{Recht,r} - E_\text{Cu}|}{E_\text{Cu}} &= (\num{34.7} \pm \num{2.7}) \, \%. %0.347+/-0.027
 \end{align*}
