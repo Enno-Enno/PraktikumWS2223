@@ -2,7 +2,7 @@
 Die Schwingkreise in diesem Versuch bestehen aus einem Kondensator, einer Spule und einem Widerstand, 
 die in Reihe geschaltet sind (vgl Abb. \ref{fig:ged_Schwingkreis_Schema}).
 %%%%%%%%%%%%%%%%%%%%%% blink
-\begin{figure}
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Abbildungen/ged_Schwingkreis_Schema.png}
     \caption{Ein gedämpfter Schwingkreis \cite{man:v354}.}
@@ -16,11 +16,11 @@ Sie lautet
 \end{align}
 Mit dem Ansatz
 \begin{align*}
-    I(t) = U \exp(i\omega t) & U, I \in \mathbb{C} 
+    I(t) &= U \exp(i\omega t) & U, I &\in \mathbb{C} 
 \end{align*}
 ergibt sich
 \begin{align*}
-    (- \omega^2 + i \frac{R}{L} \omega + \frac{1}{LC}I) U \exp(i\omega t)  = 0 .
+    (- \omega^2 + i \frac{R}{L} \omega + \frac{1}{LC}) U \exp(i\omega t)  =0 .
 \end{align*}
 Für die Konstante $\omega$ ergibt sich also einer der beiden Werte
 \begin{align*}
@@ -69,7 +69,7 @@ Die Abnahmegeschwindigkeit wird durch den Parameter $\mu$ charakterisiert.
 Die Abklingdauer $T_\text{ex}$ ist die Zeit zu der die Amplitude $A$ den Wert $1/e A_0$ erreicht.
 Aus der Formel lassen sich Rückschlüsse auf den wirkenden Widerstand ziehen.
 \begin{align}
-    T_\text{ex} := \frac{1}{2\pi mu}= \frac{2L}{R}
+    T_\text{ex} := \frac{1}{2\pi \mu}= \frac{2L}{R}
     \label{eq:Abklingdauer}
 \end{align} 
 %
