@@ -9,3 +9,7 @@ w_marked = 0.0029 / p_set
 
 for i, val in enumerate(Temp_C):
     print(Temp_C[i] , "&", Temp_K[i], "&", p_set[i], "&", w_marked[i] )
+
+K = 10 - (8+2*23/49)
+
+print(8+2*23/49)

@@ -5,8 +5,7 @@ Um die Messungen am x-y Schreiber auszuwerten müssen zunächst der Dampfdruck d
 und die mittlere freie Weglänge der Elektronen (Gleichung \textbf{Referenz}) basierend auf der Temperatur bestimmt werden.
 Es ist nicht möglich die Temperatur in den Geräten präzise einzustellen. Die Temperaturen schwanken jeweils in einem Bereich von etwa
 \qty{10}{\celsius}. 
-Für die Berechnungen werden die unteren Grenzen der Temperaturverteilung genommen was zu einer hohen Einschätzung der mittleren
-freien Wegstrecke führt.
+Für die Berechnungen werden die Mittelpunkte der Temperaturverteilungen genommen. 
 \begin{table}
     \centering
         \begin{tabular}{c 
@@ -23,14 +22,29 @@ freien Wegstrecke führt.
         \midrule
         A  & 24  & 297 & 0.005  & 0.598   \\
         B  & 145 & 418 & 3.948  & 0.7 e-3 \\
-        C  & 157 & 430 & 6.247  & 0.5 e-3 \\
-        D  & 185 & 458 & 16.606 & 0.2 e-3 \\      
+        C  & 163 & 436 & 7.785   & 0.4 e-3 \\
+        D  & 193 & 466 & 21.488  & 0.1 e-3 \\ 
         \bottomrule
     \end{tabular}
+    \label{tab:dampfdruck}
+    \caption{Dampfdruck und mittlere Weglänge bei den verwendeten Temperaturen.}
 \end{table}
 
-Bei Messung A ist die mittlere freie Wegstrecke der Elektronen in einer vergleichbaren Größenordnung zu der Länge der Röhre.
-Es ist zu erwarten, dass Elektronen im Durchlauf der Röhre nur selten mit den Hg Atomen interagieren.
+\noindent
+Um die Franck-Hertz-Kurve zu beobachten muss die mittlere Wegstrecke der Elektronen etwa um ein 1000 bis 4000 faches kleiner sein als die Beschleunigungsstrecke a.
+Bei der hier verwendeten Röhre ist diese Strecke etwa \qty{1}{\cm} lang.
+Bei der Messung A ist der Der Frank Hertz Effekt, demnach noch nicht zu beobachten. 
+Bei den Messungen B bis D ist er aber relevant.
  
-
-Um die Abbremsspannung $U_A$ zu bestimmen, die mit der 
+\subsection{Integrale Energieverteilung der Elektronen}
+In der Messung A wird zunächst das Kontaktpotenzial $K$ ermittelt. 
+Der Wendepunkt der Stromkurve ist die Stelle bei der die effektive Beschleunigungsspannung $U_\text{B,eff}$ und
+die Bremsspannung im Gleichgewicht liegen.
+In Abbildung \textbf{Referenz} kann der Wendepunkt abgelesen werden.
+Er liegt bei 
+\begin{align}
+    U_A &= \left(8 + 2 \frac{23}{49}\right) \unit{\volt}  = \qty{8.94}{\volt}.
+\intertext{Die Messergebnisse sind demnach um}
+    K &= \qty{10}{\volt} - \qty{8.94}{\volt} = \qty{1.06}{\volt}
+\end{align}
+verschoben.
