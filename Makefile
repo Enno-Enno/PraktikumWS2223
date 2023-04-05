@@ -7,8 +7,9 @@ all:
 #	$(MAKE) -C 03_v303
 #	$(MAKE) -C 04_v308
 #	$(MAKE) -C 05_v353
-	$(MAKE) -C 06_v354
+#   $(MAKE) -C 06_v354
 	$(MAKE) -C 07_v103
+	$(MAKE) -C 08_v601
 
 
 
