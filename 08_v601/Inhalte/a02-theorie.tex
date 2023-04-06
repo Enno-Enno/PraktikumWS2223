@@ -1,5 +1,7 @@
 \section[Theorie]{{Theorie\footnote{Unter Verwendung der Quelle \cite{man:v601}.}}}
 
+\subsection{Grundlagen}
+\label{sec:grundlagen}
 Der Franck-Hertz-Versuch ist ein Elektronenstoßexperiment. 
 In diesem Zusammenhang bedeutet das, dass Hg-Atome mit Elektronen möglichst monoenergetischer Energie beschossen werden.
 Es treten sowohl elastische als auch inelastische Stöße auf.
@@ -7,7 +9,7 @@ Es treten sowohl elastische als auch inelastische Stöße auf.
 Bei einem inelastischen Stoß wird ein Hg-Atom aus seinem Grundzustand mit der Energie $E_0$ in den ersten angeregten Zustand mit der Energie $E_1$ versetzt.
 Somit entspricht die Energiedifferenz 
 \begin{align}
-    \Delta E = E_{\text{kin,vor}} - E_{\text{kin,nach}} = \frac{m_0}{2} \left(v^2_\text{vor} -v^2_\text{nach}\right) = E_1 - E_0,
+    E_{\text{kin,vor}} - E_{\text{kin,nach}} = \frac{m_0}{2} \left(v^2_\text{vor} -v^2_\text{nach}\right) = E_1 - E_0,
     \label{eq:energiedifferenz}
 \end{align}
 wobei $m_0$ die Ruhemasse und $E_\text{kin}$ die kinetische Energie des Elektrons ist.
@@ -53,3 +55,31 @@ Somit können nur solche Elektronen mit Geschwindigkeit $v_\text{z}$ in $z$-Rich
 \end{align}
 erfüllen.
 
+\noindent
+Wie in Abschnitt \ref{sec:grundlagen} beschrieben finden sowohl elastische als auch inelastische Stöße zwischen Elektronen und Hg-Atomen statt.
+Dabei gibt es je nach Elektronenenergie zwei Fälle.
+Falls die kinetische Energie der Elektronen nicht ausreicht, kommt es ausschließlich zu elastischen Stößen.
+Aufgrund des großen Massenunterschieds zwischen Elektron und Hg-Atom ist die abgegebene Energie des Elektrons vernachlässigbar gering,
+obwohl es enorme Richtungsänderungen erfahren kann.
+Falls $U_\text{B}$ so weit erhöht wird, 
+dass die kinetische Energie der Elektronen mindestens der Energiedifferenz $E_1 - E_0$ aus Formel \eqref{eq:energiedifferenz} entspricht,
+kann das Hg-Atom durch das Elektron in seinen ersten Angeregeten Zustand versetzt werden.
+Nach einer Relaxationszeit der Größenordnung $\qty{10}{\nano\second}$ springt das Atom in seinen Grundzustand zurück.
+Dabei wird ein Photon mit Frequenz $\nu$ der und der Energie 
+\begin{align}
+    E_1 - E_0 = h \nu
+    \label{eq:photon}
+\end{align}
+emittiert, wobei $h$ das Plancksche Wirkungsquantum ist.
+
+\noindent
+Misst man $I_\text{A}$ in Abhängigkeit von $U_\text{B}$ bei konstantem $U_\text{A} < U_\text{B}$, 
+so ergibt sich im Idealfall ein Plot wie in Abbildung \ref{fig:f-h-ideal}.
+Anhand der vorhanden Peaks kann die Anregungsenergie bzw. ein ganzzahliges Vielfaches der Anregungsenergie abgelesen werden.
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 6.5cm]{bilder/franck-hertz-ideal.png}
+    \caption{Ideale Franck-Hertz-Kurve \cite{man:v601}.}
+    \label{fig:f-h-ideal}
+\end{figure}
+\noindent
