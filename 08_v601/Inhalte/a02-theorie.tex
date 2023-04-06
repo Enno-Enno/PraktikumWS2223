@@ -20,6 +20,7 @@ Die Energiemessung der Elektronen erfolgt mittels der Gegenfeldmethode.
 
 
 \subsection{Aufbau und Ablauf des Versuchs}
+\label{sec:aufbau-ablauf}
 Der schematische Aufbau des Franck-Hertz-Versuchs ist in Abbildung \ref{fig:schematischer_aufbau} zu sehen.
 \begin{figure}[H]
     \centering
@@ -29,7 +30,7 @@ Der schematische Aufbau des Franck-Hertz-Versuchs ist in Abbildung \ref{fig:sche
 \end{figure}
 \noindent
 In dem evakuierten Glaskolben befindet sich ein kleiner Tropfen Quecksilber, welcher teilweise spontan verdampft bis sich gemäß der 
-Dampfdruck-Kurve\footnote{vgl. \cite{man:v203}.} eine temperaturabhängige Sättigung $p_\text{sät}$ einstellt.
+Dampfdruck-Kurve\footnote{Vgl. hierzu \cite{man:v203}.} eine temperaturabhängige Sättigung $p_\text{sät}$ einstellt.
 Folglich kann über die Temperatur $T$ die Dampfdichte des Quecksilbers gesteuert werden.
 In dem Gefäß befindet sich ein Glühdraht aus einem hochschmelzendem Metall, z.B. Wolfram.
 Dieser wird durch eine angeschlossene Gleichspannungsquelle bis auf Rotglut erhitzt, 
@@ -52,6 +53,7 @@ die an eine Gegenspannungsquelle $U_\text{A}$ angeschlossen ist und ein Gegenfel
 Somit können nur solche Elektronen mit Geschwindigkeit $v_\text{z}$ in $z$-Richtung die Auffängerelektrode erreichen, die 
 \begin{align}
     \frac{1}{2} m_0 v^2_\text{z} \geq e_0 U_\text{A}
+    \label{eq:v-kriterium}
 \end{align}
 erfüllen.
 
@@ -73,13 +75,90 @@ Dabei wird ein Photon mit Frequenz $\nu$ der und der Energie
 emittiert, wobei $h$ das Plancksche Wirkungsquantum ist.
 
 \noindent
-Misst man $I_\text{A}$ in Abhängigkeit von $U_\text{B}$ bei konstantem $U_\text{A} < U_\text{B}$, 
+Misst man $I_\text{A}$ in Abhängigkeit von $U_\text{B}$ bei konstantem $U_\text{A}$, 
 so ergibt sich im Idealfall ein Plot wie in Abbildung \ref{fig:f-h-ideal}.
-Anhand der vorhanden Peaks kann die Anregungsenergie bzw. ein ganzzahliges Vielfaches der Anregungsenergie abgelesen werden.
+Wird $U_\text{B}$ erhöht, wird $U_\text{A}$ an einer gewissen Stelle überschritten, sodass $I_\text{A}$ stark ansteigt.
+Sobald die Energiedifferenz $E_1 - E_0$ erreicht wird, treten inelastische Stöße auf und die Elektronen geben eben diesen Betrag ab.
+Das führt dazu, dass gar keine Elektronen die Auffängerelektrode erreichen, sodass $I_\text{A} = 0$ gilt.
+Von da aus wiederholt sich der Prozess periodisch, wenn $U_\text{B}$ erhöht wird, da die Elektronen nach dem Stoß auf der Beschleunigungsstrecke weitere Energie aufnehmen. 
+Anhand der vorhanden Peaks im Plot kann also die Anregungsenergie $E_1 - E_0$ bzw. ein ganzzahliges Vielfaches der Energie abgelesen werden.
+Es gibt also die Relation 
+\begin{align}
+    U_1 = \frac{1}{e_0} = \left(E_1 - E_0\right)
+\end{align}
+für den Abstand $U_1$ der Maxima und der Energiedifferenz.
+
 \begin{figure}[H]
     \centering
     \includegraphics[height = 6.5cm]{bilder/franck-hertz-ideal.png}
-    \caption{Ideale Franck-Hertz-Kurve \cite{man:v601}.}
+    \caption{Die ideale Franck-Hertz-Kurve \cite{man:v601}.}
     \label{fig:f-h-ideal}
+\end{figure}
+\noindent
+
+\subsection{Störeinflüsse auf die ideale Franck-Hertz-Kurve}
+Die ideale Franck-Hertz-Kurve \ref{fig:f-h-ideal} kann im Realfall nicht erreicht werden, was mit folgenden Nebeneffekten zusammenhängt.
+
+\subsubsection{Kontaktpotential $K$}
+Haben der Glüdraht und die Beschleunigungselektrode ungleiche Austrittsarbeiten, kommt es zu einem effektiven Beschleunigungspotential $U_\text{B,eff}$,
+welches von der angelegten Spannung $U_\text{B}$ verschieden ist.
+Die Austrittsarbeit des Materials des Glühdrahtes $\phi_\text{G}$ ist deutlich kleiner als die der Beschleunigungselektrode $phi_\text{B}$,
+damit auch bei kleinen Temperaturen $T$ hohe Emissionsraten vorliegen.
+Das Potentialgefälle ist in Abbildung \ref{fig:potential} zu sehen.
+Zur Beschreibung eben dieses Gefälles wird das Kontaktpotential 
+\begin{align}
+    K = \frac{1}{e_0} \left(\phi_\text{B}- \phi_\text{G}\right)
+    \label{eq:kontaktpotential}
+\end{align}
+eingeführt, sodass sich nach Abbildung \ref{fig:potential} 
+\begin{align}
+    U_\text{B,eff} = U_\text{B} - K
+    \label{eq:u-b-eff}
+\end{align}
+ergibt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 6.5cm]{bilder/potential.png}
+    \caption{Eine Darstellung des Potentialgefälles der Elektroden \cite{man:v601}.}
+    \label{fig:potenital}
+\end{figure}
+\noindent
+
+\subsubsection{Das Energiespektrum der Elektronen}
+Die Elektronen im Inneren eines Metalles unterliegen der Fermi-Dirac-Verteilung, d.h. sie haben unterschiedliche Energien \cite{man:v504}.
+Somit treten sie beim glühelektrischen Effekt mit unterschiedlichen Anfangsgeschwindigkeiten aus dem Draht.
+Nach dem Durchlaufen der Beschleunigungsstrecke liegt demnach eine kontinuierliche Energieverteilung vor.
+Die inelastischen Stöße finden also nicht bei einem festen $U_\text{B}$ sondern bei einem endlichen Bereich um diese.
+Dadurch wird der Anstieg der Kurve zum Maximum hin verringert.
+Im Anschluss wird die Kurve stetig auf ein lokales Minimum sinken.
+
+\noindent
+Die elastischen Stöße zwischen Glühdraht und Beschleunigungselektrode tragen aufgrund der geringen Energieabgabe nicht signifikant zu einer Veränderung der Kurve bei.
+Finden diese Stöße jedoch zwischen Beschleunigungs- und Auffängerelektrode statt, entsteht eine Verteilung von $v_\text{z}$ (vgl. Abschnitt \ref{sec:aufbau-ablauf}).
+Dadurch wird die Kurve abgeflacht und gestreckt.
+
+\subsubsection{Der Dampfdruck}
+Damit ausreichend viele Stöße auftreten können, muss die mittlere freie Weglänge $\bar{w}$ klein im Vergleich zum Abstand $a$ zwischen Kathode und Beschleunigungselektrode sein.
+Es sollte etwa ein Faktor 1000 bis 4000 vorliegen.
+Hier beträgt $a = \qty{1}{\cm}$.
+Dabei gilt der Zusammenhang 
+\begin{align}
+    \bar{w} = \frac{0.0029}{p_\text{sät}}
+\end{align} 
+zwischen $\bar{w}$ in Zentimetern und dem Sättigungsdampfdruck $p_\text{sät}$ in Millibar.
+Die Dampfdruck-Kurve von Hg kann gemäß 
+\begin{align}
+    p_\text{sät}(T) = 5.5 \cdot 10^7 \cdot \exp(-\frac{6876}{T})
+\end{align}
+in Abhängigkeit der Temperatur $T$ bestimmt werden, wobei $p_\text{sät}$ hier in Millibar und $T$ in Kelvin angegeben wird.
+Der zugehörige Plot ist in Abbildung \ref{fig:dampfdruck} zu sehen.
+Somit kann die Temperatur $T$ bestimmt werden, bei der der Franck-Hertz-Effekt eintritt.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 10cm]{bilder/dampfdruck.png}
+    \caption{Die Dampfdruck-Kurve von Hg \cite{man:v601}.}
+    \label{fig:dampfdruck}
 \end{figure}
 \noindent
