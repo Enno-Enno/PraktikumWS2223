@@ -1,4 +1,5 @@
-\section[Theorie]{{Theorie\footnote{Unter Verwendung der Quelle \cite{man:v601}.}}}
+\section[Theorie]{{Theorie\footnote[1]
+{Unter Verwendung von \cite{man:v601}.}}}
 
 \subsection{Grundlagen}
 \label{sec:grundlagen}
@@ -30,14 +31,18 @@ Der schematische Aufbau des Franck-Hertz-Versuchs ist in Abbildung \ref{fig:sche
 \end{figure}
 \noindent
 In dem evakuierten Glaskolben befindet sich ein kleiner Tropfen Quecksilber, welcher teilweise spontan verdampft bis sich gemäß der 
-Dampfdruck-Kurve\footnote{Vgl. hierzu \cite{man:v203}.} eine temperaturabhängige Sättigung $p_\text{sät}$ einstellt.
+Dampfdruck-Kurve\footnote[2]{Vgl. hierzu \cite{man:v203}.} eine temperaturabhängige Sättigung $p_\text{sät}$ einstellt.
 Folglich kann über die Temperatur $T$ die Dampfdichte des Quecksilbers gesteuert werden.
+
+\noindent
 In dem Gefäß befindet sich ein Glühdraht aus einem hochschmelzendem Metall, z.B. Wolfram.
 Dieser wird durch eine angeschlossene Gleichspannungsquelle bis auf Rotglut erhitzt, 
-sodass gemäß des glühelektrischen Effektes Elektronen aus dem Draht gelöst werden.
+sodass gemäß des glühelektrischen Effektes\footnote[3]{Vgl. hierzu \cite{man:v504}.} Elektronen aus dem Draht gelöst werden.
 Bei gegebener Temperatur wird dieser Effekt dadurch verstärkt, dass der Draht mit dem Oxid eines Erdalkalimetalls bestrichen wird,
-welches eine niedrigere Austrittsarbeit als Wolfram hat.
-Außerdem befindet sich eine netzförmige Beschleunigungselektrode im Gefäß, die von außen mit einer positiven Gleichspannung $U_\text{b}$
+welches eine niedrigere Austrittsarbeit\footnotemark[3] als Wolfram hat.
+
+\noindent
+Außerdem befindet sich eine netzförmige Beschleunigungselektrode im Gefäß, die von außen mit einer positiven Gleichspannung $U_\text{B}$
 betrieben wird.
 Durch das entstehende elektrische Feld werden die Elektronen zur Elektrode hin beschleunigt.
 Falls die Elektronen vorher in Ruhe waren, gilt für sie nach der Beschleunigungsstrecke
@@ -65,7 +70,7 @@ Aufgrund des großen Massenunterschieds zwischen Elektron und Hg-Atom ist die ab
 obwohl es enorme Richtungsänderungen erfahren kann.
 Falls $U_\text{B}$ so weit erhöht wird, 
 dass die kinetische Energie der Elektronen mindestens der Energiedifferenz $E_1 - E_0$ aus Formel \eqref{eq:energiedifferenz} entspricht,
-kann das Hg-Atom durch das Elektron in seinen ersten Angeregeten Zustand versetzt werden.
+kann das Hg-Atom durch das Elektron in seinen ersten angeregeten Zustand versetzt werden.
 Nach einer Relaxationszeit der Größenordnung $\qty{10}{\nano\second}$ springt das Atom in seinen Grundzustand zurück.
 Dabei wird ein Photon mit Frequenz $\nu$ der und der Energie 
 \begin{align}
@@ -77,9 +82,9 @@ emittiert, wobei $h$ das Plancksche Wirkungsquantum ist.
 \noindent
 Misst man $I_\text{A}$ in Abhängigkeit von $U_\text{B}$ bei konstantem $U_\text{A}$, 
 so ergibt sich im Idealfall ein Plot wie in Abbildung \ref{fig:f-h-ideal}.
-Wird $U_\text{B}$ erhöht, wird $U_\text{A}$ an einer gewissen Stelle überschritten, sodass $I_\text{A}$ stark ansteigt.
-Sobald die Energiedifferenz $E_1 - E_0$ erreicht wird, treten inelastische Stöße auf und die Elektronen geben eben diesen Betrag ab.
-Das führt dazu, dass gar keine Elektronen die Auffängerelektrode erreichen, sodass $I_\text{A} = 0$ gilt.
+Bei steigendem $U_\text{B}$ wird $U_\text{A}$ an einer gewissen Stelle überschritten, sodass $I_\text{A}$ stark ansteigt.
+Sobald die Energiedifferenz $E_1 - E_0$ erreicht wird, treten inelastische Stöße auf und die Elektronen geben eben diesen Energiebetrag ab.
+Das führt dazu, dass gar keine Elektronen die Auffängerelektrode erreichen, weshalb $I_\text{A} = 0$ gilt.
 Von da aus wiederholt sich der Prozess periodisch, wenn $U_\text{B}$ erhöht wird, da die Elektronen nach dem Stoß auf der Beschleunigungsstrecke weitere Energie aufnehmen. 
 Anhand der vorhanden Peaks im Plot kann also die Anregungsenergie $E_1 - E_0$ bzw. ein ganzzahliges Vielfaches der Energie abgelesen werden.
 Es gibt also die Relation 
@@ -102,7 +107,7 @@ Die ideale Franck-Hertz-Kurve \ref{fig:f-h-ideal} kann im Realfall nicht erreich
 \subsubsection{Kontaktpotential $K$}
 Haben der Glüdraht und die Beschleunigungselektrode ungleiche Austrittsarbeiten, kommt es zu einem effektiven Beschleunigungspotential $U_\text{B,eff}$,
 welches von der angelegten Spannung $U_\text{B}$ verschieden ist.
-Die Austrittsarbeit des Materials des Glühdrahtes $\phi_\text{G}$ ist deutlich kleiner als die der Beschleunigungselektrode $phi_\text{B}$,
+Die Austrittsarbeit des Materials des Glühdrahtes $\phi_\text{G}$ ist deutlich kleiner als die der Beschleunigungselektrode $\phi_\text{B}$,
 damit auch bei kleinen Temperaturen $T$ hohe Emissionsraten vorliegen.
 Das Potentialgefälle ist in Abbildung \ref{fig:potential} zu sehen.
 Zur Beschreibung eben dieses Gefälles wird das Kontaktpotential 
@@ -121,7 +126,7 @@ ergibt.
     \centering
     \includegraphics[height = 6.5cm]{bilder/potential.png}
     \caption{Eine Darstellung des Potentialgefälles der Elektroden \cite{man:v601}.}
-    \label{fig:potenital}
+    \label{fig:potential}
 \end{figure}
 \noindent
 
@@ -129,7 +134,7 @@ ergibt.
 Die Elektronen im Inneren eines Metalles unterliegen der Fermi-Dirac-Verteilung, d.h. sie haben unterschiedliche Energien \cite{man:v504}.
 Somit treten sie beim glühelektrischen Effekt mit unterschiedlichen Anfangsgeschwindigkeiten aus dem Draht.
 Nach dem Durchlaufen der Beschleunigungsstrecke liegt demnach eine kontinuierliche Energieverteilung vor.
-Die inelastischen Stöße finden also nicht bei einem festen $U_\text{B}$ sondern bei einem endlichen Bereich um diese.
+Die inelastischen Stöße finden also nicht bei einem festen $U_\text{B}$ sondern bei einem endlichen Bereich um diese statt.
 Dadurch wird der Anstieg der Kurve zum Maximum hin verringert.
 Im Anschluss wird die Kurve stetig auf ein lokales Minimum sinken.
 
@@ -149,7 +154,7 @@ Dabei gilt der Zusammenhang
 zwischen $\bar{w}$ in Zentimetern und dem Sättigungsdampfdruck $p_\text{sät}$ in Millibar.
 Die Dampfdruck-Kurve von Hg kann gemäß 
 \begin{align}
-    p_\text{sät}(T) = \num{5.5} \cdot 10^7 \cdot \exp(-\frac{6876}{T})
+    p_\text{sät}(T) = \num{5.5} \cdot 10^7 \cdot \exp\left(-\frac{6876}{T}\right)
 \end{align}
 in Abhängigkeit der Temperatur $T$ bestimmt werden, wobei $p_\text{sät}$ hier in Millibar und $T$ in Kelvin angegeben wird.
 Der zugehörige Plot ist in Abbildung \ref{fig:dampfdruck} zu sehen.
@@ -164,7 +169,7 @@ Der zugehörige Plot ist in Abbildung \ref{fig:dampfdruck} zu sehen.
 
 \noindent
 Es gibt also ein Dampfdruckintervall, in dem die Apparatur am besten arbeitet.
-Liegt $p_\text{sät}$ unterhalb, ist es zunehmend wahrscheinlich, dass keine Stöße stattfinden.
+Liegt $p_\text{sät}$ unterhalb, ist es zunehmend unwahrscheinlich, dass Stöße stattfinden.
 Ist in diesem Fall $U_\text{B}$ groß genug, würde die kinetische Energie der Elektronen theoretisch auch für höhere Anregungszustände ausreichen.
 Tatsächlich ist die Wechselwirkungswahrschienlichkeit hier zu klein.
 Wird $p_\text{sät}$ zu groß gewählt, treten mehr elastische Stöße auf.
@@ -172,9 +177,9 @@ Durch die starken Richtungsänderungen nimmt die Zahl der Elektronen, die die Au
 
 
 \subsection{Aufbau der Elektronenhülle}
-Der Übergang vom Grund-in den ersten angeregten Zustand bei Atomen mit einer hohen Protonenanzahl z wie Hg ist relativ unwahrscheinlich,
+Der Übergang vom Grund- in den ersten angeregten Zustand bei Atomen mit einer hohen Protonenanzahl z wie Hg ist relativ unwahrscheinlich,
 da hierfür ein Umklappen des Elektronenspins erforderlich ist.
 Bei einer kleinen Anzahl z ist der Übergang fast unmöglich.
 Wenn allerdings ein Elektron das Atom anregt, so wie es bei diesem Versuch der Fall ist,
 wird die Wahrscheinlichkeit stark erhöht.
-Das hängt damit zusammen, dass das Elektron, welches mit dem Atom stößt, eines von zweien Schalenelektronen mit entgegen gesetzter Spinrichtung ersetzt.
+Das hängt damit zusammen, dass das Elektron, welches mit dem Atom stößt, eines von zweien Schalenelektronen mit entgegengesetzter Spinrichtung ersetzt.
