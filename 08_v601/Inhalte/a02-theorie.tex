@@ -149,11 +149,11 @@ Dabei gilt der Zusammenhang
 zwischen $\bar{w}$ in Zentimetern und dem Sättigungsdampfdruck $p_\text{sät}$ in Millibar.
 Die Dampfdruck-Kurve von Hg kann gemäß 
 \begin{align}
-    p_\text{sät}(T) = 5.5 \cdot 10^7 \cdot \exp(-\frac{6876}{T})
+    p_\text{sät}(T) = \num{5.5} \cdot 10^7 \cdot \exp(-\frac{6876}{T})
 \end{align}
 in Abhängigkeit der Temperatur $T$ bestimmt werden, wobei $p_\text{sät}$ hier in Millibar und $T$ in Kelvin angegeben wird.
 Der zugehörige Plot ist in Abbildung \ref{fig:dampfdruck} zu sehen.
-Somit kann die Temperatur $T$ bestimmt werden, bei der der Franck-Hertz-Effekt eintritt.
+% Somit kann die Temperatur $T$ bestimmt werden, bei der der Franck-Hertz-Effekt eintritt.
 
 \begin{figure}[H]
     \centering
@@ -161,4 +161,20 @@ Somit kann die Temperatur $T$ bestimmt werden, bei der der Franck-Hertz-Effekt e
     \caption{Die Dampfdruck-Kurve von Hg \cite{man:v601}.}
     \label{fig:dampfdruck}
 \end{figure}
+
 \noindent
+Es gibt also ein Dampfdruckintervall, in dem die Apparatur am besten arbeitet.
+Liegt $p_\text{sät}$ unterhalb, ist es zunehmend wahrscheinlich, dass keine Stöße stattfinden.
+Ist in diesem Fall $U_\text{B}$ groß genug, würde die kinetische Energie der Elektronen theoretisch auch für höhere Anregungszustände ausreichen.
+Tatsächlich ist die Wechselwirkungswahrschienlichkeit hier zu klein.
+Wird $p_\text{sät}$ zu groß gewählt, treten mehr elastische Stöße auf.
+Durch die starken Richtungsänderungen nimmt die Zahl der Elektronen, die die Auffängerelektrode erreichen deutlich ab.
+
+
+\subsection{Aufbau der Elektronenhülle}
+Der Übergang vom Grund-in den ersten angeregten Zustand bei Atomen mit einer hohen Protonenanzahl z wie Hg ist relativ unwahrscheinlich,
+da hierfür ein Umklappen des Elektronenspins erforderlich ist.
+Bei einer kleinen Anzahl z ist der Übergang fast unmöglich.
+Wenn allerdings ein Elektron das Atom anregt, so wie es bei diesem Versuch der Fall ist,
+wird die Wahrscheinlichkeit stark erhöht.
+Das hängt damit zusammen, dass das Elektron, welches mit dem Atom stößt, eines von zweien Schalenelektronen mit entgegen gesetzter Spinrichtung ersetzt.
