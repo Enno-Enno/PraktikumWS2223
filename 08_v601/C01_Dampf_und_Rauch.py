@@ -61,9 +61,10 @@ print()
 print("Berechnung Wellenlänge")
 print("h", const.h)
 print("c", const.c)
+print("e_0", const.e)
 
-C_lambda = const.h * const.c / C_u_dist_real
-D_lambda = const.h * const.c / D_u_dist_real
+C_lambda = const.h * const.c / (C_u_dist_real * const.e)
+D_lambda = const.h * const.c / (D_u_dist_real * const.e)
 
 print("C_lambda", C_lambda)
 print("D_lambda", D_lambda)
