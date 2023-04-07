@@ -26,8 +26,8 @@ Für die Berechnungen werden die Mittelpunkte der Temperaturverteilungen genomme
         D  & 193 & 466 & 21.488  & 0.1 e-3 \\ 
         \bottomrule
     \end{tabular}
-    \label{tab:dampfdruck}
     \caption{Dampfdruck und mittlere Weglänge bei den verwendeten Temperaturen.}
+    \label{tab:dampfdruck}
 \end{table}
 
 \noindent
@@ -36,7 +36,7 @@ Bei der hier verwendeten Röhre ist diese Strecke etwa \qty{1}{\cm} lang.
 Bei der Messung A ist der Der Frank Hertz Effekt, demnach noch nicht zu beobachten. 
 Bei den Messungen B bis D ist er aber relevant.
  
-\subsection{Integrale Energieverteilung der Elektronen}
+\subsection{Analyse der Energieverteilung der Elektronen}
 In der Messung A wird zunächst das Kontaktpotenzial $K$ ermittelt. 
 Der Wendepunkt der Stromkurve ist die Stelle bei der die effektive Beschleunigungsspannung $U_\text{B,eff}$ und
 die Bremsspannung im Gleichgewicht liegen.
@@ -48,3 +48,21 @@ Er liegt bei
     K &= \qty{10}{\volt} - \qty{8.94}{\volt} = \qty{1.06}{\volt}
 \end{align}
 verschoben.
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Abbildungen/v601_A.pdf}
+    \caption{Die Ergebnisse der Messung A.}
+    \label{fig:messung_a}
+\end{figure}
+
+\noindent
+Aus der integralen Energieverteilung der Elektronen in Messung A kann auf die Geschwindigkeitsverteilung
+bzw die differenzielle Energieverteilung geschlossen werden.
+In Messung A haben die meisten Elektronen eine Energie entsprechend der \qty{8.94}{\volt} effektiver Beschleunigungsspannung.
+In Messung B beschreibt die integrale Energieverteilung im Bereich \qty{0}{\volt} bis \qty{4}{\volt} einen Linear abfallenden Zusammenhang.
+Bei Bremsspannungen größer als 4 Volt zeigt das Messgerät einen negativen Strom an, was hier als Fehler des Messgerätes interpretiert wird.
+Die Form der Kurve flacht in diesem Bereich auch deutlich ab.
+Die Energieverteilung der Elektronen ist demnach im Bereich 0 bis 4 \unit{\volt} gleichmäßig hoch und ist in einem Bereich größer als
+\qty{4}{\volt} nahe der null.
+
+\subsection{Auswertung der Franck-Hertz-Kurve}
