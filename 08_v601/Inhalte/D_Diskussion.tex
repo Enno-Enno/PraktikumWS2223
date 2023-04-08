@@ -1,5 +1,6 @@
 \section{Diskussion}
 \subsection{Temperatur}
+\label{sec:temperatur}
 Ein systematischer Fehler ist bei der Temperatur vorhanden:
 Die am Temperaturregler eingestellten Temperaturen $T$ schwanken in einem Bereich von ca. $\qty[]{10}{\celsius}$.
 Da $T$ allerdings nicht in Abhängigkeit der jeweils gemessenen Spannung $U$ dokumentiert wurde, 
@@ -43,9 +44,45 @@ Ferner gibt es keine Literaturwerte für $K$, sondern nur für die Ionisierungse
 In die Bestimmung der Ionisierungsenergie in diesem Versuch wäre $K$ eingeflossen.
 Da der entsprechende Versuchsteil nicht durchgeführt wurde, können keine Rückschlüsse auf die Genauigkeit des hier bestimmten Kontaktpotentials $K$ gezogen werden.
 
+\noindent
+Die Energie der meisten Elektronen beträgt $\qty[]{8.94}{\electronvolt}$, wobei auch hier die zuvor beschriebenen systematischen Fehler einfließen.
 
 
+\subsection{Franck-Hertz-Kurve}
+Die unregelmäßigen Schwankungen im hinteren Drittel von Abbildung \ref{fig:messung_d} lassen sich durch einen Fehler in der Durchführung erklären.
+Es wurde ein Kabel, das entlang des heißen Gehäuses verlief, leicht verschoben. 
+Unmittelbar danach traten die Schwankungen auf, weshalb mit hoher Wahrscheinlichkeit ein kausaler Zusammenhang besteht.
+Dieser Messbereich wurde in der Auswertung vernachlässigt, um Fehler zu vermeiden.
 
+\noindent
+Die Abstände der Peaks $U_1$ in Versuchsteil C und D überschneiden sich vollständig mit ihren Fehlerbalken.
+Trotz einer sehr fehleranfälligen Messung (vgl. die Abschnitte \ref{sec:temperatur} und \ref{sec:geraete}) sowie 
+möglichen Ablesefehlern beim Umgang mit dem Millimeterpapier sind also die Messergebnisse der Franck-Hertz-Kurve in sich konsistent.
+Auch im Vergleich zum Literaturwert von $E_\text{1,lit} = \qty[]{4.9}{\electronvolt}$ (vgl. \cite[]{energieniveaus}) gibt es große Übereinstimmungen:
+die relativen Abweichungen betragen jeweils
+\begin{align*}
+    \frac{|E_\text{1,lit} - E_\text{1,C}|}{E_\text{1,C}} &= (\num[]{1} \pm \num[]{4}) \, \%, &
+    \frac{|E_\text{1,lit} - E_\text{1,D}|}{E_\text{1,D}} &= (\num[]{2} \pm \num[]{9}) \, \%.
+    %abwe c:  0.01+/-0.04
+    %abwe d:  -0.02+/-0.09
+\end{align*}
+Die geringen Abweichungen hängen damit zusammen, dass ausschließlich die statistischen Fehler von $N_\text{dist}$ und $N_\text{scale}$ in die Berechnung mit einfließen.
+Faktoren wie die erheblichen Temperaturschwankungen wurden vernachlässigt.
+Auch hier können somit systematische Fehler bzw. ihre Konsequenzen nicht genauer quantifiziert werden.
+Dennoch ist davon auszugehen, dass das Rechnen mit den mittleren Temperaturbereichen $T$ eine gute Annahme war.
+Desweiteren äußern sich die um den Faktor 3 unterschiedlichen Dampfdruckwerte (vgl. Tabelle \ref{tab:dampfdruck}) dadurch,
+dass in Messreihe D mit dem höheren Druck mehr Wechselwirkungen stattfinden.
+Dies sorgt wiederrum dafür, dass der Strom $I_\text{A}$ in D insgesamt niedriger ist, da weniger Elektronen die Auffanganode erreichen.
+
+\noindent
+Die resultierenden Wellenlängen $\lambda_C = \qty{ 251 +- 011 }{\nano\m}$ und $\lambda_D= \qty{258 +- 023}{\nano\m}$ liegen außerhalb des sichtbaren Bereichs.
+
+\noindent
+Die in Abschnitt \ref{sec:aufbau-ablauf} beschriebenen elastischen Stöße beeinflussen die Franck-Hertz-Kurven in Teil C und D insofern, 
+dass die Elektronen starke Richtungsänderungen erfahren können.
+Sofern diese Wechselwirkungen zwischen den beiden Elektroden stattfinden, sorgen sie für eine Abflachung und Streckung der Kurve.
+Der Energieverlust beim zentralen elastischen Stoß muss demnach nicht berücksichtigt werden. 
+Nur die daraus resultierenden Richtungsänderungen und Streckung des Graphen können das Ablesen erschweren.
 
 %alle möglichen regler sind arbitrary units
 
