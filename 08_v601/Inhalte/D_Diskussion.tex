@@ -1,5 +1,6 @@
 \section{Diskussion}
 \subsection{Temperatur}
+Ein systematischer Fehler ist bei der Temperatur vorhanden:
 Die am Temperaturregler eingestellten Temperaturen $T$ schwanken in einem Bereich von ca. $\qty[]{10}{\celsius}$.
 Da $T$ allerdings nicht in Abhängigkeit der jeweils gemessenen Spannung $U$ dokumentiert wurde, 
 sondern immer nur zwischendurch in unregelmäßigen Abständen abgelesen wurde, kann dieser Bereich nicht genauer eingegrenzt werden.
@@ -7,12 +8,51 @@ sondern immer nur zwischendurch in unregelmäßigen Abständen abgelesen wurde, 
 %oberhalb des Mittelwertes war.
 Augenscheinlich haben sowohl $T$ als auch die Zeitintervalle eines Temperaturbereichs fast willkürlich fluktuiert.
 Somit gibt es keine näheren Informationen über die Temperaturverteilung.
-Für eine etwas bessere Abschätzung wurde zwar stets der Mittelwert der (folgich insgesamt ungenau angegebenen) Temperaturintervalle verwendet,
+Für eine etwas bessere Abschätzung wurde zwar stets der Mittelwert der (folglich insgesamt ungenau angegebenen) Temperaturintervalle verwendet,
 eine etwaige Fehlerrechnung hätte aufgrund des Mangels an Daten allerdings keine große Aussagekraft, weshalb auf diese verzichtet wurde.
 
 \noindent
 Mit den in Abschnitt \ref{sec:dampfdruck_auswertung} berechneten Werten für den Dampfdruck $p_\text{sät}$ 
-kann nachgewiesen werden, dass die mittlere Weglänge $\overline{w}$ im Versuchsteil A nicht zum Franck-Hertz-Effekt führt.
-%Temperatur sehr ungenau
-%U_B maximal bei 55V
+kann nachgewiesen werden, dass die mittlere freie Weglänge $\overline{w}$ im Versuchsteil A nicht zum Franck-Hertz-Effekt führt, 
+während er bei B bis D auftritt.
+In Teil B ist dies nicht erwünscht, da hier die Wechselwirkungen zwischen Elektronen und Atomen die Messung der Energieverteilung beeinflussen könnten.
+%Tabelle \ref{tab:dampfdruck} ist zu entnehmen, dass $a/\overline{w} = 1428$ beträgt.
+Da anhand des Plots \ref{fig:messung_b} Rückschlüsse auf einen Fehler des Spannungs- bzw. Messgeräts gezogen werden können (vgl. Abschnitt \ref{sec:geraete})
+und ein Bestimmen des Kontaktpotentials $K$ dadurch nicht möglich ist, kann nicht quantifiziert werden, in wie weit die höhere Anzahl an Stößen die Messung in B stören. 
+
+
+
+\subsection{Messgeräte und Spannungsquellen}
+\label{sec:geraete}
+Auch bei den Spannungsquellen bzw. den Spannungs- und Stromstärkemessgeräten liegen systematische Fehler vor.
+Zum einen geht die Skala von $U_\text{B}$ eigentlich bis zu $\qty[]{60}{\volt}$, tatsächlich werden maximal ca. $\qty[]{55}{\volt}$ angezeigt.
+Es ist nicht sicher, ob die Skala insgesamt verschoben ist oder ob der Maximalwert wegen einer technischen Ursache nicht erreicht werden kann.
+Andererseits ist in Abbildung \ref{fig:messung_b} zu sehen, dass die Stromstärke $I_\text{A}$ ab $U_\text{A} \geq \qty[]{4}{\volt}$ angeblich negativ wird.
+Es könnte hier argumentiert werden, dass ionisierte Atome von der Auffängerelektrode angezogen werden und somit für den negativen Strom sorgen.
+Allerdings haben die Messreihen C und D nach Tabelle \ref{tab:dampfdruck} noch kleinere Weglängen $\overline{w}$, wodurch mehr Stöße als in Teil B geschehen,
+bei denen die Atome ionisiert werden könnten.
+Dies ist in den Abbildungen \ref{fig:messung_c} und \ref{fig:messung_d} durch eine etwaige Verschiebung des Stromes ab eines gewissen Grenzwertes nicht erkennbar, 
+weshalb hier auf einen Fehler des Picoamperemeters bzw. der Gleichspannungsquelle $U_\text{B}$ zu schließen ist. 
+
+
+
+\subsection{Energieverteilung der Elektronen}
+In Abschnitt \ref{sec:energie_auswertung} konnte das Kontaktpotential $K$ in Messreihe A zu $\qty{1.06}{\volt}$ bestimmt werden.
+Aufgrund des in Abschnitt \ref{sec:geraete} beschriebenen Fehlers des Messgeräts kann dieses Ergebnis nicht mit anderen Messungen geprüft werden.
+Ferner gibt es keine Literaturwerte für $K$, sondern nur für die Ionisierungsenergie von Hg.
+In die Bestimmung der Ionisierungsenergie in diesem Versuch wäre $K$ eingeflossen.
+Da der entsprechende Versuchsteil nicht durchgeführt wurde, können keine Rückschlüsse auf die Genauigkeit des hier bestimmten Kontaktpotentials $K$ gezogen werden.
+
+
+
+
+
 %alle möglichen regler sind arbitrary units
+
+
+
+
+%\subsection{Ulli}
+%aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+
