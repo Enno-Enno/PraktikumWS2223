@@ -42,7 +42,9 @@ Bei den Messungen B bis D ist er aber relevant.
 In der Messung A wird zunächst das Kontaktpotenzial $K$ ermittelt. 
 Der Wendepunkt der Stromkurve ist die Stelle bei der die effektive Beschleunigungsspannung $U_\text{B,eff}$ und
 die Bremsspannung im Gleichgewicht liegen.
-In Abbildung \textbf{Referenz} kann der Wendepunkt abgelesen werden.
+In Abbildung \ref{fig:messung_a} kann der Wendepunkt abgelesen werden.
+Hierbei wird keine Fehlerrechnung gemacht, da es sich nur um einen Punkt handelt.
+Die Abstände des Wendepunktes von den beiden benachbarten Skalenpunkten sind hier die beste Abschätzung des wahren Wertes.
 Er liegt bei 
 \begin{align}
     U_A &= \left(8 + 2 \frac{23}{49}\right) \unit{\volt}  = \qty{8.94}{\volt}.
@@ -50,10 +52,16 @@ Er liegt bei
     K &= \qty{10}{\volt} - \qty{8.94}{\volt} = \qty{1.06}{\volt}
 \end{align}
 verschoben.
-\begin{figure}
+\begin{figure}[h]
     \centering
-    \includegraphics[width=\textwidth]{Abbildungen/Messung_A.pdf}
+    \includegraphics[width=\textwidth, height=0.4\textheight]{Abbildungen/Messung_A.pdf}
     \caption{Die Ergebnisse der Messung A.}
+    \label{fig:messung_a}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{Abbildungen/Messung_B.pdf}
+    \caption{Die Ergebnisse der Messung B.}
     \label{fig:messung_a}
 \end{figure}
 
@@ -68,6 +76,19 @@ Die Energieverteilung der Elektronen ist demnach im Bereich 0 bis 4 \unit{\volt}
 \qty{4}{\volt} nahe der null.
 
 \subsection{Auswertung der Franck-Hertz-Kurve}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Abbildungen/Messung_C.pdf}
+    \caption{Franck-Hertz-Kurve in der Messung C.}
+    \label{fig:messung_a}
+\end{figure}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{Abbildungen/Messung_D.pdf}
+    \caption{Franck-Hertz-Kurve der Messung D.}
+    \label{fig:messung_a}
+\end{figure}
+
 Um das Energieniveau der Übergänge in den Hg-Atomen zu messen werden die Maxima der Franck-Hertz-Kurve in den Messungen C und D
 ausgewertet.
 Zunächst werden per Hand die Maxima der Kurve auf dem Millimeterpapier bestimmt und die Abstände $N_\text{dist}$ zwischen den
@@ -133,7 +154,7 @@ In Versuch D ergibt sich aus den Werten $N_\text{scale, D} = \num{20.3 +- 1.5}$ 
 ein Abstand von $U_{1,D} = \qty{4.8 +- 0.4}{\volt}$.
 
 \subsubsection{Berechnung der emittierten Wellenlänge}
-Nach der Formel (\textbf{Referenz}) wird die Wellenlänge der emittierten Strahlung gemessen.
+Nach der den Formeln \eqref{eq:photon} und \eqref{eq:U_1} wird die Wellenlänge der emittierten Strahlung gemessen.
 \begin{align}
     \lambda = \frac{c}{\nu} = \frac{c \cdot h}{e_0 \cdot U_1}
 \end{align}
