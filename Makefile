@@ -8,8 +8,10 @@ all:
 #	$(MAKE) -C 04_v308
 #	$(MAKE) -C 05_v353
 #   $(MAKE) -C 06_v354
-	$(MAKE) -C 07_v103
+#	$(MAKE) -C 07_v103
 	$(MAKE) -C 08_v601
+	$(MAKE) -C 09_us1
+	
 
 
 
@@ -22,8 +24,10 @@ clean:
 #	$(MAKE) -C 03_v303 clean
 #	$(MAKE) -C 04_v308 clean
 #	$(MAKE) -C 05_v353 clean
-	$(MAKE) -C 06_v354 clean
-	$(MAKE) -C 07_v103 clean
+#	$(MAKE) -C 06_v354 clean
+#	$(MAKE) -C 07_v103 clean
+	$(MAKE) -C 08_v601 clean
+	$(MAKE) -C 09_us1 clean
 
 
 .PHONY: all clean
