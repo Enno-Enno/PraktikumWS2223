@@ -16,7 +16,7 @@ Mit dem Programm \enquote{AScan} am Rechner können die Daten angezeigt, ausgewe
 Außerdem kann die Scanart gewählt werden.
 Beim A-Scan können die Signale als Funktion der Zeit oder der Eindringtiefe angezeigt werden.
 Zur Bestimmung der Tiefe muss die Schallgeschwindigkeit im jeweiligen Medium eibgegeben werden.
-Mittels der FFT-Taste könne ndie gemessenen Frequenzen angegeben werden.
+Mittels der FFT-Taste können die gemessenen Frequenzen angegeben werden.
 
 
 
@@ -28,12 +28,41 @@ Eine Darstellung des Blocks mit einer Nummerierung der Löcher ist in Abbildung 
 \begin{figure}[H]
     \centering
     \includegraphics*[height=3.5cm]{Abbildungen/acrylblock.png}
-    \caption*{Darstellung des Acrylblocks \cite[]{man:us1}.}
+    \caption{Darstellung des Acrylblocks \cite[]{man:us1}.}
     \label{fig:acrylblock}
 \end{figure}
 
-\noindent
-Im ersten Versuchsteil soll die Schallgeschwindigkeit in Acryl bestimmt werden.
-Hierzu werden die Schalllaufzeiten für insgesamt sieben Löcher untersucht.
-Durch die Anpassungsschicht der Sonde tritt hierbei eine systematische Abweichung auf, die zu bestimmen ist.
+\subsection{Schallgeschwindigkeit in Acryl}
+Im ersten Versuchsteil soll die Schallgeschwindigkeit in Acryl mittels eines A-Scans bestimmt werden.
+Der Block wird auf ein Papiertuch gelegt und das Wasser als Kontaktmittel auf die obere Fläche gegeben.
+Es werden die Schalllaufzeiten für insgesamt sieben Löcher bei einer Frequenz von $\qty[]{2}{\mega\hertz}$ untersucht, 
+indem die Sonde auf die jeweilige Stelle am Block gehalten wird, die sich oberhalb des Lochs befindet. 
+Im Anschluss wird der Block umgedreht und der Vorgang wiederholt, sodass sich insgesamt 14 Messwerte ergeben.
+Durch die Anpassungsschicht der Sonde tritt hierbei eine systematische Abweichung auf, die ebenfalls zu bestimmen ist.
 
+
+\subsection{Lage und Größe der Löcher}
+In diesem Versuchsteil sollen Position und Durchmesser der Löcher bestimmt werden.
+Analog zur ersten Reihe wird der Block wieder mit Wasser beträufelt und die gleiche Sonde verwendet.
+Auch hier werden für jedes Loch ein A-Scan gemacht, zuerst von oben und nach Rotation und Beträufelung des Blocks von unten.
+
+
+\subsection{Auflösungsvermögen}
+Beim dritten Versuchsteil werden an den beiden benachbarten Fehlstellen des Blocks (vgl. Abbildung \ref{fig:acrylblock})
+A-Scans mit beiden Sonden durchgeführt und ihre Grafiken gespeichert, um zu ermitteln, welche der beiden Frequenzen eine höher Auflösung hat.
+
+\subsection{B-Scan am Acrylblock}
+In diesem Teil soll die Lage der Bohrungen mittels eines B-Scans und der $\qty[]{2}{\mega\hertz}$ Sonde von beiden Seiten ermittelt werden.
+Erneut wird Wasser auf den Block gegeben und die Sonde aufgesetzt.
+Anschließend wird der B-Scan gestartet und die Sonde möglichst gleichmäßig bewegt, um ein zweidimensionales Bild am Computer zu erzeugen.
+Die Scans werden erneut von beiden Seiten durchgeführt.
+
+\subsection{Untersuchung des Brustmodells}
+Ein Brustmodell soll mit der $\qty[]{2}{\mega\hertz}$ Sonde auf Tumore untersucht werden.
+Das bereitstehende Brustmodell hat zwei Tumore.
+Der erste ist eine Zyste, also ein mit Flüssigkeit gefüllter Hohlraum.
+Der zweite Tumor besteht aus festem Gewebe.
+Die grobe Position der beiden Tumor wird zunächst mit der Hand ertastet.
+Anschließend wird das Kontaktgel aufgetragen und für jeden Tumor mindestens ein B-Scan durchgeführt, der entlang einer geraden Linie verläuft
+und den Tumor möglichst gut abbildet.
+Die Bilder werden erneut exportiert.
