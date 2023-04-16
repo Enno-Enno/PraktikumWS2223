@@ -64,3 +64,5 @@ for index, A in enumerate(Nr):
 
 print("x_Block_schall_korr:",x_Block_schall_korr)
 print("x_Block:", x_Block)
+
+tb_Block = 60.2
