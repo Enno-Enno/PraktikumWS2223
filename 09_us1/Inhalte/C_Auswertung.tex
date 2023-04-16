@@ -21,13 +21,13 @@
         59.50   &  1.45     & 19.45         \\
         \bottomrule
     \end{tabular}
-    \caption{Messungen}
+    \caption{Abmessungen des Acrylblocks}
     \label{tab:messungen}
 \end{table}
-Die Entfernungen der Fehlstellen vom Rand des Acrylblocks von der Seite A werden mit $x_A$ bezeichnet.
+Die Entfernungen der Fehlstellen vom Rand des Acrylblocks von der Seite A werden in Tabelle \ref{tab:messungen} mit $x_A$ bezeichnet.
 Anhand des Lochdurchmessers $D$ wird und des Blockdurchmessers $x_\text{Block} = \qty{80.40}{\mm}$ wird der 
 Abstand zum Rand des Blocks auf der B-Seite errechnet.
-Diese Messungen werden in \ref{tab:laufzeiten} den Ergebnissen des A-Scans gegenübergestellt.
+Diese Messungen werden in \ref{tab:schallzeit} den Ergebnissen des A-Scans gegenübergestellt.
 Die Laufzeit des Schalls zur Fehlstelle und zurück wird mit $t_A$ und $t_B$ angegeben.
 Zur Berechnung der Schallgeschwindigkeiten $c_A$ und $c_B$ wird von dieser Laufzeit \qty{1}{\micro\s} abgezogen,
 um die Verzögerung im Wasser und in der Sonde auszugleichen. 
@@ -37,7 +37,9 @@ im Acrylglas.
     \centering
     \sisetup{table-format = :.0}
     \begin{tabular}[pos]{S S S S S}
-        {#}& {$t_A$} & {$t_B$} & {$c_a$} & {$c_a$}
+        \toprule
+        {Nr.}& {$t_A$} & {$t_B$} & {$c_a$} & {$c_b$} \\
+        \midrule
         1       &  11    & 41    & 2800          & 2683          \\
         3       &  46    & 11    & 2730          & 2673          \\
         4       &  40    & 17    & 2750          & 2653          \\
@@ -45,8 +47,14 @@ im Acrylglas.
         6       &  28    & 29    & 2779          & 2659          \\
         7       &  22    & 34    & 2795          & 2691          \\
         8       &  16    & 39    & 2763          & 2736          \\
+        \bottomrule
     \end{tabular}
+    \caption{Laufzeiten und Schallgeschwindigkeiten im Acrylblock \textbf{korrigieren!}}
+    \label{tab:schallzeit}
 \end{table}
-Aus den Werten wird der Mittelwert $\overline{c}$ und die Standardabweichung $\Delta c$ der Messungen mit den bekannten Formeln berechnet.
+Aus den Werten in Tabelle \ref{tab:schallzeit} wird der Mittelwert $\overline{c}$ und die Standardabweichung $\Delta c$ der Messungen mit den bekannten Formeln berechnet.
 Es ergibt sich eine Schallgeschwindigkeit von $c = \qty{2730 +- 50}{\meter\per\second}$.
 
+\subsection{Messung der Fehlstellen mit Ultraschall}
+Um die Tiefe der Fehlstellen korrekt zu bestimmen muss die Korrektur, die bei der Laufzeit für die Schallgeschwindigkeit aufgestellt wurde
+mit einberechnet werden 
