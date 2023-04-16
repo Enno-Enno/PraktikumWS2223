@@ -2,8 +2,12 @@
 \subsection{Schallgeschwindigkeit im Acrylblock}
 
 \begin{table}
+    \centering
+    \sisetup{table-format=2.2}
     \begin{tabular}{S S S}
-        {$x_A/\unit{\mm} $}{$D_b/\unit{\mm}$}{$x_B/\unit{\mm}$}
+        \toprule
+        {$x_A/\unit{\mm} $} & {$D/\unit{\mm}$} & {$x_B/\unit{\mm}$}\\
+        \midrule
         15.40   &  10.00    & 55.00         \\
         71.00   &  2.85     & 6.55          \\
         62.80   &  2.90     & 14.70         \\
@@ -15,6 +19,34 @@
         13.30   &  5.90     & 61.20         \\
         61.15   &  1.45     & 17.80         \\
         59.50   &  1.45     & 19.45         \\
+        \bottomrule
+    \end{tabular}
+    \caption{Messungen}
+    \label{tab:messungen}
+\end{table}
+Die Entfernungen der Fehlstellen vom Rand des Acrylblocks von der Seite A werden mit $x_A$ bezeichnet.
+Anhand des Lochdurchmessers $D$ wird und des Blockdurchmessers $x_\text{Block} = \qty{80.40}{\mm}$ wird der 
+Abstand zum Rand des Blocks auf der B-Seite errechnet.
+Diese Messungen werden in \ref{tab:laufzeiten} den Ergebnissen des A-Scans gegenübergestellt.
+Die Laufzeit des Schalls zur Fehlstelle und zurück wird mit $t_A$ und $t_B$ angegeben.
+Zur Berechnung der Schallgeschwindigkeiten $c_A$ und $c_B$ wird von dieser Laufzeit \qty{1}{\micro\s} abgezogen,
+um die Verzögerung im Wasser und in der Sonde auszugleichen. 
+Dieser Wert entsteht durch vergleichen der Ergebnisse von verschiedenen verschiebungskonstanten mit dem Literaturwert der Schallgeschwindigkeit
+im Acrylglas.
+\begin{table}
+    \centering
+    \sisetup{table-format = :.0}
+    \begin{tabular}[pos]{S S S S S}
+        {#}& {$t_A$} & {$t_B$} & {$c_a$} & {$c_a$}
+        1       &  11    & 41    & 2800          & 2683          \\
+        3       &  46    & 11    & 2730          & 2673          \\
+        4       &  40    & 17    & 2750          & 2653          \\
+        5       &  34    & 22    & 2771          & 2768          \\
+        6       &  28    & 29    & 2779          & 2659          \\
+        7       &  22    & 34    & 2795          & 2691          \\
+        8       &  16    & 39    & 2763          & 2736          \\
     \end{tabular}
 \end{table}
-Die 
+Aus den Werten wird der Mittelwert $\overline{c}$ und die Standardabweichung $\Delta c$ der Messungen mit den bekannten Formeln berechnet.
+Es ergibt sich eine Schallgeschwindigkeit von $c = \qty{2730 +- 50}{\meter\per\second}$.
+
