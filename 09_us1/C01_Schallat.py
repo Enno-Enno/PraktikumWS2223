@@ -45,3 +45,22 @@ print("speed:", speed)
 # plt.legend()
 # plt.savefig("build/testfigure.pdf")
 
+Nr, x_schall_b, x_schall_a = np.genfromtxt("C01d_x-Schall.txt", unpack=True)
+s1 = 0.5 * 2730 * 1e-3
+print("s1:",s1)
+x_schall_b_korr = x_schall_b - s1
+x_schall_a_korr = x_schall_a - s1
+
+x_Block_schall = 81.5
+x_Block_schall_korr = x_Block_schall - s1
+
+D_schall= x_Block_schall_korr - x_schall_a_korr - x_schall_b_korr
+
+print("Tabelle Schalldistanzen")
+for index, A in enumerate(Nr):
+    print("{:.0f}".format(Nr[index]), "\t& ", "{:.1f}".format(x_schall_a[index]) , "\t &", "{:.1f}".format(x_schall_a_korr[index]) ,#
+    "\t &", "{:.1f}".format(x_schall_b[index]),"\t &", "{:.1f}".format(x_schall_b_korr[index]),"\t &",#
+    "{:.1f}".format(D_schall[index]), "\t &","{:.1f}".format(D_loch[index]), "\t \\\\")
+
+print("x_Block_schall_korr:",x_Block_schall_korr)
+print("x_Block:", x_Block)

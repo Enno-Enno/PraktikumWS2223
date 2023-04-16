@@ -38,7 +38,7 @@ im Acrylglas.
     \sisetup{table-format = :.0}
     \begin{tabular}[pos]{S S S S S}
         \toprule
-        {Nr.}& {$t_A$} & {$t_B$} & {$c_a$} & {$c_b$} \\
+        {Nr.}& {$t_A/\unit{\micro\s}$} & {$t_B/\unit{\micro\s}$} & {$c_a/\unit{\meter\per\second}$} & {$c_b/\unit{\meter\per\second}$} \\
         \midrule
         1       &  11    & 41    & 2800          & 2683          \\
         3       &  46    & 11    & 2730          & 2673          \\
@@ -55,6 +55,38 @@ im Acrylglas.
 Aus den Werten in Tabelle \ref{tab:schallzeit} wird der Mittelwert $\overline{c}$ und die Standardabweichung $\Delta c$ der Messungen mit den bekannten Formeln berechnet.
 Es ergibt sich eine Schallgeschwindigkeit von $c = \qty{2730 +- 50}{\meter\per\second}$.
 
-\subsection{Messung der Fehlstellen mit Ultraschall}
+\subsection{Messung der Fehlstellen mit dem A-Scan}
 Um die Tiefe der Fehlstellen korrekt zu bestimmen muss die Korrektur, die bei der Laufzeit für die Schallgeschwindigkeit aufgestellt wurde
-mit einberechnet werden 
+mit eingerechnet werden. 
+Dazu wird die Strecke $s_1 = \frac{1}{2}\qty{2730}{\meter\per\second} \cdot \qty{1e-6}{\s}= \qty{1.365}{\milli\meter}$ 
+von der im Computerprogramm berechneten Strecke abgezogen.
+Die abgelesene Tiefe des Blocks $s_\text{Block}$ kann so von \qty{81.5}{\mm} auf \qty{80.14}{mm} korrigiert werden was deutlich
+näher am wahren Wert $x_\text{Block} = \qty{80.40}{\mm}$ liegt.
+Mit den korrigierten Messwerten für die Tiefe des Blocks und die tiefen der Fehlstellen von den Seiten A und B lassen sich die
+Durchmesser der Fehlstellen berechnen.
+In Tabelle \ref{tab:a-scan} werden die gemessenen Tiefen $s_A$ und $s_B$ und die berechneten Durchmesser $D_s$ den 
+mit der Schieblehre gemessenen Durchmessern $D$ gegenübergestellt. 
+Bei der Messung für Loch Nr. 2 von Seite A konnte kein Wert erhoben werden, da das Loch 1 im Weg war.
+\begin{table}
+    \centering
+    \sisetup{table-format=2.1}
+    \begin{tabular}[pos]{S[table-format = 1.0] S S S S S S}
+        \toprule
+        {Nr} & {$s_\text{A}/\unit{mm}$} & {$s_\text{A, korr}/\unit{mm}$} & {$s_\text{B}/\unit{mm}$} & {$s_\text{B, korr}/\unit{mm}$} & {$D_\text{s}/\unit{mm}$} & {$D/\unit{mm}$}\\
+        \midrule
+        1       &  16.5          & 15.1          & 56.5          & 55.1          & 9.9   & 10.0  \\
+        2       &  {-}           & {-}           & 8.5           & 7.1           & {-}   & 2.9   \\
+        3       &  64.0          & 62.6          & 16.5          & 15.1          & 2.4   & 2.9   \\
+        4       &  56.5          & 55.1          & 24.0          & 22.6          & 2.4   & 2.9   \\
+        5       &  48.5          & 47.1          & 32.0          & 30.6          & 2.4   & 2.9   \\
+        6       &  40.0          & 38.6          & 40.0          & 38.6          & 2.9   & 3.0   \\
+        7       &  31.5          & 30.1          & 47.5          & 46.1          & 3.9   & 3.9   \\
+        8       &  23.0          & 21.6          & 55.0          & 53.6          & 4.9   & 5.0   \\
+        9       &  14.5          & 13.1          & 62.5          & 61.1          & 5.9   & 5.9   \\
+        10      &  62.5          & 61.1          & 19.0          & 17.6          & 1.4   & 1.4   \\
+        11      &  61.0          & 59.6          & 21.0          & 19.6          & 0.9   & 1.4   \\
+        \bottomrule
+    \end{tabular}
+    \caption{Messung der Fehlstellen mithilfe des A-Scans}
+    \label{tab:a-scan}
+\end{table}
