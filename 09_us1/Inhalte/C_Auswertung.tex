@@ -36,20 +36,22 @@ im Acrylglas.
 \begin{table}
     \centering
     \sisetup{table-format = :.0}
-    \begin{tabular}[pos]{S S S S S}
+    \begin{tabular}[pos]{S S S S S S S}
         \toprule
-        {Nr.}& {$t_A/\unit{\micro\s}$} & {$t_B/\unit{\micro\s}$} & {$c_a/\unit{\meter\per\second}$} & {$c_b/\unit{\meter\per\second}$} \\
+        {Nr.}& {$t_A/\unit{\micro\s}$} &{$t_\text{A, korr}/\unit{\micro\s}$} &
+        {$t_B/\unit{\micro\s}$} & {$t_\text{B, korr}/\unit{\micro\s}$} & 
+        {$c_a/\unit{\meter\per\second}$} & {$c_b/\unit{\meter\per\second}$} \\
         \midrule
-        1       &  11    & 41    & 2800          & 2683          \\
-        3       &  46    & 11    & 2730          & 2673          \\
-        4       &  40    & 17    & 2750          & 2653          \\
-        5       &  34    & 22    & 2771          & 2768          \\
-        6       &  28    & 29    & 2779          & 2659          \\
-        7       &  22    & 34    & 2795          & 2691          \\
-        8       &  16    & 39    & 2763          & 2736          \\
+        1       &  12    &  11    & 42   &  41     & 2800      & 2683     \\
+        3       &  47    &  46    & 12   &  11     & 2730      & 2673     \\
+        4       &  41    &  40    & 18   &  17     & 2750      & 2653     \\
+        5       &  35    &  34    & 23   &  22     & 2771      & 2768     \\
+        6       &  29    &  28    & 30   &  29     & 2779      & 2659     \\
+        7       &  23    &  22    & 35   &  34     & 2795      & 2691     \\
+        8       &  17    &  16    & 40   &  39     & 2763      & 2736     \\
         \bottomrule
     \end{tabular}
-    \caption{Laufzeiten und Schallgeschwindigkeiten im Acrylblock \textbf{korrigieren!}}
+    \caption{Laufzeiten und Schallgeschwindigkeiten im Acrylblock}
     \label{tab:schallzeit}
 \end{table}
 Aus den Werten in Tabelle \ref{tab:schallzeit} wird der Mittelwert $\overline{c}$ und die Standardabweichung $\Delta c$ der Messungen mit den bekannten Formeln berechnet.
@@ -72,7 +74,9 @@ Bei der Messung für Loch Nr. 2 von Seite A konnte kein Wert erhoben werden, da 
     \sisetup{table-format=2.1}
     \begin{tabular}[pos]{S[table-format = 1.0] S S S S S S}
         \toprule
-        {Nr} & {$s_\text{A}/\unit{mm}$} & {$s_\text{A, korr}/\unit{mm}$} & {$s_\text{B}/\unit{mm}$} & {$s_\text{B, korr}/\unit{mm}$} & {$D_\text{s}/\unit{mm}$} & {$D/\unit{mm}$}\\
+        {Nr} & {$s_\text{A}/\unit{mm}$} & {$s_\text{A, korr}/\unit{mm}$} & %
+        {$s_\text{B}/\unit{mm}$} & {$s_\text{B, korr}/\unit{mm}$} & %
+        {$D_\text{s}/\unit{mm}$} & {$D/\unit{mm}$}\\
         \midrule
         1       &  16.5          & 15.1          & 56.5          & 55.1          & 9.9   & 10.0  \\
         2       &  {-}           & {-}           & 8.5           & 7.1           & {-}   & 2.9   \\
@@ -90,3 +94,58 @@ Bei der Messung für Loch Nr. 2 von Seite A konnte kein Wert erhoben werden, da 
     \caption{Messung der Fehlstellen mithilfe des A-Scans}
     \label{tab:a-scan}
 \end{table}
+
+
+\subsection{Auflösungsvermögen}
+Bei der Untersuchung der doppelten Fehlstelle ergibt sich, in der Messung mit der \qty{2}{\mega\hertz} Sonde, 
+ein  Bild bei dem zwei verschiedene Peaks zu erkennen sind (vgl. Abbildung \ref{fig:aufloesung_b}).
+Bei der Messung mit \qty{1}{\mega\hertz} ist das nicht möglich.
+
+\begin{figure}%
+    \begin{subfigure}{0.48\textwidth}%
+        \centering%
+        \includegraphics[width=\textwidth]{Messdaten/aufloesung 1mhz zoom.pdf}%
+        \caption{\qty{1}{\mega\hertz}.}%
+        \label{fig:aufloesung_a}%
+    \end{subfigure}%
+    \hfill%
+    \begin{subfigure}{0.48\textwidth}%
+        \centering%
+        \includegraphics[width=\textwidth]{Messdaten/aufloesung 2mhz zoom.pdf}%
+        \caption{\qty{2}{\mega\hertz}.}%
+        \label{fig:aufloesung_b}%
+    \end{subfigure}%
+    \caption{Die Fehlstellen bei unterschiedlichen Frequenzen.}%
+    \label{fig:aufloesung}%
+\end{figure}%
+
+\subsection{B-Scan am Acrylblock}
+% \begin{figure}
+%     \centering
+%     \includegraphics{}
+% \end{figure}
+
+Dieser Abschnitt ist doof :/
+   
+\subsection{Untersuchung eines Brustmodells mit einem B-Scan}%
+\begin{figure}%
+    \begin{subfigure}{0.48\textwidth}%
+        \centering%
+        \includegraphics[width=\textwidth]{Messdaten/Tumor 1D.pdf}%
+        \caption{Tumor 1.}%
+        \label{fig:tumor_1}%
+    \end{subfigure}%
+    \begin{subfigure}{0.48\textwidth}%
+        \centering%
+        \includegraphics[width=\textwidth]{Messdaten/Tumor 2B.pdf}%
+        \caption{Tumor 2.}%
+        \label{fig:tumor_2}%
+    \end{subfigure}%
+    \caption{Tumore im Brustmodell auf dem B-Scan.}%
+    \label{fig:tumore}
+\end{figure}%
+
+In den beiden Scans des Brustmodells sind zwei unterschiedliche Tumore zu erkennen.
+In Abbildung \ref{fig:tumore} werden sie gegenübergestellt.
+Tumor 1 sorgt in der Messung für einen kleineren Ausschlag und ist demnach aus einem dem restlichen Brustmodell ähnlicheren Material.
+Der zweite Tumor ist näher an der Haut des Brustmodells als der Erste.

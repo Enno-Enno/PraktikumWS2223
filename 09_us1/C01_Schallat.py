@@ -15,21 +15,21 @@ for index, x in enumerate(x_loch_a):
 (Nr_time, time_A, time_B) = np.genfromtxt("C01c_Laufzeiten.txt", unpack=True)
 Nr_time = (np.rint(Nr_time)).astype(int)
 
-time_A= time_A -1
-time_B= time_B -1
+time_A_korr= time_A -1
+time_B_korr= time_B -1
 
 speed_a= np.zeros(7)
 speed_b= np.zeros(7)
 speed_Block= (2*(x_Block-1)/60)*10 ** (-3)/(10** (-6))
 print("speed_Block: ",speed_Block)
 for index, N in enumerate(Nr_time):
-    speed_a[index] =2* x_loch_a[N-1]/time_A[index]* 10 ** (-3)/(10** (-6)) # millimeter per micro second -> m/s
-    speed_b[index] =2* x_loch_b[N-1]/time_B[index]* 10 ** (-3)/(10** (-6))
+    speed_a[index] =2* x_loch_a[N-1]/time_A_korr[index]* 10 ** (-3)/(10** (-6)) # millimeter per micro second -> m/s
+    speed_b[index] =2* x_loch_b[N-1]/time_B_korr[index]* 10 ** (-3)/(10** (-6))
 
 
 print("Tabelle Laufzeiten")
 for index, A in enumerate(time_A):
-    print("{:.0f}".format(Nr_time[index]), "\t& ", "{:.0f}".format(A) , "\t &", "{:.0f}".format(time_B[index]) ,"\t &", "{:.0f}".format(speed_a[index]),"\t &", "{:.0f}".format(speed_b[index]), "\t \\\\")
+    print("{:.0f}".format(Nr_time[index]), "\t& ", "{:.0f}".format(time_A[index]) , "\t &","\t& ", "{:.0f}".format(time_A_korr[index]) , "\t &", "{:.0f}".format(time_B[index]) ,"\t& ", "{:.0f}".format(time_B_korr[index]) , "\t &","\t &", "{:.0f}".format(speed_a[index]),"\t &", "{:.0f}".format(speed_b[index]), "\t \\\\")
 
 
 speeds= np.concatenate((speed_a,speed_b), axis=0)
