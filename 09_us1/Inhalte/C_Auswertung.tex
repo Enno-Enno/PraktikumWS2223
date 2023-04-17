@@ -1,5 +1,6 @@
 \section{Auswertung}
 \subsection{Schallgeschwindigkeit im Acrylblock}
+\label{sec:ausw_schallgeschw}
 
 \begin{table}
     \centering
@@ -58,7 +59,7 @@ Aus den Werten in Tabelle \ref{tab:schallzeit} wird der Mittelwert $\overline{c}
 Es ergibt sich eine Schallgeschwindigkeit von $c = \qty{2730 +- 50}{\meter\per\second}$.
 
 \subsection{Messung der Fehlstellen mit dem A-Scan}
-\label{sec:messung1}
+\label{sec:ausw_fehlste}
 Um die Tiefe der Fehlstellen korrekt zu bestimmen muss die Korrektur, die bei der Laufzeit für die Schallgeschwindigkeit aufgestellt wurde
 mit eingerechnet werden. 
 Dazu wird die Strecke $s_1 = \frac{1}{2}\qty{2730}{\meter\per\second} \cdot \qty{1e-6}{\s}= \qty{1.365}{\milli\meter}$ 
@@ -98,6 +99,7 @@ Bei der Messung für Loch Nr. 2 von Seite A konnte kein Wert erhoben werden, da 
 
 
 \subsection{Auflösungsvermögen}
+\label{sec:ausw_aufl}
 Bei der Untersuchung der doppelten Fehlstelle ergibt sich, in der Messung mit der \qty{2}{\mega\hertz} Sonde, 
 ein  Bild bei dem zwei verschiedene Peaks zu erkennen sind (vgl. Abbildung \ref{fig:aufloesung_b}).
 Bei der Messung mit \qty{1}{\mega\hertz} ist das nicht möglich.
@@ -160,7 +162,7 @@ Bei der Messung mit \qty{1}{\mega\hertz} ist das nicht möglich.
     \label{tab:b-scan}
 \end{table}
 
-Bei dem B-scan werden die Messungen analog zu Abschnitt \ref{sec:messung1} ausgewertet.
+Bei dem B-scan werden die Messungen analog zu Abschnitt \ref{sec:ausw_schallgeschw} ausgewertet.
 Um die Positionen der Peaks zu bestimmen wird das online tool \enquote*{WebPlotDigitizer} \cite{webplot} verwendet.
 Die Laufzeiten des Schalls werden um $t_1 = \qty{1}{\micro\s}$ korrigiert, dh. die Tiefen werden mit
 $s = \frac{1}{2} c \cdot (t_\text{Laufzeit} - t_1)$
@@ -169,6 +171,7 @@ Für die Tiefe des Blocks ergibt sich bei einer Laufzeit von $t_\text{Block}= \q
 $s_\text{Block}= \qty{80.8}{\mm}$.
    
 \subsection{Untersuchung eines Brustmodells mit einem B-Scan}%
+\label{sec:ausw_brust}
 \begin{figure}%
     \begin{subfigure}{0.48\textwidth}%
         \centering%
