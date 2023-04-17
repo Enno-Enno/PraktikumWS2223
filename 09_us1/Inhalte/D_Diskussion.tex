@@ -1,4 +1,41 @@
 \section{Diskussion}
-%für bessere Resultate auflösung erhöhen
+\subsection{Schieblehre}
+\label{sec:disk_schieb}
+Die Schlieblehre ist mit einem angegeben Fehler von $\qty[]{0.05}{\milli\meter}$ an sich hinreichend genau.
+Allerdings hat sich die Messung der Lage der Fehlstellen aufgrund des Teils sehr geringen Durchmessers als schwierig erwiesen, 
+da es hier insbesondere bei kleineren Fehlstellen nicht möglich war, die Schieblehre komplett gerade zu halten,
+weshalb von einer höheren Abweichung als systematische Fehler auszugehen ist.
+Etwaige Abweichungen von anderen per Ultraschall gemessenen und errechneten Werten lassen sich also hierdurch erklären.
+
+\subsection{Schallgeschwindigkeit in Acryl}
+Die Schallgeschwindigkeit in Acryl liegt nach Abschnitt \ref{sec:ausw_schallgeschw} bei einem Wert von $c = \qty{2730 +- 50}{\meter\per\second}$.
+Der Mittelwert entspticht nach \cite[]{schall-acryl} exakt dem Literaturwert, die relativen Abweichungen der Standardabweichung betragen
+$\frac{|\Delta c - c_\text{Lit}|}{c_\text{Lit}} = \num{1.83} \%$, woraus sich eine sehr hohe Messgenauigkeit ableiten lässt.
+
+\subsection{Fehlstellen des A-Scans}
+In Abschnitt \ref{sec:ausw_fehlste} konnte die Tiefe des Blocks zu $x_\text{Scan} = \qty{80.14}{\mm}$ bestimmt werden, 
+was näher am mit der Schieblehre gemessenen Wert $x_\text{Block} = \qty{80.40}{\mm}$ liegt als die zuvor gemessenen $x_\text{alt} = \qty{81.5}{\mm}$.
+Der neue Wert hat eine relative Abweichung von $\frac{|x_\text{Scan} - x_\text{Block}|}{x_\text{Block}} = \num{0.32} \%$,
+was ebenfalls für eine sehr hohe Genauigkeit der Messungen spricht.
+Folglich ist die Schallmessung hier vermutlich genauer als die Messung der Schieblehre, was mit den im Abschnitt \ref{sec:disk_schieb}
+beschriebenen Ablesefehlern zusammenhängt.
+Dies spiegelt sich auch in den Werten in Tabelle \ref{tab:a-scan} wieder.
+
+\section{Auflösungsvermögen}
+Die Auflösung der Sonde mit einer Frequenz von $\qty[]{1}{\mega\hertz}$ hat sich in Abschnitt \ref{sec:ausw_aufl} nicht als hinreichend 
+genau erwiesen, da hier die beiden Fehlstellen in der Messung nicht von einander getrennt betrachtet werden können.
+Die Sonde mit $\qty[]{2}{\mega\hertz}$ erweist sich als exakter, da hier zwei Maxima erkannt werden können.
+
+\section{B-Scan des Blocks}
+
+\section{Untersuchung des Brustmodells}
+Im Brustmodell konnten die beiden Tumore zwar gescant werden, allerdings sind ihre Bereiche nur grob zu erkennen,
+was vermutlich mit der Einstellung des Ultraschallechoskops zusammenhängt.
+Wären dessen Parameter anders gewählt worden, wäre möglicherweise eine höhere Auflösung möglich und die Tumore wären besser zu erkennen.
+Dennoch konnte festgestellt werden, dass Tumor 1 aufgrund der kleineren Ausschläge die Zyste und Tumor 2 folglich der Tumor aus 
+festem Gewebe sein muss.
+Es sei angemerkt, dass es aufgrund der Beschaffenheit des Modells mitsamt der Neigung und Flexibilität nicht so einfach leicht ist,
+die Sonde glechmäßig auf einer Linie zu bewegen. 
+Dadurch lassen sich die \enquote{Schnitte} und augenscheinlichen Neigungen des Untergrundes in den enstehenden Bildern erklären.
 % b-scan nicht ganz gleichmäßig bewegt?
 % b-scan an Brust wegen Wölbung vlt ungenau
