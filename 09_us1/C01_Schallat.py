@@ -66,3 +66,27 @@ print("x_Block_schall_korr:",x_Block_schall_korr)
 print("x_Block:", x_Block)
 
 tb_Block = 60.2
+x_bb, tb_schall_A = np.genfromtxt("C02c_t_schall_A.txt", unpack=True)
+x_bb, tb_schall_B = np.genfromtxt("C02c_t_schall_B.txt", unpack=True)
+x_bb = np.flip(x_bb)
+tb_schall_A = np.flip(tb_schall_A)
+tb_schall_B = np.flip(tb_schall_B)
+
+t1 = 1
+xb_schall_Block= 2730 * 0.5 *(tb_Block - t1) *1e-6 *1e3
+xb_schall_A = 2730 * 0.5 *(tb_schall_A - t1) *1e-6 *1e3
+xb_schall_B = 2730 * 0.5 *(tb_schall_B - t1) *1e-6 *1e3
+Db_schall = xb_schall_Block - xb_schall_A - xb_schall_B
+
+
+print("Tabelle B-scan")
+for index, x in enumerate(x_bb):
+    print("{:.0f}".format(x_bb[index]), "\t&", tb_schall_A[index], "\t&", tb_schall_B[index], "\t&", 
+    "{:.1f}".format(xb_schall_A[index]), "\t&", 
+    "{:.1f}".format(xb_schall_B[index]), "\t&", 
+    "{:.1f}".format(Db_schall[index]), "\t\\\\")
+
+print("xb_schall_Block:",xb_schall_Block)
+# 
+# 
+# 

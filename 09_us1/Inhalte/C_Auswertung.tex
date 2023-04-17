@@ -33,7 +33,7 @@ Zur Berechnung der Schallgeschwindigkeiten $c_A$ und $c_B$ wird von dieser Laufz
 um die Verzögerung im Wasser und in der Sonde auszugleichen. 
 Dieser Wert entsteht durch vergleichen der Ergebnisse von verschiedenen verschiebungskonstanten mit dem Literaturwert der Schallgeschwindigkeit
 im Acrylglas.
-\begin{table}
+\begin{table}[h]
     \centering
     \sisetup{table-format = :.0}
     \begin{tabular}[pos]{S S S S S S S}
@@ -58,6 +58,7 @@ Aus den Werten in Tabelle \ref{tab:schallzeit} wird der Mittelwert $\overline{c}
 Es ergibt sich eine Schallgeschwindigkeit von $c = \qty{2730 +- 50}{\meter\per\second}$.
 
 \subsection{Messung der Fehlstellen mit dem A-Scan}
+\label{sec:messung1}
 Um die Tiefe der Fehlstellen korrekt zu bestimmen muss die Korrektur, die bei der Laufzeit für die Schallgeschwindigkeit aufgestellt wurde
 mit eingerechnet werden. 
 Dazu wird die Strecke $s_1 = \frac{1}{2}\qty{2730}{\meter\per\second} \cdot \qty{1e-6}{\s}= \qty{1.365}{\milli\meter}$ 
@@ -69,7 +70,7 @@ Durchmesser der Fehlstellen berechnen.
 In Tabelle \ref{tab:a-scan} werden die gemessenen Tiefen $s_A$ und $s_B$ und die berechneten Durchmesser $D_s$ den 
 mit der Schieblehre gemessenen Durchmessern $D$ gegenübergestellt. 
 Bei der Messung für Loch Nr. 2 von Seite A konnte kein Wert erhoben werden, da das Loch 1 im Weg war.
-\begin{table}
+\begin{table}[h]
     \centering
     \sisetup{table-format=2.1}
     \begin{tabular}[pos]{S[table-format = 1.0] S S S S S S}
@@ -101,7 +102,7 @@ Bei der Untersuchung der doppelten Fehlstelle ergibt sich, in der Messung mit de
 ein  Bild bei dem zwei verschiedene Peaks zu erkennen sind (vgl. Abbildung \ref{fig:aufloesung_b}).
 Bei der Messung mit \qty{1}{\mega\hertz} ist das nicht möglich.
 
-\begin{figure}%
+\begin{figure}[h]%
     \begin{subfigure}{0.48\textwidth}%
         \centering%
         \includegraphics[width=\textwidth]{Messdaten/aufloesung 1mhz zoom.pdf}%
@@ -120,12 +121,52 @@ Bei der Messung mit \qty{1}{\mega\hertz} ist das nicht möglich.
 \end{figure}%
 
 \subsection{B-Scan am Acrylblock}
-% \begin{figure}
-%     \centering
-%     \includegraphics{}
-% \end{figure}
+\begin{figure}[h]
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Abbildungen/b scan acryl 1-Copy.pdf}
+        \caption{Seite A, absteigende Nummerierung.}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Abbildungen/b scan acryl 1 rueckseite-Copy.pdf}
+        \caption{Seite B, aufsteigende Nummerierung.}
+    \end{subfigure}
+    \caption{Ergebnisse des B-Scans des Acrylblocks}
+    \label{fig:b-scan}
+\end{figure}
 
-Dieser Abschnitt ist doof :/
+\begin{table}[h]
+    \centering
+    \sisetup{table-format=:.0}
+    \begin{tabular}{S S[table-format=:.1] S[table-format=:.1] S S S}
+        \toprule
+        {Nr}& {$t_A/\unit{\micro\second}$} & {$t_B/\unit{\micro\second}$} & {$x_A/\unit{\mm}$} & {$x_B/\unit{\mm}$} & {$D/\unit{\mm}$}\\
+        \midrule
+        1       & 12.4  & 41.6  & 15.6  & 55.4  & 9.8   \\
+        2       & {-}   & 6.2   & {-}   & 7.1   & {-}   \\
+        3       & 46.6  & 11.9  & 62.2  & 14.9  & 3.7   \\
+        4       & 40.8  & 18.1  & 54.3  & 23.3  & 3.1   \\
+        5       & 35.1  & 24.0  & 46.5  & 31.4  & 2.9   \\
+        6       & 29.3  & 29.9  & 38.6  & 39.4  & 2.7   \\
+        7       & 23.1  & 35.2  & 30.2  & 46.7  & 4.0   \\
+        8       & 16.9  & 40.9  & 21.7  & 54.5  & 4.6   \\
+        9       & 10.8  & 46.4  & 13.4  & 62.0  & 5.5   \\
+        10      & 45.6  & 14.7  & 60.9  & 18.7  & 1.2   \\
+        11      & 44.4  & 15.8  & 59.2  & 20.2  & 1.4   \\
+    \end{tabular}
+    \caption{Ergebnisse der Messungen mit dem B-Scan.}
+    \label{tab:b-scan}
+\end{table}
+
+Bei dem B-scan werden die Messungen analog zu Abschnitt \ref{sec:messung1} ausgewertet.
+Um die Positionen der Peaks zu bestimmen wird das online tool \enquote*{WebPlotDigitizer} \cite{webplot} verwendet.
+Die Laufzeiten des Schalls werden um $t_1 = \qty{1}{\micro\s}$ korrigiert, dh. die Tiefen werden mit
+$s = \frac{1}{2} c \cdot (t_\text{Laufzeit} - t_1)$
+berechnet.
+Für die Tiefe des Blocks ergibt sich bei einer Laufzeit von $t_\text{Block}= \qty{60.2}{\micro\s}$ eine Tiefe 
+$s_\text{Block}= \qty{80.8}{\mm}$.
    
 \subsection{Untersuchung eines Brustmodells mit einem B-Scan}%
 \begin{figure}%
