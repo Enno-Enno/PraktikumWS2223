@@ -55,7 +55,11 @@ im Acrylglas.
     \caption{Laufzeiten und Schallgeschwindigkeiten im Acrylblock}
     \label{tab:schallzeit}
 \end{table}
-Aus den Werten in Tabelle \ref{tab:schallzeit} wird der Mittelwert $\overline{c}$ und die Standardabweichung $\Delta c$ der Messungen mit den bekannten Formeln berechnet.
+Aus den Werten in Tabelle \ref{tab:schallzeit} wird der Mittelwert $\overline{c}$ und die Standardabweichung $\Delta c$ der Messungen mit folgenden Formeln berechnet:
+\begin{align}
+    \overline{c} &= \frac{1}{N} \sum_{k=1}^{N} c_k & \Delta c = \sqrt{ \sum_{k=1}^{N} \left(\overline{c} - c_k \right)^2 }
+\end{align}
+mit $N=14$ Messungen $c_k$ aus Tabelle \ref{tab:schallzeit}.
 Es ergibt sich eine Schallgeschwindigkeit von $c = \qty{2730 +- 50}{\meter\per\second}$.
 
 \subsection{Messung der Fehlstellen mit dem A-Scan}
