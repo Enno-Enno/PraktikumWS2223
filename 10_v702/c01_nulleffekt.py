@@ -1,7 +1,7 @@
 import numpy as np
 
 x, count = np.genfromtxt("messung_c01_nulleffekt.txt", unpack = True)
-
+print("Nulleffekt -----------------------------------------------------------------------------")
 count_vanadium = count # anzahl pro 35s
 count_silber = np.zeros(len(count)) #anzahl pro 35s
 
@@ -26,3 +26,4 @@ std_silber = np.std(count_silber)
 print("nulleffekt beim silber zerfall je 10 sekunden: ", mean_silber, "+- ", std_silber)
 #nulleffekt beim silber zerfall je 10 sekunden:  4.089285714285714 +-  0.9882924358586936
 
+print("--------------------------------------------------------------------------")
