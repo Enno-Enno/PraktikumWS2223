@@ -15,7 +15,7 @@ Die Zahl der Noch nicht zerfallenen Kerne in einer Probe wird durch
 beschrieben.
 Die Halbwertszeit $T$ der Probe ergibt sich damit aus
 \begin{align}
-    1/2 N_0 = N_0 e^{-\lambda T} \Leftrightarrow T = \ln(2/\lambda)
+    1/2 N_0 = N_0 e^{-\lambda T} \Leftrightarrow T = \ln(2)/\lambda
     \label{eq:T_aus_lambda}
 \end{align}
 Um die Halbwertszeit aus den gemessenen Zerfällen in einem Zeitintervall $\Delta t$
@@ -32,9 +32,10 @@ Den wert für Lambda ergibt sich aus einer linearen Ausgleichrechnung, da
 
 \subsection{Anregung der Proben}
 
-In diesem Versuch werden drei Radioaktive Isotope von natürlich Stabilen Elementen erzeugt.
+\noindent
+In diesem Versuch werden drei Radioaktive Isotope aus in der Natur stabilen Metallen erzeugt.
 \begin{align}
-    \ce{^{51}V}, & \ce{^{107}Ag} & \ce{^{109}Ag}
+    \ce{^{51}V}, & \ce{^{107}Ag},  \ce{^{109}Ag}
 \end{align}
 
 Dies wird erreicht in dem das Verhältnis von Neutronen und Protonen in den Kernen des Elements verändert wird.
@@ -43,4 +44,38 @@ Eine Kernreaktion eines Atomkerns A mit einem Neuton beginnt mit der Absorption 
 Den neuen so entstandenen angeregten Kern A* nennt man Zwischenkern oder Compoundkern.
 Er ist durch die Bindungsenergie des Neutrons auf einem höheren Energielevel als der einfache Atomkern.
 Diese Energie verteilt sich auf die gesamten Nukleonen, weshalb die Energie des Atomkerns meist nicht mehr ausreicht
-um ein ganzes Nukleon abzustoßen.
+um das ganze Nukleon wieder abzustoßen.
+Das ist vor allem der Fall wenn die Neutonen eine geringe Geschwindigkeit haben.
+Stattdessen wird die Energie in Form eines $\gamma$-Quants emittiert wonach das Atom wieder in einem nicht angeregten Zustand befindet.
+Es läuft folgende Reaktion ab:
+\begin{align*}
+    \ce{^{m}_{z}A} + \ce{^{1}_{0}n} \rightarrow \ce{^{m+1}_{z}A*} \rightarrow \ce{^{m+1}_{z} A} + \gamma .
+\end{align*}
+Dieser neu entstandene Kern $\ce{^{m+1}_{z} A}$ ist oft nicht stabil, weil er mehr Neutronen enthält
+als er in einem stabilen Zustand haben kann.
+Er wandelt in einem $\ce{\beta^{-}}$-Zerfall in ein Neutron in ein Proton um und emittiert 
+Elektron $\ce{\beta^{-}}$ und Antineutrino $\overline{\nu}_\text{e}$ mit einer Kinetischen Energie $E_\text{kin}$:
+\begin{align*}
+    \ce{^{m+1}_{z} A} \rightarrow \ce{^{m+1}_{z+1} C} + \beta^{-} + E_\text{kin} + \overline{\nu}_\text{e}
+\end{align*}
+
+\noindent
+In diesem Versuch werden die folgende Kernreaktionen gemessen:
+\begin{align*}
+    \ce{^{51}_{23} V} &\rightarrow \ce{^{52}_{23} V} \rightarrow \ce{^{52}_{24} Cr} + \beta^{-} + E_\text{kin} + \overline{\nu}_\text{e}
+    \ce{^{107}_{47} Ag} &\rightarrow \ce{^{108}_{47} Ag} \rightarrow \ce{^{108}_{48} Cd} + \beta^{-} + E_\text{kin} + \overline{\nu}_\text{e}
+    \ce{^{109}_{47} Ag} &\rightarrow \ce{^{110}_{47} Ag} \rightarrow \ce{^{110}_{48} Cd} + \beta^{-} + E_\text{kin} + \overline{\nu}_\text{e}
+\end{align*}
+
+\subsubsection{Halbwertszeit bei zwei Silberisotopen}
+Bei dem Zerfall der angeregten Silberprobe ist zu beachten, dass die Probe in etwas zu 
+gleichen Teilen zwei verschiedene Isotope enthält.
+Die Halbwertszeit dieser Isotope ist nur feststellbar, weil die Halbwertszeit des einen
+des $\ce{^{108}Ag}$ Isotops deutlich länger als die Halbwertszeit von $\ce{^{110}Ag}$ ist.
+Im Halblogarithmischen Diagramm folgt die Zerfallszahl ab einer gewissen zeit $t*$ 
+
+
+%%% To Do
+% Relevante Kernreaktionen
+% Wirkungsquerschnitt für schnelle und langsame Neutronen
+% Erzeugung Niederenergetischer Neutronen
