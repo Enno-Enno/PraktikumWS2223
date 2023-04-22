@@ -1,6 +1,6 @@
 all: build/v702_Enno_Wellmann_Clara_Sondermann.pdf
 	
-build/v702_Enno_Wellmann_Clara_Sondermann.pdf: v702_Enno_Wellmann_Clara_Sondermann.tex FORCE | build
+build/v702_Enno_Wellmann_Clara_Sondermann.pdf: v702_Enno_Wellmann_Clara_Sondermann.tex build/c02_vanadium_log.pdf build/c02_vanadium_err.pdf FORCE | build
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
 	max_print_line=1048576 \
@@ -11,8 +11,12 @@ build/v702_Enno_Wellmann_Clara_Sondermann.pdf: v702_Enno_Wellmann_Clara_Sonderma
 	  --halt-on-error \
 	  $<
 
-# build/C02_rechteck_einseitig.pdf: C00_umrechnung_rechteck_einseitig.py C02_rechteck_einseitig.py ../matplotlibrc ../header-matplotlib.tex messdaten/rechteck_einseitig.txt | build
-# 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python C02_rechteck_einseitig.py
+build/c02_vanadium_log.pdf: c01_nulleffekt.py c02_vanadium.py ../matplotlibrc ../header-matplotlib.tex messung_c02_vanadium.txt | build
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python c02_vanadium.py
+
+build/c02_vanadium_err.pdf: c01_nulleffekt.py c02_vanadium.py ../matplotlibrc ../header-matplotlib.tex messung_c02_vanadium.txt | build
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python c02_vanadium.py
+
 
 
 

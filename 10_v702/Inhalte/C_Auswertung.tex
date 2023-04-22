@@ -1,7 +1,12 @@
 \section{Auswertung}
 
 \subsection{Mittelwerte und Fehler}
-\textbf{ABSCHNITT ERGÄNZEN}
+Das arithmetische Mittel $\overline{c}$ und die Standardabweichung $\Delta c$ einer Messreihe mit $N$ Werten $c_k$ errechnet sich gemäß der Formeln
+\begin{align}
+    \overline{c} &= \frac{1}{N} \sum_{k=1}^{N} c_k, & \Delta c = \sqrt{ \sum_{k=1}^{N} \left(\overline{c} - c_k \right)^2 }.
+    \label{eq:mittelstand}
+\end{align}
+
 \subsubsection{Gaußsche Fehlerfortpflanzung}
 Wenn zu Messdaten die Standardabweichung bekannt ist, und mit diesen Messdaten weiter gerechnet werden soll,
 wird die Gaußsche Fehlerfortpflanzung verwendet. 
@@ -15,18 +20,24 @@ Dann ist der Fehler von $f$
      + \dots%
      + \left(\frac{\partial f}{\partial x_k} \Delta x_k\right)^2%
     }.
-    \label{eq:gauspflanz}
+    \label{eq:gauss}
 \end{align} 
 Im Ergebnis ergibt sich der Mittelwert von $f$ mit der errechneten Abweichung $\overline{f} \pm \Delta f $.
 Um Rechenfehler zu vermeiden, wird das Python \cite[]{python} Paket \texttt{uncertainties} \cite[][]{uncertainties} verwendet.
 Hier wird die Fehlerfortpflanzung automatisch verrechnet, wenn die Variablen als \texttt{ufloat} definiert werden.
 
-\subsection{Der Nulleffekt}
-Übe eine Zeitspanne von insgesamt $\qty[]{560}{\second}$ wird der Nulleffekt gemessen.
-Dabei wird die Zeit in 16 gleich große Intervalle $x$ der Länge $\Delta t = \qty[]{35}{\second}$ eingeteilt. 
-Die Werte sind in Tabelle \ref{tab:nulleffekt} zu sehen.
 
-\begin{table}
+
+
+
+\subsection{Der Nulleffekt}
+\label{sec:ausw_null}
+Über eine Zeitspanne von insgesamt $\qty[]{560}{\second}$ wird der Nulleffekt gemessen.
+Dabei wird die Zeit in 16 gleich große Intervalle $x$ der Länge $\Delta t = \qty[]{35}{\second}$ eingeteilt, in denen jeweils die 
+Zerfallszahl $y$ gemesssen wird. 
+Die Werte gemessenen Werte sind in Tabelle \ref{tab:nulleffekt} zu sehen.
+
+\begin{table}[H]
     \centering
     \caption[short]{Intervallnummer $x$ und Zerfallsanzahl $y$ beim Nulleffekt.}
     \label{tab:nulleffekt}
@@ -47,12 +58,20 @@ Die Werte sind in Tabelle \ref{tab:nulleffekt} zu sehen.
     \end{tabular}
 \end{table}
 
+\noindent
+Werden von diesen Werten Mittelwert und Standardabweichung ausgerechnet, ergibt sich gemäß Formel \eqref{eq:mittelstand} 
+eine Zerfallsanzahl von $N_\text{u} = \num[]{0.4089 +- 0.0988}$ pro Sekunde.
+Bei der Messung des Vanadium Zerfalls wurde ein Zeitintervall von $\Delta t_\text{V} = \qty[]{35}{\second}$ gewählt, 
+wodurch sich in diesem Fall der Nulleffekt von $N_\text{u,V} = \num[]{14.3125 +- 3.4590}$ ergibt.
+Analog folgt beim Silber Zerfall mit einem Zeitintervall von $\Delta t_\text{Ag} = \qty[]{10}{\second}$ ein Nulleffekt von 
+$N_\text{u,Ag} = \num[]{4.0893 +- 0.9883}$.
+% nulleffekt beim vanadium zerfall je 35 sekunden:  14.3125 +-  3.459023525505428
+% nulleffekt beim silber zerfall je 10 sekunden:  4.089285714285714 +-  0.9882924358586936
 
 
 \subsection{Vanadium Probe}
-Die gemessenen Werte $x$ und $y$ des Vanadium Zerfalls sind in Tabelle \ref{tab:vanadium} einzusehen.
-
-\begin{table}
+Die gemessenen Werte $x$ und $y$ des Vanadium Zerfalls vor Abzug des Nulleffekts sind in Tabelle \ref{tab:vanadium} einzusehen.
+\begin{table}[H]
     \centering
     \caption[short]{Intervallnummer $x$ und Zerfallsanzahl $y$ beim Zefall von Vanadium.}
     \label{tab:vanadium}
@@ -75,11 +94,43 @@ Die gemessenen Werte $x$ und $y$ des Vanadium Zerfalls sind in Tabelle \ref{tab:
     \end{tabular}
 \end{table}
 
+\noindent
+Nach Abzug des Nulleffekts $N_\text{u,V}$ ergibt sich die Zahl $N_{Delta t}(t) = y- N_\text{u,V}$ der im Zeitintervall $Delta t_\text{V}$
+gemessenen Zerfälle.
+Wird $N_\text{u,V}$ in Abhängigkeit des betrachteten Zeitintervalls halblogarithmisch geplottet, ergibt sich Abbildung \ref{fig:vanadium_log}.
+Die darin eingezeichneten Fehler $\Delta N_{\Delta t} = \num[]{3.4590}$ wurden gemäß der Gaußschen Fehlerfortpflanzung \eqref{eq:gauss} berechnet.
+Gemäß Formel \textbf{REF!!!}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=7.5cm]{build/c02_vanadium_log.pdf}
+    \caption[]{Halblogarithmische Darstellung des Vanadium Zerfalls in Abhängigkeit von $\Delta t_\text{V}$.}
+    \label{fig:vanadium_log}
+\end{figure}
+
+\noindent
+Da die Fehlerbalken durch die halblogarithmische Darstellung verzerrt erscheinen, ist für eine bessere Betrachtungsweise zusätzlich ein linearer
+Plot in Abbildung \ref{fig:vanadium_err} zu sehen.
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=7.5cm]{build/c02_vanadium_err.pdf}
+    \caption[]{Lineare Darstellung des Vanadium Zerfalls in Abhängigkeit von $\Delta t_\text{V}$.}
+    \label{fig:vanadium_err}
+\end{figure}
+
+% a = -0.10153046 ± 0.00483896
+% b = 5.29056262 ± 0.08590575
+% lamda in 1/s:  0.00290+/-0.00014 /s
+% halbwertszeit in sekunden:  239+/-11 s
+% halbwertszeit in minuten:  3.98+/-0.19 min
+% const = N(0)*(1-exp(...)) =  198+/-17
+
+
 \subsection{Silber Probe}
 
 \subsubsection{Messreihe 1}
 
-\begin{table}
+\begin{table}[H]
     \centering
     \caption[short]{Intervallnummer $x$ und Zerfallsanzahl $y$ der ersten Messreihe mit Silber.}
     \label{tab:silber1}
@@ -104,7 +155,7 @@ Die gemessenen Werte $x$ und $y$ des Vanadium Zerfalls sind in Tabelle \ref{tab:
 
 \subsubsection{Messreihe 2}
 
-\begin{table}
+\begin{table}[H]
     \centering
     \caption[short]{Intervallnummer $x$ und Zerfallsanzahl $y$ der zweiten Messreihe mit Silber.}
     \label{tab:silber2}
@@ -126,20 +177,3 @@ Die gemessenen Werte $x$ und $y$ des Vanadium Zerfalls sind in Tabelle \ref{tab:
         \bottomrule
     \end{tabular}
 \end{table}
-
-
-
-
-
-
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
