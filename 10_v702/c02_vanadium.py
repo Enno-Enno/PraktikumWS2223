@@ -9,10 +9,15 @@ from scipy.optimize import curve_fit
 x, count_v = np.genfromtxt("messung_c02_vanadium.txt", unpack = True)
 delta_t = 35
 
-nulleffekt = ufloat(c01.mean_vanadium, c01.std_vanadium) #nulleffekt je 35s
+# zerfall nach abzug des nulleffekts je 35s
 zerfall_mean = count_v - c01.mean_vanadium
 zerfall_std = c01.std_vanadium #vgl. one-note bzw gaußsche fehlerfortpflanzung
 
+# zerfall_ufl = ufloat(zerfall_mean, zerfall_std)
+# def lin(t, a, b):
+#     return(a * t + b)
+# params_check, covariance_matrix_check = curve_fit(lin, x, unp.log(zerfall_mean), p0 = (-0.1, 5.2), sigma = [0,  zerfall_std]) 
+# #(ich wollte eigentlich die fehler auf y berücksichtigen aber das ist wohl etwas zu kompliziert)
 
 params, covariance_matrix = np.polyfit(x, np.log(zerfall_mean), deg = 1, cov = True)
 errors = np.sqrt(np.diag(covariance_matrix))
@@ -45,7 +50,7 @@ y_max = unp.log(zerfall_mean + zerfall_std)
 yerr_min = unp.log(zerfall_mean) - y_min
 yerr_max = y_max - unp.log(zerfall_mean)
 
-xplot = np.linspace(0, 30, 1000)
+xplot = np.linspace(1, 30, 1000)
 plt.figure(constrained_layout = True)
 plt.errorbar(x, unp.log(zerfall_mean), yerr = (yerr_min, yerr_max), fmt = "x", label = "Anzahl der Zerfälle inkl. Fehlerbalken") #log(std) da sonst nicht logaritmus des fehlers dargestellt
 plt.plot(xplot, params[0] * xplot + params[1], label = "Ausgleichsgerade")
@@ -56,7 +61,7 @@ plt.grid()
 plt.legend()
 plt.savefig("build/c02_vanadium_log.pdf")
 
-xplot = np.linspace(0, 30, 1000)
+xplot = np.linspace(1, 30, 1000)
 plt.figure(constrained_layout = True)
 plt.errorbar(x, zerfall_mean, yerr = zerfall_std, fmt = "x", label = "Anzahl der Zerfälle inkl. Fehlerbalken")
 plt.xlabel("Zeitintervall / $\\qty{35}{\\second}$")
