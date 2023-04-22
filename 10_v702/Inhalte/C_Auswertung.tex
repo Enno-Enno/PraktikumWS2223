@@ -65,6 +65,10 @@ Bei der Messung des Vanadium Zerfalls wurde ein Zeitintervall von $\Delta t_\tex
 wodurch sich in diesem Fall der Nulleffekt von $N_\text{u,V} = \num[]{14.3125 +- 3.4590}$ ergibt.
 Analog folgt beim Silber Zerfall mit einem Zeitintervall von $\Delta t_\text{Ag} = \qty[]{10}{\second}$ ein Nulleffekt von 
 $N_\text{u,Ag} = \num[]{4.0893 +- 0.9883}$.
+
+\noindent
+Da bei der Zerfallszahl nur ganze Zahlen sinn ergeben, werden diese Werte weiter auf $N_\text{u,V} = \num[]{14 +- 3}$ bzw.
+$N_\text{u,Ag} = \num[]{4 +- 1}$ gerundet.
 % nulleffekt beim vanadium zerfall je 35 sekunden:  14.3125 +-  3.459023525505428
 % nulleffekt beim silber zerfall je 10 sekunden:  4.089285714285714 +-  0.9882924358586936
 
@@ -95,35 +99,66 @@ Die gemessenen Werte $x$ und $y$ des Vanadium Zerfalls vor Abzug des Nulleffekts
 \end{table}
 
 \noindent
-Nach Abzug des Nulleffekts $N_\text{u,V}$ ergibt sich die Zahl $N_{Delta t}(t) = y- N_\text{u,V}$ der im Zeitintervall $Delta t_\text{V}$
+Nach Abzug des Nulleffekts $N_\text{u,V}$ ergibt sich die Zahl $N_{\Delta t}(t) = y- N_\text{u,V}$ der im Zeitintervall $\Delta t_\text{V}$
 gemessenen Zerfälle.
 Wird $N_\text{u,V}$ in Abhängigkeit des betrachteten Zeitintervalls halblogarithmisch geplottet, ergibt sich Abbildung \ref{fig:vanadium_log}.
 Die darin eingezeichneten Fehler $\Delta N_{\Delta t} = \num[]{3.4590}$ wurden gemäß der Gaußschen Fehlerfortpflanzung \eqref{eq:gauss} berechnet.
-Gemäß Formel \textbf{REF!!!}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[height=7.5cm]{build/c02_vanadium_log.pdf}
-    \caption[]{Halblogarithmische Darstellung des Vanadium Zerfalls in Abhängigkeit von $\Delta t_\text{V}$.}
-    \label{fig:vanadium_log}
-\end{figure}
-
-\noindent
-Da die Fehlerbalken durch die halblogarithmische Darstellung verzerrt erscheinen, ist für eine bessere Betrachtungsweise zusätzlich ein linearer
-Plot in Abbildung \ref{fig:vanadium_err} zu sehen.
-\begin{figure}[H]
-    \centering
-    \includegraphics[height=7.5cm]{build/c02_vanadium_err.pdf}
-    \caption[]{Lineare Darstellung des Vanadium Zerfalls in Abhängigkeit von $\Delta t_\text{V}$.}
-    \label{fig:vanadium_err}
-\end{figure}
-
+Gemäß Formel \textbf{REF!!!} wird eine lineare Ausgleichsrechnung 
+\begin{align}
+    \ln\left(N_{\Delta t}(t)\right) = a \cdot t + b
+\end{align}
+mittels der \texttt{numpy} \cite[]{numpy} Funktion \texttt{polyfit} durchgeführt.
+Anhand der somit bestimmten Konstanten
+\begin{align*}
+    a &= (\num{-0.1015 +- 0.0048}) \, \frac{1}{35 \unit{\second}}  & b &= \num{5.2906 +- 0.0859}
+\end{align*}
+kann die gesuchte Konstante 
+\begin{align}
+    N(0) \cdot \left(1- \exp(- \lambda \Delta t)\right) = \exp(b) = \num[]{198 +- 17}
+\end{align}
+sowie die Zerfallskonstante 
+\begin{align}
+    \lambda = - a = \qty[]{0.0029+-0.0001}{\per\second}
+\end{align}
+bestimmt werden.
+Aus letzterer folgt die Halbwertszeit 
+\begin{align}
+    T = \qty[]{239 +- 11}{\second} = \qty[]{3.98 +- 0.19}{\minute}
+\end{align}
+gemäß Gleichung \textbf{REF!!!}.
 % a = -0.10153046 ± 0.00483896
 % b = 5.29056262 ± 0.08590575
 % lamda in 1/s:  0.00290+/-0.00014 /s
 % halbwertszeit in sekunden:  239+/-11 s
 % halbwertszeit in minuten:  3.98+/-0.19 min
 % const = N(0)*(1-exp(...)) =  198+/-17
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=8cm]{build/c02_vanadium_log.pdf}
+    \caption[]{Halblogarithmische Darstellung des Vanadium Zerfalls in Abhängigkeit von $\Delta t_\text{V}$.}
+    \label{fig:vanadium_log}
+\end{figure}
+
+\noindent
+Da die Fehlerbalken durch die halblogarithmische Darstellung verzerrt erscheinen, ist für eine bessere Veranschaulichung zusätzlich ein linearer
+Plot in Abbildung \ref{fig:vanadium_err} zu sehen.
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=8cm]{build/c02_vanadium_err.pdf}
+    \caption[]{Lineare Darstellung des Vanadium Zerfalls in Abhängigkeit von $\Delta t_\text{V}$.}
+    \label{fig:vanadium_err}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
 
 
 \subsection{Silber Probe}
