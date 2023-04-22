@@ -1,0 +1,46 @@
+\section{Ziel}
+In diesem Versuch sollen mithilfe von Neutronen verschiedene Proben aus Vanadium und Silber
+ Radioaktiv aktiviert werden.
+Von den erzeugten radioaktiven Isotopen dieser Proben wird anschließen die Halbwertszeit ermittelt.
+
+\section[Theoretische Grundlagen]{Theoretische Grundlagen\footnote[1]{Unter Verwendung von \cite[]{man:v702}}.}
+
+\subsection{Halbwertszeit}
+Die Halbwertszeit eines radioaktiven Materials ist ein statistischer Wert, der bei einer großen Anzahl an Teilchen
+die Zeit bestimmt, bis die Hälfte der Teilchen zerfallen ist.
+Die Zahl der Noch nicht zerfallenen Kerne in einer Probe wird durch 
+\begin{align}
+    N(t)= N_0 e^{-\lambda t}
+\end{align}
+beschrieben.
+Die Halbwertszeit $T$ der Probe ergibt sich damit aus
+\begin{align}
+    1/2 N_0 = N_0 e^{-\lambda T} \Leftrightarrow T = \ln(2/\lambda)
+    \label{eq:T_aus_lambda}
+\end{align}
+Um die Halbwertszeit aus den gemessenen Zerfällen in einem Zeitintervall $\Delta t$
+zu ermitteln werden sich die Eigenschaften der e-Funktion zunutze gemacht.
+Es gilt
+\begin{align}
+    \ln N_{\Delta t} = \ln{N_0 (1- e^{-\lambda \Delta t})} - \lambda t
+    \label{eq:lambda_aus_N}
+\end{align}
+Den wert für Lambda ergibt sich aus einer linearen Ausgleichrechnung, da
+\begin{align*}
+    \ln{N_0 (1- e^{-\lambda \Delta t})} = \text{const.}
+\end{align*}
+
+\subsection{Anregung der Proben}
+
+In diesem Versuch werden drei Radioaktive Isotope von natürlich Stabilen Elementen erzeugt.
+\begin{align}
+    \ce{^{51}V}, & \ce{^{107}Ag} & \ce{^{109}Ag}
+\end{align}
+
+Dies wird erreicht in dem das Verhältnis von Neutronen und Protonen in den Kernen des Elements verändert wird.
+Hierzu werden sich Kernreaktionen mit Neutonen zunutze gemacht.
+Eine Kernreaktion eines Atomkerns A mit einem Neuton beginnt mit der Absorption des Neutons im Atomkern.
+Den neuen so entstandenen angeregten Kern A* nennt man Zwischenkern oder Compoundkern.
+Er ist durch die Bindungsenergie des Neutrons auf einem höheren Energielevel als der einfache Atomkern.
+Diese Energie verteilt sich auf die gesamten Nukleonen, weshalb die Energie des Atomkerns meist nicht mehr ausreicht
+um ein ganzes Nukleon abzustoßen.
