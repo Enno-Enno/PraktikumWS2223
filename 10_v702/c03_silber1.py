@@ -9,8 +9,21 @@ from scipy.optimize import curve_fit
 x, count_ag = np.genfromtxt("messung_c03_silber1.txt", unpack = True)
 delta_t = 10
 
-t_star = 29 # mit 35 sind die Abweichungen größer
-t_max  = 11 # ab 12 werden differenzen der beiden Zeiten negativ
+t_star = 28
+# literatur lange halbwertszeit ca 2.3 minuten
+# 40: halbwertszeit_l in minuten:  (1+/-4)e+01 min aber gerade flacher
+# 35: halbwertszeit_l in minuten:  2.4+/-1.0 min gerade nicht mehr ganz so flach
+# 30: halbwertszeit_l in minuten:  2.4+/-0.6 min
+# 29: halbwertszeit_l in minuten:  2.5+/-0.6 min
+# 28: halbwertszeit_l in minuten:  2.5+/-0.5 min -> nehmen wir mal den hier i guess
+# 27: halbwertszeit_l in minuten:  3.0+/-0.8 min
+
+t_max  = 10 # ab 12 werden differenzen der beiden Zeiten negativ
+# literaturwert kurze halbwertszeit ca. 24,56
+# 11: halbwertszeit_k in sekunden:  23.4+/-2.5 s
+# 10: halbwertszeit_k in sekunden:  20.4+/-1.4 s -> der hier wegen minimierung der fehler und gerade ca. parallel
+#  9: halbwertszeit_k in sekunden:  22.4+/-1.4 s
+#  8: halbwertszeit_k in sekunden:  20.8+/-1.1 s
 
 # zerfall nach abzug des nulleffekts je 10s
 zerfall_mean = count_ag - c01.mean_silber
@@ -119,19 +132,24 @@ y_max = unp.log(zerfall_mean + zerfall_std)
 yerr_min = unp.log(zerfall_mean) - y_min
 yerr_max = y_max - unp.log(zerfall_mean)
 
+x0 = 1
+x1 = 50
 y0 = 0.9
 y1 = 5.6
-xplot = np.linspace(1, 50, 1000)
-xplot_l = np.linspace(t_star, 50, 1000)
-xplot_k = np.linspace(1, t_max, 1000)
+xplot = np.linspace(x0, x1, 1000)
+xplot_l = np.linspace(t_star, x1, 1000)
+xplot_k = np.linspace(x0, t_max, 1000)
 plt.figure(constrained_layout = True)
 plt.errorbar(x, unp.log(zerfall_mean), yerr = (yerr_min, yerr_max), fmt = "x", label = "Anzahl der Zerfälle inkl. Fehlerbalken") 
 plt.plot(xplot, params_l[0] * xplot + params_l[1],"g--")
 plt.plot(xplot_l, params_l[0] * xplot_l + params_l[1],"g-", label = "Ausgleichsgerade (langlebig) ab $t^*$")
 plt.plot(xplot, params_k[0] * xplot + params_k[1],"r--")
 plt.plot(xplot_k, params_k[0] * xplot_k + params_k[1],"r-", label = "Ausgleichsgerade (kurzlebig) bis $t_\\text{max}$")
+plt.plot(xplot, (params_k[0] + params_l[0]) * xplot + (params_k[1] + params_l[1]), label = "Summe beider Ausgleichsgeraden")
+# plt.plot(xplot, (params_k[0] - params_l[0]) * xplot + (params_k[1] - params_l[1]), label = "Differenz der Ausgleichsgeraden") -> sieht noch beschissener aus
 #plt.vlines(t_star, y0, y1, color="g", linestyles ="dotted", label="$t^*$")
 #plt.vlines(t_max, y0, y1, color="r", linestyles ="dotted", label="$t_\\text{max}$")
+plt.xlim(x0-1, x1+1)
 plt.ylim(y0, y1)
 plt.xlabel("Zeitintervall / $\\qty{10}{\\second}$")
 plt.ylabel("$\\log\\left(N_{\\Delta t}(t)\\right)$") #n(t) = count_v - nulleffekt im zeitintervall

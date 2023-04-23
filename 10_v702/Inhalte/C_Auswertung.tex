@@ -99,13 +99,14 @@ Die gemessenen Werte $x$ und $y$ des Vanadium Zerfalls vor Abzug des Nulleffekts
 \end{table}
 
 \noindent
-Nach Abzug des Nulleffekts $N_\text{u,V}$ ergibt sich die Zahl $N_{\Delta t}(t) = y- N_\text{u,V}$ der im Zeitintervall $\Delta t_\text{V}$
+Nach Abzug des Nulleffekts $N_\text{u,V}$ ergibt sich die Zahl $N_{\Delta t,V}(t) = y- N_\text{u,V}$ der im Zeitintervall $\Delta t_\text{V} = \qty[]{35}{\second}$
 gemessenen Zerfälle.
 Wird $N_\text{u,V}$ in Abhängigkeit des betrachteten Zeitintervalls halblogarithmisch geplottet, ergibt sich Abbildung \ref{fig:vanadium_log}.
 Die darin eingezeichneten Fehler $\Delta N_{\Delta t} = \num[]{3.4590}$ wurden gemäß der Gaußschen Fehlerfortpflanzung \eqref{eq:gauss} berechnet.
 Gemäß Formel \textbf{REF!!!} wird eine lineare Ausgleichsrechnung 
 \begin{align}
     \ln\left(N_{\Delta t}(t)\right) = a \cdot t + b
+    \label{eq:linear_eq}
 \end{align}
 mittels der \texttt{numpy} \cite[]{numpy} Funktion \texttt{polyfit} durchgeführt.
 Anhand der somit bestimmten Konstanten
@@ -143,6 +144,7 @@ gemäß Gleichung \textbf{REF!!!}.
 \noindent
 Da die Fehlerbalken durch die halblogarithmische Darstellung verzerrt erscheinen, ist für eine bessere Veranschaulichung zusätzlich ein linearer
 Plot in Abbildung \ref{fig:vanadium_err} zu sehen.
+
 \begin{figure}[H]
     \centering
     \includegraphics[height=8cm]{build/c02_vanadium_err.pdf}
@@ -165,15 +167,7 @@ Plot in Abbildung \ref{fig:vanadium_err} zu sehen.
 \subsection{Silber Probe}
 
 \subsubsection{Messreihe 1}
-%\ce{^{108}_{47}Ag}
-
-% parameter langlebig:
-% a = -0.04773947 ± 0.01217383
-% b = 3.87385042 ± 0.49250137
-% lamda_l in 1/s:  0.0048+/-0.0012 /s
-% halbwertszeit_l in sekunden:  (1.5+/-0.4)e+02 s
-% halbwertszeit_l in minuten:  2.4+/-0.6 min
-% const_l = N(0)*(1-exp(...)) =  48+/-24
+Die Intervallnummer $x$ und Zerfallsanzahl $y$ (vor Abzug des durchschnittlichen Nulleffekts, vgl. Abschnitt \ref{sec:ausw_null}) sind in Tabelle \ref{tab:silber1} zu sehen.
 
 \begin{table}[H]
     \centering
@@ -197,6 +191,79 @@ Plot in Abbildung \ref{fig:vanadium_err} zu sehen.
         \bottomrule
     \end{tabular}
 \end{table}
+
+\noindent
+Analog zu oben ergibt sich nach Abzug des Nulleffekts die effektive Zerfallzahl 
+$N_{\Delta t,Ag}(t) = y- N_\text{u,Ag}$ je Intervall $\Delta t_\text{Ag} = \qty[]{10}{\second}$,
+die erneut halblogarithmisch geplottet wird, vgl. Abbildung \ref{fig:silber1_log}.
+Auch hier ergeben sich die eingezeichneten Fehler gemäß der Gaußschen Fehlerfortpflanzung \eqref{eq:gauss} zu $\Delta N_{\Delta t} = \num{0.9883}$.
+Um die unterschiedlichen Halbwertszeiten der beiden Isotope im natürlich vorkommenden Silber ermitteln zu können, wird für einen Wert ab 
+$t^* = 28 \cdot \Delta t_\text{Ag} = \qty[]{280}{\second}$ eine lineare Ausgleichsrechnung gemäß \eqref{eq:linear_eq} durchgeführt.
+Dadurch können die gesuchten Konstanten des langlebigen Isotops ermittelt werden, da hier das kurzlebige Isotop nahezu vollständig zerfallen ist.
+Es sei angemerkt, dass aufgrund der Werteschwankungen im späteren Zeitbereich der Wert $t^*$ so festgelegt wurde, dass zum einen die zugehörige Ausgleichsgerade nicht zu steil verläuft,
+und zum anderen die resultierenden Abweichungen der gesuchten Größen nicht allzu groß sind.
+In diesem Fall ergeben sich die Konstanten zu 
+\begin{align}
+    a &= (\num{-0.0470 +- 0.0101}) \, \frac{1}{10 \unit{\second}}  & b &= \num{3.8409 +- 0.4005}.
+\end{align}
+Hieraus ergeben sich analog zu oben die Werte 
+\begin{align}
+    N(0) \cdot \left(1- \exp(- \lambda \Delta t)\right) = \exp(b) = \num[]{47 +- 19}
+\end{align}
+sowie die Zerfallskonstante 
+\begin{align}
+    \lambda = - a = \qty[]{0.0047 +- 0.0010}{\per\second}.
+\end{align}
+Aus letzterer folgt die Halbwertszeit 
+\begin{align}
+    T = \qty[]{148 +- 32}{\second} = \qty[]{2.5 +- 0.5}{\minute}
+\end{align}
+gemäß Gleichung \textbf{REF!!!}.
+% parameter langlebig:
+% a = -0.04698199 ± 0.01012280
+% b = 3.84088491 ± 0.40045897
+% lamda_l in 1/s:  0.0047+/-0.0010 /s
+% halbwertszeit_l in sekunden:  148+/-32 s
+% halbwertszeit_l in minuten:  2.5+/-0.5 min
+% const_l = N(0)*(1-exp(...)) =  47+/-19
+
+\noindent
+Diese Werte werden für 
+%\ce{^{108}_{47}Ag}
+
+
+% parameter kurzlebig:
+% a = -0.34046867 ± 0.02310907
+% b = 5.35306494 ± 0.13004202
+% lamda_k in 1/s:  0.0340+/-0.0023 /s
+% halbwertszeit_k in sekunden:  20.4+/-1.4 s
+% halbwertszeit_k in minuten:  0.339+/-0.023 min
+% const_k = N(0)*(1-exp(...)) =  211+/-27
+% N_kurz =  0.015297622873146566
+% N_lang =  12.495756307737304
+% N_abw =  0.9987757745512631
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=8cm]{build/c03_silber1_log.pdf}
+    \caption[]{Halblogarithmische Darstellung des ersten Silber Zerfalls in Abhängigkeit von $\Delta t_\text{Ag}$.}
+    \label{fig:silber1_log}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsubsection{Messreihe 2}
 
