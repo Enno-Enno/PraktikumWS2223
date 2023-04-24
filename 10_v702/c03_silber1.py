@@ -5,127 +5,150 @@ from uncertainties import unumpy as unp
 import c01_nulleffekt as c01
 from scipy.optimize import curve_fit
 
+#VERBESSERTE PARAMETER
+# parameter langlebig:
+# a = -0.03742470 ± 0.01125532
+# b = 3.67018605 ± 0.42005173
+# lamda_l in 1/s:  0.0037+/-0.0011 /s
+# halbwertszeit_l in sekunden:  (1.9+/-0.6)e+02 s
+# halbwertszeit_l in minuten:  3.1+/-0.9 min
+# const_l = N(0)*(1-exp(...)) =  39+/-16
+
+# parameter kurzlebig:
+# a = -0.31047072 ± 0.01597358
+# b = 5.32683420 ± 0.02897929
+# lamda_k in 1/s:  0.0310+/-0.0016 /s
+# halbwertszeit_k in sekunden:  22.3+/-1.1 s
+# halbwertszeit_k in minuten:  0.372+/-0.019 min
+# const_k = N(0)*(1-exp(...)) =  206+/-6
+# N_kurz =  0.019+/-0.009
+# N_lang =  13+/-7
+
 
 x, count_ag = np.genfromtxt("messung_c03_silber1.txt", unpack = True)
 delta_t = 10
 
-t_star = 28
+t_star = 30
 # literatur lange halbwertszeit ca 2.3 minuten
-# 40: halbwertszeit_l in minuten:  (1+/-4)e+01 min aber gerade flacher
-# 35: halbwertszeit_l in minuten:  2.4+/-1.0 min gerade nicht mehr ganz so flach
-# 30: halbwertszeit_l in minuten:  2.4+/-0.6 min
-# 29: halbwertszeit_l in minuten:  2.5+/-0.6 min
-# 28: halbwertszeit_l in minuten:  2.5+/-0.5 min -> nehmen wir mal den hier i guess
-# 27: halbwertszeit_l in minuten:  3.0+/-0.8 min
+#29: halbwertszeit_l in minuten:  3.4+/-0.9 min
+#   tmax = 7 halbwertszeit_k in sekunden:  23.7+/-0.8 s
+#           9 halbwertszeit_k in sekunden:  24.1+/-0.8 s
+#35: halbwertszeit_l in minuten:  2.3+/-0.9 min (Das ist sexy aber tmax passt nicht)
+#   tmax = 7 halbwertszeit_k in sekunden:  17.5+/-0.6 s
+#           9 halbwertszeit_k in sekunden:  17.2+/-0.7 s
+#25: halbwertszeit_l in minuten:  5.1+/-2.2 min ---> näääääääääää
+#   tmax = 7 halbwertszeit_k in sekunden:  26.1+/-1.0 s
+#           10 halbwertszeit_k in sekunden:  26.8+/-0.9 s
+#40: halbwertszeit_l in minuten:  2.6+/-2.0 min
+#       tmax = 9 halbwertszeit_k in sekunden:  20.2+/-0.7 s
+#               11 halbwertszeit_k in sekunden:  20.8+/-0.9 s
+#                7 halbwertszeit_k in sekunden:  20.3+/-0.6 s
+#                   4 halbwertszeit_k in sekunden:  20.5+/-1.2 s  --> imma go with this one oder so
 
-t_max  = 10 # ab 12 werden differenzen der beiden Zeiten negativ
+#TMAX MUSS NOCH ANGEPASST WERDEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+t_max  = 4 # ab 10 werden differenzen der beiden Zeiten negativ -> max 9
 # literaturwert kurze halbwertszeit ca. 24,56
-# 11: halbwertszeit_k in sekunden:  23.4+/-2.5 s
-# 10: halbwertszeit_k in sekunden:  20.4+/-1.4 s -> der hier wegen minimierung der fehler und gerade ca. parallel
-#  9: halbwertszeit_k in sekunden:  22.4+/-1.4 s
-#  8: halbwertszeit_k in sekunden:  20.8+/-1.1 s
+# 9: halbwertszeit_k in sekunden:  17.2+/-0.8 s
+# 8: halbwertszeit_k in sekunden:  17.3+/-0.8 s
+# 7: halbwertszeit_k in sekunden:  17.5+/-0.8 s
+# 6: halbwertszeit_k in sekunden:  17.5+/-0.8 s
+# 5: halbwertszeit_k in sekunden:  17.4+/-1.1 s
+# 4: halbwertszeit_k in sekunden:  18.5+/-1.3 s
+# 3: halbwertszeit_k in sekunden:  20.370354444849557+/-inf s -> das sollten wir lassen
 
 # zerfall nach abzug des nulleffekts je 10s
 zerfall_mean = count_ag - c01.mean_silber
 zerfall_std = c01.std_silber #vgl. one-note bzw gaußsche fehlerfortpflanzung
 
+array = unp.uarray(zerfall_mean, zerfall_std * np.ones(len(x))) #array = N(t) (Zerfallsanzahls)
+array_log = unp.log(array)
+
+def lin(t, a, b):
+    return(a * t + b)
 
 #---------------------------------------------------------------------------
 #langlebiges isotop
 
-params_l, covariance_matrix_l = np.polyfit(x[t_star-1:], np.log(zerfall_mean[t_star-1:]), deg = 1, cov = True)
+
+params_l, covariance_matrix_l = curve_fit(lin, x[t_star-1:], [i.n for i in array_log[t_star-1:]], p0 = (-0.05, 3.87), sigma = [i.s for i in array_log[t_star-1:]])
 errors_l = np.sqrt(np.diag(covariance_matrix_l))
 
 print("parameter langlebig:")
 for name, value, error in zip('ab', params_l, errors_l):
  print(f'{name} = {value:.8f} ± {error:.8f}')
-#parameter langlebig:
-# a = -0.04773947 ± 0.01217383
-# b = 3.87385042 ± 0.49250137
+
+a_l = ufloat(params_l[0], errors_l[0])
+b_l = ufloat(params_l[1], errors_l[1])
 
 #bestimmung der halbwertszeit langlebig:
-lamda_l = - ufloat(params_l[0], errors_l[0]) / delta_t # muss auf richtige Zeiteinheit bezogen werden
+lamda_l = - a_l / delta_t # muss auf richtige Zeiteinheit bezogen werden
 print("lamda_l in 1/s: ", lamda_l, "/s")
-#lamda_l in 1/s:  0.0048+/-0.0012 /s
 halbwertszeit_l = unp.log(2) / lamda_l
 print("halbwertszeit_l in sekunden: ", halbwertszeit_l, "s")
 print("halbwertszeit_l in minuten: ", halbwertszeit_l/60, "min")
-#halbwertszeit_l in sekunden:  (1.5+/-0.4)e+02 s
-#halbwertszeit_l in minuten:  2.4+/-0.6 min
+
 
 #bestimmung von N(0)*(1-exp(...)) = exp(b) langlebig:
-const_l = ufloat(unp.exp(params_l[1]), errors_l[1] * unp.exp(params_l[1])) #fehler per hand ausgerechnet: delta_c = delta_b * exp(b) (vgl onenote)
+const_l = unp.exp(b_l)
 print("const_l = N(0)*(1-exp(...)) = ", const_l)
-#const_l = N(0)*(1-exp(...)) =  48+/-24
+
 
 
 #----------------------------------------------------------------------------------------
 #kurzlebiges isotop
 
-
-differenzen_k_l_mean = zerfall_mean[:t_max-1] - (np.exp(params_l[1]) * np.exp(params_l[0] * x[:t_max-1])) #unp.exp(params_l[1]) = mittelwert von b
-differenzen_k_l = zerfall_mean[:t_max-1] - (const_l * unp.exp(- lamda_l * x[:t_max-1] * delta_t))
-
-print("differenzen_k_l_mean: ", differenzen_k_l_mean)
-print("differenzen_k_l: ", differenzen_k_l)
-#differenzen_k_l_mean:  [142.02696771 105.16596992  73.20525642  50.14947575  40.00305972
-#  30.77023357  16.45502555  18.06127612   6.59264673  15.05262812]
-#differenzen_k_l:  [142.0269677097211+/-22.604710393462707
-# 105.16596992269437+/-21.570657367080337
-# 73.20525642349216+/-20.596392046112047
-# 50.149475745526146+/-19.677950239755372
-# 40.00305971751414+/-18.811619625530987
-# 30.770233565789866+/-17.99392667197959
-# 16.455025545664547+/-17.221624084632143
-# 18.06127612379509+/-16.491678736667076
-# 6.592646732489815+/-15.801260052358526
-# 15.052628115907247+/-15.147728817726344]
+#ARRAY MUSS IN DIFFERENZEN VERWENDET WERDEN!!
 
 
-params_k, covariance_matrix_l = np.polyfit(x[:t_max-1], np.log(differenzen_k_l_mean), deg = 1, cov = True)
-errors_k = np.sqrt(np.diag(covariance_matrix_l))
+
+differenzen = array[:t_max-1] - (const_l * unp.exp(a_l * x[:t_max-1]))
+print("differenzen: ", differenzen)
+#differenzen:  [138.00123869013612+/-74.17017118498016
+# 101.1606530244294+/-71.01551693579728
+# 69.22663679846323+/-68.02931254255127]
+
+differenzen_log = unp.log(differenzen)
+
+
+params_k, covariance_matrix_k = curve_fit(lin, x[:t_max-1], [i.n for i in differenzen_log[:t_max-1]], p0 = (-0.05, 3.87), sigma = [i.s for i in differenzen_log[:t_max-1]])
+errors_k = np.sqrt(np.diag(covariance_matrix_k))
 
 print("parameter kurzlebig:")
 for name, value, error in zip('ab', params_k, errors_k):
  print(f'{name} = {value:.8f} ± {error:.8f}')
-# parameter kurzlebig:
-# a = -0.29218124 ± 0.03055004
-# b = 5.18875259 ± 0.18955802
+
+a_k = ufloat(params_k[0], errors_k[0])
+b_k = ufloat(params_k[1], errors_k[1])
+
 
 #bestimmung der halbwertszeit kurzlebig:
-lamda_k = - ufloat(params_k[0], errors_k[0]) / delta_t # muss auf richtige Zeiteinheit bezogen werden
+lamda_k = - a_k / delta_t # muss auf richtige Zeiteinheit bezogen werden
 print("lamda_k in 1/s: ", lamda_k, "/s")
-#lamda_k in 1/s:  0.0292+/-0.0031 /s
 halbwertszeit_k = unp.log(2) / lamda_k
 print("halbwertszeit_k in sekunden: ", halbwertszeit_k, "s")
 print("halbwertszeit_k in minuten: ", halbwertszeit_k/60, "min")
-#halbwertszeit_k in sekunden:  23.7+/-2.5 s
-#halbwertszeit_k in minuten:  0.40+/-0.04 min
 
 #bestimmung von N(0)*(1-exp(...)) = exp(b) kurzlebig:
-const_k = ufloat(unp.exp(params_k[1]), errors_k[1] * unp.exp(params_k[1])) #fehler per hand ausgerechnet: delta_c = delta_b * exp(b) (vgl onenote)
+const_k = unp.exp(b_k)
 print("const_k = N(0)*(1-exp(...)) = ", const_k)
-#const_k = N(0)*(1-exp(...)) =  179+/-34
 
 
 #-----------------------------------------------------------
 #ungleichung überprüfen
 
-n_k = np.exp(params_k[0] * t_star + params_k[1])
-n_l = np.exp(params_l[0] * t_star + params_l[1])
+n_k = unp.exp(a_k * t_star + b_k)
+n_l = unp.exp(a_l * t_star + b_l)
 n_abw = (n_l - n_k) / n_l
 
 print("N_kurz = ", n_k)
 print("N_lang = ", n_l)
 print("N_abw = ", n_abw)
-# N_kurz =  0.037459183624506266
-# N_lang =  11.85165335402964
-# N_abw =  0.9968393284459531
 
 
 
 
 
+#logarithmische darstellung der fehlerbalken in kompliziert
 y_min = unp.log(zerfall_mean - zerfall_std)
 y_max = unp.log(zerfall_mean + zerfall_std)
 
@@ -140,15 +163,16 @@ xplot = np.linspace(x0, x1, 1000)
 xplot_l = np.linspace(t_star, x1, 1000)
 xplot_k = np.linspace(x0, t_max, 1000)
 plt.figure(constrained_layout = True)
+plt.axvline(x=t_star, label="t*", color='m')
+plt.axvline(x=t_max, label="$t_\\text{max}$", color='k')
 plt.errorbar(x, unp.log(zerfall_mean), yerr = (yerr_min, yerr_max), fmt = "x", label = "Anzahl der Zerfälle inkl. Fehlerbalken") 
-plt.plot(xplot, params_l[0] * xplot + params_l[1],"g--")
-plt.plot(xplot_l, params_l[0] * xplot_l + params_l[1],"g-", label = "Ausgleichsgerade (langlebig) ab $t^*$")
-plt.plot(xplot, params_k[0] * xplot + params_k[1],"r--")
-plt.plot(xplot_k, params_k[0] * xplot_k + params_k[1],"r-", label = "Ausgleichsgerade (kurzlebig) bis $t_\\text{max}$")
-plt.plot(xplot, (params_k[0] + params_l[0]) * xplot + (params_k[1] + params_l[1]), label = "Summe beider Ausgleichsgeraden")
-# plt.plot(xplot, (params_k[0] - params_l[0]) * xplot + (params_k[1] - params_l[1]), label = "Differenz der Ausgleichsgeraden") -> sieht noch beschissener aus
-#plt.vlines(t_star, y0, y1, color="g", linestyles ="dotted", label="$t^*$")
-#plt.vlines(t_max, y0, y1, color="r", linestyles ="dotted", label="$t_\\text{max}$")
+plt.plot(xplot, params_l[0] * xplot + params_l[1], label = "Ausgleichsgerade (langlebig)")
+plt.plot(xplot, params_k[0] * xplot + params_k[1], label = "Ausgleichsgerade (kurzlebig)")
+plt.plot(xplot, unp.log(unp.exp((params_l[0]*xplot + params_l[1])) + unp.exp((params_k[0]*xplot + params_k[1]))), label='Summe beider Ausgleichsgeraden')
+# plt.plot(xplot, params_l[0] * xplot + params_l[1],"r--")
+# plt.plot(xplot_l, params_l[0] * xplot_l + params_l[1],"r-", label = "Ausgleichsgerade (langlebig) ab $t^*$")
+# plt.plot(xplot, params_k[0] * xplot + params_k[1],"g--")
+# plt.plot(xplot_k, params_k[0] * xplot_k + params_k[1],"g-", label = "Ausgleichsgerade (kurzlebig) bis $t_\\text{max}$")
 plt.xlim(x0-1, x1+1)
 plt.ylim(y0, y1)
 plt.xlabel("Zeitintervall / $\\qty{10}{\\second}$")
@@ -158,11 +182,12 @@ plt.legend()
 plt.savefig("build/c03_silber1_log.pdf")
 
 
-xplot = np.linspace(1, 50, 1000)
-plt.figure(constrained_layout = True)
-plt.errorbar(x, zerfall_mean, yerr = zerfall_std, fmt = "x", label = "Anzahl der Zerfälle inkl. Fehlerbalken")
-plt.xlabel("Zeitintervall / $\\qty{10}{\\second}$")
-plt.ylabel("Zerfälle") #n(t) = count_v - nulleffekt im zeitintervall
-plt.grid()
-plt.legend()
-plt.savefig("build/c03_silber1_err.pdf")
+# xplot = np.linspace(1, 50, 1000)
+# plt.figure(constrained_layout = True)
+# plt.errorbar(x, zerfall_mean, yerr = zerfall_std, fmt = "x", label = "Anzahl der Zerfälle inkl. Fehlerbalken")
+# plt.plot(xplot, unp.exp((params_l[0]*xplot + params_l[1])) + unp.exp((params_k[0]*xplot + params_k[1])) , label='Summe aus beiden Ausgleichsgeraden')
+# plt.xlabel("Zeitintervall / $\\qty{10}{\\second}$")
+# plt.ylabel("Zerfälle") #n(t) = count_v - nulleffekt im zeitintervall
+# plt.grid()
+# plt.legend()
+# plt.savefig("build/c03_silber1_err.pdf")

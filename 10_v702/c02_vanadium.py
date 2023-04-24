@@ -13,19 +13,34 @@ delta_t = 35
 zerfall_mean = count_v - c01.mean_vanadium
 zerfall_std = c01.std_vanadium #vgl. one-note bzw gaußsche fehlerfortpflanzung
 
-# zerfall_ufl = ufloat(zerfall_mean, zerfall_std)
-# def lin(t, a, b):
-#     return(a * t + b)
-# params_check, covariance_matrix_check = curve_fit(lin, x, unp.log(zerfall_mean), p0 = (-0.1, 5.2), sigma = [0,  zerfall_std]) 
-# #(ich wollte eigentlich die fehler auf y berücksichtigen aber das ist wohl etwas zu kompliziert)
+array = unp.uarray(zerfall_mean, zerfall_std * np.ones(len(x)))
+array = unp.log(array)
+def lin(t, a, b):
+    return(a * t + b)
 
-params, covariance_matrix = np.polyfit(x, np.log(zerfall_mean), deg = 1, cov = True)
+params, covariance_matrix = curve_fit(lin, x, [i.n for i in array], p0 = (-0.1, 5.2), sigma = [i.s for i in array]) 
+#n = nominal_value = nominale werte = mittelwert, s = standardabweichung des ufloats
 errors = np.sqrt(np.diag(covariance_matrix))
-
+print("Parameter: ")
 for name, value, error in zip('ab', params, errors):
  print(f'{name} = {value:.8f} ± {error:.8f}')
-# a = -0.10153046 ± 0.00483896
-# b = 5.29056262 ± 0.08590575
+
+
+###### NEUE PARAMETER MIT BESSEREN ABWEICHUNGEN
+# a = -0.10603542 ± 0.00534514
+# b = 5.36902879 ± 0.03755019
+# lamda in 1/s:  0.00303+/-0.00015 /s
+# halbwertszeit in sekunden:  229+/-12 s
+# halbwertszeit in minuten:  3.81+/-0.19 min
+# const = N(0)*(1-exp(...)) =  215+/-8
+
+####### hab ich jetzt auch mitsamt der standardabweichung des nulleffekts........params, covariance_matrix = np.polyfit(x, np.log(zerfall_mean), deg = 1, cov = True)
+####### hab ich jetzt auch mitsamt der standardabweichung des nulleffekts........errors = np.sqrt(np.diag(covariance_matrix))
+####### hab ich jetzt auch mitsamt der standardabweichung des nulleffekts........
+####### hab ich jetzt auch mitsamt der standardabweichung des nulleffekts........for name, value, error in zip('ab', params, errors):
+####### hab ich jetzt auch mitsamt der standardabweichung des nulleffekts........ print(f'{name} = {value:.8f} ± {error:.8f}')
+####### hab ich jetzt auch mitsamt der standardabweichung des nulleffekts........# a = -0.10153046 ± 0.00483896
+####### hab ich jetzt auch mitsamt der standardabweichung des nulleffekts........# b = 5.29056262 ± 0.08590575
 
 #bestimmung der halbwertszeit:
 lamda = - ufloat(params[0], errors[0]) / delta_t # muss auf richtige Zeiteinheit bezogen werden
@@ -55,11 +70,11 @@ plt.figure(constrained_layout = True)
 plt.errorbar(x, unp.log(zerfall_mean), yerr = (yerr_min, yerr_max), fmt = "x", label = "Anzahl der Zerfälle inkl. Fehlerbalken") #log(std) da sonst nicht logaritmus des fehlers dargestellt
 plt.plot(xplot, params[0] * xplot + params[1], label = "Ausgleichsgerade")
 plt.xlabel("Zeitintervall / $\\qty{35}{\\second}$")
-#plt.ylabel("$\\log\\left(\\frac{N(t)}{N_0}\\right)$") #n(t) = count_v - nulleffekt im zeitintervall
 plt.ylabel("$\\log\\left(N_{\\Delta t}(t)\\right)$") #n(t) = count_v - nulleffekt im zeitintervall
 plt.grid()
 plt.legend()
 plt.savefig("build/c02_vanadium_log.pdf")
+
 
 xplot = np.linspace(1, 30, 1000)
 plt.figure(constrained_layout = True)
