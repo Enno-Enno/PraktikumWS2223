@@ -111,28 +111,29 @@ Gemäß Formel \textbf{REF!!!} wird eine lineare Ausgleichsrechnung
 mittels der \texttt{numpy} \cite[]{numpy} Funktion \texttt{polyfit} durchgeführt.
 Anhand der somit bestimmten Konstanten
 \begin{align*}
-    a &= (\num{-0.1015 +- 0.0048}) \, \frac{1}{35 \unit{\second}}  & b &= \num{5.2906 +- 0.0859}
+    a &= (\num{-0.1060 +- 0.0053}) \, \frac{1}{35 \unit{\second}}  & b &= \num{5.3690 +- 0.0376}
 \end{align*}
 kann die gesuchte Konstante 
 \begin{align}
-    N(0) \cdot \left(1- \exp(- \lambda \Delta t)\right) = \exp(b) = \num[]{198 +- 17}
+    N(0) \cdot \left(1- \exp(- \lambda \Delta t)\right) = \exp(b) = \num[]{215 +- 8}
 \end{align}
 sowie die Zerfallskonstante 
 \begin{align}
-    \lambda = - a = \qty[]{0.0029+-0.0001}{\per\second}
+    \lambda = - a = \qty[]{0.0030+-0.0002}{\per\second}
 \end{align}
 bestimmt werden.
 Aus letzterer folgt die Halbwertszeit 
 \begin{align}
-    T = \qty[]{239 +- 11}{\second} = \qty[]{3.98 +- 0.19}{\minute}
+    T = \qty[]{229 +- 12}{\second} = \qty[]{3.81 +- 0.19}{\minute}.
 \end{align}
-gemäß Gleichung \textbf{REF!!!}.
-% a = -0.10153046 ± 0.00483896
-% b = 5.29056262 ± 0.08590575
-% lamda in 1/s:  0.00290+/-0.00014 /s
-% halbwertszeit in sekunden:  239+/-11 s
-% halbwertszeit in minuten:  3.98+/-0.19 min
-% const = N(0)*(1-exp(...)) =  198+/-17
+% gemäß Gleichung \textbf{REF!!!}.
+% a = -0.10603542 ± 0.00534514
+% b = 5.36902879 ± 0.03755019
+% lamda in 1/s:  0.00303+/-0.00015 /s
+% halbwertszeit in sekunden:  229+/-12 s
+% halbwertszeit in minuten:  3.81+/-0.19 min
+% const = N(0)*(1-exp(...)) =  215+/-8
+
 
 \begin{figure}[H]
     \centering
@@ -198,50 +199,56 @@ $N_{\Delta t,Ag}(t) = y- N_\text{u,Ag}$ je Intervall $\Delta t_\text{Ag} = \qty[
 die erneut halblogarithmisch geplottet wird, vgl. Abbildung \ref{fig:silber1_log}.
 Auch hier ergeben sich die eingezeichneten Fehler gemäß der Gaußschen Fehlerfortpflanzung \eqref{eq:gauss} zu $\Delta N_{\Delta t} = \num{0.9883}$.
 Um die unterschiedlichen Halbwertszeiten der beiden Isotope im natürlich vorkommenden Silber ermitteln zu können, wird für einen Wert ab 
-$t^* = 28 \cdot \Delta t_\text{Ag} = \qty[]{280}{\second}$ eine lineare Ausgleichsrechnung gemäß \eqref{eq:linear_eq} durchgeführt.
+$t^* = 30 \cdot \Delta t_\text{Ag} = \qty[]{300}{\second}$ eine lineare Ausgleichsrechnung gemäß \eqref{eq:linear_eq} durchgeführt.
 Dadurch können die gesuchten Konstanten des langlebigen Isotops ermittelt werden, da hier das kurzlebige Isotop nahezu vollständig zerfallen ist.
-Es sei angemerkt, dass aufgrund der Werteschwankungen im späteren Zeitbereich der Wert $t^*$ so festgelegt wurde, dass zum einen die zugehörige Ausgleichsgerade nicht zu steil verläuft,
+Es sei angemerkt, dass aufgrund der Werteschwankungen im späteren Zeitbereich der Wert $t^*$ so festgelegt wurde, 
+dass zum einen die zugehörige Ausgleichsgerade nicht zu steil verläuft,
 und zum anderen die resultierenden Abweichungen der gesuchten Größen nicht allzu groß sind.
+Außerdem wurde darauf geachtet, dass die unten beschriebene Summe der beiden Auslgeichsfunktionen verhältnismäßig nahe an den Messwerten liegt.
 In diesem Fall ergeben sich die Konstanten zu 
 \begin{align}
-    a &= (\num{-0.0470 +- 0.0101}) \, \frac{1}{10 \unit{\second}}  & b &= \num{3.8409 +- 0.4005}.
+    a &= (\num{-0.0374 +- 0.0113}) \, \frac{1}{10 \unit{\second}}  & b &= \num{3.6702 +- 0.4201}.
 \end{align}
 Hieraus ergeben sich analog zu oben die Werte 
 \begin{align}
-    N(0) \cdot \left(1- \exp(- \lambda \Delta t)\right) = \exp(b) = \num[]{47 +- 19}
+    N(0) \cdot \left(1- \exp(- \lambda \Delta t)\right) = \exp(b) = \num[]{39 +- 16}
 \end{align}
 sowie die Zerfallskonstante 
 \begin{align}
-    \lambda = - a = \qty[]{0.0047 +- 0.0010}{\per\second}.
+    \lambda = - a = \qty[]{0.0037 +- 0.0011}{\per\second}.
 \end{align}
 Aus letzterer folgt die Halbwertszeit 
 \begin{align}
-    T = \qty[]{148 +- 32}{\second} = \qty[]{2.5 +- 0.5}{\minute}
+    T = \qty[]{190 +- 160}{\second} = \qty[]{3.1 +- 0.9}{\minute}
 \end{align}
 gemäß Gleichung \textbf{REF!!!}.
+
 % parameter langlebig:
-% a = -0.04698199 ± 0.01012280
-% b = 3.84088491 ± 0.40045897
-% lamda_l in 1/s:  0.0047+/-0.0010 /s
-% halbwertszeit_l in sekunden:  148+/-32 s
-% halbwertszeit_l in minuten:  2.5+/-0.5 min
-% const_l = N(0)*(1-exp(...)) =  47+/-19
+% a = -0.03742470 ± 0.01125532
+% b = 3.67018605 ± 0.42005173
+% lamda_l in 1/s:  0.0037+/-0.0011 /s
+% halbwertszeit_l in sekunden:  (1.9+/-0.6)e+02 s
+% halbwertszeit_l in minuten:  3.1+/-0.9 min
+% const_l = N(0)*(1-exp(...)) =  39+/-16
+
+
+
 
 \noindent
-Diese Werte werden für 
-%\ce{^{108}_{47}Ag}
-
+Zur Bestimmung der Halbwertszeit des kurzlebigen Isotops werden nun die Messwerte bis $t_\text{max} = 4 \cdot \Delta t_\text{Ag} = \qty[]{40}{\second}$ betrachtet,
+da in diesem Bereich besonders viele Zerfälle eben dieses Isotops gemessen werden.
+Zur Bestimmung der Kenngrößen ist es in diesem Fall notwendig, die beiden Größen 
 
 % parameter kurzlebig:
-% a = -0.34046867 ± 0.02310907
-% b = 5.35306494 ± 0.13004202
-% lamda_k in 1/s:  0.0340+/-0.0023 /s
-% halbwertszeit_k in sekunden:  20.4+/-1.4 s
-% halbwertszeit_k in minuten:  0.339+/-0.023 min
-% const_k = N(0)*(1-exp(...)) =  211+/-27
-% N_kurz =  0.015297622873146566
-% N_lang =  12.495756307737304
-% N_abw =  0.9987757745512631
+% a = -0.31047072 ± 0.01597358
+% b = 5.32683420 ± 0.02897929
+% lamda_k in 1/s:  0.0310+/-0.0016 /s
+% halbwertszeit_k in sekunden:  22.3+/-1.1 s
+% halbwertszeit_k in minuten:  0.372+/-0.019 min
+% const_k = N(0)*(1-exp(...)) =  206+/-6
+% N_kurz =  0.019+/-0.009
+% N_lang =  13+/-7
+
 
 \begin{figure}[H]
     \centering
