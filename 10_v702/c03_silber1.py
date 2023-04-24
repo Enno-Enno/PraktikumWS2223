@@ -5,7 +5,7 @@ from uncertainties import unumpy as unp
 import c01_nulleffekt as c01
 from scipy.optimize import curve_fit
 
-#VERBESSERTE PARAMETER (oder so)
+#VERBESSERTE PARAMETER
 # parameter langlebig:
 # a = -0.03742470 ± 0.01125532
 # b = 3.67018605 ± 0.42005173
