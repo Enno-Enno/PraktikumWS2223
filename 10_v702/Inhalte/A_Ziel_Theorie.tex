@@ -38,19 +38,34 @@ Elektron $\beta^{-}$ und Antineutrino $\overline{\nu}_\text{e}$ mit einer Kineti
 \noindent
 In diesem Versuch werden die folgende Kernreaktionen gemessen:
 \begin{align*}
-    \ce{^{51}_{23} V} \rightarrow \ce{^{52}_{23} V} \rightarrow \ce{^{52}_{24} Cr}      + \beta^{-} + E_\text{kin} + \overline{\nu}_\text{e}       \\
+    \ce{^{51}_{23} V}   \rightarrow \ce{^{52}_{23} V}   \rightarrow \ce{^{52}_{24} Cr}  + \beta^{-} + E_\text{kin} + \overline{\nu}_\text{e}  \\
     \ce{^{107}_{47} Ag} \rightarrow \ce{^{108}_{47} Ag} \rightarrow \ce{^{108}_{48} Cd} + \beta^{-} + E_\text{kin} + \overline{\nu}_\text{e}  \\
     \ce{^{109}_{47} Ag} \rightarrow \ce{^{110}_{47} Ag} \rightarrow \ce{^{110}_{48} Cd} + \beta^{-} + E_\text{kin} + \overline{\nu}_\text{e}  \\
 \end{align*}
 
 
 \subsection{Wirkungsquerschnitt}
-\label{sec_}
+\label{sec:teo_wirkungsquerschnitt}
+Der Wirkungsquerschnitt $\sigma$ ist eine geometrische Überlegung, 
+um die Wahrscheinlichkeit von Kernreaktionen darzustellen.
+Wenn $n$ Neutronen, die auf eine dünne Folie mit der Dicke d [\unit{\cm}] und der Dichte 
+K[ Atome/\unit{\cm\cubed}] geschossen werden, wobei $u$ Einfänge auftreten, dann ergibt sich
+der Wirkungsquerschnitt mit
+\begin{align*}
+    \sigma = \frac{u}{n K d}
+\end{align*}
+Eine Vorstellung des Wirkungsquerschnitts ist die einer Zielscheibe.
+Die Neutronen treffen die Kerne, die einen gewissen Anteil der Fläche mit ihren
+Querschnitten abdecken.
+Der Querschnitt eines Kerns ist in der Größenordnung von \qty{10e-24}{\cm\squared}.
+Diese Klassische Vorstellung von Atomkernen die einen Querschnitt haben und von Neutronen
+getroffen werden können, ist tatsächlich weiterführend, wenn die De-Broglie Wellenlänge
+Neutonen klein im Vergleich zum Kernradius ist 
 
 \subsection{Halbwertszeit}
 \label{sec:teo_halbwertszeit}
-Die Halbwertszeit eines radioaktiven Materials ist ein statistischer Wert, der bei einer großen Anzahl an Teilchen
-die Zeit bestimmt, bis die Hälfte der Teilchen zerfallen ist.
+Die Halbwertszeit eines radioaktiven Materials ist ein statistischer Wert,
+der bei einer großen Anzahl an Teilchen die Zeit bestimmt, bis die Hälfte der Teilchen zerfallen ist.
 Die Zahl der Noch nicht zerfallenen Kerne in einer Probe wird durch 
 \begin{align}
     N(t)= N_0 e^{-\lambda t}
@@ -68,7 +83,7 @@ Es gilt
     \ln N_{\Delta t} = \ln{N_0 (1- e^{-\lambda \Delta t})} - \lambda t
     \label{eq:lambda_aus_N}
 \end{align}
-Den wert für Lambda ergibt sich aus einer linearen Ausgleichsrechnung, da
+Der Wert für $\lambda$ ergibt sich aus einer linearen Ausgleichsrechnung, da
 \begin{align*}
     \ln{N_0 (1- e^{-\lambda \Delta t})} = \text{const.}
 \end{align*}
@@ -79,7 +94,7 @@ zerfallenden Isotop abhängig.
 Bei zu klein gewähltem $\Delta t$ sind die statistischen Schwankungen zu groß um
 einen erkennbaren Effekt zu erhalten. 
 Bei zu groß gewähltem $\Delta t$, etwa in der Größe der Halbwertszeit T 
-lässt sich kein exponentieller zusammenhang mehr erkennen.
+gibt es nicht mehr genug Datenpunkte um eine zielführende Ausgleichsrechnung zu machen.
 
 
 
@@ -93,9 +108,10 @@ Bei dieser Gerade ist nur noch der langlebigere Zerfall aktiv.
 Mit der Ausgleichsrechnung aus Abschnitt \ref{sec:teo_halbwertszeit} 
 lässt sich der Koeffizient $\lambda_{l}$ für die Zerfallsfunktion dieses Isotops herleiten.
 Für den Koeffizienten $\lambda_{k}$ des kurzlebigeren Isotops
-wird die lineare Ausgleichsfunktion für die Werte $t > t^*$ an den Stellen $t_i < t$
+wird die lineare Ausgleichsfunktion für die Werte $t > t^*$ an den Stellen $t_i < t_\text{max} < t^*$ von den
+Werten an diesen Stellen abgezogen. 
+Daraus ergibt sich dann die Ausgleichsrechnung für das Kurzlebigere Isotop.
 
 %%% To Do
-% Relevante Kernreaktionen
 % Wirkungsquerschnitt für schnelle und langsame Neutronen
 % Erzeugung Niederenergetischer Neutronen
