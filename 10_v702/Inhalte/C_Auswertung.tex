@@ -67,14 +67,16 @@ Analog folgt beim Silber Zerfall mit einem Zeitintervall von $\Delta t_\text{Ag}
 $N_\text{u,Ag} = \num[]{4.0893 +- 0.9883}$.
 
 \noindent
-Da bei der Zerfallszahl nur ganze Zahlen sinn ergeben, werden diese Werte weiter auf $N_\text{u,V} = \num[]{14 +- 3}$ bzw.
+Da bei der Zerfallszahl nur ganze Zahlen sinnvoll sind, werden diese Werte weiter auf $N_\text{u,V} = \num[]{14 +- 3}$ bzw.
 $N_\text{u,Ag} = \num[]{4 +- 1}$ gerundet.
 % nulleffekt beim vanadium zerfall je 35 sekunden:  14.3125 +-  3.459023525505428
 % nulleffekt beim silber zerfall je 10 sekunden:  4.089285714285714 +-  0.9882924358586936
 
 
 \subsection{Vanadium Probe}
-Die gemessenen Werte $x$ und $y$ des Vanadium Zerfalls vor Abzug des Nulleffekts sind in Tabelle \ref{tab:vanadium} einzusehen.
+Die gemessene Zerfallsanzahl $y$ in Abhängigkeit der Intervallnummer $x$ des Vanadium Zerfalls vor Abzug des Nulleffekts sind in Tabelle \ref{tab:vanadium} einzusehen.
+Dabei gilt im Folgenden stets für die vergangene Zeit $t = x \cdot \Delta t$ ,wobei in diesem Versuchteil
+$\Delta t_\text{V} = \qty[]{35}{\second}$ gilt.
 \begin{table}[H]
     \centering
     \caption[short]{Intervallnummer $x$ und Zerfallsanzahl $y$ beim Zefall von Vanadium.}
@@ -99,7 +101,7 @@ Die gemessenen Werte $x$ und $y$ des Vanadium Zerfalls vor Abzug des Nulleffekts
 \end{table}
 
 \noindent
-Nach Abzug des Nulleffekts $N_\text{u,V}$ ergibt sich die Zahl $N_{\Delta t,V}(t) = y- N_\text{u,V}$ der im Zeitintervall $\Delta t_\text{V} = \qty[]{35}{\second}$
+Nach Abzug des Nulleffekts $N_\text{u,V}$ ergibt sich die Zahl $N_{\Delta t,V}(t) = y- N_\text{u,V}$ der im Zeitintervall $\Delta t_\text{V}$
 gemessenen Zerfälle.
 Wird $N_\text{u,V}$ in Abhängigkeit des betrachteten Zeitintervalls halblogarithmisch geplottet, ergibt sich Abbildung \ref{fig:vanadium_log}.
 Die darin eingezeichneten Fehler $\Delta N_{\Delta t} = \num[]{3.4590}$ wurden gemäß der Gaußschen Fehlerfortpflanzung \eqref{eq:gauss} berechnet.
@@ -199,7 +201,7 @@ Die Intervallnummer $x$ und Zerfallsanzahl $y$ (vor Abzug des durchschnittlichen
 Analog zu oben ergibt sich nach Abzug des Nulleffekts die effektive Zerfallzahl 
 $N_{\Delta t,Ag}(t) = y- N_\text{u,Ag}$ je Intervall $\Delta t_\text{Ag} = \qty[]{10}{\second}$,
 die erneut halblogarithmisch geplottet wird, vgl. Abbildung \ref{fig:silber1_log}.
-Auch hier ergeben sich die eingezeichneten Fehler gemäß der Gaußschen Fehlerfortpflanzung \eqref{eq:gauss} zu $\Delta N_{\Delta t} = \num{0.9883}$.
+Hier ergeben sich die eingezeichneten Fehler gemäß der Gaußschen Fehlerfortpflanzung \eqref{eq:gauss} zu $\Delta N_{\Delta t} = \num{0.9883}$.
 Um die unterschiedlichen Halbwertszeiten der beiden Isotope im natürlich vorkommenden Silber ermitteln zu können, wird für einen Wert ab 
 $t^* = 30 \cdot \Delta t_\text{Ag} = \qty[]{300}{\second}$ eine lineare Ausgleichsrechnung gemäß \eqref{eq:linear_eq} durchgeführt.
 Dadurch können die gesuchten Konstanten des langlebigen Isotops ermittelt werden, da hier das kurzlebige Isotop nahezu vollständig zerfallen ist.
@@ -416,6 +418,8 @@ woraus die prozentuale Abweichung von $\num[]{99.2 +- 0.7} \, \%$ folgt.
 
 \noindent
 Die beiden Ausgleichsgeraden und ihre Summe sind mitsamt der Messwerte des zweiten Silberzerfalls in Abbildung \ref{fig:silber2_log} geplottet.
+Die eingezeichneten Fehler betragen wie zuvor $\Delta N_{\Delta t} = \num{0.9883}$.
+
 
 \begin{figure}[H]
     \centering
