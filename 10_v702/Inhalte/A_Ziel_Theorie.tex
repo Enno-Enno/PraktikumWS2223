@@ -15,13 +15,13 @@ In diesem Versuch werden drei Radioaktive Isotope aus in der Natur stabilen Meta
 \end{align}
 
 Dies wird erreicht in dem das Verhältnis von Neutronen und Protonen in den Kernen des Elements verändert wird.
-Hierzu werden sich Kernreaktionen mit Neutonen zunutze gemacht.
-Eine Kernreaktion eines Atomkerns A mit einem Neuton beginnt mit der Absorption des Neutons im Atomkern.
+Hierzu werden sich Kernreaktionen mit Neutronen zunutze gemacht.
+Eine Kernreaktion eines Atomkerns A mit einem Neutron beginnt mit der Absorption des Neutrons im Atomkern.
 Den neuen so entstandenen angeregten Kern A* nennt man Zwischenkern oder Compoundkern.
 Er ist durch die Bindungsenergie des Neutrons auf einem höheren Energielevel als der einfache Atomkern.
 Diese Energie verteilt sich auf die gesamten Nukleonen, weshalb die Energie des Atomkerns meist nicht mehr ausreicht
 um das ganze Nukleon wieder abzustoßen.
-Das ist vor allem der Fall wenn die Neutonen eine geringe Geschwindigkeit haben.
+Das ist vor allem der Fall wenn die Neutronen eine geringe Geschwindigkeit haben.
 Stattdessen wird die Energie in Form eines $\gamma$-Quants emittiert wonach das Atom wieder in einem nicht angeregten Zustand befindet.
 Es läuft folgende Reaktion ab:
 \begin{align*}
@@ -60,7 +60,56 @@ Querschnitten abdecken.
 Der Querschnitt eines Kerns ist in der Größenordnung von \qty{10e-24}{\cm\squared}.
 Diese Klassische Vorstellung von Atomkernen die einen Querschnitt haben und von Neutronen
 getroffen werden können, ist tatsächlich weiterführend, wenn die De-Broglie Wellenlänge
-Neutonen klein im Vergleich zum Kernradius ist 
+der Neutronen $\lambda = h/m_n v$ klein im Vergleich zum Kernradius R($\simeq \qty{10e-12}{\cm}$) ist.
+(Hier ist $h$ das Plancksche Wirkungsquantum und $m_n$ die Neutronenmasse)
+Für Wellenlängen, die  $\leq$ R sind treten Streuungseffekte an den Kernen auf.
+In Experimenten werden Wirkungsquerschnitte beobachtet, die um mehrere Zehnerpotenzen größer als die
+als in der geometrischen Rechnung. 
+Mit der Quantenmechanik können bestimmte Energieniveaus identifiziert werden, bei denen
+die Neutronen besonders gut absorbiert werden können.
+Breit und Wigner haben eine Formel angegeben, 
+die den Wirkungsquerschnitt als Funktion der Neutronenenergie E darstellt:
+\begin{align*}
+    \sigma(E) = \sigma_0 \sqrt{\frac{E_{r_i}}{E}} \frac{\tilde{c}}{\left(E - E_{r_i} \right)^2  +  \tilde{c}}
+\end{align*}
+$\tilde{c}$ und $\sigma_0$ sind charakteristische Konstanten der Kernreaktion.
+Für kleine Energien $E<< E_{r_i}$ kann $\left(E - E_{r_i} \right)^2$ als konstant angenommen werden.
+Dafür gilt also
+\begin{align*}
+    \sigma ~ 1/ \sqrt{E} ~ 1/v . 
+\end{align*}
+Für niedrigere Geschwindigkeiten gibt es also höhere Einfangswahrscheinlichkeiten des Neutrons
+
+\subsection{Erzeugung niederenergetischer Neutronen}
+Um eine möglichst effiziente Anregung zu erreichen werden also 
+langsame Neutronen gebraucht.
+Zunächst werden die Neutronen durch Beschuss von Beryllium Kernen mit 
+$\alpha$-Teilchen freigesetzt:
+\begin{align*}
+    \ce{^{9}_{4}Be} + ^{4}_{2}\alpha \rightarrow \ce{^{12}_{6}C} + \ce{_{0}^{1}n}
+\end{align*}
+Die $\alpha$-Teilchen stammen aus dem Zerfall von $\ce{^{226}Ra}$-Kernen. 
+Die Neutronen haben Energien von bis zu $\qty{13.7}{\mega\eV}$. 
+Um die Energie der Neutronen zu vermindern werden sich elastische Stöße zunutze gemacht
+Der Maximale Energieübertrag bei einem Elastischen Stoß beträgt
+\begin{align*}
+    E_\text{ü} = E_0 \frac{4Mm}{\left(M + m\right)^2}
+\end{align*}
+Den besten Energieübertrag gibt es demnach bei gleichschweren Stoßpartnern.
+Hierfür bietet sich Wasserstoff an, da es aus nur einem Proton besteht, welches in etwa
+gleich scher wie ein Neutron ist. 
+Die Neutronenquelle befindet sich also in einem Mantel aus Paraffin (siehe Abb. \ref{fig:neutronenquelle}).
+Durch Mehrfache Stöße eines Neutrons mit den Protonen des Paraffin erreichen sie eine
+Energie, die der mittleren kinetischen Energie der Moleküle bei Raumtemperatur angenähert ist.
+Diese Energie liegt bei etwa \qty{0.025}{\eV} für T = \qty{290}{\kelvin}.
+\begin{figure}
+    \centering
+    \includegraphics{Abbildungen/Neutronenquelle.pdf}
+    \caption{Querschnitt durch die heir verwendete Quelle von Neutronen \cite[vgl.]{man:v702}}
+    \label{fig:neutronenquelle}
+\end{figure}
+
+
 
 \subsection{Halbwertszeit}
 \label{sec:teo_halbwertszeit}
@@ -108,9 +157,19 @@ Bei dieser Gerade ist nur noch der langlebigere Zerfall aktiv.
 Mit der Ausgleichsrechnung aus Abschnitt \ref{sec:teo_halbwertszeit} 
 lässt sich der Koeffizient $\lambda_{l}$ für die Zerfallsfunktion dieses Isotops herleiten.
 Für den Koeffizienten $\lambda_{k}$ des kurzlebigeren Isotops
-wird die lineare Ausgleichsfunktion für die Werte $t > t^*$ an den Stellen $t_i < t_\text{max} < t^*$ von den
+wird die Zerfallsfunktion für die Werte $t > t^*$ an den Stellen $t_i < t_\text{max} < t^*$ von den
 Werten an diesen Stellen abgezogen. 
 Daraus ergibt sich dann die Ausgleichsrechnung für das Kurzlebigere Isotop.
+In Abbildung \ref{fig:teo_e-funktionen-krampf} wird das Ergebnis dieser 
+Rechnung auf einer Logarithmischen Skala dargestellt.
+
+\begin{figure}
+    \centering
+    \includegraphics{Abbildungen/Zerfallskurven.pdf}
+    \caption{Überlagerung der Zerfallskurven für die Silber Isotope.}
+    \label{fig:teo_e-funktionen-krampf}
+\end{figure}
+
 
 %%% To Do
 % Wirkungsquerschnitt für schnelle und langsame Neutronen
