@@ -221,7 +221,7 @@ sowie die Zerfallskonstante
 \end{align}
 Aus letzterer folgt die Halbwertszeit 
 \begin{align}
-    T = \qty[]{190 +- 160}{\second} = \qty[]{3.1 +- 0.9}{\minute}
+    T = \qty[]{190 +- 60}{\second} = \qty[]{3.1 +- 0.9}{\minute}
 \end{align}
 gemäß Gleichung \eqref{eq:T_aus_lambda}.
 
@@ -310,7 +310,8 @@ in Abbildung \ref{fig:silber1_log} zu sehen ist.
 
 \subsubsection{Messreihe 2}
 Die Intervallnummer $x$ und die Zerfallsanzahl $y$ sind in Tabelle \ref{tab:silber2} zu sehen.
-Die eingeklammerten Werte wurden in der Auswertung da sie bzw. ihre untere Grenze unterhalb des Nulleffekts liegen (vgl. Abschnitt \ref{sec:ausw_null})
+Die eingeklammerten Werte wurden in der Auswertung vernachlässigt,
+da sie bzw. ihre untere Grenze (Mittelwert - Standardabweichung) unterhalb des Nulleffekts liegen (vgl. Abschnitt \ref{sec:ausw_null})
 und in der logarithmischen Darstellung zu Komplikationen führen würden.
 
 \begin{table}[H]
@@ -338,3 +339,87 @@ und in der logarithmischen Darstellung zu Komplikationen führen würden.
 
 \noindent
 Die Auswertung verläuft hier vollständig analog zur Auswertung der ersten Messreihe mit Silber, vgl. Abschnitt \ref{sec:silber_mr1}.
+Für die Festlegung von $t^*$ sei angemerkt, 
+dass für $x \geq 31$ die untere Grenze von $T$ (d.h. Mittelwert - Standardabweichung) negativ wird und ab 
+$x = 33$ der Mittelwert der Halbwertszeit selbst negativ wird.
+Für $ x <= 29$ steigen sowohl der Mittelwert als auch die Standardabweichung der Halbwertszeit im Vergleich zu Messung 1 so deutlich, 
+dass $t^* = 30 \cdot \Delta t_\text{Ag} = \qty[]{300}{\second}$ gewählt wird.
+
+\noindent
+Für das langlebige Isotop folgen damit die Werte 
+\begin{align}
+    a &= (\num{-0.0235 +- 0.0127}) \, \frac{1}{10 \unit{\second}}  & b &= \num{3.1325 +- 0.4780}.
+\end{align}
+Es folgt die Konstante
+\begin{align}
+    N(0) \cdot \left(1- \exp(- \lambda \Delta t)\right) = \exp(b) = \num[]{23 +- 11}
+\end{align}
+sowie 
+\begin{align}
+    \lambda = - a = \qty[]{0.0023 +- 0.0013}{\per\second},
+\end{align}
+woraus sich 
+\begin{align}
+    T = \qty[]{300 +- 160}{\second} = \qty[]{4.9 +- 2.7}{\minute}
+\end{align}
+ableiten lässt.
+% parameter langlebig:
+% a = -0.02346305 ± 0.01272034
+% b = 3.13246545 ± 0.47801445
+% lamda_l in 1/s:  0.0023+/-0.0013 /s
+% halbwertszeit_l in sekunden:  (3.0+/-1.6)e+02 s
+% halbwertszeit_l in minuten:  4.9+/-2.7 min
+% const_l = N(0)*(1-exp(...)) =  23+/-11
+
+\noindent
+Zur Bestimmung von $t_\text{max}$ werden die folgenden Fälle betrachtet:
+Für $x \leq 6$ ist die Standardabweichung der Halbwertszeit sehr groß, zwischen $7 \leq x \leq 12$ sind die Mittelwerte sehr nah bei einander.
+Allerdings sinkt in diesem Bereich die Standardabweichung etwas.
+Ab $x = 13$ werden die Werte für $N_{\Delta t,kurz}(x) = N_{\Delta t,Ag}(x) - N_{\Delta t,lang}(x)$ negativ,
+was eine halblogarithmische Darstellung erneut unmöglich macht.
+Folglich wird $t_\text{max} = 12 \cdot \Delta t_\text{Ag} = \qty[]{120}{\second}$ gewählt.
+
+\noindent
+Für das kurzlebige Isotop folgt somit 
+\begin{align}
+    a &= (\num{-0.2494 +- 0.0181}) \, \frac{1}{10 \unit{\second}}  & b &= \num{5.0984 +-0.0585}.
+\end{align}
+Hieraus ergeben sich die gesuchten Werte
+\begin{align}
+    N(0) \cdot \left(1- \exp(- \lambda \Delta t)\right) = \exp(b) = \num[]{164 +- 10}
+\end{align}
+sowie 
+\begin{align}
+    \lambda = - a = \qty[]{0.0249 +- 0.0018}{\per\second},
+\end{align}
+und schließlich
+\begin{align}
+    T = \qty[]{27.8 +- 2.0}{\second} = \qty[]{0.463 +- 0.034}{\minute}.
+\end{align}
+% parameter kurzlebig:
+% a = -0.24937942 ± 0.01808827
+% b = 5.09844481 ± 0.05853057
+% lamda_k in 1/s:  0.0249+/-0.0018 /s
+% halbwertszeit_k in sekunden:  27.8+/-2.0 s
+% halbwertszeit_k in minuten:  0.463+/-0.034 min
+% const_k = N(0)*(1-exp(...)) =  164+/-10
+
+\noindent
+Ferner gilt in dieser Messreihe
+\begin{align*}
+    N_{\Delta t,kurz}(t^*) &= \num[]{0.09 +- 0.05} & N_{\Delta t,lang}(t^*) &= \num[]{11 +- 7}, 
+\end{align*}
+woraus die prozentuale Abweichung von $\num[]{99.2 +- 0.7} \, \%$ folgt.
+% N_kurz =  0.09+/-0.05
+% N_lang =  11+/-7
+% N_abw =  0.992+/-0.007
+
+\noindent
+Die beiden Ausgleichsgeraden und ihre Summe sind mitsamt der Messwerte des zweiten Silberzerfalls in Abbildung \ref{fig:silber2_log} geplottet.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=8cm]{build/c04_silber2_log.pdf}
+    \caption[]{Halblogarithmische Darstellung des zweiten Silber Zerfalls in Abhängigkeit von $\Delta t_\text{Ag}$.}
+    \label{fig:silber2_log}
+\end{figure}
