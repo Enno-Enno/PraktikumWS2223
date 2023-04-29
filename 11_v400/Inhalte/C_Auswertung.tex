@@ -1,3 +1,100 @@
 \section{Auswertung}
 
+\subsection{Mittelwerte und Fehler}
+Das arithmetische Mittel $\overline{c}$ und die Standardabweichung $\Delta c$ einer Messreihe mit $N$ Werten $c_k$ errechnet sich gemäß der Formeln
+\begin{align}
+    \overline{c} &= \frac{1}{N} \sum_{k=1}^{N} c_k, & \Delta c = \sqrt{ \sum_{k=1}^{N} \left(\overline{c} - c_k \right)^2 }.
+    \label{eq:mittelstand}
+\end{align}
+
+\subsubsection{Gaußsche Fehlerfortpflanzung}
+Wenn zu Messdaten die Standardabweichung bekannt ist, und mit diesen Messdaten weiter gerechnet werden soll,
+wird die Gaußsche Fehlerfortpflanzung verwendet. 
+Angenommen, es gibt $k$ Messwerte $x_i [i \in \mathbb{N}, i \leq k]$ mit den Standardabweichungen $\Delta x_i$
+und eine abgeleitete Größe $f(x_i)$.
+Dann ist der Fehler von $f$
+\begin{align}
+    \Delta f(x_i) = \sqrt{
+    \left(\frac{\partial f}{\partial x_1} \Delta x_1\right)^2%
+     + \left(\frac{\partial f}{\partial x_2} \Delta x_2\right)^2%
+     + \dots%
+     + \left(\frac{\partial f}{\partial x_k} \Delta x_k\right)^2%
+    }.
+    \label{eq:gauss}
+\end{align} 
+Im Ergebnis ergibt sich der Mittelwert von $f$ mit der errechneten Abweichung $\overline{f} \pm \Delta f $.
+Um Rechenfehler zu vermeiden, wird das Python \cite[]{python} Paket \texttt{uncertainties} \cite[][]{uncertainties} verwendet.
+Hier wird die Fehlerfortpflanzung automatisch verrechnet, wenn die Variablen als \texttt{ufloat} definiert werden.
+
+
+
+
+
+
+
 \subsection{Reflexionsgesetz}
+Zur Überprüfung des Reflexionsgesetzes werden mit dem grünen Laser für insgesamt 7 Einfallswinkel $\alpha_1$
+die resultierenden Ausfallswinkel $\alpha_2$ gemessen, die durch Reflexion am Spiegel entstehen.
+Die gemessenen Winkel sind in Tabelle \ref{tab:reflexion} zu sehen.
+Die Messungenauigkeit der Winkel wird dabei auf $\Delta \alpha = \qty[]{1}{\degree}$ geschätzt.
+
+\begin{table}[H]
+    \centering
+    \caption[short]{Einfallswinkel $\alpha_1$ und Ausfallswinkel $\alpha_2$ bei der Reflexion am Spiegel.}
+    \label{tab:reflexion}
+    \sisetup{table-format=2.0}
+    \begin{tabular}{S S}
+        \toprule
+        {$\alpha_1 / \unit[]{\degree}$} & {$\alpha_2 / \unit[]{\degree}$} \\
+        \midrule
+        %\cmidrule(lr){1-2}\cmidrule(lr){3-4}
+        15 & 14 \\
+        20 & 20 \\
+        30 & 31 \\
+        40 & 40 \\
+        50 & 51 \\
+        60 & 61 \\
+        70 & 71 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% # einfall ausfall
+% 15 14
+% 20 20
+% 30 31
+% 40 40
+% 50 51
+% 60 61
+% 70 71
+
+\noindent
+Gemäß der Formel \textbf{REF! EINFALL=AUSFALL} wird eine Ausgleichsrechung der Form
+\begin{align}
+    \alpha_2 = m \cdot \alpha_2 + b
+\end{align}
+mit Hilfe der \texttt{scipy} \cite[]{scipy} Funktion \texttt{curve\_fit} durchgeführt.
+Es ergeben sich die Parameter
+\begin{align}
+    m &= \num[]{1.029 +- 0.011}, & b &= (\num[]{-0.75 +- 0.51}) \, \unit[]{\degree},
+\end{align}
+wobei die Unsicherheiten der Kovarianzmatrix entnommen werden.
+% # m = 1.02889518 +- 0.01129740
+% # b = -0.74787535 +- 0.50748549
+Die Messdaten inklusive Fehlerbalken sowie ihre Ausgleichsgerade sind in Abbildung \ref{fig:reflexion} zu sehen.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=8cm]{build/c01_reflexion.pdf}
+    \caption[]{Plot der Einfallswinkel $\alpha_1$ und Ausfallswinkel $\alpha_2$.}
+    \label{fig:reflexion}
+\end{figure}
+
+
+
+
+
+
+\subsection{Brechungsgesetz}
+In diesem Versuchsteil wird zur Überprüfung des Brechungsgesetzes das Licht des grünen Lasers auf eine planparallele Platte geschickt.
+Für insgesamt 7 Einfallswinkel $\alpha$ wird der Brechungswinkel $\beta$ bestimmt.
+Die Skala zur Bestimmung von $\beta$ hat eine Genauigkeit von $\qty[]{0.5}{\degree}$.
