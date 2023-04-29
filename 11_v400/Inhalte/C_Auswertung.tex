@@ -80,7 +80,7 @@ Es ergeben sich die Parameter
 wobei die Unsicherheiten der Kovarianzmatrix entnommen werden.
 % # m = 1.02889518 +- 0.01129740
 % # b = -0.74787535 +- 0.50748549
-Die Messdaten inklusive Fehlerbalken sowie ihre Ausgleichsgerade sind in Abbildung \ref{fig:reflexion} zu sehen.
+Die Messdaten inklusive Fehlerbalken sowie der Ausgleichsgeraden sind in Abbildung \ref{fig:reflexion} zu sehen.
 
 \begin{figure}[H]
     \centering
@@ -98,3 +98,292 @@ Die Messdaten inklusive Fehlerbalken sowie ihre Ausgleichsgerade sind in Abbildu
 In diesem Versuchsteil wird zur Überprüfung des Brechungsgesetzes das Licht des grünen Lasers auf eine planparallele Platte geschickt.
 Für insgesamt 7 Einfallswinkel $\alpha$ wird der Brechungswinkel $\beta$ bestimmt.
 Die Skala zur Bestimmung von $\beta$ hat eine Genauigkeit von $\qty[]{0.5}{\degree}$.
+Die Einfallswinkel $\alpha$ mit den entsprechenden Brechungswinkeln $\beta$ sind Tabelle \ref{tab:brechung} zu sehen.
+
+\begin{table}[H]
+    \centering
+    \caption[short]{Einfallswinkel $\alpha$ und Brechungswinkel $\beta$ bei der Brechung an der planparallelen Platte.}
+    \label{tab:brechung}
+    \sisetup{table-format=2.0}
+    \begin{tabular}{S S[table-format=2.1]}
+        \toprule
+        {$\alpha / \unit[]{\degree}$} & {$\beta / \unit[]{\degree}$} \\
+        \midrule
+        %\cmidrule(lr){1-2}\cmidrule(lr){3-4}
+        15 & 10.0 \\
+        20 & 13.5 \\
+        30 & 19.5 \\
+        40 & 25.5 \\
+        50 & 31.0 \\
+        60 & 35.5 \\
+        70 & 39.0 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% #alpha beta
+% 15 10.0
+% 20 13.5
+% 30 19.5
+% 40 25.5
+% 50 31.0
+% 60 35.5
+% 70 39.0
+
+
+Zur Bestimmung des Brechungsindexes $n$ wird gemäß Formel \textbf{REF! SNELLIUS} eine Ausgleichsrechnung
+\begin{align}
+    \sin(\beta) = \frac{1}{n} \sin(\alpha) + b
+\end{align}
+mit der Funktion \texttt{curve\_fit} durchgeführt.
+Es ergibt sich der experimentelle Brechungsindex
+\begin{align}
+    n_\text{Exp} = \num[]{1.4970 +- 0.0063}
+\end{align}
+sowie die Konstante $b = \num[]{0.0020 +- 0.0020}$.
+Der entsprechende Plot ist in Abbildung \ref{fig:brechung} zu sehen.
+Im Vergleich zum Literaturwert $n_\text{Lit} = \num[]{1.49}$ nach \cite[]{brechungsindex} ergibt sich eine Abweichung von 
+\begin{align}
+    \frac{|n_\text{Exp} - n_\text{Lit}|}{n_\text{Lit}} = \num[]{0.5 +- 0.4} \, \%.
+\end{align}
+Ferner kann gemäß Gleichung \textbf{REF! LICHTGESCHWINDIGKEIT (SNELLIUS)} die Lichtgeschwindigkeit in Plexiglas zu
+\begin{align}
+    v_\text{Plex} = (\num[]{2.003 +- 0.008}) \cdot 10^8 \, \unit{\meter\per\second}
+\end{align}
+bestimmt werden.
+% Teil 2: Brechungsgesetz
+% n = 1.49702650 +- 0.00626929
+% b = 0.00198052 +- 0.00195368
+% Brechungsindex: n =  1.497+/-0.006
+% Abweichung zur Literatur:  0.005+/-0.004
+% Lichtgeschwindigkeit in Plexiglas: v =  (2.003+/-0.008)e+08  m/s =  0.6680+/-0.0028  c 
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height=8cm]{build/c02_brechung.pdf}
+    \caption[]{Plot der Einfallswinkel $\alpha$ und Brechungswinkel $\beta$.}
+    \label{fig:brechung}
+\end{figure}
+
+
+
+
+
+
+\subsection{Strahlversatz bei der planparallelen Platte}
+In diesem Versuchsteil werden die gleichen Messdaten wie im vorigen Teil verwendet, vgl. Tabelle \ref{tab:brechung}.
+Der Strahlversatz wird auf zwei verschiedene Methoden bestimmt.
+Gemäß Formel \textbf{REF! STRAHLENVERSATZ} wird zunächst abhängig von $\alpha$ und $\beta_1$ der Strahlversatz $s_1$ bestimmt,
+wobei die Breite der Platte nach \cite[]{man:v400} $d = \qty[]{5.85}{\cm}$ beträgt.
+Die andere Methode beruht darauf, dass gemäß des Brechungsgesetzes nach Snellius \textbf{REF! SNELLIUS} zunächst die Brechungswinkel
+$\beta_2$ bestimmt werden, die dann anschließend zur Berechnung des Strahlversatzes $s_2$ nach \textbf{REF! STRAHLV} verwendet werden.
+Die genannten Werte sowie die Abweichung $\Delta s$ von $s_1$ und $s_2$ sind in Tabelle \ref{tab:strahlversatz} zu sehen.
+Die Standardabweichungen der obigen Werte berechnen sich dabei nach der Gaußschen Fehlerfortpflanzung \eqref{eq:gauss}.
+
+\begin{table}[H]
+    \centering
+    \caption[]{Die Strahlversätze $s_1$ und $s_2$ in Abhängigkeit der entsprechenden Winkel.}
+    \label{tab:strahlversatz}
+    %\sisetup{table-format=2.0}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.1] %alpha, beta1
+        S[table-format=2.2] @{${}\pm{}$} S[table-format=1.2] %beta 2 +- fehler
+        S[table-format=2.2] @{${}\pm{}$} S[table-format=1.2] %s1 +- fehler
+        S[table-format=2.2] @{${}\pm{}$} S[table-format=1.2] %s2 +- fehler
+        S[table-format=2.2] @{${}\pm{}$} S[table-format=2.2]} %delta s +- fehler
+        \toprule
+        & \multicolumn{3}{c}{Brechungswinkel} & \multicolumn{6}{c}{Strahlversatz}\\ % & \multicolumn{4}{c}{Strahlversätze}
+        \cmidrule(lr){2-4} \cmidrule(lr){5-10}
+        {$\alpha / \unit[]{\degree}$} & {$\beta_1 / \unit[]{\degree}$} 
+        & \multicolumn{2}{c}{{$\beta_2 / \unit[]{\degree}$}}
+        & \multicolumn{2}{c}{{$s_1 / \unit[]{\cm}$}} 
+        & \multicolumn{2}{c}{{$s_2 / \unit[]{\cm}$}}
+        & \multicolumn{2}{c}{{$\Delta s / \%$}} \\
+        \midrule
+        15 & 10.0 &  9.96 & 0.04 & 0.52 & 0.10 & 0.52 & 0.01 & 00.86 & 19.49 \\
+        20 & 13.5 & 13.21 & 0.06 & 0.68 & 0.10 & 0.71 & 0.01 & 04.18 & 14.30 \\
+        30 & 19.5 & 19.51 & 0.09 & 1.13 & 0.10 & 1.13 & 0.01 & 00.10 & 08.84 \\
+        40 & 25.5 & 25.43 & 0.11 & 1.62 & 0.10 & 1.63 & 0.01 & 00.42 & 05.93 \\
+        50 & 31.0 & 30.78 & 0.14 & 2.22 & 0.09 & 2.24 & 0.01 & 00.88 & 04.02 \\
+        60 & 35.5 & 35.35 & 0.17 & 2.98 & 0.08 & 2.99 & 0.01 & 00.40 & 02.61 \\
+        70 & 39.0 & 38.88 & 0.19 & 3.88 & 0.06 & 3.88 & 0.01 & 00.18 & 01.52 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% Teil 3: Strahlversatz
+% Strahlversatz : s =  
+% [0.5177265243031446+/-0.1016890274635045 
+%  0.6810564443122777+/-0.10147428935944072
+%  1.1309472733837191+/-0.09951092473453996
+%  1.6228084471524857+/-0.09600872518565101
+%  2.221939290047947 +/-0.08932428325308159
+%  2.979866388540225 +/-0.07702490505550862
+%  3.876971492684826 +/-0.05782021861223494] cm
+% neu gerechnetes beta: β =  
+% [0.17376183799045458+/-0.0007350981920326408
+%  0.23050205167403742+/-0.0009827704997573978
+%  0.34053924999584023+/-0.0014839310629197642
+%  0.4438019961178242+/-0.0019910345212903018 
+%  0.537174721815124+/-0.0024942530415351227
+%  0.6168849138261443+/-0.0029700785203662775
+%  0.6786029088706705+/-0.0033768700296112984] rad =  
+% [9.955819957289018+/-0.04211802393116764     
+%  13.206794730028756+/-0.05630860186606159   
+%  19.511461783312082+/-0.0850229869936647   
+%  25.427981317032675+/-0.11407787493478454  
+%  30.77784442112068+/-0.14291017231763134    
+%  35.344902007529555+/-0.17017296403944804   
+%  38.88108264359024+/-0.1934804006609447]     deg
+% Strahlversatz die Zweite: s =  
+% [0.5222185400199149+/-0.004281779028244064
+%  0.7107729910151951+/-0.005700010449844021
+%  1.129806619908172 +/-0.008461915238928518
+%  1.6297187297376368+/-0.010939367518440959
+%  2.241737153147955 +/-0.01270626664757905 
+%  2.991789803323222 +/-0.013057180380057095
+%  3.8838357932126644+/-0.011149617241589785] cm
+% Strahlversatz Abweichung :  
+% [-0.008601792875065229 +/-0.1948946322580831  
+%  -0.04180877309430861  +/-0.14297274687324923 
+%   0.0010096006302741068+/-0.08839634923931533 
+%  -0.004240168845739101 +/-0.05928918706357141 
+%  -0.008831482795477099 +/-0.04024010905345669 
+%  -0.003985378508126771 +/-0.026109824150291686
+%  -0.0017674023551238513+/-0.015160703557230005]
+
+
+
+
+
+
+\subsection{Prisma}
+In diesem Versuchsteil soll die Ablenkung $\delta$ des Laserlichts beim Auftreffen auf ein Prisma untersucht werden.
+Dabei wird Formel \textbf{REF!!! ABLENKUNG} verwendet.
+Der hierfür erforderliche Winkel $\beta_1$ lässt sich dabei über das Snelliussche Brechungsgesetz \textbf{REF!!!} bestimmen,
+wobei der Brechungsindex von Kronglas nach \cite[]{brechungsindex} $n_\text{Kron} = \num[]{1.51}$ beträgt.
+Ferner wird bei einem Innenwinkel $\gamma = \qty[]{90}{\degree}$ der benötigte Winkel $\beta_2$ aus $\beta_1 + \beta_2 = \gamma$ bestimmt.
+Die Winkel sind in Abbildung \textbf{REF! PRISMA ABBILDUNG} schematisch dargestellt.
+
+\subsubsection{Grüner Laser}
+Die Messwerte des Einfallswinkels $\alpha_1$ und Ausfallswinkels $\alpha_2$ sowie
+die Brechungswinkel $\beta_1$ und $\beta_2$ mit der Ablenkung $\delta$ bei Verwendung des grünen Lasers sind in Tabelle \ref{tab:ablenkung_gruen} zu sehen.
+
+\begin{table}[H]
+    \centering
+    \caption[]{Ablenkung $\delta$ in Abhängigkeit der entsprechenden Winkel bei grünem Licht.}
+    \label{tab:ablenkung_gruen}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.0] %alpha1, alpha2
+        S[table-format=2.1]  %beta 1
+        S[table-format=2.1]  %beta 2
+        S[table-format=2.1] @{${}\pm{}$} S[table-format=1.1]} %delta +- fehler
+        \toprule
+        {$\alpha_1 / \unit[]{\degree}$} & {$\alpha_2 / \unit[]{\degree}$} 
+        & {$\beta_1 / \unit[]{\degree}$}
+        & {$\beta_2 / \unit[]{\degree}$} 
+        & \multicolumn{2}{c}{{$\delta / \unit[]{\degree}$}} \\
+        \midrule
+        60 & 38 & 35.0 & 25.0 & 38.0 & 1.0 \\
+        50 & 45 & 30.5 & 29.5 & 35.0 & 1.0 \\
+        40 & 56 & 25.2 & 34.8 & 36.0 & 1.0 \\
+        30 & 73 & 19.3 & 40.7 & 43.0 & 1.0 \\
+        26 & 87 & 16.9 & 43.1 & 53.0 & 1.0 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% #einfall ausfall
+% 60 38
+% 50 45
+% 40 56
+% 30 73
+% 26 87
+% beta_1 =  [
+%     0.6108045927738653 
+%     0.5320652808845506 
+%     0.4397211502484149
+%     0.33749646246254644 
+%     0.29455288213066827] rad =  
+%     [34.99652527314942 
+%      30.485095020127428 
+%      25.19416607187213 
+%      19.337122899699327
+%      16.876636989501694] deg
+% beta_2 =  [
+%     0.4363929584227323 
+%     0.515132270312047 
+%     0.6074764009481828
+%     0.7097010887340511 
+%     0.7526446690659294] rad =  [
+%         25.00347472685057 
+%         29.51490497987257 
+%         34.805833928127875 
+%         40.66287710030067
+%         43.1233630104983] deg
+% delta =  
+% [0.6632251157578453+/-0.017453292519943295
+%  0.6108652381980153+/-0.017453292519943295
+%  0.6283185307179588+/-0.017453292519943295
+%  0.7504915783575619+/-0.017453292519943295
+%  0.9250245035569946+/-0.017453292519943295] rad =  
+% [38.00000000000001+/-1.0  
+%  35.0+/-1.0                
+%  36.000000000000014+/-1.0
+%  43.000000000000014+/-1.0 
+% 53.0+/-1.0               ] deg
+
+
+\subsubsection{Roter Laser}
+Die gemessenen und berechneten Winkel bei der Verwendung von rotem Licht sind in Tabelle \ref{tab:ablenkung_rot} zu sehen.
+\begin{table}[H]
+    \centering
+    \caption[]{Ablenkung $\delta$ in Abhängigkeit der entsprechenden Winkel bei rotem Licht.}
+    \label{tab:ablenkung_rot}
+    \begin{tabular}{S[table-format=2.0] S[table-format=2.0] %alpha1, alpha2
+        S[table-format=2.1]  %beta 1
+        S[table-format=2.1]  %beta 2
+        S[table-format=2.1] @{${}\pm{}$} S[table-format=1.1]} %delta +- fehler
+        \toprule
+        {$\alpha_1 / \unit[]{\degree}$} & {$\alpha_2 / \unit[]{\degree}$} 
+        & {$\beta_1 / \unit[]{\degree}$}
+        & {$\beta_2 / \unit[]{\degree}$} 
+        & \multicolumn{2}{c}{{$\delta / \unit[]{\degree}$}} \\
+        \midrule
+        60 & 38 & 35.0 & 25.0 & 38.0 & 1.0 \\
+        50 & 45 & 30.5 & 29.5 & 35.0 & 1.0 \\
+        40 & 55 & 25.2 & 34.8 & 35.0 & 1.0 \\
+        30 & 72 & 19.3 & 40.7 & 42.0 & 1.0 \\
+        26 & 85 & 16.9 & 43.1 & 51.0 & 1.0 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+% 60 38
+% 50 45
+% 40 55
+% 30 72
+% 26 85
+ %beta_1 =  [0.6108045927738653 0.5320652808845506 0.4397211502484149
+ % 0.33749646246254644 0.29455288213066827] rad =  [
+ %    34.99652527314942 
+ %    30.485095020127428 
+ %    25.19416607187213 
+ %    19.337122899699327
+ %    16.876636989501694] deg
+ %beta_2 =  [0.4363929584227323 0.515132270312047 0.6074764009481828
+ % 0.7097010887340511 0.7526446690659294] rad =  [
+ %    25.00347472685057 
+ %    29.51490497987257 
+ %    34.805833928127875 
+ %    40.66287710030067
+ %    43.1233630104983] deg
+ %delta =  [0.6632251157578453+/-0.017453292519943295
+ % 0.6108652381980153+/-0.017453292519943295
+ % 0.6108652381980153+/-0.017453292519943295
+ % 0.7330382858376183+/-0.017453292519943295
+ % 0.8901179185171082+/-0.017453292519943295] rad =  [
+ % 38.00000000000001+/-1.0 
+ % 35.0+/-1.0             
+ % 35.0+/-1.0             
+ % 41.99999999999999+/-1.0
+ % 51.00000000000001+/-1.0] deg
+
+
+
+\subsection{Beugung am Gitter}

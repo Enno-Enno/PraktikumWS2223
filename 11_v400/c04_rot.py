@@ -5,6 +5,20 @@ from uncertainties import unumpy as unp
 from scipy.optimize import curve_fit
 import scipy.constants as const
 
+#beta_1 =  [0.6108045927738653 0.5320652808845506 0.4397211502484149
+# 0.33749646246254644 0.29455288213066827] rad =  [
+#    34.99652527314942 
+#    30.485095020127428 
+#    25.19416607187213 
+#    19.337122899699327
+#    16.876636989501694] deg
+#beta_2 =  [0.4363929584227323 0.515132270312047 0.6074764009481828
+# 0.7097010887340511 0.7526446690659294] rad =  [
+#    25.00347472685057 
+#    29.51490497987257 
+#    34.805833928127875 
+#    40.66287710030067
+#    43.1233630104983] deg
 #delta =  [0.6632251157578453+/-0.017453292519943295
 # 0.6108652381980153+/-0.017453292519943295
 # 0.6108652381980153+/-0.017453292519943295
@@ -31,4 +45,6 @@ beta_2 = gamma - beta_1 # wahrscheinlich nicht so fehleranfällig wegen messgena
 
 delta_angle = (einfall + ausfall) - (beta_1 + beta_2)
 
+print("beta_1 = ", beta_1, "rad = ", beta_1/np.pi * 180, "deg")
+print("beta_2 = ", beta_2, "rad = ", beta_2/np.pi * 180, "deg")
 print("delta = ", delta_angle, "rad = ", delta_angle/np.pi * 180, "deg")
