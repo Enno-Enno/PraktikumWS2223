@@ -2,7 +2,41 @@
 In diesem Versuch sollen die Brechungs- und Beugungseigenschaften von Laserlicht betrachtet werden.
 Dazu wird die Reflexion und Brechung in einem Plexiglasblock und die Beugung an mehreren Gittern betrachtet.
 
-\section[Theorie]{Theorie\footnote[1]{Unter Verwendung von \cite{man:v400}}.}
-\subsection{Reflexion und Brechung}
-Licht besteht aus elektromagetischen Wellen.
-% Im Vakuum pflanzen sich alle 
+\section[Theorie]{Theorie\footnote[1]{Unter Verwendung von \cite{man:v400}.}}
+% \subsection{Reflexion und Brechung}
+\begin{wrapfigure}[12]{r}{5.5cm}
+    \includegraphics{Abbildungen/Ein_Ausfallwinkel.pdf}
+    \caption{Ein- und Ausfallwinkel eines Lichtstrahls auf einer Grenzfläche \cite{man:v400}.}
+\end{wrapfigure}
+Licht besteht aus elektromagnetischen Wellen.
+Im Vakuum pflanzen sich alle EM-Wellen mit der gleichen Geschwindigkeit $c$ fort.
+Im Medium ist diese Geschwindigkeit um $c'=c/n$ verlangsamt.
+Die veränderte Lichtgeschwindigkeit führt an glatten Oberflächen zu Brechungs- und Reflexionsphänomenen.
+Die Strahlenoptik betrachtet EM-Wellen als gerade Strahlen, die geometrischen Gesetzen folgen.
+Besonders relevant sind hier das Brechungsgesetz und das Reflexionsgesetz.
+Nach dem Reflexionsgesetz ist der Einfallswinkel zur Flächennormalen gleich dem Ausfallswinkel des reflektierten Lichts.
+\begin{align}
+    \alpha_1 =\alpha_2
+    \label{eq:reflexion}
+\end{align}
+Für das Brechungsgesetz werden die Winkel in dem anderen Medium in die das Licht eintritt mit $\beta$ bezeichnet.
+Es gilt 
+\begin{align}
+    n_1 \sin(\alpha) = n_2 \sin(\beta).
+    \label{eq:brechung}
+\end{align}
+Für Wellen die mit Objekten Interagieren, die eine vergleichbare Größe zur Wellenlänge haben 
+treten zusätzlich noch Beugungseffekte auf.
+Um diese korrekt zu beschreiben wird die Wellenoptik herangezogen.
+Bei der Wellenoptilk ird das Licht als Wellenphänomen beschrieben.
+Wellen können sich überlagern und sich gegenseitig verstärken sowie auch sich gegenseitig auslöschen.
+In diesem Versuch wird die Beugung an einem Gitter betrachtet.
+Das entstehende Beugungsmuster lässt sich mit dem Huygenschen Prinzip herleiten,
+laut dem an dem Gitter viele kleine Elementarwellen entstehen und sich gegenseitig überlagern.
+Für einen Schirm der durch ein Gitter mit einem Laser bestrahlt wird lässt sich ein Interferenzmuster herleiten.
+Die k-ten Maxima auf dem Schirm liegen an folgenden Winkeln $\alpha$
+\begin{align}
+    d \sin{\alpha} = k \lambda.
+    \label{eq:beugung}
+\end{align}
+$d$ ist hierbei der Gitterabstand.
