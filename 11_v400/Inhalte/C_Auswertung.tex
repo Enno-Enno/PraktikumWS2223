@@ -68,7 +68,7 @@ Die Messungenauigkeit der Winkel wird dabei auf $\Delta \alpha = \qty[]{1}{\degr
 % 70 71
 
 \noindent
-Gemäß der Formel \textbf{REF! EINFALL=AUSFALL} wird eine Ausgleichsrechung der Form
+Gemäß der Formel \eqref{eq:reflexion} wird eine Ausgleichsrechung der Form
 \begin{align}
     \alpha_2 = m \cdot \alpha_2 + b
 \end{align}
@@ -130,7 +130,7 @@ Die Einfallswinkel $\alpha$ mit den entsprechenden Brechungswinkeln $\beta$ sind
 % 70 39.0
 
 
-Zur Bestimmung des Brechungsindexes $n$ wird gemäß Formel \textbf{REF! SNELLIUS} eine Ausgleichsrechnung
+Zur Bestimmung des Brechungsindexes $n$ wird gemäß Formel \eqref{eq:brechung} eine Ausgleichsrechnung
 \begin{align}
     \sin(\beta) = \frac{1}{n} \sin(\alpha) + b
 \end{align}
@@ -145,7 +145,7 @@ Im Vergleich zum Literaturwert $n_\text{Lit} = \num[]{1.49}$ nach \cite[]{brechu
 \begin{align}
     \frac{|n_\text{Exp} - n_\text{Lit}|}{n_\text{Lit}} = \num[]{0.5 +- 0.4} \, \%.
 \end{align}
-Ferner kann gemäß Gleichung \textbf{REF! LICHTGESCHWINDIGKEIT (SNELLIUS)} die Lichtgeschwindigkeit in Plexiglas zu
+Ferner kann gemäß Gleichung \eqref{eq:c_n} die Lichtgeschwindigkeit in Plexiglas zu
 \begin{align}
     v_\text{Plex} = (\num[]{2.003 +- 0.008}) \cdot 10^8 \, \unit{\meter\per\second}
 \end{align}
@@ -173,10 +173,10 @@ bestimmt werden.
 \subsection{Strahlversatz bei der planparallelen Platte}
 In diesem Versuchsteil werden die gleichen Messdaten wie im vorigen Teil verwendet, vgl. Tabelle \ref{tab:brechung}.
 Der Strahlversatz wird auf zwei verschiedene Methoden bestimmt.
-Gemäß Formel \textbf{REF! STRAHLENVERSATZ} wird zunächst abhängig von $\alpha$ und $\beta_1$ der Strahlversatz $s_1$ bestimmt,
+Gemäß Formel \eqref{eq:teo_strahlversatz} wird zunächst abhängig von $\alpha$ und $\beta_1$ der Strahlversatz $s_1$ bestimmt,
 wobei die Breite der Platte nach \cite[]{man:v400} $d = \qty[]{5.85}{\cm}$ beträgt.
-Die andere Methode beruht darauf, dass gemäß des Brechungsgesetzes nach Snellius \textbf{REF! SNELLIUS} zunächst die Brechungswinkel
-$\beta_2$ bestimmt werden, die dann anschließend zur Berechnung des Strahlversatzes $s_2$ nach \textbf{REF! STRAHLV} verwendet werden.
+Die andere Methode beruht darauf, dass gemäß des Brechungsgesetzes nach Snellius \eqref{eq:brechung} zunächst die Brechungswinkel
+$\beta_2$ bestimmt werden, die dann anschließend zur Berechnung des Strahlversatzes $s_2$ nach \eqref{eq:teo_strahlversatz} verwendet werden.
 Die genannten Werte sowie die Abweichung $\Delta s$ von $s_1$ und $s_2$ sind in Tabelle \ref{tab:strahlversatz} zu sehen.
 Die Standardabweichungen der obigen Werte berechnen sich dabei nach der Gaußschen Fehlerfortpflanzung \eqref{eq:gauss}.
 
@@ -258,9 +258,9 @@ Die Standardabweichungen der obigen Werte berechnen sich dabei nach der Gaußsch
 \subsection{Prisma}
 In diesem Versuchsteil soll die Ablenkung $\delta$ des Laserlichts beim Auftreffen auf ein Prisma untersucht werden.
 Dabei wird Formel \textbf{REF!!! ABLENKUNG} verwendet.
-Der hierfür erforderliche Winkel $\beta_1$ lässt sich dabei über das Snelliussche Brechungsgesetz \textbf{REF!!!} bestimmen,
+Der hierfür erforderliche Winkel $\beta_1$ lässt sich dabei über das Snelliussche Brechungsgesetz \eqref{eq:brechung} bestimmen,
 wobei der Brechungsindex von Kronglas nach \cite[]{brechungsindex} $n_\text{Kron} = \num[]{1.51}$ beträgt.
-Ferner wird bei einem Innenwinkel $\gamma = \qty[]{90}{\degree}$ der benötigte Winkel $\beta_2$ aus $\beta_1 + \beta_2 = \gamma$ bestimmt.
+Ferner wird bei einem Innenwinkel $\gamma = \qty[]{60}{\degree}$ der benötigte Winkel $\beta_2$ aus $\beta_1 + \beta_2 = \gamma$ bestimmt.
 Die Winkel sind in Abbildung \textbf{REF! PRISMA ABBILDUNG} schematisch dargestellt.
 
 \subsubsection{Grüner Laser}
@@ -389,7 +389,7 @@ Die gemessenen und berechneten Winkel bei der Verwendung von rotem Licht sind in
 \subsection{Beugung am Gitter}
 
 In diesem Versuchsteil werden Gitter mit je 600, 300 und 100 Linien pro Millimeter verwendet, um anhand der Beugungsmaxima die Wellenlänge 
-der beiden Laser anhand von Gleichung \textbf{REF! WELLENLÄNGE BEUGUNGSMAXIMA} zu bestimmen.
+$\lambda$ der beiden Laser anhand von Gleichung \eqref{eq:beugung} zu bestimmen.
 Dabei errechnet sich die Gitterkonstante $d$ aus dem Kehrwert der Linienanzahl $L$ pro Millimeter.
 Die Messdaten des Beugungsmaximums und des Ablenkwinkels $\phi$ sind in der Tabelle \ref{tab:beugung} für das grüne bzw. rote Licht
 zusammen mit $d$ und der resultierenden Wellenlänge $\lambda$ aufgetragen.
@@ -468,10 +468,10 @@ $\lambda_\text{Lit,rot} = \qty[]{635}{\nano\meter}$ entspricht das Abweichungen 
         \toprule
         \multicolumn{2}{c}{Gitter} & & \multicolumn{4}{c}{rot} & \multicolumn{4}{c}{grün} \\
         \cmidrule(lr){1-2} \cmidrule(lr){4-7} \cmidrule(lr){8-11}
-        {$L / 1/\unit[]{\mm}$} & {$d / \unit[]{\micro\meter}$} & {k} 
-        & {$\phi_\text{links} / \unit{\degree}$} & {$\phi_\text{rechts} / \unit{\degree}$}
+        {$L / (1/\unit[]{\mm})$} & {$d / \unit[]{\micro\meter}$} & {k} 
+        & {$\phi_\text{l} / \unit{\degree}$} & {$\phi_\text{r} / \unit{\degree}$}
         & {$\phi / \unit{\degree}$} & {$\lambda / \unit{\nano\meter}$}
-        & {$\phi_\text{links} / \unit{\degree}$} & {$\phi_\text{rechts} / \unit{\degree}$}
+        & {$\phi_\text{l} / \unit{\degree}$} & {$\phi_\text{r} / \unit{\degree}$}
         & {$\phi / \unit{\degree}$} & {$\lambda / \unit{\nano\meter}$} \\
         \midrule
         600 &  1.67 & 1 & 19 & 18 & 18.5 & 528.84 & 23 & 22 & 22.5 & 637.81 \\
