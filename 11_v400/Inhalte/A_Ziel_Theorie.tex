@@ -7,6 +7,7 @@ Dazu wird die Reflexion und Brechung in einem Plexiglasblock und die Beugung an 
 \begin{wrapfigure}[12]{r}{5.5cm}
     \includegraphics{Abbildungen/Ein_Ausfallwinkel.pdf}
     \caption{Ein- und Ausfallwinkel eines Lichtstrahls auf einer Grenzfläche \cite{man:v400}.}
+    \label{fig:teo_refl_brech}
 \end{wrapfigure}
 Licht besteht aus elektromagnetischen Wellen.
 Im Vakuum pflanzen sich alle EM-Wellen mit der gleichen Geschwindigkeit $c$ fort.
@@ -46,7 +47,7 @@ Die k-ten Maxima auf dem Schirm liegen an folgenden Winkeln $\alpha$
 \end{align}
 $d$ ist hierbei der Gitterabstand.
 
-\subsection{Vorbereitungsaufgaben und Strahlversatz}
+\subsection{Vorbereitungsaufgaben Strahlversatz und Prisma}
 
 \begin{table}
     \centering
@@ -68,7 +69,7 @@ $d$ ist hierbei der Gitterabstand.
     \centering
     \begin{tabular}{S S}
         \toprule
-       % {$N  /(\unit{1 \per \mm}) $} & {$d / \unit{\micro\m$}} \\
+        {$N  /(\unit{1 \per \mm}) $} & {$d / \unit{\micro\m}$} \\
         \midrule
         600 &  1.6 \\ 
         300 &  3.3 \\ 
@@ -88,10 +89,24 @@ Für den Versuch soll auch die Formel für den Strahlversatz $s$
     \label{eq:teo_strahlversatz}
 \end{align}
 bestätigt werden.
-Eine Herleitung dieser Formel befindet sich in Abbildung \ref{fig:strahlversatz}
+Eine Herleitung dieser Formel befindet sich in Abbildung \ref{fig:strahlversatz}.
 \begin{figure}
     \centering
     \includegraphics{Abbildungen/v400_strahlversatz.pdf}
-    \caption{Herleitung anhand der Abbildung}
+    \caption{Herleitung von \eqref{eq:teo_strahlversatz} anhand der Abbildung aus \cite{man:v400}}
     \label{fig:strahlversatz}
+\end{figure}
+
+Für das Prisma in Abbildung \ref{fig:prisma} soll eine Gleichung für $\delta$ aufgestellt werden.
+Sie lautet
+\begin{align}
+    \delta = (\alpha_1 + \alpha_2) - (beta_1 + beta_2). %% Achtung diese Gleichung ergibt hier nicht unbedingt Sinn!
+    \label{eq:prisma}
+\end{align}
+
+\begin{figure}
+    \centering
+    \includegraphics{11_v400/Abbildungen/Prisma.pdf}
+    \caption{Ein- und Ausfallwinkel an einem Prisma}
+    \label{fig:prisma}
 \end{figure}
