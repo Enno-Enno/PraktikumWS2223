@@ -11,8 +11,9 @@ all:
 #	$(MAKE) -C 07_v103
 #	$(MAKE) -C 08_v601
 #	$(MAKE) -C 09_us1
-	$(MAKE) -C 10_v702
+#	$(MAKE) -C 10_v702
 	$(MAKE) -C 11_v400
+	$(MAKE) -C 12_v504
 
 
 
@@ -30,8 +31,9 @@ clean:
 #	$(MAKE) -C 07_v103 clean
 #	$(MAKE) -C 08_v601 clean
 #	$(MAKE) -C 09_us1 clean
-	$(MAKE) -C 10_v702 clean
+#	$(MAKE) -C 10_v702 clean
 	$(MAKE) -C 11_v400 clean
+	$(MAKE) -C 12_v504 clean
 
 
 .PHONY: all clean
