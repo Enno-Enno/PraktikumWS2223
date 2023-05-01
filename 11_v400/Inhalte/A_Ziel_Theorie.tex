@@ -10,7 +10,12 @@ Dazu wird die Reflexion und Brechung in einem Plexiglasblock und die Beugung an 
 \end{wrapfigure}
 Licht besteht aus elektromagnetischen Wellen.
 Im Vakuum pflanzen sich alle EM-Wellen mit der gleichen Geschwindigkeit $c$ fort.
-Im Medium ist diese Geschwindigkeit um $c'=c/n$ verlangsamt.
+Im Medium ist diese Geschwindigkeit um 
+\begin{align}
+c'=c/n 
+\label{eq:c_n}
+\end{align}
+verlangsamt.
 Die veränderte Lichtgeschwindigkeit führt an glatten Oberflächen zu Brechungs- und Reflexionsphänomenen.
 Die Strahlenoptik betrachtet EM-Wellen als gerade Strahlen, die geometrischen Gesetzen folgen.
 Besonders relevant sind hier das Brechungsgesetz und das Reflexionsgesetz.
@@ -40,3 +45,53 @@ Die k-ten Maxima auf dem Schirm liegen an folgenden Winkeln $\alpha$
     \label{eq:beugung}
 \end{align}
 $d$ ist hierbei der Gitterabstand.
+
+\subsection{Vorbereitungsaufgaben und Strahlversatz}
+
+\begin{table}
+    \centering
+    \begin{tabular}{c S }
+        \toprule
+        Material & {Brechungsindex}\\
+        \midrule
+        Luft        & 1.00029   \\
+        Wasser      & 1.333     \\
+        Kronglas    & 1.51      \\
+        Plexiglas   & 1.49      \\
+        Diamant     & 2.42      \\           
+    \end{tabular}
+    \caption{Brechungsindizes verschiedener Materialien \cite{brechungsindex}.}
+    \label{tab:brechungsindex}
+\end{table}
+
+\begin{table}
+    \centering
+    \begin{tabular}{S S}
+        \toprule
+       % {$N  /(\unit{1 \per \mm}) $} & {$d / \unit{\micro\m$}} \\
+        \midrule
+        600 &  1.6 \\ 
+        300 &  3.3 \\ 
+        100 &  10  \\
+        \bottomrule
+    \end{tabular}
+    \caption{Gitterkonstanten $d$ bei verschieden Gittern mit $N$ Linien/\unit{\mm}}
+    \label{tab:gitterkonstanten}
+\end{table}
+
+In den Tabellen \ref{tab:brechungsindex} und \ref{tab:gitterkonstanten} sind die Brechungsindizes verschiedenener
+Materialien und die Gitterkonstanten verschiedener Gitter angegeben. 
+
+Für den Versuch soll auch die Formel für den Strahlversatz $s$ 
+\begin{align}
+    s = d \frac{\sin(\alpha - \beta)}{\cos(\beta)}
+    \label{eq:teo_strahlversatz}
+\end{align}
+bestätigt werden.
+Eine Herleitung dieser Formel befindet sich in Abbildung \ref{fig:strahlversatz}
+\begin{figure}
+    \centering
+    \includegraphics{Abbildungen/v400_strahlversatz.pdf}
+    \caption{Herleitung anhand der Abbildung}
+    \label{fig:strahlversatz}
+\end{figure}
