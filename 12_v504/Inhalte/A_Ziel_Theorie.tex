@@ -169,3 +169,24 @@ wie in Abbildung \ref{fig:kennlinie} bei fester Temperatur $T$.
     \label{fig:kennlinie}
 \end{figure}
 
+
+
+
+
+
+\subsection{Kathodentemperatur}
+Zur Bestimmung der Kathodentemperatur $T$ kann die Leistungsbilanz betrachtet werden.
+Die der Kathode zugeführte Leistung $N_\text{zu} = U_\text{Heiz} I_\text{Heiz}$ mit Heizspannung und -strom $U_\text{Heiz}$ bzw. 
+$I_\text{Heiz}$ setzt sich aus der Strahlungsleistung $N_\text{Str}$ und der Wärmeleitung $N_\text{Leit}$ zusammen.
+Dabei gilt für die Strahlungsleistung das Stefan-Boltzmann-Gesetz
+\begin{align}
+    N_\text{Str} = F \eta \sigma T^4
+\end{align}
+mit der emittierenden Kathodenoberfläche $F = \qty{0.32}{\cm}^2$, dem Emissionsgrad $\eta = \num{0.28}$ und der 
+Boltzmannschen Strahlungskonstante $\sigma = \num[]{5.7} \cdot 10^{-12} \, \frac{\unit{\watt}}{\unit{\cm}^2\unit{\kelvin}^4}$.
+Ferner kann für die vorhandene Apparatur $N_\text{Leit} = \qtyrange{0.9}{1}{\watt}$ geschätzt werden.
+Insgesamt ergibt sich 
+\begin{align}
+    N_\text{zu} = U_\text{Heiz} I_\text{Heiz} = N_\text{Str} + N_\text{Leit} = F \eta \sigma T^4 + N_\text{Leit}.
+    \label{eq:leistung}
+\end{align}
