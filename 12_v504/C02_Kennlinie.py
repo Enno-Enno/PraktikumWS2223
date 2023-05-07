@@ -26,23 +26,45 @@ for index in np.arange(0,len(I)):
 U_raum= U[:11]
 I_raum= I[:11]
 
-def f(U, a, b ):
+def Raum(U, a, b ):
    return a * U ** b
 
-params, covariance_matrix = curve_fit(f, U_raum, I_raum, p0=(200, 1.5))
+params_Raum, covariance_matrix = curve_fit(Raum, U_raum, I_raum, p0=(200, 1.5))
 
 errors = np.sqrt(np.diag(covariance_matrix))
 print("Parameter: ")
-for name, value, error in zip('ab', params, errors):
+for name, value, error in zip('ab', params_Raum, errors):
  print(f'{name} = {value:.3f} ± {error:.3f}')
 
+# #curve fit für Sättigungsstrom
+# U_saet = U[11:]
+# I_saet = I[11:]
+
+# def saet(U, a, b, c, d):
+#     return np.log(- a) * ( -1* (U - d) ) + np.log(c)
+
+# params_saet, covariance_matrix_saet = curve_fit(saet, np.log(U_saet), np.log(I_saet) ) # p0=(1,1,600,U[11])
+
+# errors_saet = np.sqrt(np.diag(covariance_matrix_saet))
+# print("Parameter: ")
+# for name, value, error in zip('abcd', params_saet, errors_saet):
+#  print(f'{name} = {value:.3f} ± {error:.3f}')
+
+I_s = 600
 
 
+# Plot
 
-xplot = np.linspace(0, U[11])
-plt.plot(U, I, "x")
-plt.plot(xplot,f(xplot,*params))
-plt.xlabel("U in Volt")
-plt.ylabel("I in micro Ampere")
+
+xplot_Raum = np.linspace(0, U[11] + 1)
+xplot_saet = np.linspace(0, U[-1] + 1)
+plt.plot(U, I, "x", label="Messwerte")
+plt.plot(xplot_Raum,Raum(xplot_Raum,*params_Raum), label="Raumkurve")
+# plt.plot(xplot_saet,np.exp(saet(xplot_saet,*params_saet)), label="Sättigungskurve")
+plt.plot(xplot_saet,I_s * np.ones(len(xplot_saet)), "k--", label="$I_s$") 
+plt.xlabel("$U_A / \\unit{{\\volt}}$")
+plt.ylabel("$I / \\unit{{\\micro\\ampere}}$")
+plt.grid()
+plt.legend()
 
 plt.savefig("build/C02_plot.pdf")

@@ -40,13 +40,18 @@ for name, value, error in zip('ab', params, errors):
  print(f'{name} = {value:.3f} ± {error:.3f}')
 
 
+I_s = 2500
+
 # Plot
-
+xplot_saet = np.linspace(0, U[-1])
 xplot = np.linspace(0, U[17])
-plt.plot(U, I, "x")
-plt.plot(xplot,f(xplot,*params))
-plt.xlabel("U in Volt")
-plt.ylabel("I in micro Ampere")
-
+plt.plot(U, I, "x", label="Messwerte")
+plt.plot(xplot,f(xplot,*params), label="Raumkurve")
+# plt.plot(xplot_saet,np.exp(saet(xplot_saet,*params_saet)), label="Sättigungskurve")
+plt.plot(xplot_saet,I_s * np.ones(len(xplot_saet)), "k--", label="$I_s$") 
+plt.xlabel("$U_A / \\unit{{\\volt}}$")
+plt.ylabel("$I / \\unit{{\\micro\\ampere}}$")
+plt.grid()
+plt.legend()
 
 plt.savefig("build/C03_plot.pdf")

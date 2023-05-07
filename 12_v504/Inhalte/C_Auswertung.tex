@@ -1,5 +1,31 @@
 \section{Auswertung}
 
+\subsection{Kennlinien und Raumkurve}
+In den folgenden Messungen wird der Sättigungsstrom und der Gültigkeitsbereich des
+Langmuir-Schottkyschen Raumladungsgesetzes \eqref{eq:lang_schott} überprüft.
+Dazu wird die Anodenspannung $U_A$ mit den an der Diode gemessenen Strömen $I$ dargestellt.
+Zu jedem Wertepaar wird eine Steigung berechnet
+\begin{align}
+    \text{grad}_{i} = \frac{I_{i+1}-I_{i}}{U_{i+1}- U_{i}}.
+\end{align}
+Anhand dieser Steigundsdreiecke lässt sich ein Wendepunkt abschätzen, vor dem das Langmuir-Schottkysche Raumladungsgesetz gilt.
+Für die Wertepaare wird eine Funktion der Form
+\begin{align}
+    a \cdot U^{b}
+    \label{eq:raum_fit}
+\end{align}
+gewählt.
+Mit dieser Form wird der Exponent dieses Zusammenhangs ermittelt.
+Für die Sättigungskurve wird ein exponentieller Zusammenhang der Form
+\begin{align}
+    -a \cdot e^{b\cdot (U-d)} + c
+\end{align}
+verwendet.
+von besonderem Interesse ist hier nur der Wert für $c$, da er dem Sättigungsstrom $I_s$ entspricht.
+In den Messungen bei $I_\text{f} = \qty{2.3}{\ampere}$ und $\qty{2.5}{\ampere}$ lässt sich diese Ausgleichsrechnug nicht mehr
+durchführen, da die ströme keinen Sättigungswert erreichen.
+Deshalb wird für diese Kurven der Sättigungsstrom anhand der graphischen Darstellung abgeschätzt.
+
 
 \input{Inhalte/C01_tabelle.tex}
 \input{Inhalte/C02_tabelle.tex}
