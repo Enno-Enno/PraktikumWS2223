@@ -26,8 +26,8 @@ for index in np.arange(0,len(I)):
 
 # Curve fit für die Raumkoordinaten
 
-U_raum= U[:17]
-I_raum= I[:17]
+U_raum= U[:18]
+I_raum= I[:18]
 
 def f(U, a, b ):
    return a * U ** b
@@ -37,14 +37,14 @@ params, covariance_matrix = curve_fit(f, U_raum, I_raum, p0=(200, 1.5))
 errors = np.sqrt(np.diag(covariance_matrix))
 print("Parameter: ")
 for name, value, error in zip('ab', params, errors):
- print(f'{name} = {value:.3f} ± {error:.3f}')
+ print(f'{name} = {value:.3f} \pm {error:.3f}')
 
 
-I_s = 2500
+I_s = 2300
 
 # Plot
 xplot_saet = np.linspace(0, U[-1])
-xplot = np.linspace(0, U[17])
+xplot = np.linspace(0, U[18]+1)
 plt.plot(U, I, "x", label="Messwerte")
 plt.plot(xplot,f(xplot,*params), label="Raumkurve")
 # plt.plot(xplot_saet,np.exp(saet(xplot_saet,*params_saet)), label="Sättigungskurve")

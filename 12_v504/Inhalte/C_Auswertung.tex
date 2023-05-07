@@ -15,18 +15,72 @@ Für die Wertepaare wird eine Funktion der Form
     \label{eq:raum_fit}
 \end{align}
 gewählt.
-Mit dieser Form wird der Exponent dieses Zusammenhangs ermittelt.
+Mit dieser Form wird der Exponent $b$ dieses Zusammenhangs ermittelt.
 Für die Sättigungskurve wird ein exponentieller Zusammenhang der Form
 \begin{align}
     -a \cdot e^{b\cdot (U-d)} + c
+    \label{eq:sat}
 \end{align}
 verwendet.
 von besonderem Interesse ist hier nur der Wert für $c$, da er dem Sättigungsstrom $I_s$ entspricht.
-In den Messungen bei $I_\text{f} = \qty{2.3}{\ampere}$ und $\qty{2.5}{\ampere}$ lässt sich diese Ausgleichsrechnug nicht mehr
+In den Messungen bei $I_\text{f} = \qty{2.3}{\ampere}$ und $\qty{2.5}{\ampere}$ lässt sich diese Ausgleichsrechnung nicht mehr
 durchführen, da die ströme keinen Sättigungswert erreichen.
 Deshalb wird für diese Kurven der Sättigungsstrom anhand der graphischen Darstellung abgeschätzt.
+Diese einschätzung ist ungenauer als die mit dem Curve fit.
+
+\subsection{Messung 1}
+\input{Inhalte/C01_tabelle.tex}% \label{tab:c01}
+\input{Inhalte/C01_grafik.tex} % \label{fig:c01}
+Bei dieser Messung wird ein Heizstrom von $I_\text{f} = \qty{2.0}{\ampere}$ verwendet.
+Aus den Steigungsdreiecken in Tabelle \ref{tab:c01} ergibt sich ein Wendepunkt bei $U_A = \qty{15}{\volt}$.
+Dementsprechend wird die Ausgleichsrechnung mit der Funktion \eqref{eq:raum_fit} für $i \in [0,3]$ durchgeführt
+Es ergeben sich Parameter von 
+\begin{align}
+    a &= \num{0.862 \pm 0.034}, & b &= \num{1.102 \pm 0.015}.
+\end{align}
+Der Exponent dieses Zusammenhangs ist also $b = \num{1.102 \pm 0.015}$
+
+Die Sättigungskurve \eqref{eq:sat} ergibt in ihrer Ausgleichsrechnung eine Verschiebung bzw. einen Sättigungsstrom von 
+\begin{align}
+    c= I_s = \qty{40.669 \pm 0.438}{\micro\ampere}.
+\end{align}
 
 
-\input{Inhalte/C01_tabelle.tex}
+\subsection{Messung 2}
+Bei dieser Messung wird ein Heizstrom von $I_\text{f}= \qty{2.3}{\ampere}$ verwendet.
+Der Wendepunkt in den Messdaten aus Tabelle \ref{tab:c02} befindet sich bei \qty{50}{\volt}.
+Für die Ausgleichsrechnung der Raumkurve werden also die Messungen $i \in [0,10]$ herangezogen.
+Es ergeben sich Parameter von
+\begin{align}
+    a &= \num{1.317 \pm 0.073}, & b &= \num{1.311 \pm 0.015}.
+\end{align}
+Für den Sättigungsstrom wird aus Grafik \ref{fig:c02} ein Wert von $I_s = \qty{600 \pm 10}{\micro\ampere}$ abgeschätzt.
 \input{Inhalte/C02_tabelle.tex}
+\input{Inhalte/C02_grafik.tex}
+
+
+\subsection{Messung 3}
+Schließlich wird der maximale Heizstrom von $I_\text{f}= \qty{2.5}{\ampere}$ verwendet.
+Für den Wendepunkt ergibt sich aus Tabelle \ref{tab:c03} eine Spannung von \qty{120}{\volt}.
+Die Raumkurve, wie in Abbildung \ref{fig:c03} dargestellt, hat die Parameter
+\begin{align}
+    a &= \num{1.154 \pm 0.083}, & b &= \num{1.410 \pm 0.016}.
+\end{align}
+Der Sättigungsstrom wird auf $I_s= \qty{2300 \pm 250}{\micro\ampere}$ abgeschätzt.
+
+
+
 \input{Inhalte/C03_tabelle.tex}
+\input{Inhalte/C03_grafik.tex}
+
+
+
+\subsection{Der Anlaufstrom}
+
+Für die umgekehrt angeschlossene Stromquelle wird der Anlaufstrom gemessen.
+In Tabelle \ref{tab:c04} wird der 
+
+
+
+\input{Inhalte/C04_tabelle.tex}
+\input{Inhalte/C04_grafik.tex}

@@ -34,7 +34,7 @@ params_Raum, covariance_matrix = curve_fit(Raum, U_raum, I_raum, p0=(200, 1.5))
 errors = np.sqrt(np.diag(covariance_matrix))
 print("Parameter: ")
 for name, value, error in zip('ab', params_Raum, errors):
- print(f'{name} = {value:.3f} ± {error:.3f}')
+ print(f'{name} = {value:.3f} \pm {error:.3f}')
 
 # #curve fit für Sättigungsstrom
 # U_saet = U[11:]

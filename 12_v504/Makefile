@@ -20,6 +20,9 @@ build/C02_plot.pdf: C02_Kennlinie.py ../matplotlibrc ../header-matplotlib.tex C0
 build/C03_plot.pdf: C03_Kennlinie.py ../matplotlibrc ../header-matplotlib.tex C03_Kennlinie.txt | build
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python C03_Kennlinie.py
 
+build/C04_plot.pdf: C04_Anlauf.py ../matplotlibrc ../header-matplotlib.tex C04_Anlauf.txt | build
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python C04_Anlauf.py
+
 
 build:
 	mkdir -p build

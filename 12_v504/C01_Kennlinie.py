@@ -34,6 +34,7 @@ for name, value, error in zip('ab', params_Raum, errors_Raum):
 U_saet = U[4:]
 I_saet = I[4:]
 
+
 def saet(U, a, b, c, d):
     return  - a * np.exp(-b * (U - d ) ) + c
 
@@ -50,7 +51,9 @@ for name, value, error in zip('abcd', params_saet, errors_saet):
 # print("U, gradient")
 # for index in np.arange(0,len(I)):
     # print(index, "  &", U[index], "\t&", I[index], "   &", gradient[index], "\\\\")
-
+indices = np.arange(0,len(I))
+print(indices[:4])
+print(indices[4:])
 
 
 
