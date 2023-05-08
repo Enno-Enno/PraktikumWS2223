@@ -43,6 +43,7 @@ for name, value, error in zip('ab', params, errors):
 I_s = 2300
 
 # Plot
+plt.figure(constrained_layout=True)
 xplot_saet = np.linspace(0, U[-1])
 xplot = np.linspace(0, U[18]+1)
 plt.plot(U, I, "x", label="Messwerte")
