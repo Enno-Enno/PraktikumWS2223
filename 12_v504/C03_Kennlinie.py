@@ -39,6 +39,12 @@ print("Parameter: ")
 for name, value, error in zip('ab', params, errors):
  print(f'{name} = {value:.3f} \pm {error:.3f}')
 
+b_lit = 3/2
+b_exp = ufloat(params[1], errors[1])
+
+b_abw = (b_lit - b_exp)/b_lit 
+
+print("Abweichung b = ", b_abw, "=", b_abw*100, "%")
 
 I_s = 2300
 

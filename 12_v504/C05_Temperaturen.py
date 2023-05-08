@@ -46,4 +46,9 @@ for index in np.arange(0,len(W)):
 # print(unp.mean(W)) ## Frage, wie beeinflusst die Standartabweichung der Messwerte die Standartabweichung des Mittelwerts?
 W_mean = np.mean(unp.nominal_values(W))
 W_stdev = np.sqrt(np.sum(unp.std_devs(W)**2))/3
-print(f"{W_mean:.4} \pm {W_stdev:.2}") 
+print(f"{W_mean:.4} \pm {W_stdev:.2} J = {W_mean/const.e:.4} \pm {W_stdev/const.e:.2}") 
+
+w_exp = ufloat(W_mean, W_stdev)
+w_lit = ufloat(np.mean([4.54, 4.60]), np.std([4.54, 4.60]))
+w_abw = (w_lit - w_exp/const.e) / w_lit
+print("Abweichung : ", w_abw)

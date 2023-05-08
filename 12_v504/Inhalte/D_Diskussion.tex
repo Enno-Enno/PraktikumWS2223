@@ -2,11 +2,13 @@
 
 \subsection{Kennlinienschar und Sättigungsstrom}
 Es war zu erwarten, dass für steigende Heizströme auch der Anodenstrom steigt, da bei höheren Temperaturen mehr
-Elektronen emittiiert werden.
+Elektronen emittiert werden.
 Die Plots der Kennlinienscharen \ref{fig:c01}, \ref{fig:c02} und \ref{fig:c03} sowie die resultierenden 
 Sättigungsströme $I_{s,1} = \qty{40.669 \pm 0.438}{\micro\ampere}$, $I_{s,2} = \qty{600 \pm 10}{\micro\ampere}$ und 
 $I_{s,3}= \qty{2300 \pm 250}{\micro\ampere}$ können dieser Erwartung gerecht werden.
-Die verhältnismäßig hohen und steigenden Abweichungen in Messreihe 2 und 3 kommen dabei durch Abschätzungenauigkeiten zustande.
+Außerdem haben die Plots eine ähnliche Form wie in der Theorie, vgl. \ref{fig:kennlinie}.
+Die verhältnismäßig hohen und steigenden Abweichungen in Messreihe 2 und 3 kommen dabei durch Abschätzungenauigkeiten zustande,
+da der jeweilige Wert hier nicht mehr im Messbereich liegt.
 Ferner sei erwähnt, dass sich die Stromstärke von $\qty[]{0}{\micro\ampere}$ bei $\qty[]{0}{\volt}$ durch die Genauigkeit des 
 Messgeräts ergibt.
 Dies entspricht allerdings nicht dem tatsächlichen Wert, wie man bei der Untersuchung des Anlaufstromgebiets sehen kann.
@@ -16,7 +18,38 @@ Die eigentlichen Werte im Nanoamperebereich sind für das in diesem Teil verwend
 
 
 \subsection{Das Raumladungsgesetz}
+Die Gültigkeit des Raumladungsgesetzes konnte zu einem Bereich von \qty[]{0}{\volt} bis \qty{120}{\volt} bestimmt werden.
+Der Exponent der Strom-Spannungsbeziehung beläuft sich auf $b = \num{1.410 \pm 0.016}$, was einer Abweichung von 
+$\num{6.0+-1.1}\, \%$ vom Literaturwert $b_\text{Lit} = \num[]{1.5}$ entspricht.
+Eine Erklärung für diese Abweichung ist die Schwankung der Werte für $grad_i$ in Tabelle \ref{tab:c03} im Bereich \qtyrange[]{60}{120}{\volt},
+da anhand dieser der Wendepunkt nur grob abgeschätzt werden kann.
+Außerdem könnten Messungenauigkeiten ein weiterer Faktor sein, der die Abweichung vom Literaturwert erzeugt.
+%Abweichung b =  0.060+/-0.011 = 6.0+/-1.1 %
 
+
+
+\subsection{Das Anlaufstromgebiet}
+Anhand der Ausgleichsrechnung der Messdaten und des resultierenden Plots \ref{fig:c04} kann der exponentielle Zusammenhang gemäß 
+Gleichung \eqref{eq:anlaufstrom_theo} verifiziert werden.
+Für die maximale Heizspannung ergibt sich eine Temperatur von $T = \num[]{2178 \pm  60}$, die
+mitsamt der Abweichungen im angegebenen Intervall von \qtyrange[]{1000}{3000}{\kelvin}
+(vgl. Abschnitt \ref{sec:diode}) liegt.
 
 %Leitung ziwcshen nA-meter und anode kurz genug?
 % Der exponent der Raumkurve ist b
+
+
+\subsection{Kathodentemperatur}
+Die Temperaturen in Tabelle \ref{tab:c04} liegen allesamt im Intervall von \qtyrange[]{1000}{3000}{\kelvin} und steigen wie zu erwarten
+mit dem Heizstrom an.
+An dieser Stelle können mögliche systematische Abweichungen nicht genauer quantifiziert werden, da beispielsweise die Wärmeleitung der Fadenhalterung
+in \cite[]{man:v504} sowie die Fläche nur abgeschätzt wurden.
+Dennoch ist davon auszugehen, dass die tatsächlichen Werte immer noch im gegebenen Intervall liegen.
+
+
+\subsection{Austrittsarbeit von Wolfram}
+Nach \cite[]{austrittsarbeit} beträgt die Austrittsarbeit in Wolfram \qtyrange[]{4.54}{4.60}{\electronvolt}.
+Der experimentell bestimmte Wert $W = \qty{7.66(15)e-19}{\joule} = \qty[]{4.783 +- 0.092}{\electronvolt}$ hat demnach eine 
+Abweichung von $\num[]{4.7+-2.1} \, \%$, was hinreichend genau ist.
+%4.783 \pm 0.092
+%Abweichung :  -0.047+/-0.021
