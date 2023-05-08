@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from uncertainties import ufloat
 from uncertainties import unumpy as unp
 from scipy.optimize import curve_fit
+import scipy.constants as const
 
 #Daten einsammeln
 U_gem, I = np.genfromtxt("C04_Anlauf.txt", unpack=True)
@@ -30,6 +31,15 @@ for name, value, error in zip('ab', params, errors):
 # Ausgabe der Tabelle
 for index in np.arange(0,len(I)):
     print(f"{U_gem[index]:.2f}  &  {U[index]:.2f} \t& {I[index]:.2f} \\\\")
+
+
+# Berechnen der Temperatur
+b = ufloat(params[1], errors[1])
+print("b =", b)
+k_B = 1.381e-23
+e = const.e
+T= e/(k_B*b)
+print("T =", T)
 
 #Plot
  
