@@ -55,7 +55,7 @@ I_s = 600
 
 # Plot
 
-
+plt.figure(constrained_layout=True)
 xplot_Raum = np.linspace(0, U[11] + 1)
 xplot_saet = np.linspace(0, U[-1] + 1)
 plt.plot(U, I, "x", label="Messwerte")

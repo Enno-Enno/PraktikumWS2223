@@ -33,6 +33,7 @@ for index in np.arange(0,len(I)):
 
 #Plot
  
+plt.figure(constrained_layout=True)
 xplot = np.linspace(U[0],U[-1])
 plt.plot(U, I, "x", label="Messwerte")
 plt.plot(xplot,f(xplot,*params), label="Anlaufkurve")

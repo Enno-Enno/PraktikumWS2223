@@ -60,6 +60,7 @@ print(indices[4:])
 
 # Plot
 
+plt.figure(constrained_layout=True)
 xplot_Raum = np.linspace(0, U[4] + 1)
 xplot_saet = np.linspace(U[4] + 1, U[-1] + 1)
 plt.plot(U, I, "x", label="Messwerte")
