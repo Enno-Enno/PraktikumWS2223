@@ -47,6 +47,8 @@ Die Sättigungskurve \eqref{eq:sat} ergibt in ihrer Ausgleichsrechnung eine Vers
 
 
 \subsection{Messung 2}
+\input{Inhalte/C02_tabelle.tex}
+\input{Inhalte/C02_grafik.tex}
 Bei dieser Messung wird ein Heizstrom von $I_\text{f}= \qty{2.3}{\ampere}$ verwendet.
 Der Wendepunkt in den Messdaten aus Tabelle \ref{tab:c02} befindet sich bei \qty{50}{\volt}.
 Für die Ausgleichsrechnung der Raumkurve werden also die Messungen $i \in [0,10]$ herangezogen.
@@ -55,11 +57,11 @@ Es ergeben sich Parameter von
     a &= \num{1.317 \pm 0.073}, & b &= \num{1.311 \pm 0.015}.
 \end{align}
 Für den Sättigungsstrom wird aus Grafik \ref{fig:c02} ein Wert von $I_s = \qty{600 \pm 10}{\micro\ampere}$ abgeschätzt.
-\input{Inhalte/C02_tabelle.tex}
-\input{Inhalte/C02_grafik.tex}
 
 
 \subsection{Messung 3}
+\input{Inhalte/C03_tabelle.tex}
+\input{Inhalte/C03_grafik.tex}
 Schließlich wird der maximale Heizstrom von $I_\text{f}= \qty{2.5}{\ampere}$ verwendet.
 Für den Wendepunkt ergibt sich aus Tabelle \ref{tab:c03} eine Spannung von \qty{120}{\volt}.
 Die Raumkurve, wie in Abbildung \ref{fig:c03} dargestellt, hat die Parameter
@@ -70,17 +72,77 @@ Der Sättigungsstrom wird auf $I_s= \qty{2300 \pm 250}{\micro\ampere}$ abgeschä
 
 
 
-\input{Inhalte/C03_tabelle.tex}
-\input{Inhalte/C03_grafik.tex}
 
 
 
 \subsection{Der Anlaufstrom}
-
-Für die umgekehrt angeschlossene Stromquelle wird der Anlaufstrom gemessen.
-In Tabelle \ref{tab:c04} wird der 
-
-
-
 \input{Inhalte/C04_tabelle.tex}
 \input{Inhalte/C04_grafik.tex}
+
+Für die umgekehrt angeschlossene Stromquelle wird der Anlaufstrom gemessen.
+Die eingestellte Spannung fällt nicht nur über der Diode sondern auch an dem Spannungsmessgerät ab.
+Für den Widerstand des Messgerätes wird ein Spannungsabfall von $R = \qty{1}{\mega\ohm}$ angenommen
+Es ergibt sich eine Korrektur von
+\begin{align}
+    U_A = U_\text{gemessen} + R \cdot I.
+\end{align}
+Der Spannungsabfall am Messgerät wird positiv angerechnet, da die angelegten Spannungen in Tabelle \ref{tab:c04} negativ notiert werden.
+In Tabelle \ref{tab:c04} wird der korrigierte Anlaufstrom mit nur zwei Nachkommastellen dargestellt, da die Werte nicht genauer bestimmt wurden.
+Die Korrekturen sind in einer Größenordnung von \qty{1e-3}{\volt} weshalb sie in der Rundung nur selten einen Unterschied ausmachen.
+
+Mit den korrigierten Werten von $U_A$ wird eine Ausgleichsrechnung für ein exponentielles Wachstum aufgestellt.
+\begin{align}
+    a \cdot \text{e}^{b\cdot U_A}
+\end{align}
+Es ergeben sich die Parameter
+\begin{align}
+    a &= \qty{1.154 \pm 0.083}{\nano\ampere}, & b &= \num{6.513 \pm 0.196}.
+\end{align}
+In Abbildung \ref{fig:c04} wird die Anlaufkurve dargestellt.
+
+\subsection{Temperatur des Glühdrahts}
+Nach Gleichung \eqref{eq:leistung} ergibt sich für die Temperatur die Formel
+\begin{align}
+    T = \sqrt[4]{\frac{I_\text{Heiz} U_\text{Heiz}-N_\text{Leit}}{F \eta \sigma}}
+\end{align}
+Für die Heizspannung wird von einem Ablesefehler von \qty{\pm 0.5}{\volt} ausgegangen.
+Der Fehler bei dem Strom wird auf \qty{\pm 0.05}{\ampere} abgeschätzt.
+Für die Wärmeleitung wird der Wert $N_\text{Leit}= \qty{1}{\watt}$ gewählt.
+Die weiteren Daten finden sich in Abschnitt \ref{sec:teo_temp}.
+Die Fehler der Temperatur werden mit der gaußschen Fehlerforpflanzung berechnet.
+\begin{align}
+    \Delta f(x_i) = \sqrt{
+    \left(\frac{\partial f}{\partial x_1} \Delta x_1\right)^2%
+     + \left(\frac{\partial f}{\partial x_2} \Delta x_2\right)^2%
+     + \dots%
+     + \left(\frac{\partial f}{\partial x_k} \Delta x_k\right)^2%
+    }.
+    \label{eq:gauss}
+\end{align}
+Die Temperaturen sind in Tabelle \ref{tab:c05} angegeben
+\begin{table}
+    \centering
+    \begin{tabular}{S S S}
+        {$I_\text{Heiz}/\unit{\ampere}$} & {$U_\text{Heiz}/\unit{\volt}$} & {$T / \unit{\kelvin}$} \\
+        2.00 \pm 0.05  &  4.0 \pm 0.5  &  1924 \pm  70 \\
+        2.30 \pm 0.05  &  5.0 \pm 0.5  &  2129 \pm  60 \\
+        2.50 \pm 0.05  &  5.0 \pm 0.5  &  2178 \pm  60 \\
+    \end{tabular}
+    \caption{Temperaturen des Glühdrahts}
+    \label{tab:c05}
+\end{table}
+
+\section{Austrittsarbeit des Kathodenmaterials}
+
+In Gleichung \eqref{eq:austritt_richardson} wurde bereits die Formel für die Austrittsarbeit der Kathodenoberfläche aufgestellt.
+\begin{align*}
+    W = e_0 \xi = - k_\text{B} T \cdot \ln\left(\frac{h^3 j_\text{S}}{4 \pi e_0 m_0 k_\text{B}^2 T^2}\right)
+\end{align*}
+Mit der Boltzmannkonstante $k_\text{B}$, 
+Der Sättigungsstrom $I_S$ taucht in der Formel in dem elektrischen Fluss auf,  der aus der Kathode austritt.
+Es gilt also
+\begin{align}
+    j_s = \frac{I_S}{F}.  
+\end{align}
+
+

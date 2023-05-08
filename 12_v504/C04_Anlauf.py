@@ -29,7 +29,7 @@ for name, value, error in zip('ab', params, errors):
 
 # Ausgabe der Tabelle
 for index in np.arange(0,len(I)):
-    print(f" {U[index]:.4f} \t& {I[index]:.2f} \\\\")
+    print(f"{U_gem[index]:.2f}  &  {U[index]:.2f} \t& {I[index]:.2f} \\\\")
 
 #Plot
  
