@@ -26,13 +26,13 @@ for index in np.arange(0,len(U_Heiz)):
     print(I_Heiz[index], " & " ,U_Heiz[index], " & " ,f"{T[index].n:.0f} \pm  {T[index].s:.0f} \\\\")
 
 
-I_s = unp.uarray([40.669,600, 2300],[0.438, 10, 250])
+I_s = unp.uarray([40.669,600, 2300],[0.438, 10, 250])# in micro Ampere
 print(I_s)
 
 #Umrechnung in Si Einheiten
 k_B = 1.381e-23
 f = 0.32 / 100**2
-j_s = I_s / f
+j_s = I_s / f * 1e-6 #Umrechnung in Ampere 
 h = 6.62607015e-34
 e = const.e
 m_e = const.m_e
@@ -46,4 +46,4 @@ for index in np.arange(0,len(W)):
 # print(unp.mean(W)) ## Frage, wie beeinflusst die Standartabweichung der Messwerte die Standartabweichung des Mittelwerts?
 W_mean = np.mean(unp.nominal_values(W))
 W_stdev = np.sqrt(np.sum(unp.std_devs(W)**2))/3
-print(f"{W_mean:.4} \pm {W_stdev:.1}")
+print(f"{W_mean:.4} \pm {W_stdev:.1}") 
