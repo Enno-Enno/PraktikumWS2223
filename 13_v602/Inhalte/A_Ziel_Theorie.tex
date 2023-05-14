@@ -130,14 +130,51 @@ Eine schematische Darstellung der Bragg-Reflexion ist in Abbildung \ref{fig:brag
 Der in diesem Versuch verwendete Lif-Kristall hat eine Gitterkonstante von $d = \qty[]{201.4}{\pico\meter}$.
 
 \subsubsection[]{K-Linien und Beugungswinkel bei Kupfer}
+Die $K_\alpha$- und $K_\beta$-Linien von Kuper liegen nach \cite[]{roentgen_leifi} bei $E_{K_\alpha} = \qty[]{8.04}{\electronvolt}$
+und $E_{K_\beta} = \qty[]{8.94}{\electronvolt}$.
+Dies entspricht nach der Bragg-Bedingung \eqref{eq:bragg} unter Verwendung eines LiF-Kristalls mit der Gitterkonstante $d = \qty[]{201.4}{\pico\meter}$
+den Winkeln $\theta_{K_\alpha} = \qty[]{22.51}{\degree}$ und $\theta_{K_\beta} = \qty[]{20.14}{\degree}$.
 %  Energie alpha =  8.04 keV
 %  Energie beta =  8.94 keV
 %  lambda_k_alpha =  154.20920203134364 pm
 %  lambda_k_beta =  138.6847857194634 pm
 %  theta_alpha:  22.509902591224215 deg
 %  theta_beta:  20.139184010738617 deg
-%
-%
+
+
+
+\subsubsection[short]{Materialspezifische K-Kanten, Winkel und Abschirmkonstanten}
+In Tabelle \ref{tab:vorbereitung} sind die Energien der K-Kanten $E_K^{\text{lit}}$, die zugerhörigen Winkel $\theta_K^{\text{lit}}$ (vgl. Formel \eqref{eq:bragg})
+sowie die Abschirmkonstante $\sigma_K$ (vgl. Formel \eqref{eq:abschirmung_k}) verschiedenener Materialien mitsamt der Ordnungszahl $z$ aufgetragen.
+Dabei wurden die Energien \cite[]{k_l_linien} entnommen.
+
+% TEST $\unit{\electronvolt}$
+
+%^{\text{lit}}
+%_K^{\text{lit}}
+
+\begin{table}
+    \centering
+    \caption{Die Materialspezifischen Energien, Winkel und Abschirmkonstanten.}
+    \label{tab:vorbereitung}
+    \begin{tabular}{S % element
+         S[table-format = 2.0] % z
+          S[table-format = 2.2] %E
+          S[table-format = 2.2] %theta
+           S[table-format = 1.2]} %sigma
+        \toprule
+        {} & {$z$} & {$E_K^{\text{lit}} / \unit{\kilo\electronvolt}$} & {$\theta_K^{\text{lit}} / \unit{\degree}$} & {$\sigma_K$} \\
+        \midrule
+        {Zn} & 30 &  9.66 & 18.58 & 3.55 \\
+        {Ge} & 32 & 11.10 & 16.10 & 3.68 \\
+        {Br} & 35 & 13.47 & 13.21 & 3.85 \\
+        {Rb} & 37 & 15.20 & 11.68 & 3.94 \\
+        {Sr} & 38 & 16.10 & 11.02 & 4.00 \\
+        {Zr} & 40 & 17.99 &  9.85 & 4.10 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 %# teta_Zn 18.58067369078699
 %# teta_Ge 16.09927954595463
 %# teta_Br 13.209491136899516
