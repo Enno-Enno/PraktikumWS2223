@@ -24,7 +24,7 @@ def theta(E):
 
 
 # Nehme einen Winkel in ° und gebe eine energie in KeV Aus
-def Energie(theta_deg):
+def Energie(theta_deg, name="kp"):
     theta = theta_deg *(2*np.pi)/(360)
     h = const.h
     c = const.c
@@ -34,13 +34,42 @@ def Energie(theta_deg):
     E_J = (h * c)/(lam)
     E = E_J / (1.6022e-16)
     lam_pm = lam *1e12
-    print(f"({theta_deg})° & ({lam_pm}) pm & {E} keV \\\\ ")
+    print(f"{name}: ({theta_deg})° & ({lam_pm}) pm & {E} keV \\\\ ")
+### sin(theta) ~ 1/E : kleineres theta größeres E
 
+#Daten sammeln
+theta_2_zink, Impulse_zink =  np.genfromtxt("v602_messungen/abs_zink.txt", unpack=True)
+theta_zink = theta_2_zink / 2
+theta_2_brom, Impulse_brom =  np.genfromtxt("v602_messungen/abs_brom.txt", unpack=True)
+theta_brom = theta_2_brom / 2
+theta_2_sr, Impulse_sr =  np.genfromtxt("v602_messungen/abs_sr.txt", unpack=True)
+theta_sr = theta_2_sr / 2
+theta_2_zr, Impulse_zr =  np.genfromtxt("v602_messungen/abs_zr.txt", unpack=True)
+theta_zr = theta_2_zr / 2
 
 # 02, 03 Kupferspektrum
-Winkel_k_beta_Kupfer=ufloat(20.25,0.1)
-Winkel_k_alpha_Kupfer=ufloat(20.25,0.1)
-Winkel_
+Winkel_k_beta_Kupfer=ufloat(20.25,0.05)
+Winkel_k_alpha_Kupfer=ufloat(22.5,0.05)
+# Winkel_peak_zink = ufloat(20.2,0.1)
+# Winkel_peak_brom = 
 
-Energie(Winkel_k_beta_Kupfer)
-Ener
+Energie(Winkel_k_beta_Kupfer, "Kupfer_\\beta")
+Energie(Winkel_k_alpha_Kupfer, "Kupfer_\\alpha")
+
+# for index, shit in enumerate(theta_zr):
+    # print(f"{index} & {theta_zr[index]} \t& {Impulse_zr[index]} ")
+# print(theta_zink[19:23], Impulse_zink[19:23])
+
+k_zink_n = np.mean(theta_zink[19:23])
+k_zink_s = np.std(theta_zink[19:23])
+k_zink = ufloat(k_zink_n, k_zink_s)
+
+k_brom = ufloat( np.mean(theta_brom[19:27]), np.std(theta_brom[19:27]))
+k_sr = ufloat( np.mean(theta_sr[8:14]), np.std(theta_sr[8:14]))
+k_zr = ufloat( np.mean(theta_zr[8:14]), np.std(theta_zr[8:14]))
+
+
+Energie(k_zink, "Zink")
+Energie(k_brom, "Brom")
+Energie(k_sr, "Strontium")
+Energie(k_zr, "Zirconium")
