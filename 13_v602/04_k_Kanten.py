@@ -47,24 +47,26 @@ fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, constrained_layout=True)
 ax1.plot(theta_zink, Impulse_zink, "x")
 ax1.set_title('Zink')
 ax1.set_xlabel('Theta °')
-ax1.set_ylabel('Impulse 1/20s')
+ax1.set_ylabel("$N / \\frac{{1}}{{20\\unit{{\\s}}}}$")
+ax1.axvline(20.05, color="k")
 
 ax2.plot(theta_brom, Impulse_brom, "x")
 ax2.set_title('Brom')
 ax2.set_xlabel('Theta °')
-ax2.set_ylabel('Impulse 1/20s')
+ax2.set_ylabel('$N / \\frac{{1}}{{20\\unit{{\\s}}}}$')
+ax2.axvline(13.25, color="k")
 
 ax3.plot(theta_sr, Impulse_sr, "x")
 ax3.set_title('Strontium')
 ax3.set_xlabel('Theta °')
-ax3.set_ylabel('Impulse 1/20s')
+ax3.set_ylabel('$N / \\frac{{1}}{{20\\unit{{\\s}}}}$')
+ax3.axvline(11.05, color="k")
 
 ax4.plot(theta_zr, Impulse_zr, "x")
 ax4.set_title('Zirconium')
 ax4.set_xlabel('Theta °')
-ax4.set_ylabel('Impulse 1/20s')
-
-#fig.suptitle('This is a somewhat long figure title', fontsize=16)
+ax4.set_ylabel('$N / \\frac{{1}}{{20\\unit{{\\s}}}}$')
+ax4.axvline(9.55, color="k")
 
 
 plt.savefig("build/04_plot.pdf") 

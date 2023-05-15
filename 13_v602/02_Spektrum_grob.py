@@ -19,5 +19,8 @@ for index, shit in enumerate(theta[:25]):
 #Plot
 plt.figure(constrained_layout=True)
 plt.plot(theta, R_Impulse_s, "x")
+#Beschriftungen
+plt.xlabel("$\\theta / \\unit{{\degree}}$")
+plt.ylabel("$N / \\frac{{1}}{{5\\unit{{\\s}}}}$")
 
 plt.savefig("build/02_plot.pdf")
