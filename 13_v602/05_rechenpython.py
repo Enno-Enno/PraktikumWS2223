@@ -61,12 +61,12 @@ Energie(Winkel_k_alpha_Kupfer, "Kupfer_\\alpha")
 # print(theta_zink[19:23], Impulse_zink[19:23])
 
 k_zink_n = np.mean(theta_zink[19:23])
-k_zink_s = np.std(theta_zink[19:23])
+k_zink_s = 0.05
 k_zink = ufloat(k_zink_n, k_zink_s)
 
-k_brom = ufloat( np.mean(theta_brom[19:27]), np.std(theta_brom[19:27]))
-k_sr = ufloat( np.mean(theta_sr[8:14]), np.std(theta_sr[8:14]))
-k_zr = ufloat( np.mean(theta_zr[8:14]), np.std(theta_zr[8:14]))
+k_brom = ufloat( np.mean(theta_brom[19:27]), 0.05)
+k_sr = ufloat( np.mean(theta_sr[8:14]), 0.05)
+k_zr = ufloat( np.mean(theta_zr[8:14]), 0.05)
 
 
 Energie(k_zink, "Zink")
