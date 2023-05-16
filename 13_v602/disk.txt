@@ -1,0 +1,4 @@
+zr_exp = ufloat(18.55, 0.10)
+zr_lit = 17.99
+zr_abw = (zr_exp - zr_lit) / zr_lit
+print("zr: ", zr_abw)
