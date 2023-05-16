@@ -29,10 +29,10 @@ def Energie(theta_deg, name="kp"):
     h = const.h
     c = const.c
     d = 201.4e-12
-    lam = 2 *d * unp.sin(theta)
+    lam = 2 *d * unp.sin(theta) # in m
     # print(f"lambda = {lam} m bei theta = {theta_deg} ")
-    E_J = (h * c)/(lam)
-    E = E_J / (1.6022e-16)
+    E_J = (h * c)/(lam) # in J
+    E = E_J / (1.6022e-16) # in keV (da e-16 statt e-19)
     lam_pm = lam *1e12
     print(f"{name}: ({theta_deg})° & ({lam_pm}) pm & {E} keV \\\\ ")
     return E
@@ -107,7 +107,7 @@ E_k_zr   =  Energie(k_zr, "Zirconium")
 ####  Absorptions sigmas
 E_Abs_Cu = ufloat(8.9805, 0.0010)  # keV
 Z_Cu = 29
-E_Ryd = 0.0136
+E_Ryd = 0.0136 # in keV
 
 sigma_Cu_1 = Z_Cu - unp.sqrt(E_Abs_Cu/E_Ryd)
 sigma_Cu_2 = Z_Cu - unp.sqrt((4*(E_Abs_Cu -E_Cu_alpha))/(E_Ryd))
@@ -118,12 +118,30 @@ print("sigma_Cu_3:",sigma_Cu_3)
 
 def sigma_k(Z, E_k):
     alpha = const.alpha
-    return Z - unp.sqrt( E_k/E_Ryd - (alpha**2 * Z**4)/(4) )
+    return Z - unp.sqrt( E_k/E_Ryd - (alpha**2 * Z**4)/(4) ) # alpha und E_Ryd passen
 
 
 print("Sigma_k:")
 
+
 print("Zink     ", sigma_k(30,E_k_zink) )   
 print("Brom     ", sigma_k(35,E_k_brom) )   
-print("Strontium", sigma_k(37,E_k_sr  ) )
+print("Strontium", sigma_k(38,E_k_sr  ) )
 print("Zirconium", sigma_k(40,E_k_zr  ) )
+
+theorie_zink = 3.55
+theorie_brom = 3.85
+theorie_sr   = 4.00 
+theorie_zr   = 4.10
+
+
+abw_zink = (theorie_zink - sigma_k(30,E_k_zink)) / theorie_zink
+abw_brom = (theorie_brom - sigma_k(35,E_k_brom)) / theorie_brom
+abw_sr   = (theorie_sr   - sigma_k(38,E_k_sr  )) / theorie_sr  
+abw_zr   = (theorie_zr   - sigma_k(40,E_k_zr  )) / theorie_zr   
+
+
+print("abw_zink", abw_zink)
+print("abw_brom", abw_brom)
+print("abw_sr  ", abw_sr  )
+print("abw_zr  ", abw_zr  )
