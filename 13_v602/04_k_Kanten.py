@@ -66,7 +66,7 @@ ax4.plot(theta_zr, Impulse_zr, "x")
 ax4.set_title('Zirconium')
 ax4.set_xlabel('Theta °')
 ax4.set_ylabel('$N / \\frac{{1}}{{20\\unit{{\\s}}}}$')
-ax4.axvline(9.55, color="k")
+ax4.axvline(10.00, color="k")
 
 
 plt.savefig("build/04_plot.pdf") 

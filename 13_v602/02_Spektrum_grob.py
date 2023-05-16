@@ -18,9 +18,12 @@ for index, shit in enumerate(theta[:25]):
 
 #Plot
 plt.figure(constrained_layout=True)
-plt.plot(theta, R_Impulse_s, "x")
+plt.plot(theta, R_Impulse_s, "x", label="Emissionsspektrum")
+plt.plot(12.0,247,"rx", label="Bremsberg")
 #Beschriftungen
 plt.xlabel("$\\theta / \\unit{{\degree}}$")
 plt.ylabel("$N / \\frac{{1}}{{5\\unit{{\\s}}}}$")
+
+plt.legend()
 
 plt.savefig("build/02_plot.pdf")
