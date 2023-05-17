@@ -42,8 +42,8 @@ Es ergeben sich die Werte
 Der Bereich mit den Peaks wird mit der kleineren Schrittweite genauer untersucht.
 In Abbildung \ref{fig:03} und Tabelle \ref{tab:c03_Cu-Roere_fein} Peaks bei den Stellen 
 \begin{align}
-    \theta_\alpha = \qty{22.50 \pm 0.05}{\degree} \text{und}
-    \theta_\beta = \qty{ 20.25 \pm 0.05}{\degree}
+    \theta_{\alpha,\text{max}} = \qty{22.50 \pm 0.05}{\degree} \text{und}
+    \theta_{\beta, \text{max}}= \qty{ 20.25 \pm 0.05}{\degree}
 \end{align}
 gefunden.
 Diese Winkel lassen sich mit der Formel \eqref{eq:bragg} in Energien umrechnen.
@@ -61,9 +61,9 @@ Es gilt
 % Analog wird die Unsicherheit von $E$ aus $\Delta \lambda$ berechnet.
 Es ergeben sich folgende Werte 
 \begin{align*}
-    \theta_\alpha:        = \qty{22.50 \pm 0.05}{\degree} & \lambda_\alpha = \qty{154.14 \pm 0.32}{\pico\meter}  & E_\alpha = \qty{8.043 \pm 0.017}{\kilo\eV}  \\
-    \theta_\beta:         = \qty{20.25 \pm 0.05}{\degree} & \lambda_\beta  = \qty{139.42 \pm 0.33}{\pico\meter}  & E_\beta  = \qty{8.893 \pm 0.021}{\kilo\eV}   
-    \theta_\text{Grenz}:  = \qty{5.4 \pm 0.05}{\degree} & \lambda_\text{Grenz}  = \qty{37.91 \pm 0.35}{\pico\meter}  & E_\text{Grenz}  = \qty{32.71 \pm 0.30}{\kilo\eV}   
+    \theta_\alpha        = \qty{22.50 \pm 0.05}{\degree} & \lambda_\alpha      &= \qty{154.14 \pm 0.32}{\pico\meter}  & E_\alpha       &= \qty{8.043 \pm 0.017}{\kilo\eV}  \\
+    \theta_\beta         = \qty{20.25 \pm 0.05}{\degree} & \lambda_\beta       &= \qty{139.42 \pm 0.33}{\pico\meter}  & E_\beta        &= \qty{8.893 \pm 0.021}{\kilo\eV}  \\
+    \theta_\text{Grenz}  = \qty{5.4 \pm 0.05}{\degree} & \lambda_\text{Grenz}  &= \qty{37.91 \pm 0.35}{\pico\meter}  & E_\text{Grenz}  &= \qty{32.71 \pm 0.30}{\kilo\eV}   
 \end{align*}
 Für die Grenzwellenlänge ist der gemessene Wert $\lambda_\text{Grenz}$ größer als der erwartete Wert von $\lambda_\text{min}= \qty{35.42}{\pico\m}$.
 
@@ -89,7 +89,7 @@ Für die Abschirmkonstanten von Kupfer ergeben sich nach \cite{man:v602} folgend
 \begin{align}
     \sigma_1 = Z_K -\sqrt{\frac{E_\text{K,abs}}{R_\infty}}\\
     \sigma_2 = Z_K -2\sqrt{\frac{E_\text{K,abs}- E_{K,\alpha} }{R_\infty}}\\
-    \sigma_3 = Z_K -3\sqrt{\frac{E_\text{K,abs}- E_{K,\alpha} }{R_\infty}}\\
+    \sigma_3 = Z_K -3\sqrt{\frac{E_\text{K,abs}- E_{K,\alpha} }{R_\infty}}
 \end{align}
 Mit der Rydberg Energie von $R_infty = \qty{13.6}{\eV}$ und der Absorptionskante $E_\text{K,abs} = \qty{8980.5(10)}{\eV}$ \cite{x-ray}
 ergeben sich die folgenden Werte für die Absorptionszahlen.
@@ -130,13 +130,13 @@ der Messhäufigkeit der Röntgenstrahlung bei Energien über einer Charakteristi
 Dieser Abfall bezieht sich auf kleiner werdende Winkel für den möglichen Messbereich von $\theta$.
 Die K-Kante wird in Abbildung \ref{fig:04} als Mitte der beobachtbaren Flanke berechnet.
 Es ergeben sich folgende werte für die Energien und die Wellenlängen der K-Kanten
-\begin{align*}
+\begin{align}
     \text{Zink:       } \theta_k &= \qty{20.05 \pm 0.05}{\degree} & \lambda_k &= \qty{138.10 \pm 0.33}{\pico\meter} & E_k &= \qty{8.978 \pm 0.021}{ \kilo\eV } \\
-    \label{eq:absorptionskanten}
     \text{Brom:       } \theta_k &= \qty{13.25 \pm 0.05}{\degree} & \lambda_k &= \qty{92.32 \pm 0.34 }{\pico\meter} & E_k &= \qty{13.43 \pm 0.05 }{ \kilo\eV }\\
     \text{Strontium:  } \theta_k &= \qty{11.05 \pm 0.05}{\degree} & \lambda_k &= \qty{77.20 \pm 0.34 }{\pico\meter} & E_k &= \qty{16.06 \pm 0.07 }{ \kilo\eV }\\
     \text{Zirconium:  } \theta_k &= \qty{10.00 \pm 0.05}{\degree} & \lambda_k &= \qty{69.95 \pm 0.35 }{\pico\meter} & E_k &= \qty{17.73 \pm 0.10}{\kilo\eV}. 
-\end{align*}
+    \label{eq:absorptionskanten}
+\end{align}
 
 \noindent
 Nach \eqref{eq:abschirmung_k} berechnen sich die Abschirmkonstanten der Materialien zu
@@ -154,9 +154,25 @@ Nach \eqref{eq:abschirmung_k} berechnen sich die Abschirmkonstanten der Material
     \label{fig:04}
 \end{figure}
 
+In Abbildung \ref{fig:05} wird der Zusammenhang von $\sqrt{E}$ und $Z$ dargestellt.
+Mit einer linearen Ausgleichsrechnung der Form $ax +b$ wird die form der Kurve angenähert.
+Sie ergibt die werte
+\begin{align}
+    a &= \qty{0.258 \pm 0.010}{\electronvolt\tothe{-1/2}} &
+    b &= \num{5.400 \pm 1.235}
+\end{align}
+Aus Formel \eqref{eq:effektive_energie} ergibt sich mit $n=1$ das Verhältnis für die Steigung zur Rydbergenergie
+\begin{align*}
+    a = \frac{1}{\sqrt{R_\infty}}
+    R_\infty = \frac{1}{a^2} = \qty{15 \pm 1.2}{\eV}
+\end{align*}
 
 
-
+\begin{figure}
+    \includegraphics{13_v602/build/05_plot.pdf}
+    \caption{$\sqrt{E}-Z$ Diagramm mit Linearer Ausgleichsrechnung }
+    \label{fig:05}
+\end{figure}
 
 
 \input{Inhalte/C02_tabelle.tex} % \label{tab:c02_Cu-Roere_grob}

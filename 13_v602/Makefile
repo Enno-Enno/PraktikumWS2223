@@ -1,6 +1,6 @@
 all: build/v602_Enno_Wellmann_Clara_Sondermann.pdf
 	
-build/v602_Enno_Wellmann_Clara_Sondermann.pdf: v602_Enno_Wellmann_Clara_Sondermann.tex FORCE build/01_plot.pdf build/02_plot.pdf build/03_plot.pdf build/04_plot.pdf| build
+build/v602_Enno_Wellmann_Clara_Sondermann.pdf: v602_Enno_Wellmann_Clara_Sondermann.tex FORCE build/01_plot.pdf build/02_plot.pdf build/03_plot.pdf build/04_plot.pdf build/05_plot.pdf| build
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
 	max_print_line=1048576 \
@@ -22,6 +22,9 @@ build/03_plot.pdf: 03_spektrum_genau.py ../matplotlibrc ../header-matplotlib.tex
 
 build/04_plot.pdf: 04_k_Kanten.py ../matplotlibrc ../header-matplotlib.tex v602_messungen/abs_brom.txt v602_messungen/abs_sr.txt  | build
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python 04_k_Kanten.py
+
+build/05_plot.pdf: 05_rechenpython.py ../matplotlibrc ../header-matplotlib.tex  | build
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python 05_rechenpython.py
 
 
 build:

@@ -2,6 +2,7 @@ import numpy as np
 import scipy.constants as const
 from uncertainties import ufloat
 import uncertainties.unumpy as unp
+import matplotlib.pyplot as plt
 
 # Nehme Energie in keV und gebe einen Winkel in ° aus
 def theta(E):
@@ -147,3 +148,32 @@ print("abw_zink", abw_zink)
 print("abw_brom", abw_brom)
 print("abw_sr  ", abw_sr  )
 print("abw_zr  ", abw_zr  )
+
+Z = np.array([30,35,38,40])
+E = np.array([E_k_zink.n ,E_k_brom.n ,E_k_sr.n ,E_k_zr.n] ) * 1000
+
+params, covariance_Matrix = np.polyfit( np.sqrt(E), Z, 1, cov=True)
+print(params)
+errors = np.sqrt(np.diag(covariance_Matrix))
+print(errors)
+
+print(f"a = {params[0]:.3f} \pm {errors[0]:.3f}")
+print(f"b = {params[1]:.3f} \pm {errors[1]:.3f}")
+a = ufloat(params[0], errors[0])
+print(1/a**2)
+
+
+
+#Plot
+xplot = np.linspace(np.sqrt(E[0]), np.sqrt(E[3]) )
+plt.figure(constrained_layout=True)
+plt.plot(np.sqrt(E) ,Z, "x", label="Absorptionsenergien")
+plt.plot(xplot, params[0]*(xplot) + params[1], label="Ausgleichsrechnung")
+
+
+
+plt.xlabel(r"$\sqrt{E_k/ \unit{\eV}} $")
+plt.ylabel(r"$Z$")
+
+
+plt.savefig("build/05_plot.pdf")
