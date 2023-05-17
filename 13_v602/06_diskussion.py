@@ -40,3 +40,8 @@ lambda_grenz_exp = ufloat(37.91, 0.35)
 lambda_grenz_lit = 35.42
 lambda_grenz_abw = (lambda_grenz_exp - lambda_grenz_lit) / lambda_grenz_lit
 print("lambda_grenz: ", lambda_grenz_abw)
+
+ryd_exp = ufloat(15.0, 1.2)
+ryd_lit = 13.6
+ryd_abw = (ryd_exp - ryd_lit) / ryd_lit
+print("ryd: ", ryd_abw)
