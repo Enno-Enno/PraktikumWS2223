@@ -1,4 +1,15 @@
 \section{Auswertung}
+\subsection{Fehlerfortpflanzung}
+Bei Rechnungen mit Fehlerbehafteten Größen wird der Fehler im Ergebnis mit der Gaußschen Fehlerfortpflanzung berechnet
+\begin{align}
+    \Delta f(x_i) = \sqrt{
+    \left(\frac{\partial f}{\partial x_1} \Delta x_1\right)^2%
+     + \left(\frac{\partial f}{\partial x_2} \Delta x_2\right)^2%
+     + \dots%
+     + \left(\frac{\partial f}{\partial x_k} \Delta x_k\right)^2%
+    }.
+    \label{eq:gauss}
+\end{align}
 \subsection{Überprüfung der Bragg-Bedingung}
 Um die Bragg-Bedingung zu überprüfen wird ein Kristall bei einem Winkel $\theta = \qty{14}{\degree}$ mit Röntgenstrahlung bestrahlt.
 In Abbildung \ref{fig:01} und in Tabelle \ref{tab:c01_bragg} ist ein Peak bei dem Austrittswinkel $\theta= \qty{14.25+-0.05}{\degree}$
@@ -16,13 +27,20 @@ Diese Messung hilft dabei die Winkelmessung des Gerätes zu kalibrieren, die fü
     \label{fig:01}
 \end{figure}
 
-\subsection{Emissionsplektrum der Kupfer Röntgenröhre}
+\subsection{Emissionspektrum der Kupfer Röntgenröhre}
 
 In dem groben Emissionsspektrum in Abbildung \ref{fig:02} bzw Tabelle \ref{tab:c02_Cu-Roere_grob} können die
 Peaks der $K_\alpha$ und $K_\beta$ Linie bei etwa \qty{19}{\degree} bis
 \qty{24}{degree} finden.
-Dieser Bereich wird mit der kleineren Schrittweite genauer untersucht.
-Es werden in Abbildung \ref{fig:03} und Tabelle \ref{tab:c03_Cu-Roere_fein} Peaks bei den Stellen 
+In Abbildung \ref{fig:test} wird das Bremsspektrum in einem kleineren Bereich ohne die Peaks der K-kanten dargestellt.
+In dieser Darstellung kann der Bremsberg und der Grenzwinkel mit der Maximalen Energie des Spektrums ermittelt werden.
+Es ergeben sich die Werte
+\begin{align*}
+    \theta_\text{Berg}  &= \qty{11.0 \pm 0.05}{\degree} &
+    \theta_\text{Grenz} &= \qty{5.4  \pm 0.05}{\degree} 
+\end{align*} 
+Der Bereich mit den Peaks wird mit der kleineren Schrittweite genauer untersucht.
+In Abbildung \ref{fig:03} und Tabelle \ref{tab:c03_Cu-Roere_fein} Peaks bei den Stellen 
 \begin{align}
     \theta_\alpha = \qty{22.50 \pm 0.05}{\degree} \text{und}
     \theta_\beta = \qty{ 20.25 \pm 0.05}{\degree}
@@ -33,21 +51,23 @@ Es gilt
 \begin{align*}
     \lambda = 2 d \sin(\theta) & E = h \frac{c}{\lambda}
 \end{align*}
-Die Messunsicherheiten der Winkelmessung werden mithilfe der Gaußschen Fehlerfortpflanzung in den Umrechnungen berücksichtigt
-\begin{align}
-    \Delta \lambda(\theta) = \sqrt{
-    \left(\frac{\partial \lambda}{\partial \theta} \Delta \theta \right)^2 }.
-    \label{eq:gauss}
-\end{align}
-$\Delta \lambda(\theta)$ ist hier die Unsicherheit der Wellenlänge in Abhängigkeit von der Unsicherheit des Winkels $\Delta \theta$.
-Analog wird die Unsicherheit von $E$ aus $\Delta \lambda$ berechnet.
+% Die Messunsicherheiten der Winkelmessung werden mithilfe der Gaußschen Fehlerfortpflanzung in den Umrechnungen berücksichtigt
+% \begin{align}
+    % \Delta \lambda(\theta) = \sqrt{
+    % \left(\frac{\partial \lambda}{\partial \theta} \Delta \theta \right)^2 }.
+    % \label{eq:gauss}
+% \end{align}
+% $\Delta \lambda(\theta)$ ist hier die Unsicherheit der Wellenlänge in Abhängigkeit von der Unsicherheit des Winkels $\Delta \theta$.
+% Analog wird die Unsicherheit von $E$ aus $\Delta \lambda$ berechnet.
 Es ergeben sich folgende Werte 
 \begin{align*}
-    \theta_\alpha: = \qty{22.50 \pm 0.05}{\degree} & \lambda_\alpha = \qty{154.14 \pm 0.32}{\pico\meter}  & E_\alpha = \qty{8.043 \pm 0.017}{\kilo\eV}  \\
-    \theta_\beta:  = \qty{20.25 \pm 0.05}{\degree} & \lambda_\beta  = \qty{139.42 \pm 0.33}{\pico\meter}  & E_\beta  = \qty{8.893 \pm 0.021}{\kilo\eV}   
+    \theta_\alpha:        = \qty{22.50 \pm 0.05}{\degree} & \lambda_\alpha = \qty{154.14 \pm 0.32}{\pico\meter}  & E_\alpha = \qty{8.043 \pm 0.017}{\kilo\eV}  \\
+    \theta_\beta:         = \qty{20.25 \pm 0.05}{\degree} & \lambda_\beta  = \qty{139.42 \pm 0.33}{\pico\meter}  & E_\beta  = \qty{8.893 \pm 0.021}{\kilo\eV}   
+    \theta_\text{Grenz}:  = \qty{5.4 \pm 0.05}{\degree} & \lambda_\text{Grenz}  = \qty{37.91 \pm 0.35}{\pico\meter}  & E_\text{Grenz}  = \qty{32.71 \pm 0.30}{\kilo\eV}   
 \end{align*}
+Für die Grenzwellenlänge ist der gemessene Wert $\lambda_\text{Grenz}$ größer als der erwartete Wert von $\lambda_\text{min}= \qty{35.42}{\pico\m}$.
 
-Zusätzlich wird die Halbwertsbreite der Peaks mit den Funktionen \texttt{scipy.signal.find\_peaks}  und \texttt{scipy.signal.peak\_widths} ermittelt.
+Zusätzlich wird die Halbwertsbreite der Peaks mit den Funktionen \texttt{scipy.signal.find\_peaks}  und \texttt{scipy.signal.peak\_widths} \cite{scipy} ermittelt.
 Es ergeben sich für die $K_\alpha$ ergeben sich die Werte
 \begin{align*}
     \theta_{1,\text{FWHM}} &= \qty{22.25 \pm 0.05}{\degree} & \theta_{2,\text{FWHM}} = \qty{22.71 \pm 0.05}{\degree} \\
@@ -89,6 +109,13 @@ ergeben sich die folgenden Werte für die Absorptionszahlen.
 \end{figure}
 \begin{figure}
     \centering
+    \includegraphics[width=0.76\textwidth]{build/test_plot.pdf}
+    \caption{Spektrum aus Abbildung \ref{fig:02} ohne den Bereich mit den Peaks.}
+    \label{fig:test}
+\end{figure}
+
+\begin{figure}
+    \centering
     \includegraphics[width=0.76\textwidth]{build/03_plot.pdf}
     \caption{Genaueres Spektrum der Kupfer-Röntgenröhre mit Schrittweite von \qty{0.1}{\degree} und einem eingeschränkten Messbereich.}
     \label{fig:03}
@@ -103,22 +130,22 @@ der Messhäufigkeit der Röntgenstrahlung bei Energien über einer Charakteristi
 Dieser Abfall bezieht sich auf kleiner werdende Winkel für den möglichen Messbereich von $\theta$.
 Die K-Kante wird in Abbildung \ref{fig:04} als Mitte der beobachtbaren Flanke berechnet.
 Es ergeben sich folgende werte für die Energien und die Wellenlängen der K-Kanten
-\begin{align}
+\begin{align*}
     \text{Zink:       } \theta_k &= \qty{20.05 \pm 0.05}{\degree} & \lambda_k &= \qty{138.10 \pm 0.33}{\pico\meter} & E_k &= \qty{8.978 \pm 0.021}{ \kilo\eV } \\
     \label{eq:absorptionskanten}
     \text{Brom:       } \theta_k &= \qty{13.25 \pm 0.05}{\degree} & \lambda_k &= \qty{92.32 \pm 0.34 }{\pico\meter} & E_k &= \qty{13.43 \pm 0.05 }{ \kilo\eV }\\
     \text{Strontium:  } \theta_k &= \qty{11.05 \pm 0.05}{\degree} & \lambda_k &= \qty{77.20 \pm 0.34 }{\pico\meter} & E_k &= \qty{16.06 \pm 0.07 }{ \kilo\eV }\\
-    \text{Zirconium:  } \theta_k &= \qty{10.00 \pm 0.05}{\degree} & \lambda_k &= \qty{69.95 \pm 0.35 }{\pico\meter} & E_k &= \qty{17.73 \pm 0.10}{\kilo\eV}. \\
-\end{align}
+    \text{Zirconium:  } \theta_k &= \qty{10.00 \pm 0.05}{\degree} & \lambda_k &= \qty{69.95 \pm 0.35 }{\pico\meter} & E_k &= \qty{17.73 \pm 0.10}{\kilo\eV}. 
+\end{align*}
 
 \noindent
 Nach \eqref{eq:abschirmung_k} berechnen sich die Abschirmkonstanten der Materialien zu
-\begin{align}
-    \text{Zink      } \sigma_k = \num{4.517 \pm 0.031}
-    \text{Brom      } \sigma_k = \num{3.90 \pm 0.06}
-    \text{Strontium } \sigma_k = \num{3.00 \pm 0.08}
-    \text{Zirconium } \sigma_k = \num{4.37 \pm 0.09}
-\end{align}
+\begin{align*}
+    \text{Zink      } \sigma_k &= \num{4.517 \pm 0.031} &
+    \text{Brom      } \sigma_k &= \num{3.90 \pm 0.06} \\
+    \text{Strontium } \sigma_k &= \num{4.04 \pm 0.08} &
+    \text{Zirconium } \sigma_k &= \num{4.37 \pm 0.09} 
+\end{align*}
 
 \begin{figure}
     \centering

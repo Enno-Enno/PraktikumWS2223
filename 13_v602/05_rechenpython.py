@@ -83,7 +83,9 @@ P1_height = 713.5
 P1 = np.array([P1_links.n,P1_rechts.n])
 P2_height = 2364.5
 P2 = np.array([P2_links.n,P2_rechts.n])
-
+E_grenz = Energie(ufloat(5.4,0.05), "Grenzwinkel")
+U_B = 35000 #Volt
+print(f"Erwartete Grenzwellenlänge = {(const.h * const.c)/(const.e * U_B)* 10 **12} pm"  )
 
 # for index, shit in enumerate(theta_zr):
     # print(f"{index} & {theta_zr[index]} \t& {Impulse_zr[index]} ")

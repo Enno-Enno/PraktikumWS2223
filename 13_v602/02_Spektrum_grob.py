@@ -19,11 +19,27 @@ for index, shit in enumerate(theta[:25]):
 #Plot
 plt.figure(constrained_layout=True)
 plt.plot(theta, R_Impulse_s, "x", label="Emissionsspektrum")
-plt.plot(12.0,247,"rx", label="Bremsberg")
+# plt.plot(11.0,247,"rx", label="Bremsberg")
 #Beschriftungen
 plt.xlabel("$\\theta / \\unit{{\degree}}$")
 plt.ylabel("$N / \\frac{{1}}{{5\\unit{{\\s}}}}$")
 
+plt.grid()
 plt.legend()
 
 plt.savefig("build/02_plot.pdf")
+
+
+plt.figure(constrained_layout=True)
+plt.plot( theta[:70], R_Impulse_s[:70], "x", label="Emissionsspektrum")
+plt.plot(11.0,247,"rx", label="Bremsberg")
+plt.plot(5.4 , 39.0, "x", label="Grenzwinkel" )
+#Beschriftungen
+plt.xlabel("$\\theta / \\unit{{\degree}}$")
+plt.ylabel("$N / \\frac{{1}}{{5\\unit{{\\s}}}}$")
+
+plt.grid()
+plt.legend()
+
+plt.savefig("build/test_plot.pdf")
+
