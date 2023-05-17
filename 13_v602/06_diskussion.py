@@ -35,3 +35,8 @@ zr_exp = ufloat(18.55, 0.10)
 zr_lit = 17.99
 zr_abw = (zr_exp - zr_lit) / zr_lit
 print("zr: ", zr_abw)
+
+lambda_grenz_exp = ufloat(37.91, 0.35)
+lambda_grenz_lit = 35.42
+lambda_grenz_abw = (lambda_grenz_exp - lambda_grenz_lit) / lambda_grenz_lit
+print("lambda_grenz: ", lambda_grenz_abw)
