@@ -16,6 +16,8 @@ all:
 	$(MAKE) -C 12_v504
 	$(MAKE) -C 13_v602
 	$(MAKE) -C 14_v703
+	$(MAKE) -C 15_v701
+
 
 
 
@@ -38,6 +40,8 @@ clean:
 	$(MAKE) -C 12_v504 clean
 	$(MAKE) -C 13_v602 clean
 	$(MAKE) -C 14_v703 clean
+	$(MAKE) -C 15_v701 clean
+
 
 
 .PHONY: all clean
