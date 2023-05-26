@@ -62,10 +62,15 @@ Winkel_k_alpha_Kupfer= ufloat(22.5,0.05)
 E_Cu_beta  =  Energie(Winkel_k_beta_Kupfer , "Kupfer_\\beta")
 E_Cu_alpha =  Energie(Winkel_k_alpha_Kupfer, "Kupfer_\\alpha")
 
-P1_links  = ufloat(theta[10] + .23* np.abs(theta[11]-theta[10]), 0.05)
-P1_rechts = ufloat(theta[14] + .41* np.abs(theta[15]-theta[14]), 0.05)
-P2_links  = ufloat(theta[33] + .01* np.abs(theta[33]-theta[34]), 0.05)
-P2_rechts = ufloat(theta[37] + .20* np.abs(theta[37]-theta[38]), 0.05)
+theta_P1_links  = ufloat(theta[10] + .23* np.abs(theta[11]-theta[10]), 0.05)
+theta_P1_rechts = ufloat(theta[14] + .41* np.abs(theta[15]-theta[14]), 0.05)
+theta_P2_links  = ufloat(theta[33] + .01* np.abs(theta[33]-theta[34]), 0.05)
+theta_P2_rechts = ufloat(theta[37] + .20* np.abs(theta[37]-theta[38]), 0.05)
+
+P1_links = Energie(theta_P1_links, "P1_links")
+P1_rechts = Energie(theta_P1_rechts, "P1_rechts")
+P2_links = Energie(theta_P2_links, "P2_links")
+P2_rechts = Energie(theta_P2_rechts, "P2_rechts")
 
 print("P1_links :",P1_links )
 print("P1_rechts:",P1_rechts)
@@ -75,8 +80,8 @@ print("P2_rechts:",P2_rechts)
 print("Delta_theta_beta:",np.abs(P1_links - P1_rechts))
 print("Delta_theta_alpha:",np.abs(P2_links - P2_rechts))
 
-A_beta  = Winkel_k_beta_Kupfer  / np.abs(P1_links - P1_rechts)
-A_alpha = Winkel_k_alpha_Kupfer / np.abs(P2_links - P2_rechts)
+A_beta  = E_Cu_beta  / np.abs(P1_links - P1_rechts)
+A_alpha = E_Cu_alpha / np.abs(P2_links - P2_rechts)
 print("A_beta :", A_beta)
 print("A_alpha:", A_alpha)
 
@@ -174,6 +179,7 @@ plt.plot(xplot, params[0]*(xplot) + params[1], label="Ausgleichsrechnung")
 
 plt.xlabel(r"$\sqrt{E_k/ \unit{\eV}} $")
 plt.ylabel(r"$Z$")
+plt.grid()
 
 
 plt.savefig("build/05_plot.pdf")

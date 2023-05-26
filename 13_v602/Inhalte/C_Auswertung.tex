@@ -19,8 +19,8 @@ In allen Tabellen wird der Austrittswinkel als der tatsächliche Austrittswinkel
 Doppelte dieses Winkels, wie er von der Messmaschine angezeigt wurde.
 Der Unterschied zwischen dem Eintrittswinkel und dem Austrittswinkel des Peaks ist also kleiner als \qty{1}{\degree}.
 Diese Messung hilft dabei die Winkelmessung des Gerätes zu kalibrieren, die für diesen Versuch hinreichend genau ist.
-\input{Inhalte/C01_tabelle.tex} % \label{tab:c01_bragg}
-\begin{figure}
+
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.76\textwidth]{build/01_plot.pdf}
     \caption{Graph zur Bragg Bedingung}
@@ -28,10 +28,31 @@ Diese Messung hilft dabei die Winkelmessung des Gerätes zu kalibrieren, die fü
 \end{figure}
 
 \subsection{Emissionspektrum der Kupfer Röntgenröhre}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.76\textwidth]{build/02_plot.pdf}
+    \caption{Spektrum der Kupfer-Röntgenröhre mit Schrittweite von \qty{0.2}{\degree}.}
+    \label{fig:02}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.76\textwidth]{build/test_plot.pdf}
+    \caption{Spektrum aus Abbildung \ref{fig:02} ohne den Bereich mit den Peaks.}
+    \label{fig:test}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.76\textwidth]{build/03_plot.pdf}
+    \caption{Genaueres Spektrum der Kupfer-Röntgenröhre mit Schrittweite von \qty{0.1}{\degree} und einem eingeschränkten Messbereich.}
+    \label{fig:03}
+\end{figure}
+
 
 In dem groben Emissionsspektrum in Abbildung \ref{fig:02} bzw Tabelle \ref{tab:c02_Cu-Roere_grob} können die
 Peaks der $K_\alpha$ und $K_\beta$ Linie bei etwa \qty{19}{\degree} bis
-\qty{24}{degree} finden.
+\qty{24}{\degree} finden.
 In Abbildung \ref{fig:test} wird das Bremsspektrum in einem kleineren Bereich ohne die Peaks der K-kanten dargestellt.
 In dieser Darstellung kann der Bremsberg und der Grenzwinkel mit der Maximalen Energie des Spektrums ermittelt werden.
 Es ergeben sich die Werte
@@ -61,9 +82,9 @@ Es gilt
 % Analog wird die Unsicherheit von $E$ aus $\Delta \lambda$ berechnet.
 Es ergeben sich folgende Werte 
 \begin{align*}
-    \theta_\alpha        = \qty{22.50 \pm 0.05}{\degree} & \lambda_\alpha      &= \qty{154.14 \pm 0.32}{\pico\meter}  & E_\alpha       &= \qty{8.043 \pm 0.017}{\kilo\eV}  \\
-    \theta_\beta         = \qty{20.25 \pm 0.05}{\degree} & \lambda_\beta       &= \qty{139.42 \pm 0.33}{\pico\meter}  & E_\beta        &= \qty{8.893 \pm 0.021}{\kilo\eV}  \\
-    \theta_\text{Grenz}  = \qty{5.4 \pm 0.05}{\degree} & \lambda_\text{Grenz}  &= \qty{37.91 \pm 0.35}{\pico\meter}  & E_\text{Grenz}  &= \qty{32.71 \pm 0.30}{\kilo\eV}   
+    \theta_\alpha        &= \qty{22.50 \pm 0.05}{\degree} & \lambda_\alpha      &= \qty{154.14 \pm 0.32}{\pico\meter}  & E_\alpha       &= \qty{8.043 \pm 0.017}{\kilo\eV}  \\
+    \theta_\beta         &= \qty{20.25 \pm 0.05}{\degree} & \lambda_\beta       &= \qty{139.42 \pm 0.33}{\pico\meter}  & E_\beta        &= \qty{8.893 \pm 0.021}{\kilo\eV}  \\
+    \theta_\text{Grenz}  &= \qty{5.4 \pm 0.05}{\degree} & \lambda_\text{Grenz}  &= \qty{37.91 \pm 0.35}{\pico\meter}  & E_\text{Grenz}  &= \qty{32.71 \pm 0.30}{\kilo\eV}   
 \end{align*}
 Für die Grenzwellenlänge ist der gemessene Wert $\lambda_\text{Grenz}$ größer als der erwartete Wert von $\lambda_\text{min}= \qty{35.42}{\pico\m}$.
 
@@ -78,10 +99,11 @@ Für $K_\beta$ ergibt sich
     \theta_{1,\text{FWHM}} &= \qty{20.02 \pm 0.05}{\degree} & \theta_{2,\text{FWHM}} = \qty{20.44 \pm 0.05}{\degree} \\
     \Delta \theta &= \qty{0.42 \pm 0.07}{\degree}.
 \end{align*}
-Daraus kann das Auflösungsvermögen der Messapparatur $A= \frac{\theta_\text{max}}{\Delta \theta}$ berechnen.
+Indem die Werte für die Grenzen der Peaks in Energien umgerechnet werden, 
+kann das Auflösungsvermögen der Messapparatur $A= \frac{E_\text{max}}{\Delta E}$ berechnet werden.
 Es ergibt
 \begin{align*}
-    A_\alpha &= \num{49 \pm 8} & A_\beta = \num{48 \pm 8}
+    A_\alpha &= \num{52 \pm 8} & A_\beta = \num{50 \pm 9}
 \end{align*}
 
 \subsubsection{Abschirmkonstanten von Kupfer}
@@ -91,7 +113,7 @@ Für die Abschirmkonstanten von Kupfer ergeben sich nach \cite{man:v602} folgend
     \sigma_2 = Z_K -2\sqrt{\frac{E_\text{K,abs}- E_{K,\alpha} }{R_\infty}}\\
     \sigma_3 = Z_K -3\sqrt{\frac{E_\text{K,abs}- E_{K,\alpha} }{R_\infty}}
 \end{align}
-Mit der Rydberg Energie von $R_infty = \qty{13.6}{\eV}$ und der Absorptionskante $E_\text{K,abs} = \qty{8980.5(10)}{\eV}$ \cite{x-ray}
+Mit der Rydberg Energie von $R_\infty = \qty{13.6}{\eV}$ und der Absorptionskante $E_\text{K,abs} = \qty{8980.5(10)}{\eV}$ \cite{x-ray}
 ergeben sich die folgenden Werte für die Absorptionszahlen.
 \begin{align}
     \sigma_1 &= \num{3.3031 \pm 0.0014} &
@@ -101,25 +123,6 @@ ergeben sich die folgenden Werte für die Absorptionszahlen.
 
 
 
-\begin{figure}
-    \centering
-    \includegraphics[width=0.76\textwidth]{build/02_plot.pdf}
-    \caption{Spektrum der Kupfer-Röntgenröhre mit Schrittweite von \qty{0.2}{\degree}.}
-    \label{fig:02}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[width=0.76\textwidth]{build/test_plot.pdf}
-    \caption{Spektrum aus Abbildung \ref{fig:02} ohne den Bereich mit den Peaks.}
-    \label{fig:test}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.76\textwidth]{build/03_plot.pdf}
-    \caption{Genaueres Spektrum der Kupfer-Röntgenröhre mit Schrittweite von \qty{0.1}{\degree} und einem eingeschränkten Messbereich.}
-    \label{fig:03}
-\end{figure}
 
 
 
@@ -161,10 +164,12 @@ Sie ergibt die werte
     a &= \qty{0.258 \pm 0.010}{\electronvolt\tothe{-1/2}} &
     b &= \num{5.400 \pm 1.235}
 \end{align}
-Aus Formel \eqref{eq:effektive_energie} ergibt sich mit $n=1$ das Verhältnis für die Steigung zur Rydbergenergie
+Aus Formel \eqref{eq:effektive_energie} ergibt sich mit $n=1$ das Verhältnis für die Steigung zur Rydbergenergie.
+Diesen Zusammenhang kennt man auch als das Moseleysche Gesetz
 \begin{align*}
-    a = \frac{1}{\sqrt{R_\infty}}
-    R_\infty = \frac{1}{a^2} = \qty{15 \pm 1.2}{\eV}
+    \sqrt{E} = - R_\infty \cdot z\\
+\Rightarrow    a &= \frac{1}{\sqrt{R_\infty}}
+&    R_\infty = \frac{1}{a^2} &= \qty{15 \pm 1.2}{\eV}
 \end{align*}
 
 
@@ -175,6 +180,3 @@ Aus Formel \eqref{eq:effektive_energie} ergibt sich mit $n=1$ das Verhältnis f�
 \end{figure}
 
 
-\input{Inhalte/C02_tabelle.tex} % \label{tab:c02_Cu-Roere_grob}
-\input{Inhalte/C03_tabelle.tex} % \label{tab:c03_Cu-Roere_fein}
-\input{Inhalte/C04_tabelle.tex} % \label{tab:c04_absorption}

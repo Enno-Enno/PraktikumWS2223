@@ -23,8 +23,8 @@ build/03_plot.pdf: 03_spektrum_genau.py ../matplotlibrc ../header-matplotlib.tex
 build/04_plot.pdf: 04_k_Kanten.py ../matplotlibrc ../header-matplotlib.tex v602_messungen/abs_brom.txt v602_messungen/abs_sr.txt  | build
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python 04_k_Kanten.py
 
-build/05_plot.pdf: 05_rechenpython.py ../matplotlibrc ../header-matplotlib.tex  | build
-	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python 05_rechenpython.py
+build/05_plot.pdf: C05_rechenpython.py ../matplotlibrc ../header-matplotlib.tex  | build
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python C05_rechenpython.py
 
 
 build:

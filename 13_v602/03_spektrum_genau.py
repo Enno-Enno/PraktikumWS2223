@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.signal as signal
 from uncertainties import ufloat
+import C05_rechenpython as C05
 
 
 #Daten sammeln
@@ -21,16 +22,16 @@ P1_links  = ufloat(theta[10] + .23* np.abs(theta[11]-theta[10]), 0.05)
 P1_rechts = ufloat(theta[14] + .41* np.abs(theta[15]-theta[14]), 0.05)
 P2_links  = ufloat(theta[33] + .01* np.abs(theta[33]-theta[34]), 0.05)
 P2_rechts = ufloat(theta[37] + .20* np.abs(theta[37]-theta[38]), 0.05)
+# 
+# print("P1_links :",P1_links )
+# print("P1_rechts:",P1_rechts)
+# print("P2_links :",P2_links )
+# print("P2_rechts:",P2_rechts)
 
-print("P1_links :",P1_links )
-print("P1_rechts:",P1_rechts)
-print("P2_links :",P2_links )
-print("P2_rechts:",P2_rechts)
-
-A_beta  = np.abs(P1_links - P1_rechts)
-A_alpha = np.abs(P2_links - P2_rechts)
-print("A_beta :", A_beta)
-print("A_alpha:", A_alpha)
+# A_beta  = np.abs(P1_links - P1_rechts)
+# A_alpha = np.abs(P2_links - P2_rechts)
+# print("A_beta :", A_beta)
+# print("A_alpha:", A_alpha)
 
 P1_height = 713.5
 P1 = np.array([P1_links.n,P1_rechts.n])
@@ -49,6 +50,7 @@ plt.hlines(P2_height, P2[0], P2[1] , color="g")
 plt.xlabel(r"$\theta / \unit{\degree}$")
 plt.ylabel(r"$N / \frac{1}{5\unit{\s}}$")
 
+plt.grid()
 plt.legend()
 
 plt.savefig("build/03_plot.pdf")
