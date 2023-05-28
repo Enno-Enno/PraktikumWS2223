@@ -1,6 +1,6 @@
 all: build/v701_Enno_Wellmann_Clara_Sondermann.pdf
 	
-build/v701_Enno_Wellmann_Clara_Sondermann.pdf: v701_Enno_Wellmann_Clara_Sondermann.tex FORCE | build
+build/v701_Enno_Wellmann_Clara_Sondermann.pdf: v701_Enno_Wellmann_Clara_Sondermann.tex build/reichweite_6cm_rate.pdf FORCE | build
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
 	max_print_line=1048576 \
@@ -11,11 +11,11 @@ build/v701_Enno_Wellmann_Clara_Sondermann.pdf: v701_Enno_Wellmann_Clara_Sonderma
 	  --halt-on-error \
 	  $<
 
-# build/teil1_rate.pdf: teil1.py ../matplotlibrc ../header-matplotlib.tex messungen/teil1.txt | build
-# 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python teil1.py
+build/reichweite_6cm_rate.pdf: reichweite_6cm.py ../matplotlibrc ../header-matplotlib.tex messungen/reichweite_6cm.txt | build
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python reichweite_6cm.py
 # 
-# build/teil1_ladungszahl.pdf: teil1.py ../matplotlibrc ../header-matplotlib.tex messungen/teil1.txt | build
-# 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python teil1.py
+# build/reichweite_6cm_ladungszahl.pdf: reichweite_6cm.py ../matplotlibrc ../header-matplotlib.tex messungen/reichweite_6cm.txt | build
+# 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python reichweite_6cm.py
 
 
 
