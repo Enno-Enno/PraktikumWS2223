@@ -8,24 +8,22 @@ from scipy.optimize import curve_fit
 from scipy import odr
 
 print("----------------------------------")
-print("MESSUNG 1 - 6cm")
-# ----------------------------------
-# MESSUNG 1 - 6cm
+print("MESSUNG 2 - 7cm")
+# MESSUNG 2 - 7cm
 # ----------------------------------
 # Teil 1: eff_length - Zählrate
-# a = -42.15 +- 6.69
-# b = 150.59 +- 22.35
-# mittlere_reichweite =  1.63+/-0.15 cm
-# zugehörige Energie =  3.02+/-0.19 MeV
+# a = -62.23 +- 6.85
+# b = 136.86 +- 12.44
+# mittlere_reichweite =  1.32+/-0.08 cm
+# zugehörige Energie =  2.62+/-0.11 MeV
 # ----------------------------------
 # Teil 2: eff_length - energymax
-# a = -0.260 +- 0.080
-# b = 4.277 +- 0.100
-# energieverlust = (0.00260 +- 0.00080) MeV/m
-# energieverlust = (260.29 +- 79.79) keV/cm
+# a = -0.482 +- 0.046
+# b = 3.948 +- 0.058
+# energieverlust = (481.87 +- 46.47) keV/cm
 
 
-p, counts, channel, zaehlrate = np.genfromtxt("messungen/reichweite_6cm.txt", unpack = True)
+p, counts, channel, zaehlrate = np.genfromtxt("messungen/reichweite_7cm.txt", unpack = True)
 time = 120 #sekunden
 distance = 6 #cm
 
@@ -42,17 +40,16 @@ def lin(beta, x):
 print("----------------------------------")
 print("Teil 1: eff_length - Zählrate")
 
+max_ind = 8 #für [:max_ind] darstellung, sonst array[max_ind-1] als Grenze!
 
 rate = unp.uarray(zaehlrate/time, np.sqrt(zaehlrate/time)) # pro sekunde
-
-# abschätzen der steigung: 
-# print((rate[9] - rate[0])/(eff_length[9] - eff_length[0]))
-
-data_rate = odr.RealData(nom(eff_length), nom(rate), sx = std(eff_length), sy = std(rate)) #zu plottende daten ,sx und sy sind std devs
+#print("rate[max_ind] : ", rate[max_ind])
+#print("rate[:max_ind] : ", rate[:max_ind])
+data_rate = odr.RealData(nom(eff_length[:max_ind]), nom(rate[:max_ind]), sx = std(eff_length[:max_ind]), sy = std(rate[:max_ind])) #zu plottende daten ,sx und sy sind std devs
 
 lin_model = odr.Model(lin) #stores information about the function you wish to fit
 
-odr_rate = odr.ODR(data_rate, lin_model, [-60, 1]) #wie curve fit, beta0 = [..., ...] entspricht p0 (startwerte)
+odr_rate = odr.ODR(data_rate, lin_model, [-50, 1]) #wie curve fit, beta0 = [..., ...] entspricht p0 (startwerte)
 
 out = odr_rate.run() # run the regression
 
@@ -62,8 +59,6 @@ errors_rate = out.sd_beta
 for name, value, error in zip('ab', params_rate, errors_rate):
  print(f'{name} = {value:.2f} +- {error:.2f}')
 
-#reichweite = (rate / 2 - params_rate[1]) / params_rate[0]
-#print("reichweite: ", reichweite)
 mittlere_reichweite = (rate[0] / 2 - params_rate[1]) / params_rate[0] #cm
 energie_reichweite = (mittlere_reichweite * 10 / 3.1)**(2/3) #reichweite in mm und energie in MeV
 print("mittlere_reichweite = ", mittlere_reichweite, "cm")
@@ -75,11 +70,9 @@ print("zugehörige Energie = ", energie_reichweite, "MeV")
 # vorbereitung plot 2 für die energie
 print("----------------------------------")
 print("Teil 2: eff_length - energymax")
-#np.seterr(divide='ignore', invalid='ignore')
 
-max_ind = 8 # für [:max_ind] darstellung, sonst channel[max_ind-1] = 699 als Grenze!
 dreisatz = 4 / channel[0] #MeV pro channel
-energymax = dreisatz * channel #in MeV
+energymax = dreisatz * channel[:max_ind] #in MeV
 
 data_energymax = odr.RealData(nom(eff_length[:max_ind]), nom(energymax[:max_ind]), sx = std(eff_length[:max_ind])) #zu plottende daten ,sx und sy sind std devs
 
@@ -102,26 +95,24 @@ print(f"energieverlust = ({-params_energymax[0]*1000 :.2f} +- {errors_energymax[
 
 #plots: 
 
-x_min_rate = nom(eff_length[0])
-x_max_rate = nom(eff_length[len(eff_length) - 1])
-x_rate = np.linspace(x_min_rate, x_max_rate, 1000)
+x_min = nom(eff_length[0])
+x_max = nom(eff_length[max_ind - 1])
+x_plot = np.linspace(x_min, x_max, 1000)
 plt.figure(constrained_layout = True)
-plt.errorbar(nom(eff_length), nom(rate), xerr = std(eff_length), yerr = std(rate), fmt = "x", label = "Messrate mit Fehlerbalken")
-plt.plot(x_rate, lin(params_rate, x_rate), "-", label = "Ausgleichsgerade")
+plt.errorbar(nom(eff_length[:max_ind]), nom(rate[:max_ind]), xerr = std(eff_length[:max_ind]), yerr = std(rate[:max_ind]), fmt = "x", label = "Messrate mit Fehlerbalken")
+plt.plot(x_plot, lin(params_rate, x_plot), "-", label = "Ausgleichsgerade")
 plt.grid()
 plt.xlabel("$x / \\unit{\\cm}$")
 plt.ylabel("$N/ (1 / \\unit{\\s})$")
 plt.legend()
-plt.savefig("build/reichweite_6cm_rate.pdf")
+plt.savefig("build/reichweite_7cm_rate.pdf")
 
-x_min_energymax = nom(eff_length[0])
-x_max_energymax = nom(eff_length[max_ind -1])
-x_energymax = np.linspace(x_min_energymax, x_max_energymax, 1000)
+
 plt.figure(constrained_layout = True)
-plt.errorbar(nom(eff_length), nom(energymax), xerr = std(eff_length), yerr = std(energymax), fmt = "x", label = "Energie mit Fehlerbalken")
-plt.plot(x_energymax, lin(params_energymax, x_energymax), "-", label = "Ausgleichsgerade")
+plt.errorbar(nom(eff_length[:max_ind]), nom(energymax), xerr = std(eff_length[:max_ind]), yerr = std(energymax), fmt = "x", label = "Energie mit Fehlerbalken")
+plt.plot(x_plot, lin(params_energymax, x_plot), "-", label = "Ausgleichsgerade")
 plt.grid()
 plt.xlabel("$x / \\unit{\\cm}$")
 plt.ylabel("$E / \\unit{\\mega\\electronvolt}$")
 plt.legend()
-plt.savefig("build/reichweite_6cm_energymax.pdf")
+plt.savefig("build/reichweite_7cm_energymax.pdf")
