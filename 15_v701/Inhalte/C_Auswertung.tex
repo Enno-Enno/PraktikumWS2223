@@ -1,6 +1,107 @@
 \section{Auswertung}
 
-\input{C00_fehlerrechnung.tex}
+\input{Inhalte/C00_fehlerrechnung.tex}
 
 \subsection{Reichweite der Alpha-Strahlung}
+In den beiden Messreihen errechnet sich die effektive Länge $x$ gemäß Gleichung \textbf{REF!!! EFFEKTIVE LÄNGE}.
+Da für den Druck jeweils ein Ablesefehler von \qty[]{5}{\milli\bar} angenommen wird, ergibt sich somit ein Fehler von 
+\qty[]{3}{\mm} auf die Länge.
+Für die Zählrate gibt es jeweils den Fehler $\Delta N = \sqrt{N}$.
+Um von der Position \enquote{Channel} des Energiemaximums auf die entsprechende Energie zu kommen, wird der Dreisatz angewandt.
+Dabei entspricht die Energie bei \qty{0}{\milli\bar} etwa \qty[]{4}{\mega\electronvolt}. 
 
+
+\subsubsection[]{Erste Messreihe: 6 cm}
+Die gemessenen und resultierenden Messgrößen bei einem Abstand von \qty[]{6}{\cm} sind in Tabelle \ref{tab:6cm} zu sehen.
+Da die am Messgerät eingestellte Schwelle zwischen den Channels 696 und 697 liegt, werden die entsprechenden Werte
+in der Auswertung nicht weiter berücksichtigt, um keine Ergebnisse zu verfälschen.
+In der Tabelle sind die vernachlässigten Werte eingeklammert.
+
+\begin{table}[H]
+    \centering
+    \caption{Druck $p$, effektive Länge $x$, Channel $C$, Energie $E$ sowie Zählrate $N$ bei einem Abstand von \qty[]{6}{\cm}.}
+    \label{tab:6cm}
+    \begin{tabular}{
+        S[table-format=3.0] %druck
+        S[table-format = 1.2] % x = eff laenge
+        S[table-format=3.0] @{${}\pm{}$} S[table-format = 2.0] %N +- Fehler
+        S[table-format=3.0] %channel
+        S[table-format=1.2] % energie
+    }
+    \toprule
+    {$p / \unit[]{\milli\bar}$} & {$x / \unit[]{\cm}$}
+    & \multicolumn{2}{c}{$N / (1/\unit[]{\second})$} 
+    & {$C$} & {$E / \unit[]{\mega\electronvolt}$} \\
+    \midrule
+     0  & 0.00 & 164 & 13 & 768 & 4.00 \\ 
+     50 & 0.30 & 151 & 12 & 830 & 4.32 \\
+    100 & 0.59 & 153 & 12 & 824 & 4.29 \\
+    150 & 0.89 & 159 & 13 & 783 & 4.08 \\ 
+    200 & 1.18 & 136 & 12 & 775 & 4.04 \\
+    260 & 1.54 & 132 & 11 & 754 & 3.93 \\
+    300 & 1.78 & 128 & 11 & 719 & 3.74 \\
+    350 & 2.07 &  81 &  9 & 699 & 3.64 \\
+    400 & 2.37 &  30 &  5 & {$(697)$} & {$(\num{3.63})$} \\
+    450 & 2.67 &  14 &  4 & {$(697)$} & {$(\num{3.63})$} \\ 
+    500 & 2.96 &   7 &  3 & {$(696)$} & {$(\num{3.62})$} \\
+    560 & 3.32 &   6 &  2 & {$(696)$} & {$(\num{3.62})$} \\ 
+    600 & 3.55 &   1 &  1 & {$(696)$} & {$(\num{3.62})$} \\
+    650 & 3.85 &   2 &  2 & {$(696)$} & {$(\num{3.62})$} \\
+    \bottomrule     
+    \end{tabular}
+\end{table}
+
+\noindent
+Wird $N$ gegen $x$ geplottet, ergibt sich Abbildung \ref{fig:rate_6cm}.
+Mit Hilfe der Funktion \texttt{ODR} aus dem Python Paket \texttt{scipy} \cite[]{scipy}, 
+die auf der Methode der kleinsten Quadrate beruht, 
+wird eine Ausgleichsrechnung gemäß
+\begin{align}
+    N = a \cdot x + b
+    \label{eq:lin}
+\end{align}
+durchgeführt.
+Es ergeben sich die Parameter $a = \qty{-42.15 +- 6.69}{\per\cm\per\second}$ und $b = \qty{150.59 +- 22.35}{\per\second}$.
+Hieraus lässt sich die mittlere Reichweite
+\begin{align}
+    R_\text{m} = \frac{N_\text{max} / 2 - b}{a} = \qty{1.63 +- 0.15}{\cm}
+\end{align}
+mit der maximalen Zählrate aus Tabelle \ref{tab:6cm} ermitteln.
+Dies entspricht gemäß Gleichung \textbf{REF!!! ENERGIE ZUR REICHWEITE} der Energie $E_\alpha = \qty{3.02 +- 0.19}{\mega\electronvolt}$.
+% mittlere_reichweite =  1.63+/-0.15 cm
+% zugehörige Energie =  3.02+/-0.19 MeV
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 8.5cm]{build/reichweite_6cm_rate.pdf}
+    \caption[short]{Die Zählrate $N$ als Funktion der effektiven Länge $x$ beim Abstand von \qty{6}{\cm}.}
+    \label{fig:rate_6cm}
+\end{figure}
+
+\noindent
+
+
+Wird die Energie $E$ gegen die effektive Länge $x$ geplottet, ergibt sich Abbildung \ref{fig:energie_6cm.pdf}.
+Hier ergibt eine lineare Ausgleichsrechnung analog zu \eqref{eq:lin} die Parameter $a = \qty{-0.260 +- 0.080}{\mega\electronvolt\per\cm}$
+und $b = \qty{4.28 +- 0.10}{\mega\electronvolt}$.
+Der Energieverlust beträgt also 
+\begin{align}
+    - \frac{dE}{dx} = -a = \qty{260 +- 80}{\kilo\electronvolt\per\cm}.
+\end{align}
+
+% a = -0.260 +- 0.080
+% b = 4.277 +- 0.100
+% energieverlust = (0.00260 +- 0.00080) MeV/m
+% energieverlust = (260.29 +- 79.79) keV/cm
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 8.5cm]{build/reichweite_6cm_energymax.pdf}
+    \caption[short]{Die Energie $E$ als Funktion der effektiven Länge $x$ beim Abstand von \qty{6}{\cm}.}
+    \label{fig:energie_6cm}
+\end{figure}
+
+
+
+\subsection[]{Zweite Messreihe: 7 cm}

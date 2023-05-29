@@ -9,15 +9,46 @@ from scipy import odr
 
 print("----------------------------------")
 print("MESSUNG 2 - 7cm")
-# MESSUNG 2 - 7cm
+# # MESSUNG 2 - 7cm
+# effektive laenge in cm:
+# 0.00 +- 0.03
+# 0.30 +- 0.03
+# 0.59 +- 0.03
+# 0.89 +- 0.03
+# 1.18 +- 0.03
+# 1.48 +- 0.03
+# 1.78 +- 0.03
+# 2.07 +- 0.03
+# 2.37 +- 0.03
+# 2.67 +- 0.03
 # ----------------------------------
 # Teil 1: eff_length - Zählrate
+# rate:
+# 110 +- 10
+# 106 +- 10
+# 103 +- 10
+# 97 +- 10
+# 84 +- 9
+# 65 +- 8
+# 33 +- 6
+# 4 +- 2
+# 0 +- 0
+# 0 +- 0
 # a = -62.23 +- 6.85
 # b = 136.86 +- 12.44
 # mittlere_reichweite =  1.32+/-0.08 cm
 # zugehörige Energie =  2.62+/-0.11 MeV
 # ----------------------------------
 # Teil 2: eff_length - energymax
+# energymax in MeV:
+# 4.00
+# 3.79
+# 3.69
+# 3.55
+# 3.31
+# 3.08
+# 3.10
+# 3.07
 # a = -0.482 +- 0.046
 # b = 3.948 +- 0.058
 # energieverlust = (481.87 +- 46.47) keV/cm
@@ -29,6 +60,9 @@ distance = 6 #cm
 
 druck = unp.uarray(p, 5 * np.ones(len(p))) * 10**(-3) # druck in bar
 eff_length = distance * druck / (1013 * 10**(-3)) # in cm
+print(f"effektive laenge in cm:")
+for index, value in enumerate(p):
+    print(f"{nom(eff_length)[index]:.2f} +- {std(eff_length)[index]:.2f}")
 
 def lin(beta, x):
     return beta[0] * x + beta[1]
@@ -45,6 +79,10 @@ max_ind = 8 #für [:max_ind] darstellung, sonst array[max_ind-1] als Grenze!
 rate = unp.uarray(zaehlrate/time, np.sqrt(zaehlrate/time)) # pro sekunde
 #print("rate[max_ind] : ", rate[max_ind])
 #print("rate[:max_ind] : ", rate[:max_ind])
+print("rate:")
+for index, value in enumerate(p):
+    print(f"{nom(rate)[index]:.0f} +- {std(rate)[index]:.0f}")
+
 data_rate = odr.RealData(nom(eff_length[:max_ind]), nom(rate[:max_ind]), sx = std(eff_length[:max_ind]), sy = std(rate[:max_ind])) #zu plottende daten ,sx und sy sind std devs
 
 lin_model = odr.Model(lin) #stores information about the function you wish to fit
@@ -73,6 +111,9 @@ print("Teil 2: eff_length - energymax")
 
 dreisatz = 4 / channel[0] #MeV pro channel
 energymax = dreisatz * channel[:max_ind] #in MeV
+print("energymax in MeV: ")
+for index, value in enumerate(energymax):
+    print(f"{energymax[index]:.2f}")
 
 data_energymax = odr.RealData(nom(eff_length[:max_ind]), nom(energymax[:max_ind]), sx = std(eff_length[:max_ind])) #zu plottende daten ,sx und sy sind std devs
 
