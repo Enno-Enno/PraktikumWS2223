@@ -2,3 +2,35 @@
 In diesem Versuch soll die Reichweite von $\alpha$-strahlung in der Luft ermittelt werden.
 
 \section[Theorie]{Theorie\footnote[1]{Unter Verwendung von \cite{man:v701}.}}
+Die Energie von $\alpha$-Strahlung wird durch die Reichweite dieser Strahlung in der Luft gemessen.
+Der Energieverlust der $\alpha$-Teilchen wird durch die Bethe-Bloch-Gleichung beschrieben
+\begin{align}
+    -\frac{\diff E_\alpha}{\diff x} = \frac{z^2 e^4}{4 \pi \epsilon_0^2 m_e} \frac{n Z}{v^2} \ln\left(\frac{2 m_e v^2}{I}\right).
+    %% Hier mit \epsilon_0^2 nicht ganz gleich dem was in der Anleitung stand aber Laurins Tipp.
+\end{align}
+                                                        %%%  ... Falsch!
+Hierbei ist $z$ die Ladungszahl, $e$ die Elementarladung und $Z$ die Ordnungszahl des $\alpha$ Teilchens.
+$v$ ist die Geschwindigkeit der Teilchen, $n$ die Teilchendichte und $I$ die mittlere Anregungsenergie der Luftmoleküle.
+
+Die mittlere Reichweite des $\alpha$-Teilchens wird durch 
+\begin{align}
+    R = \int_0^{E_\alpha} \frac{\diff E_\alpha}{-\diff E_\alpha / \diff}
+    \label{eq:reichweite}
+\end{align}
+berechnet.
+Die Bethe-Bloch-Gleichung ist für niedrige Energien $E \leq \qty{2.5}{\mega\electronvolt}$ nicht mehr aussagekräftig.
+Für diesen Bereich kann auch die Beziehung $R_m = 3.1 \cdot E_\alpha^{3/2}$ verwendet werden.
+Weil die mittlere Reichweite der $\alpha$-Teilchen proportional zu dem Luftdruck ist kann man die Reichweite auch herausfinden,
+indem man den Druck variiert.
+Bei einem Festen Abstand $x_0$ zwischen Detektor $\alpha$-Strahler kann die effektive Länge $x$ wie folgt errechnet werden
+\begin{align}
+    x = x_0 \frac{p}{p_0}.
+\end{align}
+wobei für $p_0 = \qty{1013}{\milli\bar}$ eingesetzt werden muss.
+
+
+
+\section{Vorbereitung}
+Ein Halbleiter-Sperrschichtzähler ist eine Form des Strahlungsdetektors, der sich die Eigenschaften eines Halbleiters zunutze macht.
+Wenn dieser Halbleiter mit einem Ion getroffen wird, wird er leitend. 
+Mit der passenden Analyse kann die Energie der Ionen herausgefunden werden \cite[vgl.]{man:v701}.
