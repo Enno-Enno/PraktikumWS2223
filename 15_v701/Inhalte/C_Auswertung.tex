@@ -75,14 +75,12 @@ Dies entspricht gemäß Gleichung \textbf{REF!!! ENERGIE ZUR REICHWEITE} der Ene
 \begin{figure}[H]
     \centering
     \includegraphics[height = 8.5cm]{build/reichweite_6cm_rate.pdf}
-    \caption[short]{Die Zählrate $N$ als Funktion der effektiven Länge $x$ beim Abstand von \qty{6}{\cm}.}
+    \caption[]{Die Zählrate $N$ als Funktion der effektiven Länge $x$ beim Abstand von \qty{6}{\cm}.}
     \label{fig:rate_6cm}
 \end{figure}
 
 \noindent
-
-
-Wird die Energie $E$ gegen die effektive Länge $x$ geplottet, ergibt sich Abbildung \ref{fig:energie_6cm.pdf}.
+Wird die Energie $E$ gegen die effektive Länge $x$ geplottet, ergibt sich Abbildung \ref{fig:energie_6cm}.
 Hier ergibt eine lineare Ausgleichsrechnung analog zu \eqref{eq:lin} die Parameter $a = \qty{-0.260 +- 0.080}{\mega\electronvolt\per\cm}$
 und $b = \qty{4.28 +- 0.10}{\mega\electronvolt}$.
 Der Energieverlust beträgt also 
@@ -98,10 +96,140 @@ Der Energieverlust beträgt also
 \begin{figure}[H]
     \centering
     \includegraphics[height = 8.5cm]{build/reichweite_6cm_energymax.pdf}
-    \caption[short]{Die Energie $E$ als Funktion der effektiven Länge $x$ beim Abstand von \qty{6}{\cm}.}
+    \caption[]{Die Energie $E$ als Funktion der effektiven Länge $x$ beim Abstand von \qty{6}{\cm}.}
     \label{fig:energie_6cm}
 \end{figure}
 
 
 
 \subsection[]{Zweite Messreihe: 7 cm}
+Die Auswertung verläuft komplett analog zur ersten Messreihe.
+Die Zählrate geht bei diesem Abstand schneller gegen Null, sodass es hier keine Konflikte mit der am Messgerät eingestellten Schwelle gibt.
+Es können also alle Werte in der Auswertung verwendet werden.
+Die Messgrößen sind in Tabelle \ref{tab:7cm} zu sehen.
+
+\begin{table}[H]
+    \centering
+    \caption{Druck $p$, effektive Länge $x$, Channel $C$, Energie $E$ sowie Zählrate $N$ bei einem Abstand von \qty[]{7}{\cm}.}
+    \label{tab:7cm}
+    \begin{tabular}{
+        S[table-format=3.0] %druck
+        S[table-format = 1.2] % x = eff laenge
+        S[table-format=3.0] @{${}\pm{}$} S[table-format = 2.0] %N +- Fehler
+        S[table-format=3.0] %channel
+        S[table-format=1.2] % energie
+    }
+    \toprule
+    {$p / \unit[]{\milli\bar}$} & {$x / \unit[]{\cm}$}
+    & \multicolumn{2}{c}{$N / (1/\unit[]{\second})$} 
+    & {$C$} & {$E / \unit[]{\mega\electronvolt}$} \\
+    \midrule
+     0  & 0.00 & 110 & 10 & 928 & 4.00 \\ 
+     50 & 0.30 & 106 & 10 & 879 & 3.79 \\ 
+    100 & 0.59 & 103 & 10 & 855 & 3.69 \\ 
+    150 & 0.89 &  97 & 10 & 824 & 3.55 \\ 
+    200 & 1.18 &  84 &  9 & 768 & 3.31 \\ 
+    250 & 1.48 &  65 &  8 & 715 & 3.08 \\ 
+    300 & 1.78 &  33 &  6 & 719 & 3.10 \\ 
+    350 & 2.07 &   4 &  2 & 713 & 3.07 \\ 
+    \bottomrule     
+    \end{tabular}
+\end{table}
+
+\noindent
+In Abbildung \ref{fig:rate_7cm} ist eine graphische Darstellung zwischen $x$ und $N$ zu sehen.
+In diesem Fall ergeben sich die Parameter $a = \qty{-62.23 +- 6.85}{\per\cm\per\second}$ und $b= \qty{136.86 +- 12.44}{\per\second}$.
+Daraus resultieren die Werte $R_\text{m} = \qty{1.32+-0.08}{\cm}$ und $E_α = \qty{2.62+-0.11}{\mega\electronvolt}$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 8.5cm]{build/reichweite_7cm_rate.pdf}
+    \caption[]{Die Zählrate $N$ als Funktion der effektiven Länge $x$ beim Abstand von \qty{7}{\cm}.}
+    \label{fig:rate_7cm}
+\end{figure}
+
+\noindent
+Der $x$-$E$-Plot ist in Abbildung \ref{fig:energie_7cm} zu sehen. 
+Hier ergeben sich die Parameter $a = \qty{-0.482 +- 0.046}{\mega\electronvolt\per\cm}$ und $b= \qty{3.948 +- 0.058}{\mega\electronvolt}$.
+Daraus folgt der Energieverlust $- {dE}/{dx} = \qty{482 +- 46}{\kilo\electronvolt\per\cm}$.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 8.5cm]{build/reichweite_7cm_energymax.pdf}
+    \caption[]{Die Energie $E$ als Funktion der effektiven Länge $x$ beim Abstand von \qty{7}{\cm}.}
+    \label{fig:energie_7cm}
+\end{figure}
+
+
+
+
+
+\subsection[]{Statistik des Zerfalls}
+In Tabelle \ref{tab:stat} sind die gemessenen Zerfälle je 10 Sekunden bei einem Druck von \qty{0}{\milli\bar} zu sehen.
+
+\begin{table}[H]
+    \centering
+    \caption{Intervallnummer $k$ und Anzahl der Zerfälle $N$ bei \qty{0}{\milli\bar}.}
+    \label{tab:stat}
+    \sisetup{table-format=2.0}
+    \begin{tabular}{
+        S %i von  1- 25
+        S[table-format=4.0] %N von  1- 25
+        S %i von 26- 50
+        S[table-format=4.0] %N von 26- 50        
+        S %i von 51- 75
+        S[table-format=4.0] %N von 51- 75
+        S[table-format=3.0] %i von 76-100
+        S[table-format=4.0] %N von 76-100
+    }
+    \toprule
+    {$k$} & {$N [1/(10\unit[]{\second})]$}
+    & {$k$} & {$N [1/(10\unit[]{\second})]$}
+    & {$k$} & {$N [1/(10\unit[]{\second})]$}
+    & {$k$} & {$N [1/(10\unit[]{\second})]$} \\
+    \cmidrule(lr){1-2}\cmidrule(lr){3-4}\cmidrule(lr){5-6}\cmidrule(lr){7-8}
+     1 &  905 & 26 & 1022 & 51 &  941 &  76 & 1070 \\
+     2 & 1017 & 27 & 1009 & 52 & 1027 &  77 &  929 \\
+     3 &  983 & 28 & 1037 & 53 & 1014 &  78 &  950 \\
+     4 & 1075 & 29 & 1035 & 54 &  980 &  79 &  913 \\
+     5 &  955 & 30 &  974 & 55 & 1040 &  80 &  997 \\
+     6 & 1004 & 31 & 1005 & 56 &  987 &  81 & 1044 \\
+     7 &  916 & 32 &  985 & 57 &  995 &  82 &  965 \\
+     8 &  952 & 33 & 1010 & 58 & 1082 &  83 & 1029 \\
+     9 & 1021 & 34 &  936 & 59 &  957 &  84 &  981 \\
+    10 & 1008 & 35 &  949 & 60 & 1066 &  85 &  956 \\
+    11 &  989 & 36 &  964 & 61 & 1024 &  86 &  956 \\
+    12 &  933 & 37 &  947 & 62 & 1002 &  87 &  964 \\
+    13 & 1065 & 38 & 1057 & 63 & 1095 &  88 & 1023 \\
+    14 & 1015 & 39 & 1069 & 64 & 1029 &  89 &  995 \\
+    15 & 1038 & 40 & 1015 & 65 & 1032 &  90 & 1073 \\
+    16 & 1043 & 41 & 1001 & 66 & 1007 &  91 & 1009 \\
+    17 &  973 & 42 &  962 & 67 &  968 &  92 &  959 \\
+    18 &  931 & 43 &  912 & 68 &  920 &  93 & 1008 \\
+    19 & 1029 & 44 &  960 & 69 & 1011 &  94 & 1017 \\
+    20 &  985 & 45 & 1002 & 70 & 1036 &  95 & 1025 \\
+    21 & 1016 & 46 &  927 & 71 &  972 &  96 &  979 \\
+    22 & 1020 & 47 &  973 & 72 &  977 &  97 &  949 \\
+    23 & 1004 & 48 &  954 & 73 & 1037 &  98 & 1013 \\
+    24 &  967 & 49 & 1028 & 74 &  951 &  99 &  956 \\
+    25 &  977 & 50 & 1065 & 75 &  960 & 100 &  993 \\
+    \bottomrule     
+    \end{tabular}
+\end{table}
+
+\noindent
+Es ergeben sich der Mittelwert $\overline{N} = 995 /(10\unit[]{\second})$ mit der Standardabweichung $\Delta N = 43/(10\unit[]{\second})$.
+Anhand dieser Werte wird ein Histogramm erstellt, in dem zusätzlich eine Gauß- und eine Poisson-Verteilung zu sehen sind.
+Das Histogramm ist in Abbildung \ref{fig:stat} zu sehen.
+% ohne wurzel: 994.82 +- 42.75380217009945
+% Mittelwert & Standardabw: 994.82 +- 3.15
+% gerundete Werte: 995 +- 3
+% Breite: 2.338973259083296
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[height = 8.5cm]{build/statistik.pdf}
+    \caption[]{Histogramm der Messwerte mit einer Gauß- und einer Poissonverteilung.}
+    \label{fig:stat}
+\end{figure}

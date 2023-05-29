@@ -21,11 +21,27 @@ breite = 100/ohne_wurzel_std
 print(f"Breite: {breite}")
 
 gauss = np.random.normal(mittel, ohne_wurzel_std, 100)
-#gauss_versuch = np.random.normal(mittel, stand, 100) #passt gar nicht
 poisson = np.random.poisson(mittel, 100)
 
+faktor = 100
+zaehlrate_test = zaehlrate
+#for index, value in enumerate(zaehlrate_test):
+#    zaehlrate_test[index] *= 10
+gauss_test = np.random.normal(mittel*faktor, ohne_wurzel_std, 100*faktor)
+poisson_test = np.random.poisson(mittel*faktor, 100*faktor)
+
+
+# plt.figure(constrained_layout = True)
+# plt.hist([poisson_test/faktor, zaehlrate_test/faktor, gauss_test], bins = 10, label = ["Poissonverteilung", "Messwerte", "Gaußverteilung"])
+# plt.xlabel("$N [1/(10\\unit{\\s})]$")
+# plt.ylabel("Häufigkeit")
+# plt.legend()
+# plt.savefig("build/statistik_test.pdf")
+#lassen wir das ....
 
 plt.figure(constrained_layout = True)
 plt.hist([poisson, zaehlrate, gauss], bins = 10, label = ["Poissonverteilung", "Messwerte", "Gaußverteilung"])
+plt.xlabel("$N [1/(10\\unit{\\s})]$")
+plt.ylabel("Häufigkeit")
 plt.legend()
 plt.savefig("build/statistik.pdf")
