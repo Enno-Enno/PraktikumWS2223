@@ -1,6 +1,6 @@
 all: build/v701_Enno_Wellmann_Clara_Sondermann.pdf
 	
-build/v701_Enno_Wellmann_Clara_Sondermann.pdf: v701_Enno_Wellmann_Clara_Sondermann.tex build/reichweite_6cm_rate.pdf FORCE | build
+build/v701_Enno_Wellmann_Clara_Sondermann.pdf: v701_Enno_Wellmann_Clara_Sondermann.tex build/reichweite_6cm_rate.pdf build/reichweite_6cm_energymax.pdf FORCE | build
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
 	max_print_line=1048576 \
@@ -13,8 +13,12 @@ build/v701_Enno_Wellmann_Clara_Sondermann.pdf: v701_Enno_Wellmann_Clara_Sonderma
 
 build/reichweite_6cm_rate.pdf: reichweite_6cm.py ../matplotlibrc ../header-matplotlib.tex messungen/reichweite_6cm.txt | build
 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python reichweite_6cm.py
+
+
+build/reichweite_6cm_energymax.pdf: reichweite_6cm.py ../matplotlibrc ../header-matplotlib.tex messungen/reichweite_6cm.txt | build
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python reichweite_6cm.py
 # 
-# build/reichweite_6cm_ladungszahl.pdf: reichweite_6cm.py ../matplotlibrc ../header-matplotlib.tex messungen/reichweite_6cm.txt | build
+# build/reichweite_6cm_placeholder.pdf: reichweite_6cm.py ../matplotlibrc ../header-matplotlib.tex messungen/reichweite_6cm.txt | build
 # 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python reichweite_6cm.py
 
 
