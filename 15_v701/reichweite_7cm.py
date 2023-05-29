@@ -150,7 +150,7 @@ plt.savefig("build/reichweite_7cm_rate.pdf")
 
 
 plt.figure(constrained_layout = True)
-plt.errorbar(nom(eff_length[:max_ind]), nom(energymax), xerr = std(eff_length[:max_ind]), yerr = std(energymax), fmt = "x", label = "Energie mit Fehlerbalken")
+plt.errorbar(nom(eff_length[:max_ind]), nom(energymax), xerr = std(eff_length[:max_ind]), fmt = "x", label = "Energie mit Fehlerbalken")
 plt.plot(x_plot, lin(params_energymax, x_plot), "-", label = "Ausgleichsgerade")
 plt.grid()
 plt.xlabel("$x / \\unit{\\cm}$")
