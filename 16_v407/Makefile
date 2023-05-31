@@ -11,8 +11,8 @@ build/v407_Enno_Wellmann_Clara_Sondermann.pdf: v407_Enno_Wellmann_Clara_Sonderma
 	  --halt-on-error \
 	  $<
 
-# build/reichweite_6cm_rate.pdf: reichweite_6cm.py ../matplotlibrc ../header-matplotlib.tex messungen/reichweite_6cm.txt | build
-# 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python reichweite_6cm.py
+build/01_plot.pdf: C01_intensitaet.py ../matplotlibrc ../header-matplotlib.tex messungen/intensitaet.txt | build
+	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python C01_intensitaet.py
 # 
 # build/reichweite_6cm_energymax.pdf: reichweite_6cm.py ../matplotlibrc ../header-matplotlib.tex messungen/reichweite_6cm.txt | build
 # 	TEXINPUTS=$$(pwd)/..: MATPLOTLIBRC=../matplotlibrc python reichweite_6cm.py
