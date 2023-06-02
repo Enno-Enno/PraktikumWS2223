@@ -89,11 +89,13 @@ def n_parallel(E_r_parallel, E_e_parallel, alpha):
 
 E_e_parallel = ufloat(1000,50)
 
-n_parallel_values = n_parallel(parallel_korrigiert,E_e_parallel,alpha) 
+n_parallel_values = n_parallel(parallel_korrigiert, E_e_parallel, alpha) # ennos version
+#n_parallel_values = n_parallel(unp.sqrt(parallel_korrigiert),unp.sqrt(E_e_parallel),np.pi/2-alpha) #rumprobierversion
+#systematische fehler müssen noch ausgeschlossen werden!
 for index, _stuff in enumerate(nom(n_parallel_values)):
     print(alpha[index], "° :", n_parallel_values[index])
 
-
+#print("Mittelwert:", sum(n_parallel_values)/len(n_parallel_values))
 
 
 
