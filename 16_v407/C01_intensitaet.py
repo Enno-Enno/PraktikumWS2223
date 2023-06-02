@@ -72,6 +72,8 @@ def n_senkrecht(E_r_senkrecht, E_e_senkrecht, alpha):
 
 E_e_senkrecht = ufloat(1800,50)
 
+
+print("n_senkrecht")
 n_senkrecht_values = n_senkrecht(senkrecht_korrigiert,E_e_senkrecht,alpha) 
 for index, _stuff in enumerate(nom(n_senkrecht_values)):
     print(n_senkrecht_values[index])
@@ -80,10 +82,16 @@ for index, _stuff in enumerate(nom(n_senkrecht_values)):
 # solve Divide[b,c] =  Divide[Power[x,2]cos\(40)a\(41) -sqrt\(40)Power[x,2]- Power[sin\(40)a\(41),2]\(41) ,Power[x,2] cos\(40)a\(41) + sqrt\(40)Power[x,2]- Power[sin\(40)a\(41),2]\(41)]
 # in wolfram alpha eingeben
 
+print("n_parallel")
+def n_parallel(E_r_parallel, E_e_parallel, alpha):
+    g = E_r_parallel / E_e_parallel
+    return unp.sqrt(0.5 * ((g+1)/((g-1)* unp.cos(alpha)) )**2 + unp.sqrt(0.25 * ((g+1)/((g-1)* unp.cos(alpha)))**4 - ((g + 1)/(g -1) * unp.tan(alpha))**2  ) )
 
+E_e_parallel = ufloat(1000,50)
 
-
-
+n_parallel_values = n_parallel(parallel_korrigiert,E_e_parallel,alpha) 
+for index, _stuff in enumerate(nom(n_parallel_values)):
+    print(alpha[index], "° :", n_parallel_values[index])
 
 
 
