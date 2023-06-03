@@ -12,6 +12,17 @@ Je nach der Form mit der sich das elektrische bzw. magnetische Feld dabei bewegt
 wird beispielsweise von linear polarisiertem Licht (die Felder schwingen auf einer Geraden senkrecht zur Ausbreitung)
 oder zirkular polarisiertem Licht (die Felder schwingen auf einem Kreis senkrecht zur Ausbreitung) gesprochen.
 In diesem Versuch ist das linear polarisierte Licht von Interesse, das beispielsweies mittels Polarisationsfolien aus unpolarisiertem Licht erzeugt werden kann.
+Wird trifft Licht auf eine Grenzfläche, wird es zum Teil transmittiert und zum Teil reflektiert.
+Die Einfallsebene ist dann die Ebene, die vom einfallenden und reflektierten Lichtstrahl aufgespannt wird, vgl. Abbildung \ref{fig:einfallsebene}.
+Linear polarisiertes Licht, das parallel bzw. senkrecht zur Einfallsebene schwingt wird parallel bzw. senkrecht polarisiert genannt.
+
+
+\begin{figure}
+    \centering
+    \includegraphics[height = 6 cm]{Abbildungen/einfallsebene.png}
+    \caption{Darstellung der Einfallsebene bei der Reflexion an einer ebenen Grenzfläche \cite{man:v407}.}
+    \label{fig:einfallsebene}
+\end{figure}
 
 \subsection{Die Fresnelschen Gleichungen}
 % Trifft Licht auf eine Grenzfläche zwischen zwei Brechungsindizes, wird es zum Teil transmittiert und zum Teil reflektiert.
@@ -47,8 +58,38 @@ Zum anderen kann unter Verwendung des Snelliusschen Brechungsgesetzes
     \label{eq:snellius}
 \end{align}
 das Verhalten von elektromagnetischen Wellen an Grenzflächen zweier Materialien mit unterschiedlichen Brechungsindizes untersucht werden.
+Dabei steht $n$ für den Brechungsindex des jeweiligen Mediums, $\alpha$ ist der Einfalls- und Refelxionswinkel und $\beta$ ist der Transmissionswinkel.
 Der Brechungsindex $n$ beschreibt dabei das Geschwindingkeitsverhältnis der Welle im Vakuum im Vergleich zum betrachteten Material, also $n = c/v$.
 Aus den Maxwellschen Gleichungen lässt sich ferner die Relation $n^2 = \epsilon$ herleiten.
-Mit Hilfe dieser Relationen können schließlich die Fresnelschen Gleichungen hergeleitet werden.
+Mit Hilfe dieser Relationen können schließlich die Fresnelschen Gleichungen für senkrecht und parallel polarisiertes Licht hergeleitet werden.
+Für die Reflexion gilt bei senkrecht polarisiertem Licht
+\begin{align}
+    \symbf{E}_{\text{r}\perp} = - \symbf{E}_{\text{e}\perp} \frac{\left(\sqrt{n^2 -\sin^2\alpha} - \cos{\alpha}\right)^2}{n^2 - 1}
+    \label{eq:senkrecht}
+\end{align}
+und bei parallel polarisiertem Licht
+\begin{align}
+    \symbf{E}_{\text{r}\parallel} = \symbf{E}_{\text{e}\parallel} \frac{n^2 \cos\alpha - \sqrt{n^2 - \sin^2\alpha}}{n^2 \cos\alpha + \sqrt{n^2 - \sin^2\alpha}}.
+    \label{eq:parallel}
+\end{align}
+Dabei steht \enquote{e} für das einfallende und \enquote{r} für das reflektierte Licht.
 
+\noindent
+Gleichung \eqref{eq:parallel} kann wie folgt nach $n$ umgstellt werden:
+\begin{align*}
+    E_{\text{r}\parallel} \left(n^2 \cos\alpha + \sqrt{n^2 - \sin^2\alpha}\right) 
+    = E_{\text{e}\parallel} \left(n^2 \cos\alpha - \sqrt{n^2 - \sin^2\alpha}\right) \\
+%
+    \iff \cos^2\alpha \left(E_{\text{r}\parallel} - E_{\text{e}\parallel}\right)^2 n^4 
+    = \left(n^2 - \sin^2\alpha\right) \left(E_{\text{r}\parallel} + E_{\text{e}\parallel}\right)^2 \\
+%
+    \iff \cos^2\alpha \left(E_{\text{r}\parallel} - E_{\text{e}\parallel}\right)^2 n^4
+    - \left(E_{\text{r}\parallel} + E_{\text{e}\parallel}\right)^2 n^2 
+    + \sin^2\alpha \left(E_{\text{r}\parallel} + E_{\text{e}\parallel}\right)^2  = 0\\ 
+%
+    \iff n^4 - \frac{1}{\cos^2\alpha} \left(\frac{E_{\text{r}\parallel} + E_{\text{e}\parallel}}
+    {E_{\text{r}\parallel} - E_{\text{e}\parallel}}\right)^2 n^2
+    + \tan^2\alpha \left(\frac{E_{\text{r}\parallel} + E_{\text{e}\parallel}}
+    {E_{\text{r}\parallel} - E_{\text{e}\parallel}}\right)^2 = 0\\
+\end{align*} 
 %Brewsterwinkel, Gleichung 18 und 21
