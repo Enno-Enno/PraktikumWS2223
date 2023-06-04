@@ -76,20 +76,49 @@ Dabei steht \enquote{e} für das einfallende und \enquote{r} für das reflektier
 
 \noindent
 Gleichung \eqref{eq:parallel} kann wie folgt nach $n$ umgstellt werden:
-\begin{align*}
-    E_{\text{r}\parallel} \left(n^2 \cos\alpha + \sqrt{n^2 - \sin^2\alpha}\right) 
+\begin{gather}
+    \nonumber E_{\text{r}\parallel} \left(n^2 \cos\alpha + \sqrt{n^2 - \sin^2\alpha}\right) 
     = E_{\text{e}\parallel} \left(n^2 \cos\alpha - \sqrt{n^2 - \sin^2\alpha}\right) \\
 %
-    \iff \cos^2\alpha \left(E_{\text{r}\parallel} - E_{\text{e}\parallel}\right)^2 n^4 
+    \nonumber \iff \cos^2\alpha \left(E_{\text{r}\parallel} - E_{\text{e}\parallel}\right)^2 n^4 
     = \left(n^2 - \sin^2\alpha\right) \left(E_{\text{r}\parallel} + E_{\text{e}\parallel}\right)^2 \\
 %
-    \iff \cos^2\alpha \left(E_{\text{r}\parallel} - E_{\text{e}\parallel}\right)^2 n^4
+    \nonumber \iff \cos^2\alpha \left(E_{\text{r}\parallel} - E_{\text{e}\parallel}\right)^2 n^4
     - \left(E_{\text{r}\parallel} + E_{\text{e}\parallel}\right)^2 n^2 
     + \sin^2\alpha \left(E_{\text{r}\parallel} + E_{\text{e}\parallel}\right)^2  = 0\\ 
 %
-    \iff n^4 - \frac{1}{\cos^2\alpha} \left(\frac{E_{\text{r}\parallel} + E_{\text{e}\parallel}}
+    \nonumber \iff n^4 - \frac{1}{\cos^2\alpha} \left(\frac{E_{\text{r}\parallel} + E_{\text{e}\parallel}}
     {E_{\text{r}\parallel} - E_{\text{e}\parallel}}\right)^2 n^2
     + \tan^2\alpha \left(\frac{E_{\text{r}\parallel} + E_{\text{e}\parallel}}
     {E_{\text{r}\parallel} - E_{\text{e}\parallel}}\right)^2 = 0\\
-\end{align*} 
-%Brewsterwinkel, Gleichung 18 und 21
+%
+    \nonumber \iff n^2 = \frac{1}{2} \left(\frac{1}{\cos\alpha} 
+    \frac{E_{\text{r}\parallel} + E_{\text{e}\parallel}}{E_{\text{r}\parallel} - E_{\text{e}\parallel}}\right)^2
+    \pm \sqrt{\frac{1}{4} \left(\frac{1}{\cos\alpha} \cdot
+    \frac{E_{\text{r}\parallel} + E_{\text{e}\parallel}}{E_{\text{r}\parallel} - E_{\text{e}\parallel}}\right)^4
+    - \left(\tan\alpha \cdot \frac{E_{\text{r}\parallel} + E_{\text{e}\parallel}}
+    {E_{\text{r}\parallel} - E_{\text{e}\parallel}}\right)^2}
+\end{gather} 
+Da $n > 0$ gelten muss, egibt sich schließlich
+\begin{align}
+    n = \sqrt{\frac{1}{2} \left(\frac{1}{\cos\alpha} 
+    \frac{E_{\text{r}\parallel} + E_{\text{e}\parallel}}{E_{\text{r}\parallel} - E_{\text{e}\parallel}}\right)^2
+    \pm \sqrt{\frac{1}{4} \left(\frac{1}{\cos\alpha} \cdot
+    \frac{E_{\text{r}\parallel} + E_{\text{e}\parallel}}{E_{\text{r}\parallel} - E_{\text{e}\parallel}}\right)^4
+    - \left(\tan\alpha \cdot \frac{E_{\text{r}\parallel} + E_{\text{e}\parallel}}
+    {E_{\text{r}\parallel} - E_{\text{e}\parallel}}\right)^2}}.
+    \label{eq:n_parallel}
+\end{align}
+Auf ähnliche Art und Weise lässt sich Gleichung \eqref{eq:senkrecht} ebenfalls nach $n$ umstellen.
+Da die Rechnung hier allerdings deutlich komplizierter verläuft, wird die Herleitung mittels des Online-Tools WolframAlpha \cite{wolfram_n}
+durchgeführt.
+Es ergibt sich in diesem Fall
+\begin{align}
+    n = \frac{\sqrt{E_{\text{r}\perp}^2 + E_{\text{e}\perp}^2 - 2 E_{\text{r}\perp} E_{\text{e}\perp} \cos(2\alpha)}}
+    {E_{\text{r}\perp} + E_{\text{e}\perp}}.
+    \label{eq:n_senkrecht}
+\end{align}
+
+\noindent
+
+%Brewsterwinkel
