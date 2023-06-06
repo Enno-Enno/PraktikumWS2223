@@ -13,11 +13,12 @@ all:
 #	$(MAKE) -C 09_us1
 #	$(MAKE) -C 10_v702
 #	$(MAKE) -C 11_v400
-	$(MAKE) -C 12_v504
-	$(MAKE) -C 13_v602
+#	$(MAKE) -C 12_v504
+#	$(MAKE) -C 13_v602
 	$(MAKE) -C 14_v703
 	$(MAKE) -C 15_v701
 	$(MAKE) -C 16_v407
+	$(MAKE) -C 17_us3
 
 
 
@@ -39,11 +40,12 @@ clean:
 #	$(MAKE) -C 09_us1 clean
 #	$(MAKE) -C 10_v702 clean
 #	$(MAKE) -C 11_v400 clean
-	$(MAKE) -C 12_v504 clean
-	$(MAKE) -C 13_v602 clean
+#	$(MAKE) -C 12_v504 clean
+#	$(MAKE) -C 13_v602 clean
 	$(MAKE) -C 14_v703 clean
 	$(MAKE) -C 15_v701 clean
 	$(MAKE) -C 16_v407 clean
+	$(MAKE) -C 17_us3 clean
 
 
 
