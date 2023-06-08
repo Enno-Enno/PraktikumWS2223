@@ -22,7 +22,7 @@ senkrecht_err = np.zeros(len(senkrecht))
 parallel_err = np.zeros(len(parallel))
 dunkel_err = np.zeros(len(dunkel))
 alpha_rad = alpha * (2 * np.pi) / (360)
-I_e_parallel  = ufloat(1000, 50)
+I_e_parallel = ufloat(1000, 50)
 I_e_senkrecht = ufloat(1800, 50)
 
 # print("senkrecht")
@@ -90,8 +90,8 @@ darstellung(alpha, unp.sqrt(parallel), "E_r_parallel")
 def n_senkrecht(I_r_senkrecht, I_e_senkrecht, alpha_rad):
     c = unp.sqrt(I_r_senkrecht)
     b = unp.sqrt(I_e_senkrecht)
-    return unp.sqrt(-2 * unp.sqrt(b) * (unp.cos(alpha_rad))**2 + b + c) / (
-        unp.sqrt(b) + unp.sqrt(c)
+    return unp.sqrt(-2 * b * c * (unp.cos(alpha_rad)) ** 2 + b**2 + c**2) / (
+        unp.sqrt(b**2 - 2 * b * c + c**2)
     )
 
 
@@ -100,7 +100,7 @@ def n_senkrecht(I_r_senkrecht, I_e_senkrecht, alpha_rad):
 
 
 n_senkrecht_values = n_senkrecht(senkrecht_korrigiert, I_e_senkrecht, alpha_rad)
-darstellung(alpha,n_senkrecht_values,"n_senkrecht")
+darstellung(alpha, n_senkrecht_values, "n_senkrecht")
 
 # Für n_parallel:
 # solve Divide[b,c] =  Divide[Power[x,2]cos\(40)a\(41) -sqrt\(40)Power[x,2]- Power[sin\(40)a\(41),2]\(41) ,Power[x,2] cos\(40)a\(41) + sqrt\(40)Power[x,2]- Power[sin\(40)a\(41),2]\(41)]
@@ -119,14 +119,33 @@ def n_parallel(I_r_parallel, I_e_parallel, alpha_rad):
     )
 
 
-
 n_parallel_values = n_parallel(
     unp.sqrt(plot_parallel), unp.sqrt(I_e_parallel), alpha_rad
 )
 
 darstellung(alpha, n_parallel_values, "n_parallel")
 
-print("Mittelwert:", sum(n_parallel_values) / len(n_parallel_values))
+
+alpha_senkrecht = alpha
+for index, n in enumerate(n_senkrecht_values):
+    if n > 10:
+        alpha_senkrecht = np.delete(alpha_senkrecht, index)
+        n_senkrecht_values = np.delete(n_senkrecht_values, index)
+
+alpha_parallel = alpha
+for index, n in enumerate(n_parallel_values):
+    if n > 10:
+        alpha_parallel = np.delete(alpha_parallel, index)
+        n_parallel_values = np.delete(n_parallel_values, index)
+
+
+n_parallel_mean = sum(n_parallel_values) / len(n_parallel_values)
+n_senkrecht_mean = sum(n_senkrecht_values) / len(n_senkrecht_values)
+n_very_mean = (n_parallel_mean + n_senkrecht_mean) / 2
+
+print("n_parallel mean ", n_parallel_mean)
+print("n_senkrecht mean", n_senkrecht_mean)
+print("n_very_mean", n_very_mean)
 
 
 Brewster_Winkel = ufloat(76, 0.5)
@@ -135,7 +154,7 @@ n_Brewster = unp.tan(Brewster_Winkel * 2 * np.pi / 360)
 print("n_Brewster:", n_Brewster)
 
 
-def intensitaet_senkrecht(alpha, I_e_senkrecht, n):
+def intensitaet_parallel(alpha, I_e_senkrecht, n):
     alpha_rad = alpha * 2 * np.pi / (360)
     return (
         np.sqrt(I_e_senkrecht)
@@ -144,9 +163,27 @@ def intensitaet_senkrecht(alpha, I_e_senkrecht, n):
     ) ** 2
 
 
+def intensitaet_senkrecht(alpha, I_e_parallel, n):
+    alpha_rad = alpha * 2 * np.pi / (360)
+    return (
+        -np.sqrt(I_e_parallel)
+        * (np.sqrt(n**2 - np.sin(alpha_rad) ** 2) - np.cos(alpha_rad)) ** 2
+        / (n**2 - 1)
+    ) ** 2
+
+
 plt.figure(constrained_layout=True)
-xplot = np.linspace(0, 82)
-plt.plot(xplot, intensitaet_senkrecht(xplot, I_e_senkrecht.n, 4) / I_e_senkrecht.n)
+xplot = np.linspace(0, 89)
+# plt.plot(
+# xplot,
+# intensitaet_senkrecht(xplot, I_e_senkrecht.n, n_Brewster.n) / I_e_senkrecht.n,
+# label=r"$I_{\perp,\text{theo}} \text{basierend auf} n_\text{Brewster}$",
+# )
+# plt.plot(
+# xplot,
+# intensitaet_parallel(xplot, I_e_parallel.n, n_Brewster.n) / I_e_parallel.n,
+# label=r"$I_{\parallel,\text{theo}} \text{basierend auf} n_\text{Brewster}$",
+# )
 plt.errorbar(
     alpha,
     nom(plot_parallel),

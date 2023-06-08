@@ -1,6 +1,6 @@
 all: build/v407_Enno_Wellmann_Clara_Sondermann.pdf
 	
-build/v407_Enno_Wellmann_Clara_Sondermann.pdf: v407_Enno_Wellmann_Clara_Sondermann.tex FORCE | build
+build/v407_Enno_Wellmann_Clara_Sondermann.pdf: v407_Enno_Wellmann_Clara_Sondermann.tex build/01_plot.pdf FORCE | build
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
 	max_print_line=1048576 \
