@@ -15,8 +15,8 @@ theta = np.rad2deg(theta)
 alpha = np.rad2deg(alpha)
 
 for index, value in enumerate(alpha):
-    print(f"θ = {theta[index]:.0f} deg, α = {value:.2f} deg")
+    print(f"θ = {theta[index]:.0f} deg, α = {value:.0f} deg")
 
-# θ = 15 deg, α = 80.17 deg
-# θ = 30 deg, α = 70.75 deg
-# θ = 60 deg, α = 55.18 deg
+#θ = 15 deg, α = 80 deg
+#θ = 30 deg, α = 71 deg
+#θ = 60 deg, α = 55 deg
