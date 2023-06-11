@@ -22,7 +22,7 @@ senkrecht_err = np.zeros(len(senkrecht))
 parallel_err = np.zeros(len(parallel))
 dunkel_err = np.zeros(len(dunkel))
 alpha_rad = alpha * (2 * np.pi) / (360)
-I_e_parallel =  ufloat(1000, 50)
+I_e_parallel = ufloat(1000, 50)
 I_e_senkrecht = ufloat(1800, 50)
 
 # print("senkrecht")
@@ -65,7 +65,7 @@ for index, intensitaet in enumerate(dunkel):
     dunkel_err[index] = 5
 
 # for index, intensitaet in enumerate(dunkel):
-# print(rf"{intensitaet} \pm {dunkel_err[index]} ") 
+# print(rf"{intensitaet} \pm {dunkel_err[index]} ")
 
 parallel = unp.uarray(parallel, parallel_err)
 senkrecht = unp.uarray(senkrecht, senkrecht_err)
@@ -129,20 +129,26 @@ darstellung(alpha, n_parallel_values, "n_parallel")
 
 
 alpha_senkrecht = alpha
-for index, n in enumerate(n_senkrecht_values):
+n_senkrecht_red = n_senkrecht_values
+counter = 0
+for index, n in enumerate(n_senkrecht_red):
     if n > 10:
-        alpha_senkrecht = np.delete(alpha_senkrecht, index)
-        n_senkrecht_values = np.delete(n_senkrecht_values, index)
+        alpha_senkrecht = np.delete(alpha_senkrecht, index - counter)
+        n_senkrecht_red = np.delete(n_senkrecht_red, index - counter)
+        counter += 1
 
 alpha_parallel = alpha
-for index, n in enumerate(n_parallel_values):
-    if n > 10:
-        alpha_parallel = np.delete(alpha_parallel, index)
-        n_parallel_values = np.delete(n_parallel_values, index)
+n_parallel_red = n_parallel_values
+counter = 0
+for index, n in enumerate(n_parallel_red):
+    if n > 8:
+        alpha_parallel = np.delete(alpha_parallel, index - counter)
+        n_parallel_red = np.delete(n_parallel_red, index - counter)
+        counter += 1
 
 
-n_parallel_mean = sum(n_parallel_values) / len(n_parallel_values)
-n_senkrecht_mean = sum(n_senkrecht_values) / len(n_senkrecht_values)
+n_parallel_mean = sum(n_parallel_red) / len(n_parallel_red)
+n_senkrecht_mean = sum(n_senkrecht_red) / len(n_senkrecht_red)
 n_very_mean = (n_parallel_mean + n_senkrecht_mean) / 2
 
 print("n_parallel mean ", n_parallel_mean)
@@ -176,29 +182,54 @@ def intensitaet_senkrecht(alpha, I_e_parallel, n):
 
 plt.figure(constrained_layout=True)
 xplot = np.linspace(0, 89)
-# plt.plot(
-# xplot,
-# intensitaet_senkrecht(xplot, I_e_senkrecht.n, n_Brewster.n) / I_e_senkrecht.n,
-# label=r"$I_{\perp,\text{theo}} \text{basierend auf} n_\text{Brewster}$",
-# )
-# plt.plot(
-# xplot,
-# intensitaet_parallel(xplot, I_e_parallel.n, n_Brewster.n) / I_e_parallel.n,
-# label=r"$I_{\parallel,\text{theo}} \text{basierend auf} n_\text{Brewster}$",
-# )
+plt.plot(
+    xplot,
+    np.sqrt(intensitaet_senkrecht(xplot, I_e_senkrecht.n, n_senkrecht_mean.n) / I_e_senkrecht.n),
+    label=r"$I_{\perp,\text{theo}} \text{basierend auf } \overline{n_\perp}$",
+)
+plt.plot(
+    xplot,
+    np.sqrt(intensitaet_parallel(xplot, I_e_parallel.n, n_senkrecht_mean.n) / I_e_parallel.n),
+    label=r"$I_{\parallel,\text{theo}} \text{basierend auf } \overline{n_\perp}$",
+)
+
+plt.plot(
+    xplot,
+    np.sqrt(intensitaet_senkrecht(xplot, I_e_senkrecht.n, n_parallel_mean.n) / I_e_senkrecht.n),
+    label=r"$I_{\perp,\text{theo}} \text{basierend auf } \overline{n_\parallel}$",
+)
+plt.plot(
+    xplot,
+    np.sqrt(intensitaet_parallel(xplot, I_e_parallel.n, n_parallel_mean.n) / I_e_parallel.n),
+    label=r"$I_{\parallel,\text{theo}} \text{basierend auf } \overline{n_\parallel}$",
+)
+
+print(nom(n_Brewster))
+print(I_e_senkrecht.n)
+plt.plot(
+    xplot,
+    np.sqrt(intensitaet_senkrecht(xplot, I_e_senkrecht.n, nom(n_Brewster)) / I_e_senkrecht.n),
+    label=r"$I_{\perp,\text{theo}} \text{basierend auf } n_\text{b}$",
+)
+plt.plot(
+    xplot,
+    np.sqrt(intensitaet_parallel(xplot, I_e_parallel.n, nom(n_Brewster)) / I_e_parallel.n),
+    label=r"$I_{\parallel,\text{theo}} \text{basierend auf } n_\text{b}$",
+)
+
 plt.errorbar(
     alpha,
     nom(plot_parallel),
     yerr=std(plot_parallel),
     fmt="x",
-    label=r"Parallel Polarisiertes Licht mit Korrektur",
+    label=r"Parallel Polarisiertes Licht",
 )
 plt.errorbar(
     alpha,
     nom(plot_senkrecht),
     yerr=std(plot_senkrecht),
     fmt="x",
-    label=r"Senkrecht Polarisiertes Licht mit Korrektur",
+    label=r"Senkrecht Polarisiertes Licht",
 )
 # plt.plot(alpha, parallel,"x", label=r"Parallel Polarisiertes Licht ohne Korrektur")
 # plt.plot(alpha, senkrecht, "x", label=r"Senkrecht Polarisiertes Licht ohne Korrektur")
@@ -206,5 +237,60 @@ plt.errorbar(
 plt.xlabel(r"$\alpha /\unit{\degree}$")
 plt.ylabel(r"$\sqrt{I(\alpha)/I_e} $")
 plt.grid()
+plt.legend(loc='upper left')
+plt.savefig("build/03_plot.pdf")
+
+
+plt.clf()
+
+plt.errorbar(
+    alpha,
+    nom(plot_parallel),
+    yerr=std(plot_parallel),
+    fmt="x",
+    label=r"Parallel Polarisiertes Licht",
+)
+plt.errorbar(
+    alpha,
+    nom(plot_senkrecht),
+    yerr=std(plot_senkrecht),
+    fmt="x",
+    label=r"Senkrecht Polarisiertes Licht",
+)
+
+plt.xlabel(r"$\alpha /\unit{\degree}$")
+plt.ylabel(r"$\sqrt{I(\alpha)/I_e} $")
+plt.grid()
+plt.legend(loc='upper left')
+plt.savefig("build/02_plot")
+
+plt.figure(constrained_layout=True)
+
+
+
+
+plt.clf()
+
+plt.figure(constrained_layout=True)
+
+plt.errorbar(
+    alpha,
+    nom(n_parallel_values),
+    yerr=std(n_parallel_values),
+    fmt="x",
+    label=r"$n_\parallel$",
+)
+
+plt.errorbar(
+    alpha,
+    nom(n_senkrecht_values),
+    yerr=std(n_senkrecht_values),
+    fmt="x",
+    label=r"$n_\perp$",
+)
+plt.plot(alpha, 10 * np.ones(len(alpha)), label="Filtergrenze")
+
+plt.grid()
 plt.legend()
+
 plt.savefig("build/01_plot.pdf")

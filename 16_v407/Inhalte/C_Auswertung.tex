@@ -1,6 +1,6 @@
 \section{Auswertung}
 \input{Inhalte/C00_fehlerrechnung.tex}
-\subsection{Reflexionskoeffizient aus Fresnel-Gleichungen}
+\subsection{Brechungsindex aus Fresnel-Gleichungen}
 \input{Inhalte/C_Messwerte_tabelle.tex}
 \input{Inhalte/C_Messwerte_korrigiert.tex}
 \input{Inhalte/C_Brechungsindizes.tex}
@@ -22,9 +22,32 @@ Das Einfallende elektrische Feld wird durch eine Messung ohne eingebauten Spiege
 Für die jeweiligen E-Felder die Quadratwurzeln der gemessenen Intensitäten eingesetzt.
 Die Ergebnisse in Tabelle \ref{tab:brechungsindizes} enthalten besonders bei der 
 parallelen Polarisation statistische Ausreißer. 
-Um diesen zu entgehen werden bei der Mittelung über die Brechungsindizes alle Werte für $n \geq 10$ herausgefiltert.
+Um diesen zu entgehen werden bei der Mittelung über die Brechungsindizes alle Werte für $n \geq 8$ herausgefiltert.
 Aus den Messreihen ergeben sich die mittleren Brechungsindizes von 
 \begin{align}
-    \overline{n_\perp} &= \num{1.180 \pm 0.004} & \overline{n_\parallel} &= \num{4.299 \pm 0.018}
+    \overline{n_\perp} &= \num{1.180 \pm 0.004} & \overline{n_\parallel} &= \num{1.962 \pm 0.008}
 \end{align}
 Die Ergebnisse für den Brechungsindex weichen stark voneinander ab.
+
+\subsection{Brechungsindex aus dem Brewsterwinkel}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{build/02_plot.pdf}
+    \caption{Reflektierte Intensitäten auf die einfallende Intensität normiert.}
+    \label{fig:I_r_einfach}
+\end{figure}
+In Abbildung \ref{fig:I_r_einfach} wird die reflektierte Intensität gegen den Reflexionswinkel $\alpha$ aufgetragen.
+In dieser Abbildung lässt sich am Minimum des parallel polarisierten Lichtes der Brewsterwinkel ablesen.
+Es ergeben sich nach Formel \eqref{eq:brewster}
+\begin{align}
+    \alpha_\text{b} &= qty{76 \pm 0.5} & n_\text{b} &= \num{4.01 \pm 0.15}
+\end{align}
+Es gibt also drei verschiedene Werte für den Brechungsindex $n$.
+In Abbildung \ref{fig:I_r_kompliziert} werden die erwarteten Reflexionsintensitäten basierend auf den Formeln \eqref{eq:senkrecht} und 
+\eqref{eq:parallel} geplottet.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{build/03_plot.pdf}
+    \caption{Messwerte mit den erwarteten Funktionen für die verschiedenen ermittelten Brechungsindizes $n$.}
+    \label{fig:I_r_kompliziert}
+\end{figure}
