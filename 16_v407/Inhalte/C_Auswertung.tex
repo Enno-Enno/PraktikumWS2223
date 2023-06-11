@@ -1,17 +1,30 @@
 \section{Auswertung}
 \input{Inhalte/C00_fehlerrechnung.tex}
 \subsection{Reflexionskoeffizient aus Fresnel-Gleichungen}
-In Tabelle \textbf{Tabelle Einfügen} sind die gemessenen Intensitäten für die parallel 
+\input{Inhalte/C_Messwerte_tabelle.tex}
+\input{Inhalte/C_Messwerte_korrigiert.tex}
+\input{Inhalte/C_Brechungsindizes.tex}
+In Tabelle \ref{tab:messungen} sind die gemessenen Intensitäten für die parallel 
 und senkrecht polarisierten Reflexionen abzulesen.
 Um Störeffekte zu berücksichtigen wird zusätzlich zu jedem Winkel eine Dunkelintensität aufgenommen.
-In Tabelle \textbf{Tabelle einfügen} werden die mit der Dunkelintensität verrechneten Werte ($I_\text{gemessen} - I_\text{dunkel}$)
+Alle gemessen Werte haben eine Messunsicherheit, die von der gemessenen Intensität abhängt.
+Für Intensitäten $\geq \qty{1000}{\nano\ampere}$ wird diese auf \qty{50}{\nano\ampere} abgeschätzt.
+Bei kleineren Intensitäten $\geq \qty{100}{\nano\ampere}$ liegt Messunsicherheit bei \qty{5}{\nano\ampere} und 
+
+In Tabelle \ref{tab:korr_messungen} werden die mit der Dunkelintensität verrechneten Werte ($I_\text{gemessen} - I_\text{dunkel}$)
 für die Intensität aufgeführt.
-Nach den umgestellten Fresnel Formeln \textbf{Referenzen} werden die Brechungsindizes berechnet.
-Um die Richtigen werte herauszubekommen werden für die E-Felder die Quadratwurzeln der gemessenen Intensitäten eingesetzt
-Die Ergebnisse in Tabelle \textbf{Tabelle Brechungsindizes erstellen} enthalten besonders bei der 
+Nach den umgestellten Fresnel Formeln \eqref{eq:n_senkrecht},\eqref{eq:n_parallel} werden die Brechungsindizes berechnet.
+Dazu wird zur Berechnung des elektrischen Feldes die wurzeln aus den Intensitäten eingesetzt.
+Das Einfallende elektrische Feld wird durch eine Messung ohne eingebauten Spiegel ermittelt.
+\begin{align}
+    I_{\text{e},\perp} &= \qty{1800 \pm 50}{\nano\ampere} & I_{\text{e},\parallel} &= \qty{1000 \pm 50}{\nano\ampere}
+\end{align} 
+Für die jeweiligen E-Felder die Quadratwurzeln der gemessenen Intensitäten eingesetzt.
+Die Ergebnisse in Tabelle \ref{tab:brechungsindizes} enthalten besonders bei der 
 parallelen Polarisation statistische Ausreißer. 
 Um diesen zu entgehen werden bei der Mittelung über die Brechungsindizes alle Werte für $n \geq 10$ herausgefiltert.
 Aus den Messreihen ergeben sich die mittleren Brechungsindizes von 
 \begin{align}
-    \overline{n_\perp} &= \num{1.180 \pm 0.004} & \overline{n_\parallel} = \num{4.299 \pm 0.018}
+    \overline{n_\perp} &= \num{1.180 \pm 0.004} & \overline{n_\parallel} &= \num{4.299 \pm 0.018}
 \end{align}
+Die Ergebnisse für den Brechungsindex weichen stark voneinander ab.

@@ -22,7 +22,7 @@ senkrecht_err = np.zeros(len(senkrecht))
 parallel_err = np.zeros(len(parallel))
 dunkel_err = np.zeros(len(dunkel))
 alpha_rad = alpha * (2 * np.pi) / (360)
-I_e_parallel = ufloat(1000, 50)
+I_e_parallel =  ufloat(1000, 50)
 I_e_senkrecht = ufloat(1800, 50)
 
 # print("senkrecht")
@@ -65,7 +65,7 @@ for index, intensitaet in enumerate(dunkel):
     dunkel_err[index] = 5
 
 # for index, intensitaet in enumerate(dunkel):
-# print(rf"{intensitaet} \pm {dunkel_err[index]} ")
+# print(rf"{intensitaet} \pm {dunkel_err[index]} ") 
 
 parallel = unp.uarray(parallel, parallel_err)
 senkrecht = unp.uarray(senkrecht, senkrecht_err)
@@ -82,6 +82,8 @@ plot_senkrecht = unp.sqrt(senkrecht_korrigiert / I_e_senkrecht)
 darstellung(alpha, dunkel, "dunkel")
 darstellung(alpha, senkrecht, "senkrecht")
 darstellung(alpha, parallel, "parallel")
+darstellung(alpha, senkrecht_korrigiert, "senkrecht_korrigiert")
+darstellung(alpha, parallel_korrigiert, "parallel_korrigiert")
 darstellung(alpha, plot_parallel, "plot_parallel")
 # darstellung(alpha,plot_senkrecht,"plot_senkrecht")
 darstellung(alpha, unp.sqrt(parallel), "E_r_parallel")
