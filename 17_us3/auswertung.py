@@ -1,0 +1,102 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from uncertainties import unumpy as unp
+from uncertainties.unumpy import nominal_values as nom
+from uncertainties.unumpy import std_devs as std
+from uncertainties import ufloat
+from scipy.optimize import curve_fit
+from scipy import odr
+import numpy.polynomial as npp
+
+#Daten
+theta = np.array([15,30,60])
+alpha_deg = np.array([80,71,55])
+alpha = alpha_deg * 2 * np.pi/ 360
+
+c_l = 1800 # Schall in der Flüssigkeit
+c_p = 2700 # Schall im Prisma
+
+strömung = np.array([1.5,2, 3, 4, 5])
+
+f_max_1_5_l = np.array([-104,163,-280])
+f_mean_1_5_l = np.array([-67,98,-171])
+
+f_max_2_0_l = np.array([-140,232,-410])
+f_mean_2_0_l = np.array([-85,134,-232])
+
+f_max_3_0_l = np.array([-255,430,-732])
+f_mean_3_0_l = np.array([-134,256,-439])
+
+f_max_4_0_l = np.array([-400,723,-1234])
+f_mean_4_0_l = np.array([-220,403,-708])
+
+f_max_5_0_l = np.array([-507,1048,-1740])
+f_mean_5_0_l = np.array([-269,562,-1050])
+
+f_mean_matrix = np.array([f_mean_1_5_l, f_mean_2_0_l, f_mean_3_0_l, f_mean_4_0_l, f_mean_5_0_l])
+print(f_mean_matrix[:,0])
+
+
+depth_mseconds = np.array([12.5, 13.0 , 13.5 , 14.0 , 14.5 , 15.0 , 15.5 , 16.0 , 16.5 , 17.0 , 17.5 , 18.0 , 18.5 , 19.0 , 19.5])
+signal_5 = np.array([20, 29, 55, 57, 70, 70, 77, 80, 85, 70, 50, 135, 300, 300, 230])
+speed_5 = np.array([0, 70, 90 , 100 , 110 , 115 , 108 , 100 , 82 , 80 , 80 , 90 , 98 , 98 , 90])
+
+
+signal_3 = np.array([20, 34 , 40, 50, 52, 60, 56, 61, 61, 56, 55, 105, 80, 100, 60])
+speed_3 = np.array([0, 33, 37, 42, 45, 48, 48, 42, 37, 34, 34, 39, 35, 40, 38])
+
+
+# rechnungen
+
+strömung_long = np.concatenate((strömung, strömung, strömung))
+f_long = np.concatenate((np.abs(f_mean_matrix[:,0])/(np.cos(alpha[0])),np.abs(f_mean_matrix[:,1])/(np.cos(alpha[1])),np.abs(f_mean_matrix[:,2])/(np.cos(alpha[2]))))
+params, covariance_matrix = np.polyfit(strömung_long, f_long, 1, cov=True)
+errors = np.sqrt(np.diag(covariance_matrix))
+print(params)
+print(errors)
+for name, value, error in zip('ab', params, errors):
+ print(f'{name} = {value:.0f} +- {error:.0f}')
+
+def p1(x,a,b):
+    return a * x + b
+    
+xplot = np.linspace(1.5,5)
+plt.figure(constrained_layout=True)
+plt.plot(xplot, p1(xplot,*params) , label="Linearer Fit" )
+plt.plot(
+    strömung,
+    np.abs(f_mean_matrix[:, 0])/(np.cos(alpha[0])), 
+    "x" ,
+    label=r"$\theta = \qty{15}{\degree} $  " 
+)
+
+plt.plot(
+    strömung,
+    np.abs(f_mean_matrix[:, 1])/(np.cos(alpha[1])), 
+    "x" ,
+    label=r"$\theta = \qty{30}{\degree} $" 
+)
+
+plt.plot(
+    strömung,
+    np.abs(f_mean_matrix[:, 2])/(np.cos(alpha[2])), 
+    "x" ,
+    label=r"$\theta = \qty{60}{\degree} $" 
+)
+
+plt.legend()
+
+plt.xlabel(r"$W/ \unit{\liter\per\minute}$")
+plt.ylabel(r"$\frac{\left|f\right|}{\cos{\alpha}}/\unit{1\per\second} $")
+plt.savefig("build/01_plot.pdf")
+
+
+
+
+
+# print(r" {\theta}  {$\alpha$} {f_max_1_5_l} & {f_mean_1_5_l} & {f_max_2_0_l} & {f_mean_2_0_l} & {f_max_3_0_l} & {f_mean_3_0_l} & {f_max_4_0_l} & {f_mean_4_0_l} & {f_max_5_0_l} & {f_mean_5_0_l} \\")
+# for index, _ in enumerate(f_max_1_5_l):
+    # print(rf"{theta[index]}& {alpha[index]} & {f_max_1_5_l[index]} & {f_mean_1_5_l[index]} & {f_max_2_0_l[index]} & {f_mean_2_0_l[index]} & {f_max_3_0_l[index]} & {f_mean_3_0_l[index]} & {f_max_4_0_l[index]} & {f_mean_4_0_l[index]} & {f_max_5_0_l[index]} & {f_mean_5_0_l[index]}\\")
+
+# for index,_ in enumerate(depth_mseconds):
+    # print(rf"{depth_mseconds[index]} & {signal_3[index]} & {speed_3[index]} & {signal_5[index]} & {speed_5[index]}")
