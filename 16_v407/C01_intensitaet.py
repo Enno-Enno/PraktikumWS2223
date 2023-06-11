@@ -290,6 +290,8 @@ plt.errorbar(
 )
 plt.plot(alpha, 10 * np.ones(len(alpha)), label="Filtergrenze")
 
+plt.xlabel(r"$\alpha /\unit{\degree}$")
+plt.ylabel(r"$n$")
 plt.grid()
 plt.legend()
 
