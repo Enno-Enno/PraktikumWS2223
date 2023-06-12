@@ -3,13 +3,13 @@ import scipy.constants as const
 
 theta = np.deg2rad([15, 30, 60])
 
-c_p = 2730 #m/s 
+c_p = 2730  # m/s
 # nach https://www.olympus-ims.com/de/ndt-tutorials/thickness-gauge/appendices-velocities/
 
-c_l = 1800 #m/s
-#nach Anleitung
+c_l = 1800  # m/s
+# nach Anleitung
 
-alpha = np.pi/2 - np.arcsin(np.sin(theta) * c_l/c_p)
+alpha = np.pi / 2 - np.arcsin(np.sin(theta) * c_l / c_p)
 
 theta = np.rad2deg(theta)
 alpha = np.rad2deg(alpha)
@@ -17,6 +17,6 @@ alpha = np.rad2deg(alpha)
 for index, value in enumerate(alpha):
     print(f"θ = {theta[index]:.0f} deg, α = {value:.0f} deg")
 
-#θ = 15 deg, α = 80 deg
-#θ = 30 deg, α = 71 deg
-#θ = 60 deg, α = 55 deg
+# θ = 15 deg, α = 80 deg
+# θ = 30 deg, α = 71 deg
+# θ = 60 deg, α = 55 deg

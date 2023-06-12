@@ -9,8 +9,10 @@ und senkrecht polarisierten Reflexionen abzulesen.
 Um Störeffekte zu berücksichtigen wird zusätzlich zu jedem Winkel eine Dunkelintensität aufgenommen.
 Alle gemessen Werte haben eine Messunsicherheit, die von der gemessenen Intensität abhängt.
 Für Intensitäten $\geq \qty{1000}{\nano\ampere}$ wird diese auf \qty{50}{\nano\ampere} abgeschätzt.
-Bei kleineren Intensitäten $\geq \qty{100}{\nano\ampere}$ liegt Messunsicherheit bei \qty{5}{\nano\ampere} und 
-
+Bei kleineren Intensitäten $\geq \qty{100}{\nano\ampere}$ liegt Messunsicherheit bei \qty{5}{\nano\ampere}.
+Die kleineren Messbereiche $\qty{10}{\nano\ampere} \leq I \leq \ I \qty{100}{\nano\ampere}$ und $I \leq \qty{10}{\nano\ampere}$
+erhalten Messunsicherheiten von \qty{0.5}{\nano\ampere} und \qty{0.1}{\nano\ampere}. 
+Die Messunsicherheiten entstehen aus den Ablesemöglichkeiten bei dem Messgerät für unterschiedliche Empfindlichkeiten.
 In Tabelle \ref{tab:korr_messungen} werden die mit der Dunkelintensität verrechneten Werte ($I_\text{gemessen} - I_\text{dunkel}$)
 für die Intensität aufgeführt.
 Nach den umgestellten Fresnel Formeln \eqref{eq:n_senkrecht},\eqref{eq:n_parallel} werden die Brechungsindizes berechnet.
@@ -19,7 +21,6 @@ Das Einfallende elektrische Feld wird durch eine Messung ohne eingebauten Spiege
 \begin{align}
     I_{\text{e},\perp} &= \qty{1800 \pm 50}{\nano\ampere} & I_{\text{e},\parallel} &= \qty{1000 \pm 50}{\nano\ampere}
 \end{align} 
-Für die jeweiligen E-Felder die Quadratwurzeln der gemessenen Intensitäten eingesetzt.
 Die Ergebnisse in Tabelle \ref{tab:brechungsindizes} enthalten besonders bei der 
 parallelen Polarisation statistische Ausreißer. 
 Um diesen zu entgehen werden bei der Mittelung über die Brechungsindizes alle Werte für $n \geq 8$ herausgefiltert.
