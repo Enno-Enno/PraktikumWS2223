@@ -19,6 +19,8 @@ all:
 	$(MAKE) -C 15_v701
 	$(MAKE) -C 16_v407
 	$(MAKE) -C 17_us3
+	$(MAKE) -C 18_v401
+
 
 
 
@@ -46,6 +48,7 @@ clean:
 	$(MAKE) -C 15_v701 clean
 	$(MAKE) -C 16_v407 clean
 	$(MAKE) -C 17_us3 clean
+	$(MAKE) -C 18_v401 clean
 
 
 
