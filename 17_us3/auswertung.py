@@ -98,7 +98,13 @@ def dopplergeschwindigkeit(delta_f, alpha):
 print(dopplergeschwindigkeit(f_mean_matrix, alpha_matrix))
 speed_mean_matrix = dopplergeschwindigkeit(f_mean_matrix, alpha_matrix)
 speed_max_matrix = dopplergeschwindigkeit(f_max_matrix, alpha_matrix)
-
+speed_long = np.concatenate(
+    (
+        np.abs(speed_mean_matrix[:, 0]),
+        np.abs(speed_mean_matrix[:, 1]),
+        np.abs(speed_mean_matrix[:, 2]),
+    )
+)
 
 params_mean, covariance_matrix = np.polyfit(strömung_long, f_mean_long, 1, cov=True)
 errors_mean = np.sqrt(np.diag(covariance_matrix))
@@ -117,45 +123,91 @@ def p1(x, a, b):
     return a * x + b
 
 
-xplot = np.linspace(1.5, 5)
-plt.figure(constrained_layout=True)
-plt.plot(xplot, p1(xplot, *params_mean), label=r"Linearer Fit $f_\text{mean}$")
-plt.plot(xplot, p1(xplot, *params_max), label=r"Linearer Fit $f_\text{max}$")
-
-# plt.plot(strömung_long, f_max_long, "x", label=r"$f_\text{max}$")
-# plt.plot(strömung_long, f_mean_long, "x", label=r"$f_\text{mean}$")
-
-plt.plot(
-    speed_mean_matrix[:,0]*100,
-    np.abs(f_mean_matrix[:, 0]) / (np.cos(alpha[0])),
-    "x",
-    label=r"$\theta = \qty{15}{\degree} $  ",
-)
-
-plt.plot(
-    speed_mean_matrix[:,1]*100,
-    np.abs(f_mean_matrix[:, 1]) / (np.cos(alpha[1])),
-    "x",
-    label=r"$\theta = \qty{30}{\degree} $",
-)
-
-plt.plot(
-    speed_mean_matrix[:,2]*100,
-    np.abs(f_mean_matrix[:, 2]) / (np.cos(alpha[2])),
-    "x",
-    label=r"$\theta = \qty{60}{\degree} $",
-)
-
-plt.legend()
-
-plt.xlabel(r"$v/ \unit{\centi\meter\per}$")
-plt.ylabel(r"$\frac{\left|f\right|}{\cos{\alpha}}/\unit{1\per\second} $")
-plt.savefig("build/01_plot.pdf")
-
+ 
 
 # print(r" {\theta}  {$\alpha$} {f_max_1_5_l} & {f_mean_1_5_l} & {f_max_2_0_l} & {f_mean_2_0_l} & {f_max_3_0_l} & {f_mean_3_0_l} & {f_max_4_0_l} & {f_mean_4_0_l} & {f_max_5_0_l} & {f_mean_5_0_l} \\")
 # for index, _ in enumerate(f_max_1_5_l):
 # print(rf"{theta[index]}& {alpha[index]} & {f_max_1_5_l[index]} & {f_mean_1_5_l[index]} & {f_max_2_0_l[index]} & {f_mean_2_0_l[index]} & {f_max_3_0_l[index]} & {f_mean_3_0_l[index]} & {f_max_4_0_l[index]} & {f_mean_4_0_l[index]} & {f_max_5_0_l[index]} & {f_mean_5_0_l[index]}\\")
 
-# for index,_ in enumerate(depth_mseconds):
-# print(rf"{depth_mseconds[index]} & {signal_3[index]} & {speed_3[index]} & {signal_5[index]} & {speed_5[index]}")
+
+def depth_in_mm(micro_seconds):
+    if micro_seconds < 4*3.07:
+        return micro_seconds * 10/4
+    return 4*3.07 *10/4 + (micro_seconds - 4*3.07)* 3/2 
+
+
+depth_mm = np.zeros(len(depth_mseconds))
+for index,_ in enumerate(depth_mseconds):
+    print(f"{depth_mseconds[index]} & {depth_in_mm(depth_mseconds[index])} & {signal_3[index]}  \t& {speed_3[index]} & {signal_5[index]} & {speed_5[index]} \\\\")
+    depth_mm[index] = depth_in_mm(depth_mseconds[index])
+
+
+
+
+
+print("H:", 10/np.sin(np.deg2rad(80)))
+print(30.7 + 10.15)
+
+
+
+
+
+xplot = np.linspace(1.5, 5)
+plt.figure(constrained_layout=True)
+plt.plot(xplot, p1(xplot, *params_mean), label=r"Linearer Fit $f_\text{mean}$")
+plt.plot(xplot, p1(xplot, *params_max), label=r"Linearer Fit $f_\text{max}$")
+
+plt.plot(strömung_long, f_max_long, "x", label=r"$f_\text{max}$")
+plt.plot(strömung_long, f_mean_long, "x", label=r"$f_\text{mean}$")
+
+# plt.plot(
+#     np.abs(speed_mean_matrix[:, 0]) ,
+#     np.abs(f_mean_matrix[:, 0]) / (np.cos(alpha[0])),
+#     "x",
+#     label=r"$\theta = \qty{15}{\degree} $  ",
+# )
+
+# plt.plot(
+#     np.abs(speed_mean_matrix[:, 1]) ,
+#     np.abs(f_mean_matrix[:, 1]) / (np.cos(alpha[1])),
+#     "x",
+#     label=r"$\theta = \qty{30}{\degree} $",
+# )
+
+# plt.plot(
+#     np.abs(speed_mean_matrix[:, 2]) ,
+#     np.abs(f_mean_matrix[:, 2]) / (np.cos(alpha[2])),
+#     "x",
+#     label=r"$\theta = \qty{60}{\degree} $",
+# )
+
+
+
+plt.legend()
+
+plt.xlabel(r"$W/ \unit{\liter\per\minute}$")
+plt.ylabel(
+    r"$\frac{\left|\Delta f\right|}{\cos{\alpha}}/\unit{1\per\second} $"
+)
+plt.savefig("build/01_plot.pdf")
+plt.clf
+
+
+plt.figure(constrained_layout=True)
+plt.subplot(2,1,1)
+plt.plot(depth_mm, speed_3, "x", label=r"$v$ \qty{3}{\liter\per\minute} ")
+plt.plot(depth_mm, speed_5, "x", label=r"$v$ \qty{5}{\liter\per\minute} ")
+plt.ylabel(r"$v / \unit{\cm\per\second} $ ")
+
+plt.subplot(2,1,2)
+plt.plot(depth_mm, signal_3, "x", label=r"Signal \qty{3}{\liter\per\minute}")
+plt.plot(depth_mm, signal_5, "x", label=r"Signal \qty{5}{\liter\per\minute}")
+plt.ylabel(r"signal $/ \unit{\volt\squared\per\second} $ ")
+plt.xlabel
+
+plt.legend()
+plt.grid()
+
+plt.savefig("build/02_plot.pdf")
+plt.clf
+

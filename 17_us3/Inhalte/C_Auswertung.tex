@@ -1,3 +1,45 @@
 \section{Auswertung}
 \subsection{}
 \input{Inhalte/C1_tabelle.tex}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\textwidth]{build/01_plot.pdf}
+    \caption{Die Frequenzverschiebungen $f_\text{max}$ und $f_\text{mean}$ zu den Verschiedenen Winkeln mit linearen Ausgleichsrechnungen.}
+    \label{fig:frequenzen}
+\end{figure}
+
+In Abbildung \ref{fig:frequenzen} werden die Frequenzverschiebungen nach der eingestellten Strömungsgeschwindigkeit eingestellt.
+Es kann ein linearer Zusammenhang zwischen Pumpleistung und und auf $\cos(\alpha)$ normierter Frequenzverschiebung gefunden werden.
+Mit einer linearen Ausgleichsrechnung  der Form $a W +b$ ergibt sich für die gemessenen Werte folgende Parameter
+\begin{align}
+    a_\text{mean} &=  \qty{399  \pm 17}{\liter\per\minute\per\second} &
+    b_\text{mean} &=  \qty{-340 \pm 85}{1\per\second}                 \\
+    a_\text{max}  &=  \qty{733  \pm 27}{\liter\per\minute\per\second} &
+    b_\text{max}  &=  \qty{-690 \pm 90}{1\per\second}                 
+\end{align}
+In Tabelle \ref{tab:geschwindigkeiten} werden die Geschwindigkeiten aus der mittleren Frequenzverschiebung mit
+\begin{align}
+    v = \frac{\Delta f  c_L }{2 f_0  \cos(\alpha)}
+\end{align}
+berechnet.
+
+\subsection{Untersuchung des Strömungsprofils}
+\input{Inhalte/C2_tabelle.tex}
+\begin{figure}[H]
+    \centering
+    \includegraphics{build/02_plot.pdf}
+    \caption{Graphische Darstellung des Strömungsprofils}
+    \label{fig:geschwindigkeitsprofil}
+\end{figure}
+
+In Tabelle \ref{tab:geschwindigkeitsprofil} werden die Geschwindigkeiten und die Signalstärken in Abhängigkeit von der
+Strecke $D$ in dem Material aufgelistet.
+Die Strecke $D$ wird aus den Schallgeschwindigkeiten in den Materialien berechnet.
+Es entsprechen $\qty{4}{\micro\s} \simeq \qty{10}{\mm}$ im Acrylglas und $\qty{4}{\micro\s} \simeq \qty{6}{\mm}$ in der Flüssigkeit.
+Der Kristall hat eine Tiefe von \qty{30.7}{\mm} bei einem Winkel von $\theta = \qty{15}{\degree}$ und $\alpha = \qty{80}{\degree}$
+hat das Rohr eine diagonale Tiefe von
+\begin{align}
+    H = \frac{\qty{10}{\mm}}{\sin(\qty{80}{\degree})} = \qty{10.15}{mm}
+\end{align}
+
+Es sind also nur Werte von $D \leq \qty{40.85}{\mm}$ für das Strömungsprofil relevant.
