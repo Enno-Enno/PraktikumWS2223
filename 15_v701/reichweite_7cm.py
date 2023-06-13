@@ -38,6 +38,10 @@ print("MESSUNG 2 - 7cm")
 # b = 136.86 +- 12.44
 # mittlere_reichweite =  1.32+/-0.08 cm
 # zugehörige Energie =  2.62+/-0.11 MeV
+######################################### neu: a = -87.82 +- 12.10
+######################################### neu: b = 190.50 +- 19.13
+######################################### neu: mittlere_reichweite =  1.54+/-0.06 cm
+######################################### neu: zugehörige Energie =  2.92+/-0.08 MeV
 # ----------------------------------
 # Teil 2: eff_length - energymax
 # energymax in MeV:
@@ -64,6 +68,11 @@ print(f"effektive laenge in cm:")
 for index, value in enumerate(p):
     print(f"{nom(eff_length)[index]:.2f} +- {std(eff_length)[index]:.2f}")
 
+
+min_abfall = 4
+max_abfall = 7
+print("ausgleichsintervall:", eff_length[min_abfall : max_abfall])
+
 def lin(beta, x):
     return beta[0] * x + beta[1]
 
@@ -83,7 +92,7 @@ print("rate:")
 for index, value in enumerate(p):
     print(f"{nom(rate)[index]:.0f} +- {std(rate)[index]:.0f}")
 
-data_rate = odr.RealData(nom(eff_length[:max_ind]), nom(rate[:max_ind]), sx = std(eff_length[:max_ind]), sy = std(rate[:max_ind])) #zu plottende daten ,sx und sy sind std devs
+data_rate = odr.RealData(nom(eff_length[min_abfall : max_abfall]), nom(rate[min_abfall : max_abfall]), sx = std(eff_length[min_abfall : max_abfall]), sy = std(rate[min_abfall : max_abfall])) #zu plottende daten ,sx und sy sind std devs
 
 lin_model = odr.Model(lin) #stores information about the function you wish to fit
 
@@ -138,10 +147,10 @@ print(f"energieverlust = ({-params_energymax[0]*1000 :.2f} +- {errors_energymax[
 
 x_min = nom(eff_length[0])
 x_max = nom(eff_length[max_ind - 1])
-x_plot = np.linspace(x_min, x_max, 1000)
+x_rate = np.linspace(nom(eff_length[min_abfall]), nom(eff_length[max_abfall-1]), 1000)
 plt.figure(constrained_layout = True)
 plt.errorbar(nom(eff_length[:max_ind]), nom(rate[:max_ind]), xerr = std(eff_length[:max_ind]), yerr = std(rate[:max_ind]), fmt = "x", label = "Messrate mit Fehlerbalken")
-plt.plot(x_plot, lin(params_rate, x_plot), "-", label = "Ausgleichsgerade")
+plt.plot(x_rate, lin(params_rate, x_rate), "-", label = "Ausgleichsgerade")
 plt.grid()
 plt.xlabel("$x / \\unit{\\cm}$")
 plt.ylabel("$N/ (1 / \\unit{\\s})$")
@@ -149,6 +158,7 @@ plt.legend()
 plt.savefig("build/reichweite_7cm_rate.pdf")
 
 
+x_plot = np.linspace(x_min, x_max, 1000)
 plt.figure(constrained_layout = True)
 plt.errorbar(nom(eff_length[:max_ind]), nom(energymax), xerr = std(eff_length[:max_ind]), fmt = "x", label = "Energie mit Fehlerbalken")
 plt.plot(x_plot, lin(params_energymax, x_plot), "-", label = "Ausgleichsgerade")

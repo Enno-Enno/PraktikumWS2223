@@ -44,10 +44,10 @@ print("MESSUNG 1 - 6cm")
 #6 +- 2
 #1 +- 1
 #2 +- 2
-# a = -42.15 +- 6.69
-# b = 150.59 +- 22.35
-# mittlere_reichweite =  1.63+/-0.15 cm
-# zugehörige Energie =  3.02+/-0.19 MeV
+##################### neu: a = -116.27 +- 14.46
+##################### neu: b =  317.85 +- 34.43
+##################### neu: mittlere_reichweite =  2.03+/-0.06 cm
+##################### neu: zugehörige Energie =  3.50+/-0.06 MeV
 # ----------------------------------
 # Teil 2: eff_length - energymax
 # energymax  in MeV:
@@ -75,11 +75,17 @@ p, counts, channel, zaehlrate = np.genfromtxt("messungen/reichweite_6cm.txt", un
 time = 120 #sekunden
 distance = 6 #cm
 
+
 druck = unp.uarray(p, 5 * np.ones(len(p))) * 10**(-3) # druck in bar
 eff_length = distance * druck / (1013 * 10**(-3)) # in cm
 print(f"effektive laenge in cm:")
 for index, value in enumerate(p):
     print(f"{nom(eff_length)[index]:.2f} +- {std(eff_length)[index]:.2f}")
+
+
+min_abfall = 5
+max_abfall = 10
+print("ausgleichsintervall:", eff_length[min_abfall : max_abfall])
 
 def lin(beta, x):
     return beta[0] * x + beta[1]
@@ -100,7 +106,7 @@ for index, value in enumerate(p):
 # abschätzen der steigung: 
 # print((rate[9] - rate[0])/(eff_length[9] - eff_length[0]))
 
-data_rate = odr.RealData(nom(eff_length), nom(rate), sx = std(eff_length), sy = std(rate)) #zu plottende daten ,sx und sy sind std devs
+data_rate = odr.RealData(nom(eff_length[min_abfall : max_abfall]), nom(rate[min_abfall : max_abfall]), sx = std(eff_length[min_abfall : max_abfall]), sy = std(rate[min_abfall : max_abfall])) #zu plottende daten ,sx und sy sind std devs
 
 lin_model = odr.Model(lin) #stores information about the function you wish to fit
 
@@ -159,7 +165,7 @@ print(f"energieverlust = ({-params_energymax[0]*1000 :.2f} +- {errors_energymax[
 
 x_min_rate = nom(eff_length[0])
 x_max_rate = nom(eff_length[len(eff_length) - 1])
-x_rate = np.linspace(x_min_rate, x_max_rate, 1000)
+x_rate = np.linspace(nom(eff_length[min_abfall]), nom(eff_length[max_abfall-1]), 1000)
 plt.figure(constrained_layout = True)
 plt.errorbar(nom(eff_length), nom(rate), xerr = std(eff_length), yerr = std(rate), fmt = "x", label = "Messrate mit Fehlerbalken")
 plt.plot(x_rate, lin(params_rate, x_rate), "-", label = "Ausgleichsgerade")
