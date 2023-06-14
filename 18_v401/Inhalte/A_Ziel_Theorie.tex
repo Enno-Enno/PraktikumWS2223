@@ -1,0 +1,52 @@
+\section{Ziel}
+In diesem Versuch wird mit dem Michelson Morley Interferometer die Wellenlänge eines LASERs sowie der Brechungsindex gemessen.
+
+\section[Theorie]{Theorie\footnote[1]{Unter Verwendung von \cite{man:v401}.}}
+\subsection{Interferenz und Kohärenz}
+Licht kann als Elektromagnetische Welle betrachtet werden.
+Eine sinnvolle Beschreibung geht zum Beispiel über die Beschreibung des elektrischen Feldes einer Welle
+\begin{align}
+    E(x,t) = E_0 \cos(kx - \omega t - \delta).
+\end{align} 
+Deshalb können unter anderem auch Interferenzphänomene beobachtet werden, bei denen Licht sich durch destruktive Interferenz auslöscht bzw.
+durch konstruktive Interferenz verstärkt.
+Bei den meisten Lichtquellen können diese Interferenzphänomene nicht beobachtet werden. 
+Das liegt daran, dass deren Licht aus einem breiten Lichtwellenspektrum zusammengesetzt ist.
+Die Minima eines Interferenzmusters der einen Wellenlänge werden durch Maxima von anderen Wellenlängen aufgehoben.
+Um gute Messungen mit Interferenz zu machen braucht man kohärentes Licht.
+Kohärentes Licht lässt sich annähernd durch eine einheitliche Frequenz, Wellenzahl und Phase ($\omega, k \text{ und } \delta$) beschreiben.
+Um kohärentes Licht zu erhalten lassen sich LASER verwenden.
+
+\subsection{Das Michelson-Interferometer}
+Ein Interferometer, teilt Licht in zwei Strahlen auf und führt sie wieder zusammen.
+Durch die Veränderung eines der beiden Wege entsteht eine Veränderung des Interferenzmusters.
+Aus dieser Veränderung können schließlich Rückschlüsse auf die Beschaffenheit der Lichtquelle gezogen werden.
+Das Michelson Interferometer verwendet hierzu einen halbdurchlässigen Spiegel, der in einem \qty{45}{\degree}-Winkel 
+zu dem Einfallendem Licht aufgestellt ist. 
+Wie in Abbildung \textbf{Abbildung einfügen} zu sehen wird der Lichtstrahl in zwei Arme aufgeteilt und von zwei Spiegeln wieder zurück reflektiert.
+Der Strahl, der in $S_2$ reflektiert wird würde die Glasscheibe des Spiegels nur einmal durchlaufen im Gegensatz zu dem $S_1$ Strahl
+der sie dreimal durchläuft.
+Um einer Phasenverschiebung durch diesen Unterschied entgegenzuwirken wird eine Glasscheibe im gleichen Winkel 
+auch in den Weg des $S_2$ Strahls gelegt.
+Das Licht kann so am Detektor kohärent sein, wenn der Unterschied in den Weglängen der Arme kleiner der Kohärenzlänge ist.
+Aus der Addition von zwei Wellen, bei der der eine Arm um d länger ist als der andere ergibt sich für die Intensität folgender Therm
+\begin{align}
+    I(d) = 2 \text{const} E_0^2 \left(1+ \cos\left(\frac{2\pi}{\lambda} 2d + \pi\right)\right).
+\end{align}
+Bei kontinuierlicher Vergrößerung um d schwankt I(d) also zwischen 0 und dem Maximalwert.
+Verschiebt man den einen Spiegel in Strahlrichtung um das Stück $\Delta d$ und zählt die Anzahl der Helligkeitsmaxima $z$ ab
+dann gilt folgender Zusammenhang:
+\begin{align}
+    \Delta d = z \frac{\lambda}{2}
+\end{align} 
+Die Beschaffenheit des einen Armes kann auch durch einführung eines Materials mit unterschiedlichem Brechungsindex 
+geschehen.
+Zum Beispiel kann die Luft aus einer Kammer (vgl. Abbildung \textbf{Abbildung einfügen}) der tiefe $b$ herausgezogen werden,
+wobei sich der Brechungsindexum $\Delta n$ verändert.
+Mit $n$ als Brechungsindex der Luft und $n + \Delta n$ ergibt sich wiederum ein Gleichung für die Anzahl der Maximumsdurchläufe.
+\begin{align}
+    b \cdot \Delta n = \frac{z \lambda}{2}
+\end{align}
+
+% Abhängigkeit von \alpha könnte hier noch rein... ist aber nicht so relevant verändert nach meinem 
+% Verständnis nicht die Anzahl der Durchläufe. Außer vielleicht bei Störungen.
