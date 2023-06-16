@@ -1,0 +1,46 @@
+\section{Auswertung}
+
+\input{Inhalte/C00_fehlerrechnung.tex}
+
+\subsection{Wellenlänge der Laserdiode}
+Die gemessene Impulsanzahl $z$ und die daraus resultierende Wellenlänge $\lambda$ ist in Tabelle \ref{tab:lambda} zu sehen.
+Die Wellenlänge ergibt sich dabei aus Gleichung \eqref{eq:d_mod}, wobei die Distanz $\Delta d$ von der vom Mikrometerschraube
+abgelesen und mit der Hebeluntersetzung $\frac{1}{\num{5.017}}$ gewichtet wurde, um die tatsächliche Verschiebung zu erhalten.
+Da hier der an der Mikrometerschraube jeweils abgelesene Wert nicht genauer notiert wurde, wird für jeden Wert eine Ungenauigkeit
+von \qty{0.02}{\milli\meter} anstelle des angegebenen Messfehlers \qty{0.01}{\milli\meter} angenommen.
+Somit gilt jeweils $\Delta d = \qty{5.00 +- 0.02}{\milli\meter}$.
+Die Abweichungen der einzelnen Wellenlängen ergeben sich aus der Gaußschen Fehlerfortpflanzung \eqref{eq:gauss}.
+
+\begin{table}[H]
+    \centering
+    \caption{Die Wellenlänge $\lambda$ in Abhängigkiet der gemessenen Impulsanzahl $z$.}
+    \label{tab:lambda}
+    \begin{tabular}{
+        S[table-format = 4.0] % z
+        S[table-format = 3.2] % nom(lambda)
+        @{${}\pm{}$}
+        S[table-format = 1.2] %std(lambda)
+        }
+        \toprule
+        {$z$} & \multicolumn{2}{c}{$\lambda / \unit{\nano\meter}$} \\
+        \midrule
+        2992 & 666.18 & 2.66 \\
+        2997 & 665.07 & 2.66 \\
+        3026 & 658.70 & 2.63 \\
+        2999 & 664.63 & 2.66 \\
+        3037 & 656.31 & 2.63 \\
+        2955 & 674.53 & 2.70 \\
+        2971 & 670.89 & 2.68 \\
+        3010 & 662.20 & 2.65 \\
+        2953 & 674.98 & 2.70 \\
+        2955 & 674.53 & 2.70 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\noindent
+Durch eine Mittelung (vgl. Gleichung \eqref{eq:mittelstand}) ergibt sich schließlich die experimentell bestimmte Wellenlänge der Diode
+zu $\overline{\lambda} = \qty{666.80 +- 2.67}{\nano\meter}$.
+
+
+\subsection{Brechungsindex von Luft}
