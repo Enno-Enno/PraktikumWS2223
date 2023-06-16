@@ -44,3 +44,48 @@ zu $\overline{\lambda} = \qty{666.80 +- 2.67}{\nano\meter}$.
 
 
 \subsection{Brechungsindex von Luft}
+Zur Bestimmung des Brechungsindexes von Luft sind gemäß Gleichung \textbf{REF!! GLEICHUNG BRECHUNGSINDEX} der Nomaldruck 
+$p_0 = \qty{1.0132}{\bar}$ und die Normaltemperatur $T_0 = \qty{273.15}{\kelvin}$ notwendig \cite{man:v401}.
+% Der Luftdruck am Tag der Messung betrug $p = \qty{1.0121}{\bar}$ und die Temperatur 
+% $T = \qty{273.15 + 20.40}{\kelvin} = \qty{293.55}{\kelvin}$, vgl. \cite{wetterstation_interferometer}.
+Die Temperatur im Laborraum wird auf etwa $T = \qty{20}{\celsius} = \qty{293.15}{\kelvin}$ geschätzt.
+Ferner wird der Druck in der Messzelle jeweils um $\Delta p = p - p' = \qty{600}{\torr} = \qty{0.7999}{\bar}$ verändert und die Kammertiefe
+beträgt $b = \qty{50}{\milli\meter}$.
+Mit Gleichung \eqref{eq:n_mod} ergibt sich schließlich folgende Formel für den Brechungsindex
+\begin{align}
+    n = 1 + \frac{z \overline{\lambda} T p_0}{2 b T_0 \Delta p},
+\end{align}
+wobei für $z$ die Anzahl der gemessenen Impulse und für $\overline{\lambda}$ die oben bestimmte Wellenlänge der Laserdiode eingesetzt wird.
+In Tabelle \ref{tab:brechindex} ist $n$ in Abhängigkeit von $z$ zu sehen, wobei die Fehler auf $n$ erneut aus der Gaußschen Fehlerfortpflanzung
+\eqref{eq:gauss} folgen.
+
+\begin{table}
+    \centering
+    \caption{Der Brechungsindex $n$ in Abhängigkeit der gemessenen Impulsanzahl $z$.}
+    \label{tab:brechindex}
+    \begin{tabular}{
+        S[table-format = 2.0] % z
+        S[table-format = 1.7] % n
+        @{${}\pm{}$}
+        S[table-format = 1.7] % n
+    }
+    \toprule
+    {$z$} & \multicolumn{2}{c}{$n$} \\  
+    \midrule
+    37 & 1.0003354 & 0.0000057 \\
+    34 & 1.0003082 & 0.0000053 \\
+    37 & 1.0003354 & 0.0000057 \\
+    32 & 1.0002901 & 0.0000050 \\
+    20 & 1.0001813 & 0.0000031 \\
+    33 & 1.0002991 & 0.0000051 \\
+    34 & 1.0003082 & 0.0000053 \\
+    36 & 1.0003263 & 0.0000056 \\
+    24 & 1.0002175 & 0.0000037 \\
+    32 & 1.0002901 & 0.0000050 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\noindent
+Die Werte für den Brechungsindex werden analog zu oben nach Gleichung \eqref{eq:mittelstand} gemittelt, 
+sodass der experimentell bestimmte Brechungsindex für Luft $\overline{n} = \num{1.0002891 +- 0.0000050}$ folgt.
