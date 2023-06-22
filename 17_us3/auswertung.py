@@ -40,7 +40,7 @@ f_max_matrix = np.array(
     [f_max_1_5_l, f_max_2_0_l, f_max_3_0_l, f_max_4_0_l, f_max_5_0_l]
 )
 alpha_matrix = np.array([alpha, alpha, alpha, alpha, alpha])
-print(alpha_matrix[:, 0])
+# print(alpha_matrix[:, 0])
 
 
 depth_mseconds = np.array(
@@ -72,6 +72,9 @@ speed_3 = np.array([0, 33, 37, 42, 45, 48, 48, 42, 37, 34, 34, 39, 35, 40, 38])
 
 # rechnungen
 
+print(f_mean_matrix)
+
+
 strömung_long = np.concatenate((strömung, strömung, strömung))
 f_mean_long = np.concatenate(
     (
@@ -95,7 +98,7 @@ def dopplergeschwindigkeit(delta_f, alpha):
     return delta_f * c / (2 * f_0 * np.cos(alpha))
 
 
-print(dopplergeschwindigkeit(f_mean_matrix, alpha_matrix))
+# print(dopplergeschwindigkeit(f_mean_matrix, alpha_matrix))
 speed_mean_matrix = dopplergeschwindigkeit(f_mean_matrix, alpha_matrix)
 speed_max_matrix = dopplergeschwindigkeit(f_max_matrix, alpha_matrix)
 speed_long = np.concatenate(
@@ -109,14 +112,14 @@ speed_long = np.concatenate(
 params_mean, covariance_matrix = np.polyfit(strömung_long, f_mean_long, 1, cov=True)
 errors_mean = np.sqrt(np.diag(covariance_matrix))
 
-for name, value, error in zip("ab", params_mean, errors_mean):
-    print(f"{name} = {value:.0f} +- {error:.0f}")
+# for name, value, error in zip("ab", params_mean, errors_mean):
+#     print(f"{name} = {value:.0f} +- {error:.0f}")
 
 params_max, covariance_matrix = np.polyfit(strömung_long, f_max_long, 1, cov=True)
 errors_max = np.sqrt(np.diag(covariance_matrix))
 
-for name, value, error in zip("ab", params_max, errors_max):
-    print(f"{name} = {value:.0f} +- {error:.0f}")
+# for name, value, error in zip("ab", params_max, errors_max):
+#     print(f"{name} = {value:.0f} +- {error:.0f}")
 
 
 def p1(x, a, b):
@@ -137,16 +140,16 @@ def depth_in_mm(micro_seconds):
 
 
 depth_mm = np.zeros(len(depth_mseconds))
-for index,_ in enumerate(depth_mseconds):
-    print(f"{depth_mseconds[index]} & {depth_in_mm(depth_mseconds[index])} & {signal_3[index]}  \t& {speed_3[index]} & {signal_5[index]} & {speed_5[index]} \\\\")
-    depth_mm[index] = depth_in_mm(depth_mseconds[index])
+# for index,_ in enumerate(depth_mseconds):
+#     print(f"{depth_mseconds[index]} & {depth_in_mm(depth_mseconds[index])} & {signal_3[index]}  \t& {speed_3[index]} & {signal_5[index]} & {speed_5[index]} \\\\")
+#     depth_mm[index] = depth_in_mm(depth_mseconds[index])
 
 
 
 
 
-print("H:", 10/np.sin(np.deg2rad(80)))
-print(30.7 + 10.15)
+# print("H:", 10/np.sin(np.deg2rad(80)))
+# print(30.7 + 10.15)
 
 
 
@@ -157,29 +160,50 @@ plt.figure(constrained_layout=True)
 plt.plot(xplot, p1(xplot, *params_mean), label=r"Linearer Fit $f_\text{mean}$")
 plt.plot(xplot, p1(xplot, *params_max), label=r"Linearer Fit $f_\text{max}$")
 
-plt.plot(strömung_long, f_max_long, "x", label=r"$f_\text{max}$")
-plt.plot(strömung_long, f_mean_long, "x", label=r"$f_\text{mean}$")
+# plt.plot(strömung_long, f_max_long, "x", label=r"$f_\text{max}$")
+# plt.plot(strömung_long, f_mean_long, "x", label=r"$f_\text{mean}$")
 
-# plt.plot(
-#     np.abs(speed_mean_matrix[:, 0]) ,
-#     np.abs(f_mean_matrix[:, 0]) / (np.cos(alpha[0])),
-#     "x",
-#     label=r"$\theta = \qty{15}{\degree} $  ",
-# )
+plt.plot(
+    np.abs(strömung) ,
+    np.abs(f_mean_matrix[:, 0]) / (np.cos(alpha[0])),
+    "x",
+    label=r"$f_\text{mean, \qty{15}{\degree}}  $  ",
+)
 
-# plt.plot(
-#     np.abs(speed_mean_matrix[:, 1]) ,
-#     np.abs(f_mean_matrix[:, 1]) / (np.cos(alpha[1])),
-#     "x",
-#     label=r"$\theta = \qty{30}{\degree} $",
-# )
+plt.plot(
+    np.abs(strömung) ,
+    np.abs(f_mean_matrix[:, 1]) / (np.cos(alpha[1])),
+    "x",
+    label=r"$f_\text{mean, \qty{30}{\degree}}  $",
+)
 
-# plt.plot(
-#     np.abs(speed_mean_matrix[:, 2]) ,
-#     np.abs(f_mean_matrix[:, 2]) / (np.cos(alpha[2])),
-#     "x",
-#     label=r"$\theta = \qty{60}{\degree} $",
-# )
+plt.plot(
+    np.abs(strömung) ,
+    np.abs(f_mean_matrix[:, 2]) / (np.cos(alpha[2])),
+    "x",
+    label=r"$f_\text{mean, \qty{60}{\degree}}  $",
+)
+
+plt.plot(
+    np.abs(strömung) ,
+    np.abs(f_max_matrix[:, 0]) / (np.cos(alpha[0])),
+    "x",
+    label=r"$f_\text{max, \qty{15}{\degree}}  $  ",
+)
+
+plt.plot(
+    np.abs(strömung) ,
+    np.abs(f_max_matrix[:, 1]) / (np.cos(alpha[1])),
+    "x",
+    label=r"$f_\text{max, \qty{30}{\degree}}  $",
+)
+
+plt.plot(
+    np.abs(strömung) ,
+    np.abs(f_max_matrix[:, 2]) / (np.cos(alpha[2])),
+    "x",
+    label=r"$f_\text{max, \qty{60}{\degree}}  $",
+)
 
 
 
@@ -203,11 +227,11 @@ plt.subplot(2,1,2)
 plt.plot(depth_mm, signal_3, "x", label=r"Signal \qty{3}{\liter\per\minute}")
 plt.plot(depth_mm, signal_5, "x", label=r"Signal \qty{5}{\liter\per\minute}")
 plt.ylabel(r"signal $/ \unit{\volt\squared\per\second} $ ")
-plt.xlabel
+# plt.xlabel()
 
 plt.legend()
 plt.grid()
 
 plt.savefig("build/02_plot.pdf")
-plt.clf
+# plt.clf
 
