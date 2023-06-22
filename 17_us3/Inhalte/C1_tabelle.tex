@@ -2,22 +2,18 @@
 \begin{table}[H]
     \sisetup{table-format=3.0}
     \OverfullCenter{
-    \begin{tabular}{S S SS SS SS SS SS}
+    \begin{tabular}{S SSS SSS}
         \toprule
-        & & \multicolumn{2}{c}{\qty{1.5}{\liter\per\minute}} &
-        \multicolumn{2}{c}{\qty{2.0}{\liter\per\minute}} &
-        \multicolumn{2}{c}{\qty{3.0}{\liter\per\minute}} &
-        \multicolumn{2}{c}{\qty{4.0}{\liter\per\minute}} &
-        \multicolumn{2}{c}{\qty{5.0}{\liter\per\minute}} \\
-        {$\theta/ \unit{\degree}   $} & {$\alpha/ \unit{\degree} $} & {$\Delta f_{\text{max}}  / \unit{\hertz}  $} & {$\Delta f_{\text{mean}}  / \unit{\hertz}  $} &
-        {$\Delta f_{\text{max}}  / \unit{\hertz}  $}  &  {$\Delta f_{\text{mean}}  / \unit{\hertz}  $} & 
-        {$\Delta f_{\text{max}}  / \unit{\hertz}  $}  &  {$\Delta f_{\text{mean}}  / \unit{\hertz}  $} & 
-        {$\Delta f_{\text{max}}  / \unit{\hertz}  $}  &  {$\Delta f_{\text{mean}}  / \unit{\hertz}  $} & 
-        {$\Delta f_{\text{max}}  / \unit{\hertz}  $}  &  {$\Delta f_{\text{mean}}  / \unit{\hertz}  $} \\
+        {$\theta/ \unit{\degree} $} & 15 & 30   & 60     & 15 & 30 & 60 \\
+        {$\alpha/ \unit{\degree} $} & 80 & 71   & 55     & 80 & 71 & 55 \\
         \midrule
-        15& 80 & -104 & -67 & -140 & -85 & -255 & -134 & -400 & -220 & -507 & -269\\
-        30& 71 & 163 & 98 & 232 & 134 & 430 & 256 & 723 & 403 & 1048 & 562\\
-        60& 55 & -280 & -171 & -410 & -232 & -732 & -439 & -1234 & -708 & -1740 & -1050\\   
+         {$W/ (\unit{\liter\per\minute})$}  & \multicolumn{3}{c}{{$\Delta f_{\text{mean}}  / \unit{\hertz}  $}} & \multicolumn{3}{c}{{$\Delta f_{\text{max}}  / \unit{\hertz}  $}} \\
+           \midrule
+             1.5                  &  -67 &   98 &  -171               & -104 &  163 &  -280 \\
+             2.0                  &  -85 &  134 &  -232               & -140 &  232 &  -410 \\
+             3.0                  & -134 &  256 &  -439               & -255 &  430 &  -732 \\
+             4.0                  & -220 &  403 &  -708               & -400 &  723 & -1234 \\
+             5.0                  & -269 &  562 & -1050               & -507 & 1048 & -1740 \\
         \bottomrule
     \end{tabular}}
     \caption{Die gemessenen Frequenzverschiebungen bei einer Schalllaufzeit von \qty{15.5}{\micro\second}}
@@ -27,11 +23,10 @@
     \centering
     \begin{tabular}{S|SSS}
         \toprule
-        & {$v / \unit{\cm\per\second}$}& {$v / \unit{\cm\per\second}$}& {$v / \unit{\cm\per\second}$}\\
-        \midrule
         {$\theta / \unit{\degree}$}   & 15 & 30 & 60 \\
         \midrule
-        {W/\unit{\liter\per\minute}} &&&\\
+        {W/\unit{\liter\per\minute}} & {$v / (\unit{\cm\per\second})$}& {$v / (\unit{\cm\per\second})$}& {$v / (\unit{\cm\per\second})$}\\
+        \midrule
          1.5                         & -17.4 & 13.5 & -13.4 \\
          2.0                         & -22.0 & 18.5 & -18.2 \\
          3.0                         & -34.7 & 35.4 & -34.4 \\

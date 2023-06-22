@@ -72,7 +72,10 @@ speed_3 = np.array([0, 33, 37, 42, 45, 48, 48, 42, 37, 34, 34, 39, 35, 40, 38])
 
 # rechnungen
 
+print("f_mean_matrix")
 print(f_mean_matrix)
+print("f_max_matrix")
+print(f_max_matrix)
 
 
 strömung_long = np.concatenate((strömung, strömung, strömung))
@@ -140,9 +143,9 @@ def depth_in_mm(micro_seconds):
 
 
 depth_mm = np.zeros(len(depth_mseconds))
-# for index,_ in enumerate(depth_mseconds):
-#     print(f"{depth_mseconds[index]} & {depth_in_mm(depth_mseconds[index])} & {signal_3[index]}  \t& {speed_3[index]} & {signal_5[index]} & {speed_5[index]} \\\\")
-#     depth_mm[index] = depth_in_mm(depth_mseconds[index])
+for index,_ in enumerate(depth_mseconds):
+    # print(f"{depth_mseconds[index]} & {depth_in_mm(depth_mseconds[index])} & {signal_3[index]}  \t& {speed_3[index]} & {signal_5[index]} & {speed_5[index]} \\\\")
+    depth_mm[index] = depth_in_mm(depth_mseconds[index])
 
 
 
