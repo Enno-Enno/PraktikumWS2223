@@ -1,6 +1,6 @@
 all: build/v303_Clara_Sondermann_Enno_Wellmann.pdf  #build/B03_12_Spulenpaar.pdf build/B01_Hysteresekurve.pdf build/B03_24_Spulenpaar.pdf
 	
-build/v303_Clara_Sondermann_Enno_Wellmann.pdf: v308_Clara_Sondermann_Enno_Wellmann.tex FORCE build/B02_lange_spule.pdf build/B02_kurze_spule.pdf build/B03_innen_Spulenpaar.pdf | build
+build/v303_Clara_Sondermann_Enno_Wellmann.pdf: v308_Clara_Sondermann_Enno_Wellmann.tex FORCE build/B01_Hysteresekurve.pdf build/B02_lange_spule.pdf build/B02_kurze_spule.pdf build/B03_innen_Spulenpaar.pdf | build
 	TEXINPUTS=..: \
 	BIBINPUTS=..: \
 	max_print_line=1048576 \

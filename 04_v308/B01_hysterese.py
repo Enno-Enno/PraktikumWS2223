@@ -33,7 +33,7 @@ print("Fehler_0   =",np.sqrt(np.diag(covariance_matrix_0))  )
 print(f1(0,*params_0))
 
 x_plot= np.linspace(strom_auf[0],strom_auf[-1])
-x_plot_0= np.linspace(0,10)
+x_plot_0= np.linspace(0,10) 
 
 
 plt.figure(constrained_layout=True)
